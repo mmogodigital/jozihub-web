@@ -11,8 +11,6 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 
-from tunobase.mailer import utils as mailer_utils
-
 from app.authentication import signals, constants
 
 # Profile Update Form
@@ -169,7 +167,7 @@ class ProjectRegistrationForm(forms.Form):
         self.fields['title'].widget.attrs.update({'class':'required'})
         self.fields['first_name'].widget.attrs.update({'class':'required'})
         self.fields['last_name'].widget.attrs.update({'class':'required'})
-        self.fields['email'].widget.attrs.update({'class':'required'})
+        self.fields['email'].widget.attrs.update({'class':'required email'})
         self.fields['password1'].widget.attrs.update({'class':'required'})
         self.fields['password2'].widget.attrs.update({'class':'required'})
     

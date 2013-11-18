@@ -180,7 +180,7 @@ class ResendRegistrationEmail(generic_views.TemplateView):
 
 @csrf_protect
 @never_cache
-def login(request, template_name='auth/login.html',
+def login(request, template_name='authentication/login.html',
           redirect_field_name=REDIRECT_FIELD_NAME,
           authentication_form=forms.ProjectAuthenticationForm,
           current_app=None, extra_context=None):
@@ -237,7 +237,7 @@ def login(request, template_name='auth/login.html',
     )
     
 def logout(request, next_page=None,
-           template_name='registration/logged_out.html',
+           template_name='authentication/logged_out.html',
            redirect_field_name=REDIRECT_FIELD_NAME,
            current_app=None, extra_context=None):
     """
