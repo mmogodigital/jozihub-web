@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
     'django_countries',
+    'guardian',
     'polymorphic',
     'debug_toolbar',
     'djcelery',
@@ -181,6 +182,7 @@ INSTALLED_APPS = (
     'tunobase.social_media.google_plus',
     'ckeditor',
     'photologue',
+    'haystack',
     #'registration',
     'preferences',
     'gunicorn',
@@ -223,6 +225,19 @@ GOOGLE_PLUS_CLIENT_INFO = {
     "token_uri": "https://accounts.google.com/o/oauth2/token"
 }
 
+# Whoosh Settings
+
+WHOOSH_PATH = BUILDOUT_PATH.child('whoosh')
+
+# Haystack Settings
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': WHOOSH_PATH.child('whoosh_index'),
+    },
+}
+
 # Age Gate Settings
 
 AGE_GATE_LOCATION_CHOICES = (('za', 'South Africa'),)
@@ -234,6 +249,7 @@ AGE_GATE_COUNTRY_LEGAL_AGES = {
 
 # Commenting Settings
 
+COMMENT_FLAGS_FOR_REMOVAL = 5
 COMMENT_PERIOD_LOCKOUT = timezone.timedelta(minutes=1)
 NUM_COMMENTS_ALLOWED_IN_PERIOD = 5
 
@@ -268,6 +284,9 @@ HONEYPOT_VALUE = 'unomena'
 CKEDITOR_UPLOAD_PATH = MEDIA_ROOT.child('uploads')
 CKEDITOR_STATIC_PREFIX = '/static/ckeditor/'
 
+# Guardian Settings
+
+ANONYMOUS_USER_ID = -1
 
 # Email Settings
 
@@ -290,7 +309,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'tunobase.social_media.facebook.backends.FacebookBackend',
     'tunobase.social_media.twitter.backends.TwitterBackend',
-    'tunobase.social_media.google_plus.backends.GooglePlusBackend'
+    'tunobase.social_media.google_plus.backends.GooglePlusBackend',
+    'guardian.backends.ObjectPermissionBackend',
 )
 
 
