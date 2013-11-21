@@ -247,14 +247,20 @@ AGE_GATE_COUNTRY_LEGAL_AGES = {
     'za': 18
 }
 
+# Poll Settings
+
+ANONYMOUS_POLL_VOTES_ALLOWED = True
+
 # Commenting Settings
 
+ANONYMOUS_COMMENTS_ALLOWED = True
 COMMENT_FLAGS_FOR_REMOVAL = 5
 COMMENT_PERIOD_LOCKOUT = timezone.timedelta(minutes=1)
 NUM_COMMENTS_ALLOWED_IN_PERIOD = 5
 
 # Liking Settings
 
+ANONYMOUS_LIKES_ALLOWED = True
 LIKE_PERIOD_LOCKOUT = timezone.timedelta(minutes=1)
 NUM_LIKES_ALLOWED_IN_PERIOD = 5
 
