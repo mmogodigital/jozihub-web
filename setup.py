@@ -35,6 +35,7 @@ setup(
         'Pillow',
         'psycopg2',
         'flufl.password==1.2.1',
+        'phonenumbers',
         'tunobase'
     ],
     include_package_data=True,
