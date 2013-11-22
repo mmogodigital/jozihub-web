@@ -149,7 +149,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
     'django_countries',
-    'guardian',
     'polymorphic',
     'debug_toolbar',
     'djcelery',

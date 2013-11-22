@@ -27,7 +27,6 @@ setup(
         'django-preferences',
         'python-memcached',
         'django_compressor',
-        'django-guardian',
         'gunicorn',
         'celery==3.0.23',
         'django-celery==3.0.23',
