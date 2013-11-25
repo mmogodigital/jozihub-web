@@ -3,7 +3,7 @@ from django.contrib.flatpages.views import flatpage
 
 from tunobase.age_gate.decorators import age_gated
 
-from app.root import views
+from app.root import views, forms
 
 urlpatterns = patterns('',
     url(r'^$',
@@ -13,9 +13,18 @@ urlpatterns = patterns('',
         name='index'
     ),
                        
-    url(r'^about/$', 
-        age_gated(flatpage), 
-        {'url': '/about/'}, 
-        name='about'
+    url(r'^apply/$', 
+        views.Apply.as_view(
+            template_name='root/apply.html',
+            form_class=forms.ApplyForm
+        ),
+        name='apply'
+    ),
+                       
+    url(r'^apply/success/$', 
+        views.ApplySuccess.as_view(
+            template_name='root/apply_success.html'
+        ),
+        name='apply_success'
     ),
 )

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}News{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='events' %}
+{% endblock %}
+
+{% block promo %}
+    <div id="promo" class="event">
+        <div class="wrapper">
+            <div class="container">
+                <div class="panel">
+                    <h1>We’re champions for people who<br /> create <a href="#">great experiences</a>. Everywhere<br /> and every way they work.</h1>
+                </div>
+            </div>
+        </div>
+        <img src="{{ STATIC_URL }}app/img/promo/promo_event.png" />
+    </div><!--/Promo-->
+{% endblock %}
+
+{% block content %}
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Events</p>
+            <h1>Upcoming Events</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                {% for object in object_list %}
+	                <div class="block2">
+	                    <div class="block_head">
+	                        <img src="{{ object.get_100x98_url }}" />
+	                        <p class="title">{{ object.title }}</p>
+	                        <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
+	                        <p class="details">Where: {{ object.venue_name }}</p>                
+	                    </div>
+	                    <div class="clear"></div>
+	                    <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
+	                    <p class="btns"><a href="#">Add to my calendar</a></p>
+	                </div><!--/block2-->
+	            {% empty %}
+	                <p>There are no events to list.</p>
+	            {% endfor %}
+            <div class="clear"></div>          
+            </div><!--/block-->          
+        </div> 
+    </div><!--/Content-->
+{% endblock %}

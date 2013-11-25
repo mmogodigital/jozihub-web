@@ -1,12 +1,12 @@
 <div id="header">
-    <a href="index.html" class="logo"></a>
+    <a href="{% url 'index' %}" class="logo"></a>
     <ul>
         <li {% if on == 'news' %}class="on"{% endif %}><a href="{% url 'news' %}">News</a></li>
-        <li {% if on == 'events' %}class="on"{% endif %}><a href="events.html">Events</a></li>
-        <li {% if on == 'membership' %}class="on"{% endif %}><a href="membership.html">Membership</a></li>
-        <li {% if on == 'partners' %}class="on"{% endif %}><a href="partners.html">Partners</a></li>
+        <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'events' %}">Events</a></li>
+        <li {% if on == 'membership' %}class="on"{% endif %}><a href="/membership/">Membership</a></li>
+        <li {% if on == 'partners' %}class="on"{% endif %}><a href="{% url 'partners' %}">Partners</a></li>
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="gallery.html">Gallery</a></li>
-        <li {% if on == 'apply' %}class="on"{% endif %}><a href="apply.html">Apply</a></li>
+        <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'apply' %}">Apply</a></li>
     </ul>
     <a href="#social" class="nav_connect">Connect</a>
 </div><!--/Header-->

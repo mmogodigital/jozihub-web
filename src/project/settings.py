@@ -156,6 +156,8 @@ INSTALLED_APPS = (
     'app',
     'app.root',
     'app.news',
+    'app.events',
+    'app.partners',
     'tunobase',
     'tunobase.core',
     'tunobase.mailer',
@@ -216,7 +218,7 @@ EMAIL_EXTRA_BCC_LIST = ['dev@unomena.com']
 
 # Default Image Settings
 
-DEFAULT_IMAGE_CATEGORY_CHOICES = (('content', 'Content'),)
+DEFAULT_IMAGE_CATEGORY_CHOICES = (('event', 'Event'),)
 
 # Authentication Backend Settings
 

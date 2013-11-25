@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Partners{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='partners' %}
+{% endblock %}
+
+{% block promo %}
+    <div id="promo" class="event">
+        <div class="wrapper">
+            <div class="container">
+                <div class="panel">
+                    <h1>We’re champions for people who<br /> create <a href="#">great experiences</a>. Everywhere<br /> and every way they work.</h1>
+                </div>
+            </div>
+        </div>
+        <img src="{{ STATIC_URL }}app/img/promo/promo_event.png" />
+    </div><!--/Promo-->
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="up">
+        <div class="container">
+            <p class="context">Partners</p>
+            <h1>Partners</h1>
+            
+            <div class="clear"></div>
+            {% for object in object_list %}
+	            <div class="block">
+	                <div class="title">{{ object.title }}</div>
+	                <a class="logo" href="{{ object.external_link }}" target="_blank"><img src="{{ object.image.url }}"></a>
+	                {{ object.rich_content|safe }}
+	            </div>
+	        {% empty %}
+	           <p>There are no partners to list.</p>
+	        {% endfor %}
+            <div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
+{% endblock %}
