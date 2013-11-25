@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}News{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='news' %}
+{% endblock %}
+
+{% block promo %}
+    <div id="promo" class="event">
+        <div class="wrapper">
+            <div class="container">
+                <div class="panel">
+                    <h1>We’re champions for people who<br /> create <a href="#">great experiences</a>. Everywhere<br /> and every way they work.</h1>
+                </div>
+            </div>
+        </div>
+        <img src="{{ STATIC_URL }}app/img/promo/promo_event.png" />
+    </div><!--/Promo-->
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="up">
+        <div class="container">
+            <p class="context">News</p>
+            <h1>In the news</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <div class="clear"></div>
+                {% for object in object_list %}
+                    <div class="block1">
+                        <p class="title">{{ object.title }}</p>
+                        <p class="details">{{ object.publish_at|date:"j F Y" }}</p>
+                        <p>{{ object.rich_content|safe|truncatewords:"30" }}</p>
+                        <p><a href="{% url 'news_detail' object.slug %}">Read more</a></p>                 
+                    </div><!--/block1-->
+                    <div class="clear"></div>
+                {% empty %}
+                    <p>There are no news articles to list.</p>
+                {% endfor %}
+            </div><!--/block-->
+            <div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
+{% endblock %}

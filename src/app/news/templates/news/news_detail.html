@@ -1,0 +1,18 @@
+{% extends 'news/news.html' %}
+
+{% block content %}
+    <div id="content" class="up">
+        <div class="container">
+            <p class="context"></p>
+            <h1>TEDx City 2.0 - Innovative Ideas on Urban Living</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+	            <a href="{% url 'news' %}">Back</a>
+	            <p class="details">{{ object.publish_at|date:"j F Y" }}</p>
+	            {{ object.rich_content|safe }}
+            </div><!--/block-->
+            <div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
+{% endblock %}

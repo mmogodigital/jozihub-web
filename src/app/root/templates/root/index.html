@@ -1,17 +1,60 @@
 {% extends 'base.html' %}
-{% load core_widgets newsletter_widgets poll_widgets %}
 
-{% block content %}
-    <p>Index Page</p>
-    {% content_block_widget 'home' %}
-    {% html_bannerset_widget 'home' %}
-    {% newsletter_widget %}
-    {% poll_widget 1 %}
-    {% poll_widget 2 %}
-    {% gallery_widget 'gallery-1' %}
+{% block promo %}
+    <div id="promo">
+        <div class="wrapper">
+            <div class="container">
+                <div class="panel">
+                    <p class="context">Nov 14, 2013</p>
+                    <h1>BitCoin Meetup: How You Can Get Involved</h1>
+                    <h2>JoziHub, Johannesburg</h2>
+                    <p class="desc">Its time for another BitCoin meetup at JoziHub and this time we'll get deeper into immersing ourselves into the BitCoin economy.</p>
+                    <p class="deets"><a href="event.html">Read More<img src="{{ STATIC_URL }}app/img/arrow_promo.png" /></a></p>
+                </div>
+            </div>
+        </div>
+        <img src="{{ STATIC_URL }}app/img/promo/1.png" />
+    </div><!--/Promo-->
 {% endblock %}
 
-{% block bottom_js %}
-    {% include 'newsletter/includes/newsletter_widget_js.html' %}
-    {% include 'poll/includes/poll_widget_js.html' %}
+{% block content %}
+    <div id="vision">
+        <div class="container">
+            <p class="context">Our Vision</p>
+            <h1>JoziHub is a co-creation space in Johannesburg dedicated to creating sustainable change in Africa.</h1>
+            <div class="intro">South Africa has the most developed telecommunications industry on the continent (there are more Sim cards than people). Within the context of this dynamic country, Johannesburg continues to be the engine room of the African economy and the perfect location for an incubator created to kickstart &amp; accelerate innovation in the tech and social spheres.</div>
+            <div class="intro">We foster a culture of openness and innovation – providing a space to share ideas, collaborate and explore the opportunities created by the social and technological changes which are transforming our continent. In addition to providing a stimulating working environment we provide our members with access to a network of innovators and inspirational events and activities.</div>
+        </div>
+    </div><!--/Vision-->
+
+    <div id="pics">
+        <img src="{{ STATIC_URL }}app/img/pic1.png" />
+    </div><!--/Pics-->
+
+    <div id="become">
+        <div class="container">
+            <p class="context">Become a Member</p>
+            <h1><a href="apply.html">Join now to become part of this highly <br />dynamic, interactive environment.<img src="{{ STATIC }}app/img/arrow_become.png" /></a></h1>
+        </div>
+    </div><!--/Become-->
+
+    <div id="partners">
+        <div class="container">
+            <p class="context">Partners</p>
+            <h1>JoziHub exists because of the generous support of our partners.</h1>
+            <h2>Read more about them below and get in touch if you want to play a part in shaping Africa’s future.</h2>
+            <div class="logos">
+                <a href="http://www.google.com/entrepreneurs/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_google.png" /></a>
+                <a href="http://www.praekeltfoundation.org/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_prkfoundation.png" /></a>
+                <a href="http://www.omidyar.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_omidyar.png" /></a>
+                <a href="http://www.afrilabs.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_afrilabs.png" /></a>
+                <a href="http://www.siliconcape.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_silicon.png" /></a>
+                <a href="http://www.islabs.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_is.png" /></a>
+                <a href="http://www.thinkpaint.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_thinkpaint.png" /></a>
+                <a href="http://indigotrust.wordpress.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_indigo.png" /></a>
+                <a href="http://www.venturesolutions.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_venture.png" /></a>
+            </div>
+            <div class="clear"></div>
+        </div> 
+    </div><!--/Partners-->
 {% endblock %}

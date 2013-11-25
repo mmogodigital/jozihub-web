@@ -24,16 +24,24 @@ class Command(BaseCommand):
         # Flatpages
         print 'Creating Flatpages'
         site = Site.objects.get_current()
+        
         terms = FlatPage.objects.create(
-            url='/terms/',
-            title='Terms & Conditions',
+            url='/membership-terms/',
+            title='Membership Terms',
             content='<p>Terms &amp; Conditions</p>'
         )
         terms.sites.add(site)
         
         privacy_policy = FlatPage.objects.create(
-            url='/privacy/',
-            title='Privacy Policy',
+            url='/data-protection-policy/',
+            title='Data Protection Policy',
             content='<p>Privacy Policy</p>'
         )
         privacy_policy.sites.add(site)
+        
+        code_of_conduct = FlatPage.objects.create(
+            url='/code-of-conduct/',
+            title='Code of Conduct',
+            content='<p>Code</p>'
+        )
+        code_of_conduct.sites.add(site)

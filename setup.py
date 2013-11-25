@@ -16,14 +16,10 @@ setup(
     install_requires = [
         'South',
 	    'unipath',
-        'Whoosh==2.4.1',
-        'django-haystack==2.0.0',
-        'django-countries',
         'django-debug-toolbar==0.11.0',
         'django-polymorphic',
         'django-ckeditor==3.6.2.2',
         'django-photologue==2.8.praekelt',
-        'django-registration==1.0',
         'django-preferences',
         'python-memcached',
         'django_compressor',
@@ -34,7 +30,6 @@ setup(
         'Pillow',
         'psycopg2',
         'flufl.password==1.2.1',
-        'phonenumbers',
         'tunobase'
     ],
     include_package_data=True,
