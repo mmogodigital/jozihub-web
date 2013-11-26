@@ -8,4 +8,7 @@ from django.contrib import admin
 from app.root import models
 
 admin.site.register(models.HeardAboutChoice)
+admin.site.register(models.EventHostingChoice)
+admin.site.register(models.TypeOfSpaceRequiredChoice)
+admin.site.register(models.PartnerChoice)
 admin.site.register(models.Application)

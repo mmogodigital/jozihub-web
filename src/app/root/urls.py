@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.flatpages.views import flatpage
 
+from honeypot.decorators import check_honeypot
+
 from tunobase.age_gate.decorators import age_gated
 
 from app.root import views, forms
@@ -14,10 +16,10 @@ urlpatterns = patterns('',
     ),
                        
     url(r'^apply/$', 
-        views.Apply.as_view(
+        check_honeypot(views.Apply.as_view(
             template_name='root/apply.html',
             form_class=forms.ApplyForm
-        ),
+        )),
         name='apply'
     ),
                        
