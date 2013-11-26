@@ -293,11 +293,19 @@
     @media only screen and (min-width: 768px) and (max-width: 979px) {
 
         /* Grid */
-        .span12 { width: auto; float: none; display: block; }
+        /*.span12 { width: auto; float: none; display: block; }*/
 
         /* Global */
+        #main { width: auto; }
         .container { width: auto; }
         .overflow { overflow-x: auto; }
+        
+        /* Header */
+        #header ul { display: none; }
+        
+        /* Content */
+        
+        #vision { padding: 75px 25px 85px; }
 
     }
 
@@ -305,11 +313,38 @@
     @media only screen and (max-width: 767px) {
 
         /* Grid */
-        .span12 { width: auto; float: none; display: block; }
+        /*.span12 { width: auto; float: none; display: block; }*/
 
         /* Global */
+        #main { width: auto; }
         .container { width: auto; }
         .overflow { overflow-x: auto; }
+        
+        /* Header */
+        #header ul { display: none; }
+        
+        /* Promo */
+        #promo .wrapper { background: none; }  
+
+        /* Content */
+        
+        #vision { padding: 75px 25px 85px; }
+            #vision .intro { width: auto; }
+            #vision .intro:last-child { float: none; }
+        #become { padding: 75px 25px 85px; }
+            #become .container { background: none; }        
+        #partners { padding: 75px 25px 85px; }
+            #partners .logos { text-align: center; }
+            #partners .logos a { display: block; }
+        #social { padding: 75px 25px; }
+            #social ul { float: none; }
+            #social ul li { width: 100%; float: none; display: block; clear: both; margin: 0; }
+            #social ul li a { width: auto; float: none; display: block; }
+        #footer ul { float: none; display: block; clear: both; padding: 20px 0 0; }
+            #footer .address { float: none; padding: 66px 0 0; text-align: center; background: url("../img/footer_icon.png") no-repeat scroll center 0 rgba(0, 0, 0, 0); }
+            #footer ul li { float: none; padding: 0; text-align: center; margin: 0; }
+            #footer ul li a { line-height: 25px; }
+            
 
     }
 
