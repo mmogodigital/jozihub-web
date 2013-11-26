@@ -58,7 +58,7 @@ class Application(models.Model):
         null=True
     )
     information_about_jozihub = models.PositiveSmallIntegerField(
-        choices=constants.INFORMATION_ABOUT_JOZIHUB_CHOICES
+        choices=constants.INFORMATION_ABOUT_JOZIHUB_CHOICES,
     )
     
     # About
