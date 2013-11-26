@@ -138,6 +138,7 @@
 
     #header { width: 1400px; height: 74px; background: #fff url('../img/border.png') bottom repeat-x; position: fixed; z-index: 1000; }
         #header .logo { width: 162px; height: 41px; float: left; margin: 16px 190px 0 30px; background: url('../img/logo.png') no-repeat; }
+        #header .mobi_handle { display: none; }
         #header ul { margin: 0; padding: 0; list-style: none; }
         #header ul li { float: left; }
         #header ul li a { margin: 0 19px; display: inline-block; font-size: 18px; text-transform: uppercase; color: #222c32; line-height: 74px; }
@@ -301,7 +302,7 @@
         .overflow { overflow-x: auto; }
         
         /* Header */
-        #header ul { display: none; }
+        #header ul { display: none; }        
         
         /* Content */
         
@@ -321,10 +322,15 @@
         .overflow { overflow-x: auto; }
         
         /* Header */
-        #header ul { display: none; }
+        #header { width: 100%; height: auto; position: relative; }
+        #header .mobi_handle { width: 17px; height: 13px; float: right; display: block; background: url('../img/mobile_handle.png') no-repeat; position: absolute; top: 31px; right: 180px; }
+        #header ul { display: none; width: 100%; background: #d71232; position: absolute; top: 74px; left: 0; right: 0; }
+        #header ul li { width: auto; float: none; padding: 0; border-bottom: 1px solid #D75232; }
+        #header ul li a { display: block; color: #fff; }
+        #header ul li a:hover { color: #232c32; }
+        #header ul li.on a { background: none; }
         
-        /* Promo */
-        #promo .wrapper { background: none; }  
+        /* Promo */ 
 
         /* Content */
         
@@ -344,6 +350,8 @@
             #footer .address { float: none; padding: 66px 0 0; text-align: center; background: url("../img/footer_icon.png") no-repeat scroll center 0 rgba(0, 0, 0, 0); }
             #footer ul li { float: none; padding: 0; text-align: center; margin: 0; }
             #footer ul li a { line-height: 25px; }
+            
+        #content.up { padding: 60px 25px 75px; }
             
 
     }
