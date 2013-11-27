@@ -239,6 +239,8 @@
             .block .field { width: 490px; float: left; margin: 10px 0; }
             .block label { display: block; }
             .block .field input[type="text"],
+            .block .field input[type="email"],
+            .block .field input[type="number"],
             .block .field textarea { width: 430px; background: #f4f4f5; margin: 10px 0 0; padding: 6px 10px; color: #222b32; border: 2px solid #e2e3e4; }
             .block .field select { width: 451px; background: #f4f4f5; border: 2px solid #e2e3e4; padding: 6px 10px; color: #222b32; }
             .block form .field input:focus,
