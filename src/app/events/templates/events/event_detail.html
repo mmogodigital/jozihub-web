@@ -15,7 +15,9 @@
                     <div class="clear"></div>
                 </div>
                 <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
-                <p class="btns"><a href="#">Add to my calendar</a></p>
+                {% if object.calendar_link %}
+                    <p class="btns"><a href="{{ object.calendar_link }}">Add to my calendar</a></p>
+                {% endif %}
                 <div class="clear"></div>
                 {% if object.is_in_past and object.gallery %}
                     <div class="galleria more_marg">

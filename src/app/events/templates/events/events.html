@@ -30,7 +30,9 @@
 	                    <div class="clear"></div>
 	                    <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
 	                    <p><a href="{% url 'event_detail' object.slug %}">Read more</a></p>
-	                    <p class="btns"><a href="#">Add to my calendar</a></p>
+                        {% if object.calendar_link %}
+                            <p class="btns"><a href="{{ object.calendar_link }}">Add to my calendar</a></p>
+                        {% endif %}
 	                </div><!--/block2-->
 	            {% empty %}
 	                <p>There are no events to list.</p>
