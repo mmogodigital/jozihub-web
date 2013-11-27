@@ -302,11 +302,24 @@
         .overflow { overflow-x: auto; }
         
         /* Header */
-        #header ul { display: none; }        
+        #header { width: 100%; height: auto; position: relative; }
+        #header .logo { margin: 16px 10px 0 30px; }
+        #header ul li a { margin: 0 8px; }
+        #header .nav_connect { padding: 0 15px; }        
         
         /* Content */
         
         #vision { padding: 75px 25px 85px; }
+            #vision .intro { width: auto; }
+            #vision .intro:last-child { float: none; }
+        #become { padding: 75px 25px 85px; }
+            #become .container { background: none; }
+        #partners { padding: 75px 25px 85px; }
+        #social { padding: 75px 25px; }
+        #footer { padding: 0 25px; }
+        #footer ul li { padding: 0 0 0 20px; }
+        
+        #content.up { padding: 60px 25px 75px; }
 
     }
 
@@ -323,7 +336,9 @@
         
         /* Header */
         #header { width: 100%; height: auto; position: relative; }
-        #header .mobi_handle { width: 17px; height: 13px; float: right; display: block; background: url('../img/mobile_handle.png') no-repeat; position: absolute; top: 31px; right: 180px; }
+        #header .logo { margin: 16px 0 0 30px; }
+        #header .mobi_handle { width: 17px; height: 13px; float: right; display: block; background: url('../img/mobile_handle.png') no-repeat; position: absolute; top: 31px; right: 130px; }
+        #header .nav_connect { padding: 0 25px; }
         #header ul { display: none; width: 100%; background: #d71232; position: absolute; top: 74px; left: 0; right: 0; }
         #header ul li { width: auto; float: none; padding: 0; border-bottom: 1px solid #D75232; }
         #header ul li a { display: block; color: #fff; }
