@@ -53,6 +53,8 @@
     button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
     button[disabled], input[disabled] { cursor: default; }
     input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
+    .field ul:not(.errorlist) li:first-child { display: none; }
+    .field ul li { list-style-type: none; }
     input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
     input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
     button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
@@ -81,7 +83,7 @@
     .no-marg { margin: 0!important; }
     .no-marg-right { margin-right: 0!important; }
     .no-pad { padding: 0!important; }
-	.hidden { display: none; }
+    .hidden { display: none; }
 
 
 /**************************************************************************************************************************************/
@@ -117,6 +119,7 @@
     .title { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
     h2,
     .block .block2 .block_head .details,
+    .block .details,    
     table,
     em { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; }
 
@@ -220,29 +223,32 @@
             .block .title { font-size: 30px; color: #222b32; }
             .block a.logo { float: right; margin: 20px 0 10px 10px; padding: 8px; border: 1px solid #e2e3e4; }
             .block .block1 { width: 100%; display: block; }
+            .block .block1 img { float: left; margin: 0 30px 0 0; }
+            .block .block1 .title { margin: 30px 0 0; padding: 0 0 8px; }
+            .block .block1 .details { margin: 0; font-size: 20px; color: #222b32; }
             
             .block .block2 { width: 450px; float: left; margin: 0 40px 30px 0; }
-	        .block .block2 .block_head img { float: left; margin: 0 30px 0 0; }
-	        .block .block2 .block_head .title { margin: 30px 0 0; padding: 0 0 8px; }
-	        .block .block2 .block_head .details { margin: 0; font-size: 20px; color: #222b32; }
-	        
-	        .block .block3 { width: 290px; float: left; margin: 0 30px 30px 0; }
-	        .block .block3 .title { margin: 30px 0 0; font-size: 30px; color: #222b32; }
-	        
-	        .block form .head { padding: 10px; font-size: 24px; text-transform: uppercase; background: #3eb7b8; color: #fff; line-height: 28px; }
-	        .block .field { width: 490px; float: left; margin: 10px 0; }
+            .block .block2 .block_head img { float: left; margin: 0 30px 0 0; }
+            .block .block2 .block_head .title { margin: 30px 0 0; padding: 0 0 8px; }
+            .block .block2 .block_head .details { margin: 0; font-size: 20px; color: #222b32; }
+            
+            .block .block3 { width: 290px; float: left; margin: 0 30px 30px 0; }
+            .block .block3 .title { margin: 30px 0 0; font-size: 30px; color: #222b32; }
+            
+            .block form .head { padding: 10px; font-size: 24px; text-transform: uppercase; background: #3eb7b8; color: #fff; line-height: 28px; }
+            .block .field { width: 490px; float: left; margin: 10px 0; }
             .block label { display: block; }
-	        .block .field input[type="text"],
-	        .block .field textarea { width: 430px; background: #f4f4f5; margin: 10px 0 0; padding: 6px 10px; color: #222b32; border: 2px solid #e2e3e4; }
-	        .block .field select { width: 451px; background: #f4f4f5; border: 2px solid #e2e3e4; padding: 6px 10px; color: #222b32; }
-	        .block form .field input:focus,
-	        .block form .field select:focus,
-	        .block form .field textarea:focus { background: #fff; border: 2px solid #3db7b8; }
-	        .block input[type="checkbox"] { margin: 0 20px 0 0; }
-	        .block input[type="radio"] { margin: 0 10px 0 0; }
-	        .block form .btns { width: 423px; margin: 18px 0 0; }
-	        .block .btns input { border: none; background: #3db7b8; color: #fff; text-transform: uppercase; font-weight: bold; }
-	               
+            .block .field input[type="text"],
+            .block .field textarea { width: 430px; background: #f4f4f5; margin: 10px 0 0; padding: 6px 10px; color: #222b32; border: 2px solid #e2e3e4; }
+            .block .field select { width: 451px; background: #f4f4f5; border: 2px solid #e2e3e4; padding: 6px 10px; color: #222b32; }
+            .block form .field input:focus,
+            .block form .field select:focus,
+            .block form .field textarea:focus { background: #fff; border: 2px solid #3db7b8; }
+            .block input[type="checkbox"] { margin: 0 20px 0 0; }
+            .block input[type="radio"] { margin: 0 10px 0 0; }
+            .block form .btns { width: 423px; margin: 18px 0 0; }
+            .block .btns input { border: none; background: #3db7b8; color: #fff; text-transform: uppercase; font-weight: bold; }
+                   
         
     /* Buttons */
     .btns { width: 211px; margin: 0 10px 0 0; float: left; padding: 10px 15px; background: #3db7b8; text-align: center; }
@@ -250,6 +256,7 @@
     
     /* Galleria */
     .galleria { width: 980px; height: 400px; background: #f4f4f5; }
+    .galleria.more_marg { margin: 30px 0 0; }
     /* Override galleria styles */
     .galleria-container { background: #f4f4f5!important; }
     .galleria-info-link { background: #ccc!important; }

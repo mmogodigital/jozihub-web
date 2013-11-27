@@ -1,20 +1,8 @@
 {% extends 'base.html' %}
+{% load core_widgets %}
 
 {% block promo %}
-    <div id="promo">
-        <div class="wrapper">
-            <div class="container">
-                <div class="panel">
-                    <p class="context">Nov 14, 2013</p>
-                    <h1>BitCoin Meetup: How You Can Get Involved</h1>
-                    <h2>JoziHub, Johannesburg</h2>
-                    <p class="desc">Its time for another BitCoin meetup at JoziHub and this time we'll get deeper into immersing ourselves into the BitCoin economy.</p>
-                    <p class="deets"><a href="event.html">Read More<img src="{{ STATIC_URL }}app/img/arrow_promo.png" /></a></p>
-                </div>
-            </div>
-        </div>
-        <img src="{{ STATIC_URL }}app/img/promo/1.png" />
-    </div><!--/Promo-->
+    {% html_bannerset_widget 'home' %}
 {% endblock %}
 
 {% block content %}
@@ -28,13 +16,13 @@
     </div><!--/Vision-->
 
     <div id="pics">
-        <img src="{{ STATIC_URL }}app/img/pic1.png" />
+        <img src="{{ STATIC_URL }}app/img/member_collage.jpg" />
     </div><!--/Pics-->
 
     <div id="become">
         <div class="container">
             <p class="context">Become a Member</p>
-            <h1><a href="apply.html">Join now to become part of this highly <br />dynamic, interactive environment.<img src="{{ STATIC }}app/img/arrow_become.png" /></a></h1>
+            <h1><a href="{% url 'apply' %}">Join now to become part of this highly <br />dynamic, interactive environment.<img src="{{ STATIC_URL }}app/img/arrow_become.png" /></a></h1>
         </div>
     </div><!--/Become-->
 

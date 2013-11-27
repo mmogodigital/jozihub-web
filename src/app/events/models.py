@@ -31,6 +31,13 @@ class Event(core_models.ContentModel):
     repeat_until = models.DateField(blank=True, null=True)
     external_link = models.URLField(max_length=255, blank=True, null=True)
     
+    gallery = models.ForeignKey(
+        core_models.Gallery, 
+        related_name='events', 
+        blank=True, 
+        null=True
+    )
+    
     objects = managers.EventManager()
     
     class Meta:

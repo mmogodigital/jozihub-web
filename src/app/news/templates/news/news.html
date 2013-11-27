@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load core_widgets %}
 
 {% block title %}News{% endblock %}
 
@@ -7,16 +8,7 @@
 {% endblock %}
 
 {% block promo %}
-    <div id="promo" class="event">
-        <div class="wrapper">
-            <div class="container">
-                <div class="panel">
-                    <h1>We’re champions for people who<br /> create <a href="#">great experiences</a>. Everywhere<br /> and every way they work.</h1>
-                </div>
-            </div>
-        </div>
-        <img src="{{ STATIC_URL }}app/img/promo/promo_event.png" />
-    </div><!--/Promo-->
+    {% html_bannerset_widget 'news' %}
 {% endblock %}
 
 {% block content %}

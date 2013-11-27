@@ -58,7 +58,7 @@ class Application(models.Model):
         null=True
     )
     information_about_jozihub = models.PositiveSmallIntegerField(
-        choices=constants.INFORMATION_ABOUT_JOZIHUB_CHOICES
+        choices=constants.INFORMATION_ABOUT_JOZIHUB_CHOICES,
     )
     
     # About
@@ -165,3 +165,6 @@ class Application(models.Model):
         blank=True, 
         null=True
     )
+    
+    def __unicode__(self):
+        return u'%s %s' % (self.first_name, self.last_name)
