@@ -9,8 +9,10 @@ from app.root import constants
 
 class ChoiceModel(models.Model):
     name = models.CharField(max_length=255)
+    order = models.PositiveSmallIntegerField()
     
     class Meta:
+        ordering = ['order']
         abstract = True
     
     def __unicode__(self):
