@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load core_widgets %}
+
+{% block title %}Post a Jobs{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='jobs' %}
+{% endblock %}
+
+{% block promo %}
+    {% html_bannerset_widget 'jobs' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Jobs</p>
+            <h1>Jobs</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <a href="javascript: history.go(-1)">Back</a>            
+                <form id="frmApply" method="post" action=".">{% csrf_token %}
+                    <p class="head">Job Information</p>
+                    <div class="field">
+                        <label for="id_job_title">Job title</label>
+                        <input type="text" name="job_title" value="" />
+                    </div>
+                    <div class="field">
+                        <label for="id_deadline">Deadline</label>
+                        <input type="text" name="deadline" value="" />
+                    </div>
+                    <div class="field">
+                        <label for="id_location">Location</label>
+                        <input type="text" name="location" value="" />
+                    </div>
+                    <div class="field">
+                        <label for="id_description">Description</label>
+                        <textarea cols="50" rows="2"></textarea>
+                    </div>
+                    <div class="clear"></div>
+                    <p class="btns">
+                        <input type="submit" value="Post job" />
+                    </p>
+                </form>
+            <div class="clear"></div>          
+            </div><!--/block-->          
+        </div> 
+    </div><!--/Content-->
+{% endblock %}

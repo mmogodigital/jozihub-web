@@ -114,7 +114,8 @@
     #footer .address,
     #footer ul li a,
     #promo .deets a, 
-    .title { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
+    .title,
+    .post { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
     h2,
     .block .block2 .block_head .details,
     .block .details,    
@@ -254,6 +255,10 @@
     /* Buttons */
     .btns { width: 211px; margin: 0 10px 0 0; float: left; padding: 10px 15px; background: #3db7b8; text-align: center; }
     .btns a { color: #fff; text-transform: uppercase; font-weight: bold; }
+    
+    /* Post button */
+    #content .post { float: right; padding: 0 45px; background: #d71232; display: inline-block; font-size: 18px; text-transform: uppercase; color: #fff; line-height: 74px; }
+    #content .post a:hover { color: #fff; }
     
     /* Galleria */
     .galleria { width: 980px; height: 400px; background: #f4f4f5; }
