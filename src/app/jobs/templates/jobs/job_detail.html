@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load core_widgets %}
+
+{% block title %}Job Detail{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='jobs' %}
+{% endblock %}
+
+{% block promo %}
+    {% html_bannerset_widget 'jobs' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Jobs</p>
+            <h1>Job title1</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <a href="{% url 'jobs' %}">Back</a>
+                <p class="details">Deadline: Wednesday, 15 January 2014</p>
+                <p class="details">Location: Sandton</p>
+                <p class="title">Description</p>
+                <p>Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Quae similitudo in genere etiam humano apparet. Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec. Quod si ita se habeat, non possit beatam praestare vitam sapientia. Virtutis, magnitudinis animi, patientiae, fortitudinis fomentis dolor mitigari solet. Qui ita affectus, beatum esse numquam probabis; </p>
+                <p><strong>Key responsibilities</strong></p>
+                <ul>
+                    <li>Strong problem solving ability</li>
+                    <li>Good communication skills</li>
+                    <li>Excellent academic transcripts</li>
+                </ul>
+                <p><strong>Minimum requirements</strong></p>
+                <ul>
+                    <li>IT Qualification, relevant tertiary degree or Diploma</li>
+                    <li>ISEB Foundation Certification in Software Testing</li>
+                    <li>At least 5 years’ experience in software and web application testing</li>
+                    <li>Basic SQL query design and any script language with automated testing will be beneficial</li>
+                    <li>Agile environment skills</li>
+                </ul>
+                <p><strong>How to apply</strong></p>
+                <p>Send a detailed copy of your CV and skills matrix to <a href="mailto:mycompany@recrute.co.za">mycompany@recrute.co.za</a></p>
+                <p class="std_terms">Should you not be contacted within 7 days, please consider your application as unsuccessful.</p>
+                <div class="clear"></div>          
+            </div><!--/block-->          
+        </div> 
+    </div><!--/Content-->
+{% endblock %}
