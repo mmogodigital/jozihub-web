@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load core_widgets %}
+
+{% block title %}Jobs{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='jobs' %}
+{% endblock %}
+
+{% block promo %}
+    {% html_bannerset_widget 'jobs' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Jobs</p>
+            <h1>Jobs</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                Jobs here
+            <div class="clear"></div>          
+            </div><!--/block-->          
+        </div> 
+    </div><!--/Content-->
+{% endblock %}
