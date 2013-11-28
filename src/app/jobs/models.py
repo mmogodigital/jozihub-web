@@ -14,7 +14,6 @@ class JobCategory(models.Model):
     title = models.CharField(max_length=255)
     order = models.PositiveSmallIntegerField(default=0)
 
-
     class Meta:
         ordering = ['order', 'title']
 
@@ -27,6 +26,7 @@ class JobPost(core_models.ContentModel):
     """
     location = models.CharField(max_length=255)
     deadline = models.DateTimeField()
+    description = models.TextField(blank=True, null=True)
     job_categories = models.ManyToManyField(
             JobCategory,
             blank=True,

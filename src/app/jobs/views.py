@@ -27,7 +27,7 @@ class JobDetail(generic_views.DetailView):
 class PostJob(generic_views.CreateView):
 
     def get_success_url(self):
-        return reverse('apply_success')
+        return reverse('post_success')
 
 class PostJobSuccess(generic_views.TemplateView):
     pass

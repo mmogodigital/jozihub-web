@@ -12,15 +12,15 @@ urlpatterns = patterns('',
         ),
         name='jobs'
     ),
-    url(r'^postjob/$', 
+    url(r'^post/$', 
         check_honeypot(views.PostJob.as_view(
-            template_name='jobs/post_a_job.html',
+            template_name='jobs/post_job.html',
             form_class=forms.PostJobForm
         )),
         name='post_job'
     ),
                        
-    url(r'^postjob/success/$', 
+    url(r'^post/success/$', 
         views.PostJobSuccess.as_view(
             template_name='jobs/success.html'
         ),
@@ -33,12 +33,4 @@ urlpatterns = patterns('',
         ),
         name='job_detail'
     ),
-
-    url(r'^post/job/$',
-        generic_views.TemplateView.as_view(
-                template_name='jobs/post_job.html',
-        ),
-        name='post_job'
-    ),
-                       
 )
