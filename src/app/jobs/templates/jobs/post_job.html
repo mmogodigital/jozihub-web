@@ -29,7 +29,8 @@
                     {% render_honeypot_field %}
                     <div class="field">
                         <label for="id_deadline">Deadline</label>
-                        {{ form.deadline }}{{ form.deadline.errors }}
+                        {% comment %}{{ form.deadline }}{{ form.deadline.errors }}{% endcomment %}
+                        <input class="datepicker" type="text" name="deadline" /> 
                     </div>
                     <div class="field">
                         <label for="id_location">Location</label>
@@ -50,7 +51,16 @@
     </div><!--/Content-->
 {% endblock %}
 {% block bottom_js %}
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/datepicker.css?v=1" />
+<script type="text/javascript" src="{{ STATIC_URL }}app/js/libs/datepicker.min.js"></script>
 <script>
     $('#frmApply').validate();
+    
+  //Datepicker
+    $('input.datepicker').Zebra_DatePicker({
+        direction: true,
+        disabled_dates: ['* * * 0,6'],
+        offset: [-132, 304]
+    });
 </script>
 {% endblock %}
