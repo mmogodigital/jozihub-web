@@ -3,6 +3,8 @@ Created on 25 Nov 2013
 
 @author: michael
 '''
+from datetime import datetime
+
 from django.db import models
 
 from tunobase.core import models as core_models
@@ -25,7 +27,7 @@ class JobPost(core_models.ContentModel):
     Store a job listing
     """
     location = models.CharField(max_length=255)
-    deadline = models.DateTimeField()
+    application_date = models.DateTimeField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     job_categories = models.ManyToManyField(
             JobCategory,
