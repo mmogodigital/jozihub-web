@@ -23,9 +23,10 @@
                 {% for object in object_list %}
                 <div class="block1">
                     <p class="title">{{ object.title }}</p>
-                    <p class="details">Deadline: {{ object.deadline|date:"l" }}, {{ object.deadline|date:"j F Y" }}</p>
+                    <p class="details">Application Date: {{ object.application_date|date:"l" }}, {{ object.application_date|date:"j F Y" }}</p>
                     <p class="details">Location: {{ object.location }}</p>
-                    {{ object.rich_content|safe|truncatewords:40 }}
+                    <p class="details">Job Category: </p>
+                    {{ object.description|truncatewords:40 }}
 	                <a href="{% url 'job_detail'  object.slug %}">Read more</a>
                 </div>
                 {% empty %}

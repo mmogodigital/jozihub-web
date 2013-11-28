@@ -8,3 +8,4 @@ from django.contrib import admin
 from app.jobs import models
 
 admin.site.register(models.JobPost)
+admin.site.register(models.JobCategory)

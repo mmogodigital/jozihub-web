@@ -20,10 +20,11 @@
             <div class="clear"></div>
             <div class="block">
                 <a href="{% url 'jobs' %}">Back</a>
-                <p class="details">Deadline: {{ object.deadline|date:"l" }}, {{ object.deadline|date:"j F Y" }}</p>
+                <p class="details">Application Date: {{ object.application_date|date:"l" }}, {{ object.application_date|date:"j F Y" }}</p>
                 <p class="details">Location: {{ object.location }}</p>
+                <p class="details">Job Category: </p>
                 <p class="title">Description</p>
-                {{ object.rich_content|safe }}
+                {{ object.description }}
                 <div class="clear"></div>          
             </div><!--/block-->          
         </div> 
