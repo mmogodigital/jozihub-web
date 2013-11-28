@@ -10,5 +10,12 @@ urlpatterns = patterns('',
         ),
         name='jobs'
     ),
+
+    url(r'^job/detail/$',
+        generic_views.TemplateView.as_view(
+                template_name='jobs/job_detail.html',
+        ),
+        name='job_detail'
+    ),
                        
 )
