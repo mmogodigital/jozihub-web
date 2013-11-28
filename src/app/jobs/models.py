@@ -1,10 +1,8 @@
 '''
-Created on 25 Nov 2013
+Created on 28 Nov 2013
 
-@author: michael
+@author: christina
 '''
-from datetime import datetime
-
 from django.db import models
 
 from tunobase.core import models as core_models
@@ -35,3 +33,5 @@ class JobPost(core_models.ContentModel):
             null=True,
     )
 
+    def __unicode__(self):
+        pass

@@ -26,8 +26,12 @@ class JobDetail(generic_views.DetailView):
 
 class PostJob(generic_views.CreateView):
 
+    print '*' * 10
+    def form_invalid(self, form):
+        print form.errors
+
     def get_success_url(self):
-        return reverse('post_success')
+        return reverse('success')
 
 class PostJobSuccess(generic_views.TemplateView):
     pass
