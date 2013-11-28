@@ -1,0 +1,1 @@
+[{"pk": 4, "model": "events.event", "fields": {"repeat": 0, "end": "2013-11-14T13:00:00Z", "venue_name": "Jozihub", "venue_address": "Jozihub", "sites": [], "start": "2013-11-14T13:00:00Z", "external_link": "http://www.meetup.com/Bitcoins-Baby-Bitcoins/events/149461802/", "calendar_link": "http://www.google.com/", "repeat_until": null, "gallery": null}}]
