@@ -380,6 +380,8 @@
             #footer ul li a { line-height: 25px; }
             
         #content.up { padding: 60px 25px 75px; }
+        
+        .block .block2 { width: auto; }
             
 
     }
