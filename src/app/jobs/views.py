@@ -19,8 +19,8 @@ class JobDetail(generic_views.DetailView):
     
     def get_object(self):
         return core_utils.get_permitted_object_or_404(
-                model=models.JobPost,
-                slug=self.kwargs['slug'],
+            models.JobPost, 
+            slug=self.kwargs['slug']
         )
 
 

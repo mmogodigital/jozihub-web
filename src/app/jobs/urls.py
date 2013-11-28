@@ -3,14 +3,14 @@ from django.views import generic as generic_views
 
 from honeypot.decorators import check_honeypot
 
-from app.jobs import views, form
+from app.jobs import views, forms
 
 urlpatterns = patterns('',    
     url(r'^$',
-        generic_views.JobList.as_view(
+        views.JobList.as_view(
                 template_name='jobs/jobs.html',
         ),
-        name='list_jobs'
+        name='jobs'
     ),
     url(r'^postjob/$', 
         check_honeypot(views.PostJob.as_view(
@@ -27,8 +27,8 @@ urlpatterns = patterns('',
         name='success'
     ),
 
-    url(r'^job/detail/$',
-        generic_views.TemplateView.as_view(
+    url(r'^(?P<slug>[-\w]+)/$',
+        views.JobDetail.as_view(
                 template_name='jobs/job_detail.html',
         ),
         name='job_detail'

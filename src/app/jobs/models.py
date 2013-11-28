@@ -11,18 +11,22 @@ class JobCategory(models.Model):
     """
     List various job cateorgies
     """
-    title = models.CharField(max_length=255, required=True)
+    title = models.CharField(max_length=255)
+    order = models.PositiveSmallIntegerField(default=0)
+
 
     class Meta:
-        ordering = ['title']
+        ordering = ['order', 'title']
 
     def __unicode__(self):
         return u'%s' % self.title
 
-class JobPost(core_models.models.ContentModel):
+class JobPost(core_models.ContentModel):
     """
     Store a job listing
     """
+    location = models.CharField(max_length=255)
+    deadline = models.DateTimeField()
     job_categories = models.ManyToManyField(
             JobCategory,
             blank=True,

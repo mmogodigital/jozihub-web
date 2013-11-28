@@ -19,31 +19,17 @@
             
             <div class="clear"></div>
             <div class="block">
+                {% for object in object_list %}
                 <div class="block1">
-	                <p class="title">Job title1</p>
-	                <p class="details">Deadline: Wednesday, 15 January 2014</p>
-                    <p class="details">Location: Sandton</p>
-	                <p>Short description. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Quae similitudo in genere etiam humano apparet. Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec. Quod si ita se habeat, non possit beatam praestare vitam sapientia. Virtutis, magnitudinis animi, patientiae, fortitudinis fomentis dolor mitigari solet. Qui ita affectus, beatum esse numquam probabis; </p>
-	                <a href="{% url 'job_detail' %}">Read more</a>
+                    <p class="title">{{ object.title }}</p>
+                    <p class="details">Deadline: {{ object.deadline|date:"l" }}, {{ object.deadline|date:"j F Y" }}</p>
+                    <p class="details">Location: {{ object.location }}</p>
+                    {{ object.rich_content|safe|truncatewords:40 }}
+	                <a href="{% url 'job_detail'  object.slug %}">Read more</a>
                 </div>
-                <div class="block1">
-                    <p class="title">Job title2</p>
-                    <p class="details">Deadline: Tuesday, 31 December 2013</p>
-                    <p>Short description. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Quae similitudo in genere etiam humano apparet. Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec. Quod si ita se habeat, non possit beatam praestare vitam sapientia. Virtutis, magnitudinis animi, patientiae, fortitudinis fomentis dolor mitigari solet. Qui ita affectus, beatum esse numquam probabis; </p>
-                    <a href="{% url 'job_detail' %}">Read more</a>
-                </div>
-                <div class="block1">
-                    <p class="title">Job title3</p>
-                    <p class="details">Deadline: Sunday, 1 December 2013</p>
-                    <p>Short description. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Quae similitudo in genere etiam humano apparet. Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec. Quod si ita se habeat, non possit beatam praestare vitam sapientia. Virtutis, magnitudinis animi, patientiae, fortitudinis fomentis dolor mitigari solet. Qui ita affectus, beatum esse numquam probabis; </p>
-                    <a href="{% url 'job_detail' %}">Read more</a>
-                </div>
-                <div class="block1">
-                    <p class="title">Job title4</p>
-                    <p class="details">Deadline: Thursday, 28 November 2013</p>
-                    <p>Short description. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Quae similitudo in genere etiam humano apparet. Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec. Quod si ita se habeat, non possit beatam praestare vitam sapientia. Virtutis, magnitudinis animi, patientiae, fortitudinis fomentis dolor mitigari solet. Qui ita affectus, beatum esse numquam probabis; </p>
-                    <a href="{% url 'job_detail' %}">Read more</a>
-                </div>
+                {% empty %}
+                    <p>There aren't any jobs posted.</p>
+                {% endfor %}
             <div class="clear"></div>          
             </div><!--/block-->          
         </div> 
