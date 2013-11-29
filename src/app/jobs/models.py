@@ -11,7 +11,6 @@ class JobCategory(models.Model):
     """
     List various job cateorgies
     """
-#    job_post = models.ForeignKey(JobPost, related_name='job_categories')
     title = models.CharField(max_length=255)
     order = models.PositiveSmallIntegerField(default=0)
 
@@ -20,7 +19,7 @@ class JobCategory(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.title
-
+    
 class JobPost(core_models.ContentModel):
     """
     Store a job listing
@@ -37,3 +36,5 @@ class JobPost(core_models.ContentModel):
     def __unicode__(self):
         return u'%s' % self.title 
 
+    def get_job_categories(self):
+        return u', '.join([category.title for category in self.job_categories.all()])

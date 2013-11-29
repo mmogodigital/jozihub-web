@@ -22,7 +22,7 @@
                 <a href="{% url 'jobs' %}">Back</a>
                 <p class="details">Application Date: {{ object.application_date|date:"l" }}, {{ object.application_date|date:"j F Y" }}</p>
                 <p class="details">Location: {{ object.location }}</p>
-                <p class="details">Job Category: </p>
+                <p class="details">Job Category: {{ object.get_job_categories }}</p>
                 <p class="title">Description</p>
                 {{ object.description }}
                 <div class="clear"></div>          
