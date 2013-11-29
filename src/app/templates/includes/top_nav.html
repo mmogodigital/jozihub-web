@@ -8,6 +8,7 @@
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'galleries' %}">Gallery</a></li>
         <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'apply' %}">Apply</a></li>
         <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'jobs' %}">Jobs</a></li>
+        <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_register' %}">Sign In</a></li>
     </ul>
     <a href="javascript: void(0);" class="mobi_handle"></a>
     <a href="#social" class="nav_connect">Connect</a>

@@ -2,6 +2,10 @@
 
 {% block title %}Registration{% endblock %}
 
+{% block header %}
+    {% include 'includes/top_nav.html' with on='sign_in' %}
+{% endblock %}
+
 {% block content %}
    <h1>Register</h1>
    <h2>Please enter your details in the form below</h2>
