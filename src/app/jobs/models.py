@@ -34,4 +34,4 @@ class JobPost(core_models.ContentModel):
     )
 
     def __unicode__(self):
-        pass
+        return u'%s' % self.title 

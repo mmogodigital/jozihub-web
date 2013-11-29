@@ -25,14 +25,16 @@
                     <div class="field">
                         <label for="id_job_title">Job title</label>
                         {{ form.title }}{{ form.title.errors }}
-                        {{ form.job_categories }}{{ form.job_categories.errors }}
-
-                    </div>
                     {% render_honeypot_field %}
                     <div class="field">
                         <label for="id_deadline">Application Date</label>
                         {{ form.application_date }}{{ form.application_date.errors }}
                         {% comment %}<input class="datepicker" type="text" name="deadline" /> {% endcomment %}
+                    </div>
+                    <div class="field">
+                        <label for="id_job_categories">Job Categories</label>
+                        {{ form.job_categories }}{{ form.job_categories.errors }}
+                    </div>
                     </div>
                     <div class="field">
                         <label for="id_location">Location</label>
