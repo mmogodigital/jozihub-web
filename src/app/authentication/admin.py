@@ -59,7 +59,8 @@ class CustomUserChangeForm(UserChangeForm):
     
 class CustomUserAdmin(UserAdmin):
     search_fields = ('first_name', 'last_name', 'email')
-    list_display = ('email', 'username', 'password', 'first_name', 'last_name', 'is_admin', 'is_active', 'is_staff', 'is_console_user')
+    #list_display = ('email', 'username', 'password', 'first_name', 'last_name', 'is_admin', 'is_active', 'is_staff', 'is_console_user')
+    list_display = ('email', 'username', 'password', 'first_name', 'last_name', 'is_admin', 'is_active', 'is_staff')
     list_filter = ('email', 'username', 'password', 'first_name', 'last_name', 'is_admin', 'is_active')
     ordering = ('email',)
     
