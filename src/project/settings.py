@@ -155,6 +155,7 @@ INSTALLED_APPS = (
     'compressor',
     'app',
     'app.root',
+    'app.authentication',
     'app.news',
     'app.events',
     'app.partners',
@@ -186,8 +187,11 @@ DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
 
 # Registration Settings
 
+REGISTRATION_ACTIVATION_REQUIRED = True
+ACCOUNT_ACTIVATION_DAYS = 7
 LOGIN_REDIRECT_URL = '/'
-
+LOGIN_URL = '/authentication/secure/login/'
+AUTH_USER_MODEL = 'authentication.EndUser'
 SESSION_COOKIE_AGE = 24 * 60 * 60
 INTERNAL_IPS = ('127.0.0.1',)
 
