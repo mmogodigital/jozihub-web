@@ -25,6 +25,7 @@
                     <p class="title">{{ object.title }}</p>
                     <p class="details">Application Date: {{ object.application_date|date:"l" }}, {{ object.application_date|date:"j F Y" }}</p>
                     <p class="details">Location: {{ object.location }}</p>
+                    <p class="details">Job Category: {{ object.get_job_categories }}</p>
                     {{ object.description|truncatewords:40 }}
 	                <a href="{% url 'job_detail'  object.slug %}">Read more</a>
                 </div>

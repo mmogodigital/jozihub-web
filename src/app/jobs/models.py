@@ -19,7 +19,7 @@ class JobCategory(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.title
-
+    
 class JobPost(core_models.ContentModel):
     """
     Store a job listing
@@ -35,3 +35,6 @@ class JobPost(core_models.ContentModel):
 
     def __unicode__(self):
         return u'%s' % self.title 
+
+    def get_job_categories(self):
+        return u', '.join([category.title for category in self.job_categories.all()])

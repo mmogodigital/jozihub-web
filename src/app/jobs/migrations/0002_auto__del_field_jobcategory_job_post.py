@@ -8,22 +8,26 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'JobPost.description'
-        db.add_column(u'jobs_jobpost', 'description',
-                      self.gf('django.db.models.fields.TextField')(null=True, blank=True),
-                      keep_default=False)
+        # Adding M2M table for field job_categories on 'JobPost'
+        m2m_table_name = db.shorten_name(u'jobs_jobpost_job_categories')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('jobpost', models.ForeignKey(orm[u'jobs.jobpost'], null=False)),
+            ('jobcategory', models.ForeignKey(orm[u'jobs.jobcategory'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['jobpost_id', 'jobcategory_id'])
 
-        # Deleting field 'JobCategory.description'
-        db.delete_column(u'jobs_jobcategory', 'description')
+        # Deleting field 'JobCategory.job_post'
+        db.delete_column(u'jobs_jobcategory', 'job_post_id')
 
 
     def backwards(self, orm):
-        # Deleting field 'JobPost.description'
-        db.delete_column(u'jobs_jobpost', 'description')
+        # Removing M2M table for field job_categories on 'JobPost'
+        db.delete_table(db.shorten_name(u'jobs_jobpost_job_categories'))
 
-        # Adding field 'JobCategory.description'
-        db.add_column(u'jobs_jobcategory', 'description',
-                      self.gf('django.db.models.fields.TextField')(null=True, blank=True),
+        # Adding field 'JobCategory.job_post'
+        db.add_column(u'jobs_jobcategory', 'job_post',
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=0, related_name='job_categories', to=orm['jobs.JobPost']),
                       keep_default=False)
 
 
@@ -96,8 +100,8 @@ class Migration(SchemaMigration):
         },
         u'jobs.jobpost': {
             'Meta': {'ordering': "['order', '-publish_at']", 'object_name': 'JobPost', '_ormbases': [u'core.ContentModel']},
+            'application_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             u'contentmodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['core.ContentModel']", 'unique': 'True', 'primary_key': 'True'}),
-            'deadline': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'job_categories': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['jobs.JobCategory']", 'null': 'True', 'blank': 'True'}),
             'location': ('django.db.models.fields.CharField', [], {'max_length': '255'})
