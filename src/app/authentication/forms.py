@@ -11,7 +11,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 
-from app.authentication import signals, constants
+from app.authentication import signals, constants, models
 
 # Profile Update Form
 
@@ -102,7 +102,7 @@ class UpdateProfilePasswordForm(forms.Form):
 
 # Registration forms
 
-class ProjectRegistrationForm(forms.Form):
+class ProjectRegistrationForm(forms.ModelForm):
     '''
     Form for registering a new user account.
     
@@ -114,12 +114,6 @@ class ProjectRegistrationForm(forms.Form):
     saving of collected user data is delegated to the active
     registration backend.
     '''
-    title = forms.ChoiceField(choices=constants.TITLE_CHOICES)
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=30)
-    email = forms.EmailField(max_length=75)
-    phone = forms.CharField(max_length=16, required=False)
-    mobile = forms.CharField(max_length=16, required=False)
     password1 = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
     
@@ -159,17 +153,74 @@ class ProjectRegistrationForm(forms.Form):
                     raise forms.ValidationError('The two password fields didn\'t match.')
         return self.cleaned_data
 
+    class Meta:
+        model = models.EndUser
+        fields = [
+                'first_name', 'last_name', 'email', 'phone_number', 'age',
+                'city', 'heard_about_from', 'heard_about_from_other',
+                'affiliation', 'submit_reason', 'information_about_jozihub',
+                'educational_background', 'about_you',
+                'events_interested_in_hosting',
+                'events_interested_in_hosting_other', 'when_to_host_event',
+                'required_from_us', 'how_can_you_contribute_to_jozihub',
+                'aims_to_get_from_jozihub', 'when_to_get_access',
+                'type_of_space_required','happy_with_the_price',
+                'become_a_partner_or_funder',
+                'become_a_partner_or_funder_other', 'about_your_organisation',
+                'what_do_you_aim_to_achieve', 'partnership_expectation',
+                'field_of_expertise', 'field_of_expertise_other',
+                'background_and_expertise', 'what_can_you_offer_as_a_mentor',
+                'mentoring_time',
+        ]
+        widgets = {
+            'heard_about_from': forms.CheckboxSelectMultiple,
+            'events_interesting_in_hosting': forms.CheckboxSelectMultiple,
+            'type_of_space_required': forms.CheckboxSelectMultiple,
+            'become_a_partner_or_funder': forms.CheckboxSelectMultiple,
+            'information_about_jozihub': forms.RadioSelect(),
+            'when_to_host_event': forms.RadioSelect(),
+            'field_of_expertise': forms.RadioSelect(),
+            'when_to_get_access': forms.RadioSelect(),
+            'happy_with_the_price': forms.RadioSelect(),
+            'password1' : forms.PasswordInput(),
+            'password2' : forms.PasswordInput(),
+        }
+
     def __init__(self, *args, **kwargs):
         super(ProjectRegistrationForm, self).__init__(*args, **kwargs)
 
         self.user = None
 
-        self.fields['title'].widget.attrs.update({'class':'required'})
-        self.fields['first_name'].widget.attrs.update({'class':'required'})
-        self.fields['last_name'].widget.attrs.update({'class':'required'})
-        self.fields['email'].widget.attrs.update({'class':'required email'})
-        self.fields['password1'].widget.attrs.update({'class':'required'})
-        self.fields['password2'].widget.attrs.update({'class':'required'})
+        self.fields['first_name'].widget\
+                .attrs.update({'class':'required'})
+        self.fields['last_name'].widget\
+                .attrs.update({'class':'required'})
+        self.fields['email'].widget\
+                .attrs.update({'class':'required email'})
+        self.fields['password1'].widget\
+                .attrs.update({'class':'required'})
+        self.fields['password2'].widget\
+                .attrs.update({'class':'required'})
+        self.fields['about_you'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['educational_background'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['required_from_us'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['how_can_you_contribute_to_jozihub'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['aims_to_get_from_jozihub'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['about_your_organisation'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['what_do_you_aim_to_achieve'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['partnership_expectation'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['background_and_expertise'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
+        self.fields['what_can_you_offer_as_a_mentor'].widget\
+                .attrs.update({'cols': '50', 'rows': '2'})
     
 class ProjectAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label='Email address', max_length=75)

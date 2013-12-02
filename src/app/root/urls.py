@@ -15,14 +15,6 @@ urlpatterns = patterns('',
         name='index'
     ),
                        
-    url(r'^apply/$', 
-        check_honeypot(views.Apply.as_view(
-            template_name='root/apply.html',
-            form_class=forms.ApplyForm
-        )),
-        name='apply'
-    ),
-                       
     url(r'^apply/success/$', 
         views.ApplySuccess.as_view(
             template_name='root/apply_success.html'

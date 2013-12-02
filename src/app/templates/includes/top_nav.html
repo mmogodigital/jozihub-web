@@ -6,9 +6,13 @@
         <li {% if on == 'membership' %}class="on"{% endif %}><a href="/membership/">Membership</a></li>
         <li {% if on == 'partners' %}class="on"{% endif %}><a href="{% url 'partners' %}">Partners</a></li>
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'galleries' %}">Gallery</a></li>
-        <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'apply' %}">Apply</a></li>
+        <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'secure_register' %}">Apply</a></li>
         <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'jobs' %}">Jobs</a></li>
-        <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_login' %}">Sign In</a></li>
+        {% if not user.is_authenticated %}
+          <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_login' %}">Sign In</a></li>
+        {% else %}
+          <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_profile' %}">My Profile</a></li>
+        {% endif %}
     </ul>
     <a href="javascript: void(0);" class="mobi_handle"></a>
     <a href="#social" class="nav_connect">Connect</a>

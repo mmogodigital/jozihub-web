@@ -19,7 +19,7 @@
             
             <div class="clear"></div>
             <div class="block">
-                <form id="frmApply" method="post" action=".">{% csrf_token %}
+                <form id="frmRegister" method="post" action=".">{% csrf_token %}
                     <p class="head">General Information</p>
                     <div class="field">
                         <label for="id_first_name">First Name</label>
@@ -34,8 +34,8 @@
                         {{ form.email }}{{ form.email.errors }}
                     </div>
                     <div class="field">
-                        <label for="id_contact_number">Contact number</label>
-                        {{ form.contact_number }}{{ form.contact_number.errors }}
+                        <label for="id_phone_number">Contact number</label>
+                        {{ form.phone_number }}{{ form.phone_number.errors }}
                     </div>
                     <div class="field">
                         <label for="id_age">Age</label>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="field">
                         <label>Which area do you live in?</label>
-                        {{ form.area }}{{ form.area.errors }}
+                        {{ form.city }}{{ form.city.errors }}
                     </div>
                     <div class="field">
                         <label>How did you hear about us?</label>
@@ -153,6 +153,14 @@
                         <label>How much time a month can you assist in mentoring?</label>
                         {{ form.mentoring_time }}{{ form.mentoring_time.errors }}
                     </div>
+                    <div class="field">
+                        <label for="id_password1">Password <span>*</span></label>
+                        {{ form.password1 }}{{ form.password1.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_password2">Confirm Password <span>*</span></label>
+                        {{ form.password2 }}{{ form.password2.errors }}
+                    </div>
                     <div class="clear"></div>
                     <p class="btns">
                         <input type="submit" value="Apply" />
@@ -166,6 +174,6 @@
 
 {% block bottom_js %}
 <script>
-    $('#frmApply').validate();
+    $('#frmRegister').validate();
 </script>
 {% endblock %}

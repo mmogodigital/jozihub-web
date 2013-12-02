@@ -6,6 +6,7 @@ Created on 18 Oct 2013
 from django.conf.urls import patterns, url
 from django.views.generic.base import TemplateView
 from django.contrib.admin.views.decorators import staff_member_required
+from honeypot.decorators import check_honeypot
 
 from app.authentication import views, forms
 
@@ -45,13 +46,13 @@ urlpatterns = patterns('',
     ),
                        
     url(r'^secure/register/$',
-        views.ProjectRegistration.as_view(
-            template_name='authentication/registration_form.html',
+        check_honeypot(views.ProjectRegistration.as_view(
+            template_name='root/apply.html',
             form_class=forms.ProjectRegistrationForm
-        ),
+        )),
         name='secure_register'
     ),
-                       
+
     url(r'^register/complete/$',
         TemplateView.as_view(
             template_name='authentication/registration_complete.html'

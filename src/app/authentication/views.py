@@ -55,7 +55,7 @@ class ProjectRegistration(BaseRegistrationView):
         context['activation_required'] = settings.REGISTRATION_ACTIVATION_REQUIRED
         
         return context
-    
+
     def register(self, request, **cleaned_data):
         """
         Given a username, email address and password, register a new
