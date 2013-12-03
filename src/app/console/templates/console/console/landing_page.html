@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load core_widgets %}
 
 {% block title %}Console{% endblock %}
 
 {% block header %}
-    {% include 'includes/top_nav.html' with on='sign_in' %}
+    {% include 'includes/top_nav.html' with on='console' %}
 {% endblock %}
 
 {% block promo %}

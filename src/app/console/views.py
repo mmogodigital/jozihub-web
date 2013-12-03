@@ -17,6 +17,7 @@ class AdminMixin(console_mixins.ConsoleUserRequiredMixin, core_mixins.Permission
     raise_exception = False
 
 class ConsoleLanding(AdminMixin, TemplateView):
+    permission_required = 'events.add_events'
     template_name='console/console/landing_page.html'
 
 class EventsCreate(AdminMixin, generic_views.CreateView):
