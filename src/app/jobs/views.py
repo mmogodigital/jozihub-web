@@ -6,7 +6,7 @@ Created on 25 Nov 2013
 from django.views import generic as generic_views
 from django.core.urlresolvers import reverse
 
-from tunobase.core import utils as core_utils
+from tunobase.core import utils as core_utils, mixins as core_mixins
 
 from app.jobs import models
 
@@ -23,12 +23,7 @@ class JobDetail(generic_views.DetailView):
             slug=self.kwargs['slug']
         )
 
-
-class PostJob(generic_views.CreateView):
-
-    print '*' * 10
-    def form_invalid(self, form):
-        print form.errors
+class PostJob(core_mixins.LoginRequiredMixin, generic_views.CreateView):
 
     def get_success_url(self):
         return reverse('success')
