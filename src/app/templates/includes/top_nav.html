@@ -12,6 +12,7 @@
           <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_login' %}">Sign In</a></li>
         {% else %}
           <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_profile' %}">My Profile</a></li>
+          <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'auth_logout' %}">Logout</a></li>
         {% endif %}
     </ul>
     <a href="javascript: void(0);" class="mobi_handle"></a>
