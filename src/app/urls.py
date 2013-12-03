@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     (r'^authentication/', include('app.authentication.urls')),
+    (r'^console/', include('app.console.urls')),
     (r'^news/', include('app.news.urls')),
     (r'^events/', include('app.events.urls')),
     (r'^partners/', include('app.partners.urls')),

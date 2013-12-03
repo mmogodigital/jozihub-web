@@ -157,6 +157,7 @@ INSTALLED_APPS = (
     'app',
     'app.root',
     'app.authentication',
+    'app.console',
     'app.news',
     'app.events',
     'app.partners',

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Console{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='sign_in' %}
+{% endblock %}
+
+{% block promo %}
+    {% html_bannerset_widget 'console' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content"  class="up">
+        <div class="container">
+            <h1>Console ...</h1>
+        </div> 
+    </div><!--/Content-->
+{% endblock %}
