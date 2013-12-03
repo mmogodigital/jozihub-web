@@ -1,0 +1,13 @@
+[
+{
+    "pk": 15, 
+    "model": "jobs.jobpost", 
+    "fields": {
+        "sites": [], 
+        "description": "description job description job description job", 
+        "location": "Location", 
+        "job_categories": [], 
+        "application_date": "2013-12-02T22:00:00Z"
+    }
+}
+]

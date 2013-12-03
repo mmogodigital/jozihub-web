@@ -1,1 +1,74 @@
-[{"pk": 13, "model": "partners.partner", "fields": {"external_link": "http://www.venturesolutions.com/", "sites": []}}, {"pk": 12, "model": "partners.partner", "fields": {"external_link": "http://www.theindigotrust.com/", "sites": []}}, {"pk": 11, "model": "partners.partner", "fields": {"external_link": "http://www.thinkpaint.com/", "sites": []}}, {"pk": 10, "model": "partners.partner", "fields": {"external_link": "http://www.islabds.com/", "sites": []}}, {"pk": 9, "model": "partners.partner", "fields": {"external_link": "http://www.siliconcape.com/", "sites": []}}, {"pk": 8, "model": "partners.partner", "fields": {"external_link": "http://www.afrilabs.com/", "sites": []}}, {"pk": 7, "model": "partners.partner", "fields": {"external_link": "http://www.omidyar.com/", "sites": []}}, {"pk": 6, "model": "partners.partner", "fields": {"external_link": "http://www.praekelt.com/", "sites": []}}, {"pk": 5, "model": "partners.partner", "fields": {"external_link": "http://www.google.com/", "sites": []}}]
+[
+{
+    "pk": 13, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.venturesolutions.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 12, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.theindigotrust.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 11, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.thinkpaint.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 10, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.islabds.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 9, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.siliconcape.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 8, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.afrilabs.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 7, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.omidyar.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 6, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.praekelt.com/", 
+        "sites": []
+    }
+},
+{
+    "pk": 5, 
+    "model": "partners.partner", 
+    "fields": {
+        "external_link": "http://www.google.com/", 
+        "sites": []
+    }
+}
+]
