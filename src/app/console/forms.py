@@ -11,3 +11,8 @@ class EventsForm(forms.ModelForm):
     
     class Meta:
         model = models.Event
+
+class UsersForm(forms.ModelForm):
+    
+    class Meta:
+        model = models.Event
