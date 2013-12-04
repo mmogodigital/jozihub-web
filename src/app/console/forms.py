@@ -5,14 +5,21 @@ Created on 3 Dec 2013
 '''
 from django import forms
 
-from app.events import models
+from app.events.models import Event
+from app.authentication.models import EndUser
         
 class EventsForm(forms.ModelForm):
     
     class Meta:
-        model = models.Event
+        model = Event
 
 class UsersForm(forms.ModelForm):
     
     class Meta:
-        model = models.Event
+        model = EndUser
+        exclude = [
+                'job_title', 'company', 'username', 'date_joined',
+                'street_address', 'state_province', 'zip_postal_code',
+                'country', 'web_address', 'is_regular_user', 'is_active',
+                'is_admin', 'is_console_user'
+        ]

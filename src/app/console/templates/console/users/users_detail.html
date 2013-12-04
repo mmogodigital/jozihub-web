@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content" class="up">
+        <div class="container">
+            <p class="context">{{ object.get_full_name }}'s Application Form</p>
+            <a href="{% url 'console_users_list' %}">Back to Users List</a>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <p class="head">General Information</p>
+                <div class="field">
+                    <label for="id_first_name">First Name</label>
+                    {{ object.first_name }}
+                </div>
+                <div class="field">
+                    <label for="id_last_name">Last Name</label>
+                    {{ object.last_name }}
+                </div>
+                <div class="field">
+                    <label for="id_email">Email</label>
+                    {{ object.email }}
+                </div>
+                <div class="field">
+                    <label for="id_phone_number">Contact number</label>
+                    {{ object.phone_number }}
+                </div>
+                <div class="field">
+                    <label for="id_age">Age</label>
+                    {{ object.age }}
+                </div>
+                <div class="field">
+                    <label>Which area do you live in?</label>
+                    {{ object.city }}
+                </div>
+                <div class="field">
+                    <label>How did you hear about us?</label>
+                    {{ object.get_heard_about_from_options }}
+                </div>
+                <div class="field">
+                    <label>Your affiliation</label>
+                    {{ object.affiliation }}
+                </div>
+                <div class="field">
+                    <label>What is your reason for submitting this form?</label>
+                    {{ object.submit_reason }}
+                </div>
+                <div class="clear"></div>
+                
+                <div class="field">
+                    <label>I would like to get information and update for the JoziHub</label>
+                    {{ object.inobjectation_about_jozihub }}
+                </div>
+                <div class="clear"></div>
+                <p class="head">Tell us about yourself</p>                    
+                <div class="field">
+                    <label>Educational background</label>
+                    {{ object.educational_background }}
+                </div>
+                <div class="field">
+                    <label>Tell us about yourself</label>
+                    {{ object.about_you }}
+                </div>
+                <div class="clear"></div>
+                <p class="head">Events hosting</p>
+                <div class="field">
+                    <label>What event are you interested in hosting?</label>
+                    {{ object.get_events_interesting_in_hosting_options }}
+                </div>
+                <div class="field">
+                    <label>When would you like to host the event?</label>
+                    {{ object.when_to_host_event }}
+                </div>
+                <div class="field">
+                    <label>What do you require from us?</label>
+                    {{ object.required_from_us }}
+                </div>
+                <div class="clear"></div>
+                
+                <p class="head">Work space</p>
+                <div class="field">
+                    <label>How can you contribute to the JoziHub community?</label>
+                    {{ object.how_can_you_contribute_to_jozihub }}
+                </div>
+                <div class="field">
+                    <label>What do you aim to get from the JoziHub?</label>
+                    {{ object.aims_to_get_from_jozihub }}
+                </div>
+                <div class="field">
+                    <label>When would you like to get access to the space?</label>
+                    {{ object.when_to_get_access }}
+                </div>
+                <div class="field">
+                    <label>What type of space do you require?</label>
+                    {{ object.get_type_of_space_required_options }}
+                </div>
+                <div class="field">
+                    <label>Are you happy with the price?</label>
+                    {{ object.happy_with_the_price }}
+                </div>
+                <div class="clear"></div>
+                
+                <p class="head">Partners</p>
+                <div class="field">
+                    <label>Do you want to become a partner or funder for the Hub?</label>
+                    {{ object.get_become_a_partner_or_funder_options }}
+                </div>
+                <div class="field">
+                    <label>Tell us about your organisation</label>
+                    {{ object.about_your_organisation }}
+                </div>
+                <div class="field">
+                    <label>What do you aim to achieve out of the partnership?</label>
+                    {{ object.what_do_you_aim_to_achieve }}
+                </div>
+                <div class="field">
+                    <label>What do you expect from the partnership?</label>
+                    {{ object.partnership_expectation }}
+                </div>
+                <div class="clear"></div>
+                
+                <p class="head">Mentor</p>
+                <div class="field">
+                    <label>What is your field of expertise?</label>
+                    {{ object.field_of_expertise }}
+                </div>
+                <div class="field">
+                    <label>What is you background and expertise? (short CV or profile)</label>
+                    {{ object.background_and_expertise }}
+                </div>
+                <div class="field">
+                    <label>What can you offer as a mentor?</label>
+                    {{ object.what_can_you_offer_as_a_mentor }}
+                </div>
+                <div class="field">
+                    <label>How much time a month can you assist in mentoring?</label>
+                    {{ object.mentoring_time }}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
+{% endblock %}

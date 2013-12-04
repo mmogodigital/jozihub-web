@@ -6,6 +6,7 @@ Created on 03 Dec 2013
 from django.views import generic as generic_views
 from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -36,13 +37,13 @@ class UsersUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_users_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return users_models.EndUser.objects.permitted().all()
+        return users_models.EndUser.objects.all()
 
 class UsersDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'users.change_users'
 
     def get_object(self):
-        return core_utils.get_permitted_object_or_404(
+        return get_object_or_404(
             users_models.EndUser, pk=self.kwargs['pk']
         )
 
@@ -50,10 +51,10 @@ class UsersDelete(AdminMixin, core_views.MarkDeleteView):
     permission_required = 'users.delete_users'
     
     def get_success_url(self):
-        return reverse('console_events_list')
+        return reverse('console_users_lists')
 
     def get_queryset(self):
-        return users_models.EndUser.objects.permitted().all()
+        return users_models.EndUser.objects.all()
 
 class UsersList(AdminMixin, generic_views.ListView):
     permission_required = 'users.change_users'
