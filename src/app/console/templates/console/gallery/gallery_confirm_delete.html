@@ -1,4 +1,4 @@
-{% extends 'confirm_delete_base.html' %}
+{% extends 'console/confirm_delete_base.html' %}
 
 {% block confirm_delete_url %}{% url 'console_events_delete' object.pk %}{% endblock %}
 {% block decline_delete_url %}{% url 'console_events_list' %}{% endblock %}

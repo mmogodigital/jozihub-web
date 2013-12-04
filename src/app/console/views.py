@@ -11,9 +11,9 @@ from django.shortcuts import get_object_or_404
 from tunobase.core import mixins as core_mixins, utils as core_utils, views as core_views
 from tunobase.console import mixins as console_mixins
 from tunobase.core.models import Gallery
-from app.authentication import models as users_models
-from app.events import models as events_models
-from app.news import models as news_models
+from app.authentication.models import EndUser
+from app.events.models import Event 
+from app.news.models import News 
 from app.jobs.models import JobPost
 
 class AdminMixin(console_mixins.ConsoleUserRequiredMixin, core_mixins.PermissionRequiredMixin):
@@ -21,7 +21,7 @@ class AdminMixin(console_mixins.ConsoleUserRequiredMixin, core_mixins.Permission
 
 class ConsoleLanding(AdminMixin, TemplateView):
     permission_required = 'events.add_events'
-    template_name='console/console/landing_page.html'
+    template_name='console/landing_page.html'
 
 #----------------------------------------------------------------------------
 # Console: Users
@@ -38,30 +38,30 @@ class UsersUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_users_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return users_models.EndUser.objects.all()
+        return EndUser.objects.all()
 
 class UsersDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'users.change_users'
 
     def get_object(self):
         return get_object_or_404(
-            users_models.EndUser, pk=self.kwargs['pk']
+            EndUser, pk=self.kwargs['pk']
         )
 
 class UsersDelete(AdminMixin, core_views.MarkDeleteView):
     permission_required = 'users.delete_users'
     
     def get_success_url(self):
-        return reverse('console_users_lists')
+        return reverse('console_users_list')
 
     def get_queryset(self):
-        return users_models.EndUser.objects.all()
+        return EndUser.objects.all()
 
 class UsersList(AdminMixin, generic_views.ListView):
     permission_required = 'users.change_users'
     
     def get_queryset(self):
-        return users_models.EndUser.objects.all()
+        return EndUser.objects.all()
 
 #-----------------------------------------------------------------------------
 # Console: Events
@@ -78,14 +78,14 @@ class EventsUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_events_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return events_models.Event.objects.permitted().all()
+        return Event.objects.permitted().all()
 
 class EventsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'events.change_events'
 
     def get_object(self):
         return core_utils.get_permitted_object_or_404(
-            events_models.Event, pk=self.kwargs['pk']
+            Event, pk=self.kwargs['pk']
         )
 
 class EventsDelete(AdminMixin, core_views.MarkDeleteView):
@@ -95,13 +95,13 @@ class EventsDelete(AdminMixin, core_views.MarkDeleteView):
         return reverse('console_events_list')
 
     def get_queryset(self):
-        return events_models.Event.objects.permitted().all()
+        return Event.objects.permitted().all()
 
 class EventsList(AdminMixin, generic_views.ListView):
     permission_required = 'events.change_events'
     
     def get_queryset(self):
-        return events_models.Event.objects.permitted().all()
+        return Event.objects.permitted().all()
     
 #-----------------------------------------------------------------------------
 # Console: News
@@ -118,14 +118,14 @@ class NewsUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_news_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return news_models.News.objects.permitted().all()
+        return News.objects.permitted().all()
 
 class NewsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'news.change_news'
 
     def get_object(self):
         return core_utils.get_permitted_object_or_404(
-            news_models.News, pk=self.kwargs['pk']
+            News, pk=self.kwargs['pk']
         )
 
 class NewsDelete(AdminMixin, core_views.MarkDeleteView):
@@ -135,13 +135,13 @@ class NewsDelete(AdminMixin, core_views.MarkDeleteView):
         return reverse('console_news_list')
 
     def get_queryset(self):
-        return news_models.News.objects.permitted().all()
+        return News.objects.permitted().all()
 
 class NewsList(AdminMixin, generic_views.ListView):
     permission_required = 'news.change_news'
     
     def get_queryset(self):
-        return news_models.News.objects.permitted().all()
+        return News.objects.permitted().all()
     
 #-----------------------------------------------------------------------------
 # Console: Jobs

@@ -1,6 +1,13 @@
-{% extends 'console/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
     <h1>Confirm Delete?</h1>
     <form id="frmConfirmDelete" action="{% block confirm_delete_url %}{% endblock %}" method="post" enctype="multipart/form-data">{% csrf_token %}
         <input type="submit" value="Confirm" />

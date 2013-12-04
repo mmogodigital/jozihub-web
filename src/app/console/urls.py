@@ -39,7 +39,9 @@ urlpatterns = patterns('',
     ),
 
     url(r'^users/delete/(?P<pk>\d+)/$',
-        views.UsersDelete.as_view(),
+        views.UsersDelete.as_view(
+            template_name='console/users/users_confirm_delete.html'
+        ),
         name='console_users_delete'
     ),
 
@@ -78,7 +80,9 @@ urlpatterns = patterns('',
     ),
 
     url(r'^events/delete/(?P<pk>\d+)/$',
-        views.EventsDelete.as_view(),
+        views.EventsDelete.as_view(
+            template_name='console/events/events_confirm_delete.html'
+        ),
         name='console_events_delete'
     ),
 
@@ -117,7 +121,9 @@ urlpatterns = patterns('',
     ),
 
     url(r'^news/delete/(?P<pk>\d+)/$',
-        views.NewsDelete.as_view(),
+        views.NewsDelete.as_view(
+            template_name='console/news/news_confirm_delete.html'
+        ),
         name='console_news_delete'
     ),
 
@@ -156,7 +162,9 @@ urlpatterns = patterns('',
     ),
 
     url(r'^jobs/delete/(?P<pk>\d+)/$',
-        views.JobsDelete.as_view(),
+        views.JobsDelete.as_view(
+            template_name='console/jobs/jobs_confirm_delete.html'
+        ),
         name='console_jobs_delete'
     ),
 
@@ -195,7 +203,9 @@ urlpatterns = patterns('',
     ),
 
     url(r'^gallery/delete/(?P<pk>\d+)/$',
-        views.GalleryDelete.as_view(),
+        views.GalleryDelete.as_view(
+            template_name='console/gallery/gallery_confirm_delete.html'
+        ),
         name='console_gallery_delete'
     ),
 
