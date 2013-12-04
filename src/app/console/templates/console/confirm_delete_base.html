@@ -1,0 +1,9 @@
+{% extends 'console/base.html' %}
+
+{% block content %}
+    <h1>Confirm Delete?</h1>
+    <form id="frmConfirmDelete" action="{% block confirm_delete_url %}{% endblock %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <input type="submit" value="Confirm" />
+        <a href="{% block decline_delete_url %}{% endblock %}">Decline</a>
+    </form>
+{% endblock %}

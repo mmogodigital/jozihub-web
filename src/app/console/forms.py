@@ -12,6 +12,10 @@ class EventsForm(forms.ModelForm):
     
     class Meta:
         model = Event
+        fields = [
+                'image', 'title', 'start', 'end', 'venue_name', 'venue_address',
+                'repeat', 'repeat_until', 'external_link', 'calendar_link',
+        ]
 
 class UsersForm(forms.ModelForm):
     

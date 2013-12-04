@@ -1,24 +1,33 @@
-{% extends 'console/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 	<h1>Events List</h1>
-	<a href="{% url 'console_media_events_create' %}">Ad Event</a>
+	<a href="{% url 'console_events_create' %}">Add Event</a>
+    <br />
+    <br />
+    <br />
 	<table>
 	    <thead>
-	        <tr>
-	            <th>Title</th>
-	            <th>&nbsp;</th>
-	        </tr>
+            <tr>
+                <th>Stage</th>
+                <th>Title</th>
+                <th>Venue</th>
+                <th>Date</th>
+                <th>&nbsp;</th>
+            </tr>
 	    </thead>
 	    <tbody>
 	        {% for object in object_list %}
-	            <tr>
-	                <td><a href="{% url 'console_media_events_detail' object.pk %}">{% if not object.title %}&nbsp;{% endif %}{{ object.title }}</a></td>
-	                <td>
-	                    <a href="{% url 'console_media_events_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
-	                    <a href="{% url 'console_media_events_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
-	                </td>
-	            </tr>
+            <tr>
+                <td>{{ object.state }}</td>
+                <td><a href="{% url 'console_events_detail' object.pk %}">{{ object.title }}</a></td>
+                <td>{{ object.venue_name }}</td>
+                <td>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</td>
+                <td>
+                    <a href="{% url 'console_events_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                    <a href="{% url 'console_events_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                </td>
+            </tr>
 	        {% empty %}
 	            <tr>
 	                <td colspan="2">There are no events to list.</td>

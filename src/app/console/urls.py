@@ -13,46 +13,6 @@ urlpatterns = patterns('',
         views.ConsoleLanding.as_view(),
         name='console_landing_page'
     ),
-
-#    #-------------------------------------------------------------------------
-#    # Console: Events
-#    url(r'^events/create/$',
-#        views.EventsCreate.as_view(
-#            form_class=forms.EventsForm,
-#            template_name='console/events/events_edit.html'
-#        ),
-#        name='console_events_create'
-#    ),
-#
-#    url(r'^events/update/(?P<pk>\d+)/$',
-#        views.EventsUpdate.as_view(
-#            form_class=forms.EventsForm,
-#            template_name='console/events/events_edit.html'
-#        ),
-#        name='console_events_update'
-#    ),
-#
-#    url(r'^events/(?P<pk>\d+)/detail/$',
-#        views.EventsDetail.as_view(
-#            template_name='console/events/events_detail.html'
-#        ),
-#        name='console_events_detail'
-#    ),
-#
-#    url(r'^events/delete/(?P<pk>\d+)/$',
-#        views.EventsDelete.as_view(),
-#        name='console_events_delete'
-#    ),
-#
-#    url(r'^events/list/$',
-#        views.EventsList.as_view(
-#            template_name='console/events/events_list.html',
-#            paginate_by=20
-#        ),
-#        name='console_events_list'
-#    ),
-#    #-------------------------------------------------------------------------
-
     #-------------------------------------------------------------------------
     # Console: Users
     url(r'^users/create/$',
@@ -89,6 +49,45 @@ urlpatterns = patterns('',
             paginate_by=20
         ),
         name='console_users_list'
+    ),
+    #-------------------------------------------------------------------------
+
+    #-------------------------------------------------------------------------
+    # Console: Events
+    url(r'^events/create/$',
+        views.EventsCreate.as_view(
+            form_class=forms.EventsForm,
+            template_name='console/events/events_edit.html'
+        ),
+        name='console_events_create'
+    ),
+
+    url(r'^events/update/(?P<pk>\d+)/$',
+        views.EventsUpdate.as_view(
+            form_class=forms.EventsForm,
+            template_name='console/events/events_edit.html'
+        ),
+        name='console_events_update'
+    ),
+
+    url(r'^events/(?P<pk>\d+)/detail/$',
+        views.EventsDetail.as_view(
+            template_name='console/events/events_detail.html'
+        ),
+        name='console_events_detail'
+    ),
+
+    url(r'^events/delete/(?P<pk>\d+)/$',
+        views.EventsDelete.as_view(),
+        name='console_events_delete'
+    ),
+
+    url(r'^events/list/$',
+        views.EventsList.as_view(
+            template_name='console/events/events_list.html',
+            paginate_by=20
+        ),
+        name='console_events_list'
     ),
     #-------------------------------------------------------------------------
 
