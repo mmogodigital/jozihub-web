@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Jobs</h1>
+    <a href="{% url 'console_jobs_list' %}">Back to List</a>
+    <br />
+    <br />
+    <br />
+    
+    <table>
+        <tbody>
+            <tr>
+                <th>State</th>
+                <th>Job Title</th>
+                <th>Application Date</th>
+                <th>Location</th>
+                <th>Job Categories</th>
+                <th>Description</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td>{{ object.state }}</td>
+                <td>{{ object.title }}</td>
+                <td>{{ object.application_date|date:"j F Y" }}</td>
+                <td>{{ object.location }}</td>
+                <td>{{ object.get_job_categories }}</td>
+                <td>
+                    <a href="{% url 'console_jobs_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                    <a href="{% url 'console_jobs_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

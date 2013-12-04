@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Job List</h1>
+	<a href="{% url 'console_jobs_create' %}">Add Job</a>
+    <br />
+    <br />
+    <br />
+	<table>
+	    <thead>
+            <tr>
+                <th>State</th>
+                <th>Title</th>
+                <th>Application Date</th>
+                <th>&nbsp;</th>
+            </tr>
+	    </thead>
+	    <tbody>
+	        {% for object in object_list %}
+            <tr>
+                <td>{{ object.state }}</td>
+                <td><a href="{% url 'console_jobs_detail' object.pk %}">{{ object.title }}</a></td>
+                <td>{{ object.application_date|date:"j F Y" }}</td>
+                <td>
+                    <a href="{% url 'console_jobs_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                    <a href="{% url 'console_jobs_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                </td>
+            </tr>
+	        {% empty %}
+	            <tr>
+	                <td colspan="2">There are no jobs to list.</td>
+	            <tr>
+	        {% endfor %}
+	    </tbody>
+	</table>
+{% endblock %}

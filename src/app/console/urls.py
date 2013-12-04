@@ -130,42 +130,42 @@ urlpatterns = patterns('',
     ),
     #-------------------------------------------------------------------------
 
-#    #-------------------------------------------------------------------------
-#    # Console: Gallery
-#    url(r'^events/create/$',
-#        views.EventsCreate.as_view(
-#            form_class=forms.EventsForm,
-#            template_name='console/events/events_edit.html'
-#        ),
-#        name='console_events_create'
-#    ),
-#
-#    url(r'^events/update/(?P<pk>\d+)/$',
-#        views.EventsUpdate.as_view(
-#            form_class=forms.EventsForm,
-#            template_name='console/events/events_edit.html'
-#        ),
-#        name='console_events_update'
-#    ),
-#
-#    url(r'^events/(?P<pk>\d+)/detail/$',
-#        views.EventsDetail.as_view(
-#            template_name='console/events/events_detail.html'
-#        ),
-#        name='console_events_detail'
-#    ),
-#
-#    url(r'^events/delete/(?P<pk>\d+)/$',
-#        views.EventsDelete.as_view(),
-#        name='console_events_delete'
-#    ),
-#
-#    url(r'^events/list/$',
-#        views.EventsList.as_view(
-#            template_name='console/events/events_list.html',
-#            paginate_by=20
-#        ),
-#        name='console_events_list'
-#    ),
-#    #-------------------------------------------------------------------------
+    #-------------------------------------------------------------------------
+    # Console: Jobs
+    url(r'^jobs/create/$',
+        views.JobsCreate.as_view(
+            form_class=forms.JobsForm,
+            template_name='console/jobs/jobs_edit.html'
+        ),
+        name='console_jobs_create'
+    ),
+
+    url(r'^jobs/update/(?P<pk>\d+)/$',
+        views.JobsUpdate.as_view(
+            form_class=forms.JobsForm,
+            template_name='console/jobs/jobs_edit.html'
+        ),
+        name='console_jobs_update'
+    ),
+
+    url(r'^jobs/(?P<pk>\d+)/detail/$',
+        views.JobsDetail.as_view(
+            template_name='console/jobs/jobs_detail.html'
+        ),
+        name='console_jobs_detail'
+    ),
+
+    url(r'^jobs/delete/(?P<pk>\d+)/$',
+        views.JobsDelete.as_view(),
+        name='console_jobs_delete'
+    ),
+
+    url(r'^jobs/list/$',
+        views.JobsList.as_view(
+            template_name='console/jobs/jobs_list.html',
+            paginate_by=20
+        ),
+        name='console_jobs_list'
+    ),
+    #-------------------------------------------------------------------------
 )

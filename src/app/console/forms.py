@@ -8,6 +8,7 @@ from django import forms
 from app.events.models import Event
 from app.authentication.models import EndUser
 from app.news.models import News
+from app.jobs.models import JobPost
         
 class EventsForm(forms.ModelForm):
     
@@ -35,4 +36,12 @@ class NewsForm(forms.ModelForm):
         model = News
         fields = [
                 'state', 'title', 'rich_content', 'image'
+        ]
+
+class JobsForm(forms.ModelForm):
+    
+    class Meta:
+        model = JobPost
+        fields = [
+                'state', 'title', 'location', 'application_date', 'description',
         ]

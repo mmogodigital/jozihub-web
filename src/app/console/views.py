@@ -7,14 +7,13 @@ from django.views import generic as generic_views
 from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import Group
-from django.http import HttpResponse, HttpResponseRedirect
 
 from tunobase.core import mixins as core_mixins, utils as core_utils, views as core_views
 from tunobase.console import mixins as console_mixins
 from app.authentication import models as users_models
 from app.events import models as events_models
 from app.news import models as news_models
+from app.jobs.models import JobPost
 
 class AdminMixin(console_mixins.ConsoleUserRequiredMixin, core_mixins.PermissionRequiredMixin):
     raise_exception = False
@@ -142,5 +141,45 @@ class NewsList(AdminMixin, generic_views.ListView):
     
     def get_queryset(self):
         return news_models.News.objects.permitted().all()
+    
+#-----------------------------------------------------------------------------
+# Console: Jobs
+class JobsCreate(AdminMixin, generic_views.CreateView):
+    permission_required = 'jobs.add_jobs'
+    
+    def get_success_url(self):
+        return reverse('console_jobs_detail', args=(self.object.pk,))
+
+class JobsUpdate(AdminMixin, generic_views.UpdateView):
+    permission_required = 'jobs.change_jobs'
+    
+    def get_success_url(self):
+        return reverse('console_jobs_detail', args=(self.object.pk,))
+
+    def get_queryset(self):
+        return JobPost.objects.permitted().all()
+
+class JobsDetail(AdminMixin, generic_views.DetailView):
+    permission_required = 'jobs.change_jobs'
+
+    def get_object(self):
+        return core_utils.get_permitted_object_or_404(
+            JobPost, pk=self.kwargs['pk']
+        )
+
+class JobsDelete(AdminMixin, core_views.MarkDeleteView):
+    permission_required = 'jobs.delete_jobs'
+    
+    def get_success_url(self):
+        return reverse('console_jobs_list')
+
+    def get_queryset(self):
+        return JobPost.objects.permitted().all()
+
+class JobsList(AdminMixin, generic_views.ListView):
+    permission_required = 'jobs.change_jobs'
+    
+    def get_queryset(self):
+        return JobPost.objects.permitted().all()
     
     
