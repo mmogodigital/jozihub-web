@@ -12,8 +12,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from tunobase.core import mixins as core_mixins, utils as core_utils, views as core_views
 from tunobase.console import mixins as console_mixins
-from app.events import models as events_models
 from app.authentication import models as users_models
+from app.events import models as events_models
+from app.news import models as news_models
 
 class AdminMixin(console_mixins.ConsoleUserRequiredMixin, core_mixins.PermissionRequiredMixin):
     raise_exception = False
@@ -61,8 +62,9 @@ class UsersList(AdminMixin, generic_views.ListView):
     
     def get_queryset(self):
         return users_models.EndUser.objects.all()
-#-----------------------------------------------------------------------------
 
+#-----------------------------------------------------------------------------
+# Console: Events
 class EventsCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'events.add_events'
     
@@ -100,5 +102,45 @@ class EventsList(AdminMixin, generic_views.ListView):
     
     def get_queryset(self):
         return events_models.Event.objects.permitted().all()
+    
+#-----------------------------------------------------------------------------
+# Console: News
+class NewsCreate(AdminMixin, generic_views.CreateView):
+    permission_required = 'news.add_news'
+    
+    def get_success_url(self):
+        return reverse('console_news_detail', args=(self.object.pk,))
+
+class NewsUpdate(AdminMixin, generic_views.UpdateView):
+    permission_required = 'news.change_news'
+    
+    def get_success_url(self):
+        return reverse('console_news_detail', args=(self.object.pk,))
+
+    def get_queryset(self):
+        return news_models.News.objects.permitted().all()
+
+class NewsDetail(AdminMixin, generic_views.DetailView):
+    permission_required = 'news.change_news'
+
+    def get_object(self):
+        return core_utils.get_permitted_object_or_404(
+            news_models.News, pk=self.kwargs['pk']
+        )
+
+class NewsDelete(AdminMixin, core_views.MarkDeleteView):
+    permission_required = 'news.delete_news'
+    
+    def get_success_url(self):
+        return reverse('console_news_list')
+
+    def get_queryset(self):
+        return news_models.News.objects.permitted().all()
+
+class NewsList(AdminMixin, generic_views.ListView):
+    permission_required = 'news.change_news'
+    
+    def get_queryset(self):
+        return news_models.News.objects.permitted().all()
     
     

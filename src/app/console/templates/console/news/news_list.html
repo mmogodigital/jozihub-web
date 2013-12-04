@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>News List</h1>
+	<a href="{% url 'console_news_create' %}">Add News Article</a>
+    <br />
+    <br />
+    <br />
+	<table>
+	    <thead>
+            <tr>
+                <th>Stage</th>
+                <th>Title</th>
+                <th>Published Date</th>
+                <th>&nbsp;</th>
+            </tr>
+	    </thead>
+	    <tbody>
+	        {% for object in object_list %}
+            <tr>
+                <td>{{ object.state }}</td>
+                <td><a href="{% url 'console_news_detail' object.pk %}">{{ object.title }}</a></td>
+                {% comment %}
+                <td>{{ object.publish_at|date:"j F Y" }}</td>
+                {% endcomment %}
+                <td>{{ object.rich_content|safe|truncatewords:"30" }}</td>
+                <td>
+                    <a href="{% url 'console_news_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                    <a href="{% url 'console_news_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                </td>
+            </tr>
+	        {% empty %}
+	            <tr>
+	                <td colspan="2">There are no news articles to list.</td>
+	            <tr>
+	        {% endfor %}
+	    </tbody>
+	</table>
+{% endblock %}

@@ -7,6 +7,7 @@ from django import forms
 
 from app.events.models import Event
 from app.authentication.models import EndUser
+from app.news.models import News
         
 class EventsForm(forms.ModelForm):
     
@@ -26,4 +27,12 @@ class UsersForm(forms.ModelForm):
                 'street_address', 'state_province', 'zip_postal_code',
                 'country', 'web_address', 'is_regular_user', 'is_active',
                 'is_admin', 'is_console_user'
+        ]
+
+class NewsForm(forms.ModelForm):
+    
+    class Meta:
+        model = News
+        fields = [
+                'state', 'title', 'rich_content', 'image'
         ]
