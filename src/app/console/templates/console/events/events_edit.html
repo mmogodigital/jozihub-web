@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 	<script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
 	
 	<h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} Event</h1>
@@ -10,35 +19,41 @@
     <br />
 	
 	<form id="frmUpdateEvents" action="." method="POST">{% csrf_token %}
+	    <label for="id_state">State</label>
+	    {{ form.state }}{{ form.state.errors }}
+	
 	    <label for="id_image">Image</label>
 	    {{ form.image }}{{ form.image.errors }}
 	
 	    <label for="id_title">Event Title</label>
 	    {{ form.title }}{{ form.title.errors }}
 	
-	    <label for="id_title">Start Date</label>
+	    <label for="id_start">Start Date</label>
 	    {{ form.start }}{{ form.start.errors }}
 	
-	    <label for="id_title">End Date</label>
+	    <label for="id_end">End Date</label>
 	    {{ form.end }}{{ form.end.errors }}
 	
-	    <label for="id_title">Venue Name</label>
+	    <label for="id_venue_name">Venue Name</label>
 	    {{ form.venue_name }}{{ form.venue_name.errors }}
 
-	    <label for="id_title">Venue Address</label>
+	    <label for="id_venue_address">Venue Address</label>
 	    {{ form.venue_address }}{{ form.venue_address.errors }}
 	
-	    <label for="id_title">Repeat</label>
+	    <label for="id_repeat">Repeat</label>
 	    {{ form.repeat }}{{ form.repeat.errors }}
 
-	    <label for="id_title">Repeat Until</label>
+	    <label for="id_repeat_until">Repeat Until</label>
 	    {{ form.repeat_until }}{{ form.repeat_until.errors }}
 	
-	    <label for="id_title">External Link</label>
+	    <label for="id_external_link">External Link</label>
 	    {{ form.external_link }}{{ form.external_link.errors }}
 	
-	    <label for="id_title">Calendar Link</label>
+	    <label for="id_calendar_link">Calendar Link</label>
 	    {{ form.calendar_link }}{{ form.calendar_link.errors }}
+	
+	    <label for="id_rich_content">Description</label>
+	    {{ form.rich_content }}{{ form.rich_content.errors }}
 	
 	    <input type="submit" value="{% if not form.instance.id %}Create{% else %}Update{% endif %} Event" />
 	</form>
