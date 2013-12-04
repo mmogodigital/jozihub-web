@@ -12,12 +12,21 @@
           <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_login' %}">Sign In</a></li>
         {% else %}
           {% if user.can_access_console %}
-            <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'console_landing_page' %}">Console</a></li>
+            <li {% if on == 'console' %}class="on"{% endif %}><a href="{% url 'console_landing_page' %}">Console</a></li>
           {% endif %}
-          <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_profile' %}">My Profile</a></li>
+          <li {% if on == 'profile' %}class="on"{% endif %}><a href="{% url 'secure_profile' %}">My Profile</a></li>
           <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'auth_logout' %}">Logout</a></li>
         {% endif %}
     </ul>
+    {% if user.can_access_console %}
+    <ul>
+        <li><a href="{% url 'console_users_list' %}">Users</a></li>
+        <li><a href="{% url 'console_events_list' %}">Events</a></li>
+        <li><a href="{% url 'console_news_list' %}">News</a></li>
+        <li><a href="{% url 'console_jobs_list' %}">Jobs</a></li>
+        <li><a href="{% url 'console_gallery_list' %}">Gallery</a></li>
+    </ul>
+    {% endif %}
     <a href="javascript: void(0);" class="mobi_handle"></a>
     <a href="#social" class="nav_connect">Connect</a>
 </div><!--/Header-->

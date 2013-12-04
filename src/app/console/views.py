@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 
 from tunobase.core import mixins as core_mixins, utils as core_utils, views as core_views
 from tunobase.console import mixins as console_mixins
+from tunobase.core.models import Gallery
 from app.authentication import models as users_models
 from app.events import models as events_models
 from app.news import models as news_models
@@ -181,5 +182,45 @@ class JobsList(AdminMixin, generic_views.ListView):
     
     def get_queryset(self):
         return JobPost.objects.permitted().all()
+    
+ #-----------------------------------------------------------------------------
+# Console: Gallery
+class GalleryCreate(AdminMixin, generic_views.CreateView):
+    permission_required = 'gallery.add_gallery'
+    
+    def get_success_url(self):
+        return reverse('console_gallery_detail', args=(self.object.pk,))
+
+class GalleryUpdate(AdminMixin, generic_views.UpdateView):
+    permission_required = 'gallery.change_gallery'
+    
+    def get_success_url(self):
+        return reverse('console_gallery_detail', args=(self.object.pk,))
+
+    def get_queryset(self):
+        return Gallery.objects.permitted().all()
+
+class GalleryDetail(AdminMixin, generic_views.DetailView):
+    permission_required = 'gallery.change_gallery'
+
+    def get_object(self):
+        return core_utils.get_permitted_object_or_404(
+            Gallery, pk=self.kwargs['pk']
+        )
+
+class GalleryDelete(AdminMixin, core_views.MarkDeleteView):
+    permission_required = 'gallery.delete_gallery'
+    
+    def get_success_url(self):
+        return reverse('console_gallery_list')
+
+    def get_queryset(self):
+        return Gallery.objects.permitted().all()
+
+class GalleryList(AdminMixin, generic_views.ListView):
+    permission_required = 'gallery.change_gallery'
+    
+    def get_queryset(self):
+        return Gallery.objects.permitted().all()
     
     

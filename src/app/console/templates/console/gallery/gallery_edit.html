@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
+	
+	<h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} Gallery</h1>
+	<a href="{% url 'console_gallery_list' %}">Back to Gallery List</a>
+    <br />
+    <br />
+    <br />
+	
+	<form id="frmUpdateGallery" action="." method="POST">{% csrf_token %}
+	    <label for="id_state">State</label>
+	    {{ form.state }}{{ form.state.errors }}
+	
+	    <label for="id_image">Image</label>
+	    {{ form.image }}{{ form.image.errors }}
+	
+	    <label for="id_title">Gallery Title</label>
+	    {{ form.title }}{{ form.title.errors }}
+	
+	    <label for="id_rich_content">Description</label>
+	    {{ form.rich_content }}{{ form.rich_content.errors }}
+	
+	    <label for="id_images">Images</label>
+	    {{ form.images }}{{ form.images.errors }}
+
+	    <input type="submit" value="{% if not form.instance.id %}Create{% else %}Update{% endif %} Gallery" />
+	</form>
+{% endblock %}

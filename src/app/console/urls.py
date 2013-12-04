@@ -168,4 +168,43 @@ urlpatterns = patterns('',
         name='console_jobs_list'
     ),
     #-------------------------------------------------------------------------
+
+    #-------------------------------------------------------------------------
+    # Console: Gallery
+    url(r'^gallery/create/$',
+        views.GalleryCreate.as_view(
+            form_class=forms.GalleryForm,
+            template_name='console/gallery/gallery_edit.html'
+        ),
+        name='console_gallery_create'
+    ),
+
+    url(r'^gallery/update/(?P<pk>\d+)/$',
+        views.GalleryUpdate.as_view(
+            form_class=forms.GalleryForm,
+            template_name='console/gallery/gallery_edit.html'
+        ),
+        name='console_gallery_update'
+    ),
+
+    url(r'^gallery/(?P<pk>\d+)/detail/$',
+        views.GalleryDetail.as_view(
+            template_name='console/gallery/gallery_detail.html'
+        ),
+        name='console_gallery_detail'
+    ),
+
+    url(r'^gallery/delete/(?P<pk>\d+)/$',
+        views.GalleryDelete.as_view(),
+        name='console_gallery_delete'
+    ),
+
+    url(r'^gallery/list/$',
+        views.GalleryList.as_view(
+            template_name='console/gallery/gallery_list.html',
+            paginate_by=20
+        ),
+        name='console_gallery_list'
+    ),
+    #-------------------------------------------------------------------------
 )

@@ -298,6 +298,18 @@ class EndUser(ImageModel, AbstractBaseUser, PermissionsMixin):
 
         return super(EndUser, self).save(*args, **kwargs)
 
+    def get_heard_about_from_options(self):
+        return u', '.join([option.name for option in self.heard_about_from.all()])
+
+    def get_events_interested_in_hosting_options(self):
+        return u', '.join([option.name for option in self.events_interested_in_hosting.all()])
+
+    def get_become_a_partner_or_funder_options(self):
+        return u', '.join([option.name for option in self.become_a_partner_or_funder.all()])
+
+    def get_type_of_space_required_options(self):
+        return u', '.join([option.name for option in self.type_of_space_required.all()])
+
 class ProjectRegistrationManager(models.Manager):
     
     def activate_user(self, activation_key):

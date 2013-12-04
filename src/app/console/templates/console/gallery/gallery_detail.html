@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Events</h1>
+    <a href="{% url 'console_events_list' %}">Back to List</a>
+    <br />
+    <br />
+    <br />
+    
+    <table>
+        <tbody>
+            <tr>
+                <th>State</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Images</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td>{{ object.state }}</td>
+                <td>{{ object.image }}</td>
+                <td>{{ object.title }}</td>
+                <td>{{ object.rich_content|safe }}</td>
+                <td>
+                    <div class="galleria">
+                        {% for image in object.images.permitted %}
+                            <a href="{{ image.image.url }}">
+                                <img 
+                                    src="{{ image.image.url }}"
+                                    data-big="{{ image.image.url }}"
+                                >
+                            </a>
+                        {% endfor %}
+                    </div> 
+                </td>
+                <td>
+                    <a href="{% url 'console_gallery_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                    <a href="{% url 'console_gallery_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+{% block bottom_js %}
+    <script>
+        // Load the classic theme
+        Galleria.loadTheme('{{ STATIC_URL }}app/js/libs/galleria.classic.min.js');
+    
+        // Initialize Galleria
+        Galleria.run('.galleria');
+        
+    </script>
+{% endblock %}

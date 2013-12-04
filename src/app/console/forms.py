@@ -5,6 +5,8 @@ Created on 3 Dec 2013
 '''
 from django import forms
 
+from tunobase.core.models import Gallery
+
 from app.events.models import Event
 from app.authentication.models import EndUser
 from app.news.models import News
@@ -44,4 +46,12 @@ class JobsForm(forms.ModelForm):
         model = JobPost
         fields = [
                 'state', 'title', 'location', 'application_date', 'description',
+        ]
+
+class GalleryForm(forms.ModelForm):
+    
+    class Meta:
+        model = Gallery
+        fields = [
+                'state', 'title', 'rich_content', 'images',
         ]
