@@ -11,7 +11,7 @@ setup(
     package_dir = {'': 'src'},
     dependency_links = [
         'http://github.com/unomena/django-photologue/tarball/2.8.praekelt#egg=django-photologue-2.8.praekelt',
-        'http://github.com/unomena/django-ckeditor-new/tarball/3.6.2.2#egg=django-ckeditor-3.6.2.2'
+        'http://github.com/unomena/django-ckeditor-new/tarball/3.6.2.2#egg=django-ckeditor-3.6.2.2',
         'http://packages.unomena.net/tunobase-1.0.0.tar.gz#egg=tunobase-1.0.0',
     ],
     install_requires = [
