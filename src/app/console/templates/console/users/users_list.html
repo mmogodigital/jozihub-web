@@ -9,6 +9,19 @@
 <br/>
 	<h1>Users List</h1>
 	<a href="{% url 'console_users_create' %}">Add Users</a>
+    {% comment %}
+    <form>
+        <label id="id_first_name">First Name</label>
+        {{ form.first_name }}{{ form.first_name.errors }}
+
+        <label id="id_last_name">Last Name</label>
+        {{ form.first_name }}{{ form.first_name.errors }}
+        
+        <label id="id_email">Email</label>
+        {{ form.first_name }}{{ form.first_name.errors }}
+
+    </form>
+    {% endcomment %}
 	<table>
 	    <thead>
 	        <tr>

@@ -47,7 +47,7 @@ urlpatterns = patterns('',
                        
     url(r'^secure/register/$',
         check_honeypot(views.ProjectRegistration.as_view(
-            template_name='root/apply.html',
+            template_name='authentication/apply.html',
             form_class=forms.ProjectRegistrationForm
         )),
         name='secure_register'
@@ -55,7 +55,8 @@ urlpatterns = patterns('',
 
     url(r'^register/complete/$',
         TemplateView.as_view(
-            template_name='authentication/registration_complete.html'
+            #template_name='authentication/registration_complete.html'
+            template_name='authentication/apply_success.html'
         ),
         name='registration_complete'
     ),
@@ -112,5 +113,11 @@ urlpatterns = patterns('',
         views.logout,
         {'template_name' : 'authentication/logged_out.html' },
         name='auth_logout'
-    )
+    ),
+#    url(r'^apply/success/$', 
+#        views.ApplySuccess.as_view(
+#            template_name='root/apply_success.html'
+#        ),
+#        name='apply_success'
+#    ),
 )

@@ -298,6 +298,10 @@ class EndUser(ImageModel, AbstractBaseUser, PermissionsMixin):
 
         return super(EndUser, self).save(*args, **kwargs)
 
+    def mark_deleted(self):
+        self.is_active = False
+        self.save()
+
     def get_heard_about_from_options(self):
         return u', '.join([option.name for option in self.heard_about_from.all()])
 

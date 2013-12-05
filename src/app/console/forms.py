@@ -7,10 +7,10 @@ from django import forms
 
 from tunobase.core.models import Gallery
 
-from app.events.models import Event
 from app.authentication.models import EndUser
-from app.news.models import News
+from app.events.models import Event
 from app.jobs.models import JobPost
+from app.news.models import News
         
 class UsersForm(forms.ModelForm):
     

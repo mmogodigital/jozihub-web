@@ -35,7 +35,7 @@ class UsersUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'users.change_users'
     
     def get_success_url(self):
-        return reverse('console_users_detail', args=(self.object.pk,))
+        return reverse('console_users_list', args=(self.object.pk,))
 
     def get_queryset(self):
         return EndUser.objects.all()
@@ -75,7 +75,7 @@ class EventsUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'events.change_events'
     
     def get_success_url(self):
-        return reverse('console_events_list')
+        return reverse('console_events_detail', args=(self.object.pk,))
 
     def get_queryset(self):
         return Event.objects.permitted().all()
@@ -115,7 +115,7 @@ class NewsUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'news.change_news'
     
     def get_success_url(self):
-        return reverse('console_news_list')
+        return reverse('console_news_detail', args=(self.object.pk,))
 
     def get_queryset(self):
         return News.objects.permitted().all()
@@ -155,7 +155,7 @@ class JobsUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'jobs.change_jobs'
     
     def get_success_url(self):
-        return reverse('console_jobs_list')
+        return reverse('console_jobs_detail', args=(self.object.pk,))
 
     def get_queryset(self):
         return JobPost.objects.permitted().all()
@@ -195,7 +195,7 @@ class GalleryUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'gallery.change_gallery'
     
     def get_success_url(self):
-        return reverse('console_gallery_detail')
+        return reverse('console_gallery_detail', args=(self.object.pk,))
 
     def get_queryset(self):
         return Gallery.objects.permitted().all()

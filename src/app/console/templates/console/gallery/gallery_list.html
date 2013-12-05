@@ -19,7 +19,7 @@
 	    <tbody>
 	        {% for object in object_list %}
             <tr>
-                <td>{{ object.state }}</td>
+                <td>{{ object.get_state_display }}</td>
                 <td><a href="{% url 'console_gallery_detail' object.pk %}">{{ object.title }}</a></td>
                 <td>{{ object.image.get_100x150_url }}</td>
                 <td>

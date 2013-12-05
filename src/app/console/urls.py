@@ -97,7 +97,7 @@ urlpatterns = patterns('',
 
     #-------------------------------------------------------------------------
     # Console: News
-    url(r'^events/create/$',
+    url(r'^news/create/$',
         views.NewsCreate.as_view(
             form_class=forms.NewsForm,
             template_name='console/news/news_edit.html'

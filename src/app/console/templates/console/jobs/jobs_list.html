@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 	<h1>Job List</h1>
 	<a href="{% url 'console_jobs_create' %}">Add Job</a>
-    <br />
-    <br />
-    <br />
 	<table>
 	    <thead>
             <tr>
@@ -18,7 +21,7 @@
 	    <tbody>
 	        {% for object in object_list %}
             <tr>
-                <td>{{ object.state }}</td>
+                <td>{{ object.get_state_display }}</td>
                 <td><a href="{% url 'console_jobs_detail' object.pk %}">{{ object.title }}</a></td>
                 <td>{{ object.application_date|date:"j F Y" }}</td>
                 <td>

@@ -3,11 +3,14 @@
 {% block content %}
 	<script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
 	
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 	<h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} Job</h1>
 	<a href="{% url 'console_jobs_list' %}">Back to List</a>
-    <br />
-    <br />
-    <br />
 	
 	<form id="frmUpdateJobs" action="." method="POST">{% csrf_token %}
 	    <label for="id_image">State</label>

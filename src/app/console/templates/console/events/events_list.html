@@ -26,7 +26,7 @@
 	    <tbody>
 	        {% for object in object_list %}
             <tr>
-                <td>{{ object.state }}</td>
+                <td>{{ object.get_state_display }}</td>
                 <td><a href="{% url 'console_events_detail' object.pk %}">{{ object.title }}</a></td>
                 <td>{{ object.venue_name }}</td>
                 <td>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</td>

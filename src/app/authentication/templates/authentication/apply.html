@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load core_widgets honeypot %}
+
+{% block title %}Apply{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='apply' %}
+{% endblock %}
+
+{% block promo %}
+    {% html_bannerset_widget 'apply' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="up">
+        <div class="container">
+            <p class="context">Interest and membership application form</p>
+            <h1>Apply</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <form id="frmRegister" method="post" action=".">{% csrf_token %}
+                    <p class="head">General Information</p>
+                    <div class="field">
+                        <label for="id_first_name">First Name</label>
+                        {{ form.first_name }}{{ form.first_name.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_last_name">Last Name</label>
+                        {{ form.last_name }}{{ form.last_name.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_email">Email</label>
+                        {{ form.email }}{{ form.email.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_phone_number">Contact number</label>
+                        {{ form.phone_number }}{{ form.phone_number.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_age">Age</label>
+                        {{ form.age }}{{ form.age.errors }}
+                    </div>
+                    <div class="field">
+                        <label>Which area do you live in?</label>
+                        {{ form.city }}{{ form.city.errors }}
+                    </div>
+                    <div class="field">
+                        <label>How did you hear about us?</label>
+                        {{ form.heard_about_from }}{{ form.heard_about_from.errors }}    
+                        {{ form.heard_about_from_other }}{{ form.heard_about_from_other.errors }}
+                    </div>
+                    <div class="field">
+                        <label>Your affiliation</label>
+                        {{ form.affiliation }}{{ form.affiliation.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What is your reason for submitting this form?</label>
+                        {{ form.submit_reason }}{{ form.submit_reason.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    
+                    <div class="field">
+                        <label>I would like to get information and update for the JoziHub</label>
+                        {{ form.information_about_jozihub }}{{ form.information_about_jozihub.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    {% render_honeypot_field %}
+                    <p class="head">Tell us about yourself</p>                    
+                    <div class="field">
+                        <label>Educational background</label>
+                        {{ form.educational_background }}{{ form.educational_background.errors }}
+                    </div>
+                    <div class="field">
+                        <label>Tell us about yourself</label>
+                        {{ form.about_you }}{{ form.about_you.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    <p class="head">Events hosting</p>
+                    <div class="field">
+                        <label>What event are you interested in hosting?</label>
+                        {{ form.events_interesting_in_hosting }}{{ form.events_interesting_in_hosting.errors }}
+                        {{ form.events_interesting_in_hosting_other }}{{ form.events_interesting_in_hosting_other.errors }}
+                    </div>
+                    <div class="field">
+                        <label>When would you like to host the event?</label>
+                        {{ form.when_to_host_event }}{{ form.when_to_host_event.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What do you require from us?</label>
+                        {{ form.required_from_us }}{{ form.required_from_us.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    
+                    <p class="head">Work space</p>
+                    <div class="field">
+                        <label>How can you contribute to the JoziHub community?</label>
+                        {{ form.how_can_you_contribute_to_jozihub }}{{ form.how_can_you_contribute_to_jozihub.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What do you aim to get from the JoziHub?</label>
+                        {{ form.aims_to_get_from_jozihub }}{{ form.aims_to_get_from_jozihub.errors }}
+                    </div>
+                    <div class="field">
+                        <label>When would you like to get access to the space?</label>
+                        {{ form.when_to_get_access }}{{ form.when_to_get_access.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What type of space do you require?</label>
+                        {{ form.type_of_space_required }}{{ form.type_of_space_required.errors }}
+                    </div>
+                    <div class="field">
+                        <label>Are you happy with the price?</label>
+                        {{ form.happy_with_the_price }}{{ form.happy_with_the_price.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    
+                    <p class="head">Partners</p>
+                    <div class="field">
+                        <label>Do you want to become a partner or funder for the Hub?</label>
+                        {{ form.become_a_partner_or_funder }}{{ form.become_a_partner_or_funder.errors }}
+                        {{ form.become_a_partner_or_funder_other }}{{ form.become_a_partner_or_funder_other.errors }}
+                    </div>
+                    <div class="field">
+                        <label>Tell us about your organisation</label>
+                        {{ form.about_your_organisation }}{{ form.about_your_organisation.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What do you aim to achieve out of the partnership?</label>
+                        {{ form.what_do_you_aim_to_achieve }}{{ form.what_do_you_aim_to_achieve.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What do you expect from the partnership?</label>
+                        {{ form.partnership_expectation }}{{ form.partnership_expectation.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    
+                    <p class="head">Mentor</p>
+                    <div class="field">
+                        <label>What is your field of expertise?</label>
+                        {{ form.field_of_expertise }}{{ form.field_of_expertise.errors }}
+                        {{ form.field_of_expertise_other }}{{ form.field_of_expertise_other.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What is you background and expertise? (short CV or profile)</label>
+                        {{ form.background_and_expertise }}{{ form.background_and_expertise.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What can you offer as a mentor?</label>
+                        {{ form.what_can_you_offer_as_a_mentor }}{{ form.what_can_you_offer_as_a_mentor.errors }}
+                    </div>
+                    <div class="field">
+                        <label>How much time a month can you assist in mentoring?</label>
+                        {{ form.mentoring_time }}{{ form.mentoring_time.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_password1">Password <span>*</span></label>
+                        {{ form.password1 }}{{ form.password1.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_password2">Confirm Password <span>*</span></label>
+                        {{ form.password2 }}{{ form.password2.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    <p class="btns">
+                        <input type="submit" value="Apply" />
+                    </p>
+                </form>
+            </div>
+            <div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
+{% endblock %}
+
+{% block bottom_js %}
+<script>
+    $('#frmRegister').validate();
+</script>
+{% endblock %}

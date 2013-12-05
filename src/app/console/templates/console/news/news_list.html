@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 	<h1>News List</h1>
 	<a href="{% url 'console_news_create' %}">Add News Article</a>
-    <br />
-    <br />
-    <br />
 	<table>
 	    <thead>
             <tr>
-                <th>Stage</th>
+                <th>State</th>
                 <th>Title</th>
+                <th>Description</th>
                 <th>Published Date</th>
                 <th>&nbsp;</th>
             </tr>
@@ -18,7 +21,7 @@
 	    <tbody>
 	        {% for object in object_list %}
             <tr>
-                <td>{{ object.state }}</td>
+                <td>{{ object.get_state_display }}</td>
                 <td><a href="{% url 'console_news_detail' object.pk %}">{{ object.title }}</a></td>
                 {% comment %}
                 <td>{{ object.publish_at|date:"j F Y" }}</td>
