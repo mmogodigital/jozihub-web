@@ -12,6 +12,7 @@ setup(
     dependency_links = [
         'http://github.com/unomena/django-photologue/tarball/2.8.praekelt#egg=django-photologue-2.8.praekelt',
         'http://github.com/unomena/django-ckeditor-new/tarball/3.6.2.2#egg=django-ckeditor-3.6.2.2'
+        'http://packages.unomena.net/tunobase-1.0.0.tar.gz#egg=tunobase-1.0.0',
     ],
     install_requires = [
         'South',
@@ -33,7 +34,7 @@ setup(
         'Pillow',
         'psycopg2',
         'flufl.password==1.2.1',
-        'tunobase'
+        'tunobase==1.0.0'
     ],
     include_package_data=True,
 )
