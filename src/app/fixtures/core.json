@@ -22,7 +22,7 @@
         "created_at": "2013-11-27T12:01:10.666Z", 
         "plain_content": "", 
         "slug": "invitation-to-launch-of-making-all-voices-count-thursday-10-october-14h00-wits-university", 
-        "polymorphic_ctype": 16
+        "polymorphic_ctype": 10
     }
 },
 {
@@ -48,7 +48,7 @@
         "created_at": "2013-11-27T12:02:05.561Z", 
         "plain_content": "", 
         "slug": "tedx-city-20-innovative-ideas-on-urban-living", 
-        "polymorphic_ctype": 16
+        "polymorphic_ctype": 10
     }
 },
 {
@@ -74,7 +74,7 @@
         "created_at": "2013-11-27T12:02:30.650Z", 
         "plain_content": "", 
         "slug": "amaze-festival-pecka-kucha-night", 
-        "polymorphic_ctype": 16
+        "polymorphic_ctype": 10
     }
 },
 {
@@ -100,7 +100,7 @@
         "created_at": "2013-11-27T12:06:06.138Z", 
         "plain_content": "", 
         "slug": "bitcoin-meetup-how-you-can-get-involved", 
-        "polymorphic_ctype": 45
+        "polymorphic_ctype": 40
     }
 },
 {
@@ -126,7 +126,7 @@
         "created_at": "2013-11-27T12:07:52.766Z", 
         "plain_content": "", 
         "slug": "google", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -152,7 +152,7 @@
         "created_at": "2013-11-27T12:09:07.881Z", 
         "plain_content": "", 
         "slug": "praekelt-foundation", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -178,7 +178,7 @@
         "created_at": "2013-11-27T12:09:47.655Z", 
         "plain_content": "", 
         "slug": "omidyar", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -204,7 +204,7 @@
         "created_at": "2013-11-27T12:10:24.370Z", 
         "plain_content": "", 
         "slug": "afriabs", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -230,7 +230,7 @@
         "created_at": "2013-11-27T12:10:56.088Z", 
         "plain_content": "", 
         "slug": "silicon-cape", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -256,7 +256,7 @@
         "created_at": "2013-11-27T12:11:23.259Z", 
         "plain_content": "", 
         "slug": "islabs", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -282,7 +282,7 @@
         "created_at": "2013-11-27T12:11:53.656Z", 
         "plain_content": "", 
         "slug": "think-paint", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -308,7 +308,7 @@
         "created_at": "2013-11-27T12:12:25.902Z", 
         "plain_content": "", 
         "slug": "the-indigo-trust", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -334,7 +334,7 @@
         "created_at": "2013-11-27T12:13:14.482Z", 
         "plain_content": "", 
         "slug": "venture-solutions", 
-        "polymorphic_ctype": 17
+        "polymorphic_ctype": 11
     }
 },
 {
@@ -362,7 +362,7 @@
         "created_at": "2013-11-27T12:22:17.412Z", 
         "plain_content": "", 
         "slug": "demo-gallery", 
-        "polymorphic_ctype": 26
+        "polymorphic_ctype": 12
     }
 },
 {
@@ -388,7 +388,7 @@
         "created_at": "2013-12-02T13:56:11.695Z", 
         "plain_content": null, 
         "slug": "job-title", 
-        "polymorphic_ctype": 53
+        "polymorphic_ctype": 51
     }
 },
 {

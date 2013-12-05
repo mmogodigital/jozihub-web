@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
+import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
@@ -12,6 +12,7 @@ class Migration(SchemaMigration):
         db.create_table(u'root_heardaboutchoice', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('order', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
         ))
         db.send_create_signal(u'root', ['HeardAboutChoice'])
 
@@ -19,6 +20,7 @@ class Migration(SchemaMigration):
         db.create_table(u'root_eventhostingchoice', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('order', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
         ))
         db.send_create_signal(u'root', ['EventHostingChoice'])
 
@@ -26,6 +28,7 @@ class Migration(SchemaMigration):
         db.create_table(u'root_typeofspacerequiredchoice', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('order', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
         ))
         db.send_create_signal(u'root', ['TypeOfSpaceRequiredChoice'])
 
@@ -33,6 +36,7 @@ class Migration(SchemaMigration):
         db.create_table(u'root_partnerchoice', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('order', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
         ))
         db.send_create_signal(u'root', ['PartnerChoice'])
 
@@ -174,24 +178,28 @@ class Migration(SchemaMigration):
             'when_to_host_event': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'})
         },
         u'root.eventhostingchoice': {
-            'Meta': {'object_name': 'EventHostingChoice'},
+            'Meta': {'ordering': "['order']", 'object_name': 'EventHostingChoice'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
         },
         u'root.heardaboutchoice': {
-            'Meta': {'object_name': 'HeardAboutChoice'},
+            'Meta': {'ordering': "['order']", 'object_name': 'HeardAboutChoice'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
         },
         u'root.partnerchoice': {
-            'Meta': {'object_name': 'PartnerChoice'},
+            'Meta': {'ordering': "['order']", 'object_name': 'PartnerChoice'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
         },
         u'root.typeofspacerequiredchoice': {
-            'Meta': {'object_name': 'TypeOfSpaceRequiredChoice'},
+            'Meta': {'ordering': "['order']", 'object_name': 'TypeOfSpaceRequiredChoice'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
         }
     }
 
