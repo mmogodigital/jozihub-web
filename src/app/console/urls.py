@@ -10,7 +10,9 @@ from app.console import views, forms
 
 urlpatterns = patterns('',
     url(r'^$',
-        views.ConsoleLanding.as_view(),
+        views.ConsoleLanding.as_view(
+            template_name='console/landing_page.html'
+        ),
         name='console_landing_page'
     ),
     #-------------------------------------------------------------------------
@@ -45,7 +47,7 @@ urlpatterns = patterns('',
         name='console_users_delete'
     ),
 
-    url(r'^users/list/$',
+    url(r'^users/$',
         views.UsersList.as_view(
             template_name='console/users/users_list.html',
             paginate_by=20
@@ -86,7 +88,7 @@ urlpatterns = patterns('',
         name='console_events_delete'
     ),
 
-    url(r'^events/list/$',
+    url(r'^events/$',
         views.EventsList.as_view(
             template_name='console/events/events_list.html',
             paginate_by=20
@@ -127,7 +129,7 @@ urlpatterns = patterns('',
         name='console_news_delete'
     ),
 
-    url(r'^news/list/$',
+    url(r'^news/$',
         views.NewsList.as_view(
             template_name='console/news/news_list.html',
             paginate_by=20
@@ -168,7 +170,7 @@ urlpatterns = patterns('',
         name='console_jobs_delete'
     ),
 
-    url(r'^jobs/list/$',
+    url(r'^jobs/$',
         views.JobsList.as_view(
             template_name='console/jobs/jobs_list.html',
             paginate_by=20
@@ -209,7 +211,7 @@ urlpatterns = patterns('',
         name='console_gallery_delete'
     ),
 
-    url(r'^gallery/list/$',
+    url(r'^gallery/$',
         views.GalleryList.as_view(
             template_name='console/gallery/gallery_list.html',
             paginate_by=20

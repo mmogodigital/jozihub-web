@@ -1,11 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'console_base.html' %}
 {% load core_widgets %}
 
 {% block title %}Console{% endblock %}
-
-{% block header %}
-    {% include 'includes/top_nav.html' with on='console' %}
-{% endblock %}
 
 {% block promo %}
     {% html_bannerset_widget 'console' %}

@@ -21,7 +21,6 @@ class AdminMixin(console_mixins.ConsoleUserRequiredMixin, core_mixins.Permission
 
 class ConsoleLanding(AdminMixin, TemplateView):
     permission_required = 'events.add_events'
-    template_name='console/landing_page.html'
 
 #----------------------------------------------------------------------------
 # Console: Users
@@ -78,7 +77,7 @@ class EventsUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_events_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return Event.objects.permitted().all()
+        return Event.objects.all()
 
 class EventsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'events.change_events'
@@ -95,13 +94,13 @@ class EventsDelete(AdminMixin, core_views.MarkDeleteView):
         return reverse('console_events_list')
 
     def get_queryset(self):
-        return Event.objects.permitted().all()
+        return Event.objects.all()
 
 class EventsList(AdminMixin, generic_views.ListView):
     permission_required = 'events.change_events'
     
     def get_queryset(self):
-        return Event.objects.permitted().all()
+        return Event.objects.all()
     
 #-----------------------------------------------------------------------------
 # Console: News
@@ -118,7 +117,7 @@ class NewsUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_news_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return News.objects.permitted().all()
+        return News.objects.all()
 
 class NewsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'news.change_news'
@@ -135,13 +134,13 @@ class NewsDelete(AdminMixin, core_views.MarkDeleteView):
         return reverse('console_news_list')
 
     def get_queryset(self):
-        return News.objects.permitted().all()
+        return News.objects.all()
 
 class NewsList(AdminMixin, generic_views.ListView):
     permission_required = 'news.change_news'
     
     def get_queryset(self):
-        return News.objects.permitted().all()
+        return News.objects.all()
     
 #-----------------------------------------------------------------------------
 # Console: Jobs
@@ -158,7 +157,7 @@ class JobsUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_jobs_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return JobPost.objects.permitted().all()
+        return JobPost.objects.all()
 
 class JobsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'jobs.change_jobs'
@@ -175,13 +174,13 @@ class JobsDelete(AdminMixin, core_views.MarkDeleteView):
         return reverse('console_jobs_list')
 
     def get_queryset(self):
-        return JobPost.objects.permitted().all()
+        return JobPost.objects.all()
 
 class JobsList(AdminMixin, generic_views.ListView):
     permission_required = 'jobs.change_jobs'
     
     def get_queryset(self):
-        return JobPost.objects.permitted().all()
+        return JobPost.objects.all()
     
  #-----------------------------------------------------------------------------
 # Console: Gallery
@@ -198,7 +197,7 @@ class GalleryUpdate(AdminMixin, generic_views.UpdateView):
         return reverse('console_gallery_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return Gallery.objects.permitted().all()
+        return Gallery.objects.all()
 
 class GalleryDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'gallery.change_gallery'
@@ -215,12 +214,12 @@ class GalleryDelete(AdminMixin, core_views.MarkDeleteView):
         return reverse('console_gallery_list')
 
     def get_queryset(self):
-        return Gallery.objects.permitted().all()
+        return Gallery.objects.all()
 
 class GalleryList(AdminMixin, generic_views.ListView):
     permission_required = 'gallery.change_gallery'
     
     def get_queryset(self):
-        return Gallery.objects.permitted().all()
+        return Gallery.objects.all()
     
     
