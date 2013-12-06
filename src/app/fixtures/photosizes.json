@@ -1,0 +1,18 @@
+[
+{
+    "pk": 1, 
+    "model": "photologue.photosize", 
+    "fields": {
+        "name": "100x150", 
+        "watermark": null, 
+        "increment_count": false, 
+        "effect": null, 
+        "crop": true, 
+        "height": 150, 
+        "width": 100, 
+        "upscale": false, 
+        "pre_cache": true, 
+        "quality": 70
+    }
+}
+]
