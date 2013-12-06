@@ -34,10 +34,13 @@ class UsersUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'users.change_users'
     
     def get_success_url(self):
-        return reverse('console_users_list', args=(self.object.pk,))
+        return reverse('console_users_detail', args=(self.object.pk,))
 
     def get_queryset(self):
         return EndUser.objects.all()
+    
+    def form_invalid(self, form):
+        print form.errors
 
 class UsersDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'users.change_users'

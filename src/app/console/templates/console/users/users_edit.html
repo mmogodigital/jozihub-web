@@ -1,6 +1,7 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
+<br/><br/>
     <div id="content" class="up">
         <div class="container">
             <h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} User</h1>
@@ -67,8 +68,8 @@
                     <p class="head">Events hosting</p>
                     <div class="field">
                         <label>What event are you interested in hosting?</label>
-                        {{ form.events_interesting_in_hosting }}{{ form.events_interesting_in_hosting.errors }}
-                        {{ form.events_interesting_in_hosting_other }}{{ form.events_interesting_in_hosting_other.errors }}
+                        {{ form.events_interested_in_hosting }}{{ form.events_interested_in_hosting.errors }}
+                        {{ form.events_interested_in_hosting_other }}{{ form.events_interested_in_hosting_other.errors }}
                     </div>
                     <div class="field">
                         <label>When would you like to host the event?</label>
@@ -140,14 +141,6 @@
                     <div class="field">
                         <label>How much time a month can you assist in mentoring?</label>
                         {{ form.mentoring_time }}{{ form.mentoring_time.errors }}
-                    </div>
-                    <div class="field">
-                        <label for="id_password1">Password <span>*</span></label>
-                        {{ form.password1 }}{{ form.password1.errors }}
-                    </div>
-                    <div class="field">
-                        <label for="id_password2">Confirm Password <span>*</span></label>
-                        {{ form.password2 }}{{ form.password2.errors }}
                     </div>
                     <div class="clear"></div>
                     <p class="btns">

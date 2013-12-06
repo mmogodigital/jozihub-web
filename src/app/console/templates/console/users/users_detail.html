@@ -1,10 +1,13 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
+<br/>
+<br/><br/>
     <div id="content" class="up">
         <div class="container">
-            <p class="context">{{ object.get_full_name }}'s Application Form</p>
+            <p class="context">{{ object.get_full_name }}</p>
             <a href="{% url 'console_users_list' %}">Back to Users List</a>
+            <a href="{% url 'console_users_update' object.pk %}">Edit this user</a>
             
             <div class="clear"></div>
             <div class="block">
