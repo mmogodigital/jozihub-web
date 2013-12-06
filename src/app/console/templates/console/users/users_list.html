@@ -8,6 +8,8 @@
 <br/>
 <br/>
 	<h1>Users List</h1>
+	<br/>
+<br/>
 	<a href="{% url 'console_users_create' %}">Add Users</a>
     {% comment %}
     <form>
@@ -22,7 +24,7 @@
 
     </form>
     {% endcomment %}
-	<table>
+	<table width="100%">
 	    <thead>
 	        <tr>
 	            <th>User</th>
@@ -34,11 +36,7 @@
 	        {% for object in object_list %}
 	            <tr>
 	                <td><a href="{% url 'console_users_detail' object.pk %}">{% if not object.title %}&nbsp;{% endif %}{{ object.get_full_name }}</a></td>
-	            </tr>
-	            <tr>
 	                <td>{{ object.email }}</td>
-	            </tr>
-	            <tr>
 	                <td>
 	                    <a href="{% url 'console_users_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
 	                    <a href="{% url 'console_users_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
@@ -51,4 +49,6 @@
 	        {% endfor %}
 	    </tbody>
 	</table>
+<br/>
+<br/>
 {% endblock %}

@@ -20,7 +20,7 @@ class UsersForm(forms.ModelForm):
                 'job_title', 'company', 'username', 'date_joined',
                 'street_address', 'state_province', 'zip_postal_code',
                 'country', 'web_address', 'is_regular_user', 'is_active',
-                'is_admin', 'is_console_user'
+                'is_admin', 'is_console_user', 'password', 'last_login'
         ]
 
 class EventsForm(forms.ModelForm):
