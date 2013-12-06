@@ -8,7 +8,12 @@ from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 
-from tunobase.core import mixins as core_mixins, utils as core_utils, views as core_views
+from tunobase.core import (
+    mixins as core_mixins, 
+    utils as core_utils, 
+    views as core_views, 
+    constants as core_constants
+)
 from tunobase.console import mixins as console_mixins
 from tunobase.core.models import Gallery
 from app.authentication.models import EndUser
@@ -16,7 +21,10 @@ from app.events.models import Event
 from app.news.models import News 
 from app.jobs.models import JobPost
 
-class AdminMixin(console_mixins.ConsoleUserRequiredMixin, core_mixins.PermissionRequiredMixin):
+class AdminMixin(
+    console_mixins.ConsoleUserRequiredMixin, 
+    core_mixins.PermissionRequiredMixin
+):
     raise_exception = False
 
 class ConsoleLanding(AdminMixin, TemplateView):
@@ -86,7 +94,7 @@ class EventsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'events.change_events'
 
     def get_object(self):
-        return core_utils.get_permitted_object_or_404(
+        return get_object_or_404(
             Event, pk=self.kwargs['pk']
         )
 
@@ -103,7 +111,7 @@ class EventsList(AdminMixin, generic_views.ListView):
     permission_required = 'events.change_events'
     
     def get_queryset(self):
-        return Event.objects.all()
+        return Event.objects.exclude(state=core_constants.STATE_DELETED)
     
 #-----------------------------------------------------------------------------
 # Console: News
@@ -126,7 +134,7 @@ class NewsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'news.change_news'
 
     def get_object(self):
-        return core_utils.get_permitted_object_or_404(
+        return get_object_or_404(
             News, pk=self.kwargs['pk']
         )
 
