@@ -9,7 +9,7 @@ from django.utils import timezone
 from tunobase.core import managers as core_managers
 from tunobase.corporate.media import query
 
-class EventManager(core_managers.CorePolymorphicStateManager):
+class EventManager(core_managers.CoreStateManager):
     
     def get_queryset(self):
         return query.EventQuerySet(self.model, using=self._db)
