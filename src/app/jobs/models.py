@@ -20,7 +20,7 @@ class JobCategory(models.Model):
     def __unicode__(self):
         return u'%s' % self.title
     
-class JobPost(core_models.ContentModel):
+class JobPost(core_models.BaseContentModel):
     """
     Store a job listing
     """

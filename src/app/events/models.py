@@ -11,9 +11,10 @@ from django.utils import timezone
 from tunobase.corporate.media import constants as media_constants
 from tunobase.core import models as core_models
 
+from app.gallery.models import JHGallery
 from app.events import managers
 
-class Event(core_models.ContentModel):
+class Event(core_models.BaseContentModel):
     '''
     Company event eg. Trade Show, Festival, Market
     '''
@@ -33,7 +34,7 @@ class Event(core_models.ContentModel):
     calendar_link = models.URLField(max_length=255, blank=True, null=True)
     
     gallery = models.ForeignKey(
-        core_models.Gallery, 
+        JHGallery, 
         related_name='events', 
         blank=True, 
         null=True

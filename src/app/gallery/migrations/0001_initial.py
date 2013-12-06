@@ -8,55 +8,89 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Event'
-        db.create_table(u'events_event', (
+        # Adding model 'JHGalleryImage'
+        db.create_table(u'gallery_jhgalleryimage', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, blank=True)),
             ('date_taken', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
             ('view_count', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('crop_from', self.gf('django.db.models.fields.CharField')(default='center', max_length=10, blank=True)),
-            ('effect', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='event_related', null=True, to=orm['photologue.PhotoEffect'])),
+            ('effect', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='jhgalleryimage_related', null=True, to=orm['photologue.PhotoEffect'])),
+            ('state', self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=0)),
+            ('publish_at', self.gf('django.db.models.fields.DateTimeField')(db_index=True, null=True, blank=True)),
+            ('retract_at', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
+            ('image_name', self.gf('django.db.models.fields.CharField')(max_length=512, null=True, blank=True)),
+            ('order', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True)),
+        ))
+        db.send_create_signal(u'gallery', ['JHGalleryImage'])
+
+        # Adding M2M table for field sites on 'JHGalleryImage'
+        m2m_table_name = db.shorten_name(u'gallery_jhgalleryimage_sites')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('jhgalleryimage', models.ForeignKey(orm[u'gallery.jhgalleryimage'], null=False)),
+            ('site', models.ForeignKey(orm[u'sites.site'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['jhgalleryimage_id', 'site_id'])
+
+        # Adding model 'JHGallery'
+        db.create_table(u'gallery_jhgallery', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, blank=True)),
+            ('date_taken', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
+            ('view_count', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('crop_from', self.gf('django.db.models.fields.CharField')(default='center', max_length=10, blank=True)),
+            ('effect', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='jhgallery_related', null=True, to=orm['photologue.PhotoEffect'])),
             ('state', self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=0)),
             ('publish_at', self.gf('django.db.models.fields.DateTimeField')(db_index=True, null=True, blank=True)),
             ('retract_at', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=255)),
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('created_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='event_created_content', null=True, to=orm['authentication.EndUser'])),
+            ('created_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='jhgallery_created_content', null=True, to=orm['authentication.EndUser'])),
             ('modified_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='event_modified_content', null=True, to=orm['authentication.EndUser'])),
+            ('modified_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='jhgallery_modified_content', null=True, to=orm['authentication.EndUser'])),
             ('image_name', self.gf('django.db.models.fields.CharField')(max_length=512, null=True, blank=True)),
             ('plain_content', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('rich_content', self.gf('ckeditor.fields.RichTextField')(null=True, blank=True)),
             ('order', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True)),
-            ('venue_name', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('venue_address', self.gf('django.db.models.fields.TextField')()),
-            ('start', self.gf('django.db.models.fields.DateTimeField')(db_index=True)),
-            ('end', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
-            ('repeat', self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=0)),
-            ('repeat_until', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('external_link', self.gf('django.db.models.fields.URLField')(max_length=255, null=True, blank=True)),
-            ('calendar_link', self.gf('django.db.models.fields.URLField')(max_length=255, null=True, blank=True)),
-            ('gallery', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='events', null=True, to=orm['gallery.JHGallery'])),
         ))
-        db.send_create_signal(u'events', ['Event'])
+        db.send_create_signal(u'gallery', ['JHGallery'])
 
-        # Adding M2M table for field sites on 'Event'
-        m2m_table_name = db.shorten_name(u'events_event_sites')
+        # Adding M2M table for field sites on 'JHGallery'
+        m2m_table_name = db.shorten_name(u'gallery_jhgallery_sites')
         db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('event', models.ForeignKey(orm[u'events.event'], null=False)),
+            ('jhgallery', models.ForeignKey(orm[u'gallery.jhgallery'], null=False)),
             ('site', models.ForeignKey(orm[u'sites.site'], null=False))
         ))
-        db.create_unique(m2m_table_name, ['event_id', 'site_id'])
+        db.create_unique(m2m_table_name, ['jhgallery_id', 'site_id'])
+
+        # Adding M2M table for field images on 'JHGallery'
+        m2m_table_name = db.shorten_name(u'gallery_jhgallery_images')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('jhgallery', models.ForeignKey(orm[u'gallery.jhgallery'], null=False)),
+            ('jhgalleryimage', models.ForeignKey(orm[u'gallery.jhgalleryimage'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['jhgallery_id', 'jhgalleryimage_id'])
 
 
     def backwards(self, orm):
-        # Deleting model 'Event'
-        db.delete_table(u'events_event')
+        # Deleting model 'JHGalleryImage'
+        db.delete_table(u'gallery_jhgalleryimage')
 
-        # Removing M2M table for field sites on 'Event'
-        db.delete_table(db.shorten_name(u'events_event_sites'))
+        # Removing M2M table for field sites on 'JHGalleryImage'
+        db.delete_table(db.shorten_name(u'gallery_jhgalleryimage_sites'))
+
+        # Deleting model 'JHGallery'
+        db.delete_table(u'gallery_jhgallery')
+
+        # Removing M2M table for field sites on 'JHGallery'
+        db.delete_table(db.shorten_name(u'gallery_jhgallery_sites'))
+
+        # Removing M2M table for field images on 'JHGallery'
+        db.delete_table(db.shorten_name(u'gallery_jhgallery_images'))
 
 
     models = {
@@ -165,38 +199,6 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        u'events.event': {
-            'Meta': {'ordering': "['order', '-start']", 'object_name': 'Event'},
-            'calendar_link': ('django.db.models.fields.URLField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'created_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'event_created_content'", 'null': 'True', 'to': u"orm['authentication.EndUser']"}),
-            'crop_from': ('django.db.models.fields.CharField', [], {'default': "'center'", 'max_length': '10', 'blank': 'True'}),
-            'date_taken': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'effect': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'event_related'", 'null': 'True', 'to': u"orm['photologue.PhotoEffect']"}),
-            'end': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'external_link': ('django.db.models.fields.URLField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
-            'gallery': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'events'", 'null': 'True', 'to': u"orm['gallery.JHGallery']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
-            'image_name': ('django.db.models.fields.CharField', [], {'max_length': '512', 'null': 'True', 'blank': 'True'}),
-            'modified_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'modified_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'event_modified_content'", 'null': 'True', 'to': u"orm['authentication.EndUser']"}),
-            'order': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0', 'db_index': 'True'}),
-            'plain_content': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'publish_at': ('django.db.models.fields.DateTimeField', [], {'db_index': 'True', 'null': 'True', 'blank': 'True'}),
-            'repeat': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
-            'repeat_until': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
-            'retract_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'rich_content': ('ckeditor.fields.RichTextField', [], {'null': 'True', 'blank': 'True'}),
-            'sites': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['sites.Site']", 'null': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '255'}),
-            'start': ('django.db.models.fields.DateTimeField', [], {'db_index': 'True'}),
-            'state': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
-            'venue_address': ('django.db.models.fields.TextField', [], {}),
-            'venue_name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'view_count': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'})
-        },
         u'gallery.jhgallery': {
             'Meta': {'object_name': 'JHGallery'},
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
@@ -259,4 +261,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['events']
+    complete_apps = ['gallery']

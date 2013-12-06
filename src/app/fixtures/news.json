@@ -3,21 +3,78 @@
     "pk": 1, 
     "model": "news.news", 
     "fields": {
-        "sites": []
+        "sites": [],
+        "view_count": 0, 
+        "modified_by": null, 
+        "date_taken": "2013-11-27T12:01:10.654Z", 
+        "title": "Invitation to Launch of Making All Voices Count, Thursday, 10 October, 14h00, Wits University", 
+        "rich_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper felis sed eros adipiscing, nec malesuada erat tempus. Nulla quis nibh nulla. Suspendisse euismod ante varius purus posuere vehicula. Vivamus venenatis tellus in ligula sagittis elementum. Quisque quis odio vitae diam vehicula luctus et sit amet dui. Vivamus quis nunc eleifend, sagittis justo eu, varius tortor. Integer vitae dui ipsum. Nulla scelerisque, nisi id aliquam blandit, felis urna condimentum augue, id venenatis ligula tortor sit amet ligula. Nulla leo ligula, dignissim sagittis interdum eu, gravida quis odio. Pellentesque mi urna, porta sit amet velit eget, gravida pretium ipsum. Etiam vel velit quam. Phasellus eget sapien placerat, placerat mi vel, imperdiet purus. Nam rhoncus mi mi, nec malesuada nibh porta at. Nulla tincidunt pretium odio at ultrices. Proin scelerisque neque diam, quis varius est commodo sit amet.</p>\r\n", 
+        "modified_at": "2013-11-27T12:01:10.666Z", 
+        "image": "", 
+        "retract_at": null, 
+        "crop_from": "center", 
+        "effect": null, 
+        "created_by": null, 
+        "image_name": "", 
+        "order": 0, 
+        "sites": [], 
+        "state": 0, 
+        "publish_at": "2013-10-07T12:00:46Z", 
+        "created_at": "2013-11-27T12:01:10.666Z", 
+        "plain_content": "", 
+        "slug": "invitation-to-launch-of-making-all-voices-count-thursday-10-october-14h00-wits-university" 
     }
 },
 {
     "pk": 2, 
     "model": "news.news", 
     "fields": {
-        "sites": []
+        "sites": [],
+        "view_count": 0, 
+        "modified_by": null, 
+        "date_taken": "2013-11-27T12:02:05.542Z", 
+        "title": "TEDx City 2.0 - Innovative Ideas on Urban Living", 
+        "rich_content": "<p>\r\n\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper felis sed eros adipiscing, nec malesuada erat tempus. Nulla quis nibh nulla. Suspendisse euismod ante varius purus posuere vehicula. Vivamus venenatis tellus in ligula sagittis elementum. Quisque quis odio vitae diam vehicula luctus et sit amet dui. Vivamus quis nunc eleifend, sagittis justo eu, varius tortor. Integer vitae dui ipsum. Nulla scelerisque, nisi id aliquam blandit, felis urna condimentum augue, id venenatis ligula tortor sit amet ligula. Nulla leo ligula, dignissim sagittis interdum eu, gravida quis odio. Pellentesque mi urna, porta sit amet velit eget, gravida pretium ipsum. Etiam vel velit quam. Phasellus eget sapien placerat, placerat mi vel, imperdiet purus. Nam rhoncus mi mi, nec malesuada nibh porta at. Nulla tincidunt pretium odio at ultrices. Proin scelerisque neque diam, quis varius est commodo sit amet.</p>\r\n", 
+        "modified_at": "2013-11-27T12:02:05.561Z", 
+        "image": "", 
+        "retract_at": null, 
+        "crop_from": "center", 
+        "effect": null, 
+        "created_by": null, 
+        "image_name": "", 
+        "order": 0, 
+        "sites": [], 
+        "state": 0, 
+        "publish_at": "2013-09-24T12:01:54Z", 
+        "created_at": "2013-11-27T12:02:05.561Z", 
+        "plain_content": "", 
+        "slug": "tedx-city-20-innovative-ideas-on-urban-living" 
     }
 },
 {
     "pk": 3, 
     "model": "news.news", 
     "fields": {
-        "sites": []
+        "sites": [],
+        "view_count": 0, 
+        "modified_by": null, 
+        "date_taken": "2013-11-27T12:02:30.637Z", 
+        "title": "A.MAZE Festival Pecka Kucha Night", 
+        "rich_content": "<p>\r\n\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper felis sed eros adipiscing, nec malesuada erat tempus. Nulla quis nibh nulla. Suspendisse euismod ante varius purus posuere vehicula. Vivamus venenatis tellus in ligula sagittis elementum. Quisque quis odio vitae diam vehicula luctus et sit amet dui. Vivamus quis nunc eleifend, sagittis justo eu, varius tortor. Integer vitae dui ipsum. Nulla scelerisque, nisi id aliquam blandit, felis urna condimentum augue, id venenatis ligula tortor sit amet ligula. Nulla leo ligula, dignissim sagittis interdum eu, gravida quis odio. Pellentesque mi urna, porta sit amet velit eget, gravida pretium ipsum. Etiam vel velit quam. Phasellus eget sapien placerat, placerat mi vel, imperdiet purus. Nam rhoncus mi mi, nec malesuada nibh porta at. Nulla tincidunt pretium odio at ultrices. Proin scelerisque neque diam, quis varius est commodo sit amet.</p>\r\n", 
+        "modified_at": "2013-11-27T12:02:30.650Z", 
+        "image": "", 
+        "retract_at": null, 
+        "crop_from": "center", 
+        "effect": null, 
+        "created_by": null, 
+        "image_name": "", 
+        "order": 0, 
+        "sites": [], 
+        "state": 0, 
+        "publish_at": "2013-09-12T12:02:23Z", 
+        "created_at": "2013-11-27T12:02:30.650Z", 
+        "plain_content": "", 
+        "slug": "amaze-festival-pecka-kucha-night"
     }
 }
 ]

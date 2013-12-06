@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import datetime
+from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
@@ -18,12 +18,39 @@ class Migration(SchemaMigration):
 
         # Adding model 'JobPost'
         db.create_table(u'jobs_jobpost', (
-            (u'contentmodel_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['core.ContentModel'], unique=True, primary_key=True)),
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, blank=True)),
+            ('date_taken', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
+            ('view_count', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('crop_from', self.gf('django.db.models.fields.CharField')(default='center', max_length=10, blank=True)),
+            ('effect', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='jobpost_related', null=True, to=orm['photologue.PhotoEffect'])),
+            ('state', self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=0)),
+            ('publish_at', self.gf('django.db.models.fields.DateTimeField')(db_index=True, null=True, blank=True)),
+            ('retract_at', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
+            ('title', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=255)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('created_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='jobpost_created_content', null=True, to=orm['authentication.EndUser'])),
+            ('modified_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('modified_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='jobpost_modified_content', null=True, to=orm['authentication.EndUser'])),
+            ('image_name', self.gf('django.db.models.fields.CharField')(max_length=512, null=True, blank=True)),
+            ('plain_content', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('rich_content', self.gf('ckeditor.fields.RichTextField')(null=True, blank=True)),
+            ('order', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True)),
             ('location', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('application_date', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
         ))
         db.send_create_signal(u'jobs', ['JobPost'])
+
+        # Adding M2M table for field sites on 'JobPost'
+        m2m_table_name = db.shorten_name(u'jobs_jobpost_sites')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('jobpost', models.ForeignKey(orm[u'jobs.jobpost'], null=False)),
+            ('site', models.ForeignKey(orm[u'sites.site'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['jobpost_id', 'site_id'])
 
         # Adding M2M table for field job_categories on 'JobPost'
         m2m_table_name = db.shorten_name(u'jobs_jobpost_job_categories')
@@ -41,6 +68,9 @@ class Migration(SchemaMigration):
 
         # Deleting model 'JobPost'
         db.delete_table(u'jobs_jobpost')
+
+        # Removing M2M table for field sites on 'JobPost'
+        db.delete_table(db.shorten_name(u'jobs_jobpost_sites'))
 
         # Removing M2M table for field job_categories on 'JobPost'
         db.delete_table(db.shorten_name(u'jobs_jobpost_job_categories'))
@@ -152,21 +182,30 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        u'core.contentmodel': {
-            'Meta': {'ordering': "['order', '-publish_at']", 'object_name': 'ContentModel'},
+        u'jobs.jobcategory': {
+            'Meta': {'ordering': "['order', 'title']", 'object_name': 'JobCategory'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'jobs.jobpost': {
+            'Meta': {'ordering': "['order', '-publish_at']", 'object_name': 'JobPost'},
+            'application_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'created_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'contentmodel_created_content'", 'null': 'True', 'to': u"orm['authentication.EndUser']"}),
+            'created_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'jobpost_created_content'", 'null': 'True', 'to': u"orm['authentication.EndUser']"}),
             'crop_from': ('django.db.models.fields.CharField', [], {'default': "'center'", 'max_length': '10', 'blank': 'True'}),
             'date_taken': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'effect': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'contentmodel_related'", 'null': 'True', 'to': u"orm['photologue.PhotoEffect']"}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'effect': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'jobpost_related'", 'null': 'True', 'to': u"orm['photologue.PhotoEffect']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
             'image_name': ('django.db.models.fields.CharField', [], {'max_length': '512', 'null': 'True', 'blank': 'True'}),
+            'job_categories': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['jobs.JobCategory']", 'null': 'True', 'blank': 'True'}),
+            'location': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'modified_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'modified_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'contentmodel_modified_content'", 'null': 'True', 'to': u"orm['authentication.EndUser']"}),
+            'modified_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'jobpost_modified_content'", 'null': 'True', 'to': u"orm['authentication.EndUser']"}),
             'order': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0', 'db_index': 'True'}),
             'plain_content': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'polymorphic_ctype': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'polymorphic_core.contentmodel_set'", 'null': 'True', 'to': u"orm['contenttypes.ContentType']"}),
             'publish_at': ('django.db.models.fields.DateTimeField', [], {'db_index': 'True', 'null': 'True', 'blank': 'True'}),
             'retract_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'rich_content': ('ckeditor.fields.RichTextField', [], {'null': 'True', 'blank': 'True'}),
@@ -175,20 +214,6 @@ class Migration(SchemaMigration):
             'state': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
             'view_count': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'})
-        },
-        u'jobs.jobcategory': {
-            'Meta': {'ordering': "['order', 'title']", 'object_name': 'JobCategory'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
-        },
-        u'jobs.jobpost': {
-            'Meta': {'ordering': "['order', '-publish_at']", 'object_name': 'JobPost', '_ormbases': [u'core.ContentModel']},
-            'application_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            u'contentmodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['core.ContentModel']", 'unique': 'True', 'primary_key': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'job_categories': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['jobs.JobCategory']", 'null': 'True', 'blank': 'True'}),
-            'location': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         },
         u'photologue.photoeffect': {
             'Meta': {'object_name': 'PhotoEffect'},

@@ -7,7 +7,7 @@ from django.db import models
 
 from tunobase.core import models as core_models
 
-class Partner(core_models.ContentModel):
+class Partner(core_models.BaseContentModel):
     '''
     Partners
     '''
