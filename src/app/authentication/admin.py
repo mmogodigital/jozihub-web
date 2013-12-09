@@ -88,3 +88,7 @@ class ProjectRegistrationProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(models.EndUser, CustomUserAdmin)
 admin.site.register(models.ProjectRegistrationProfile, ProjectRegistrationProfileAdmin)
+admin.site.register(models.HeardAboutChoice)
+admin.site.register(models.EventHostingChoice)
+admin.site.register(models.TypeOfSpaceRequiredChoice)
+admin.site.register(models.PartnerChoice)
