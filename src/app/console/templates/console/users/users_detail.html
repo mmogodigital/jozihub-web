@@ -42,17 +42,17 @@
                 </div>
                 <div class="field">
                     <label>Your affiliation</label>
-                    {{ object.affiliation }}
+                    {{ object.get_affiliation_display }}
                 </div>
                 <div class="field">
                     <label>What is your reason for submitting this form?</label>
-                    {{ object.submit_reason }}
+                    {{ object.get_submit_reason_display }}
                 </div>
                 <div class="clear"></div>
                 
                 <div class="field">
-                    <label>I would like to get information and update for the JoziHub</label>
-                    {{ object.information_about_jozihub }}
+                    <label>I would like to get information and updates for the JoziHub</label>
+                    {{ object.get_information_about_jozihub_display }}
                 </div>
                 <div class="clear"></div>
                 <p class="head">Tell us about yourself</p>                    
@@ -72,7 +72,7 @@
                 </div>
                 <div class="field">
                     <label>When would you like to host the event?</label>
-                    {{ object.when_to_host_event }}
+                    {{ object.get_when_to_host_event_display }}
                 </div>
                 <div class="field">
                     <label>What do you require from us?</label>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="field">
                     <label>When would you like to get access to the space?</label>
-                    {{ object.when_to_get_access }}
+                    {{ object.get_when_to_get_access_display }}
                 </div>
                 <div class="field">
                     <label>What type of space do you require?</label>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="field">
                     <label>Are you happy with the price?</label>
-                    {{ object.happy_with_the_price }}
+                    {{ object.get_happy_with_the_price_display }}
                 </div>
                 <div class="clear"></div>
                 
@@ -125,7 +125,7 @@
                 <p class="head">Mentor</p>
                 <div class="field">
                     <label>What is your field of expertise?</label>
-                    {{ object.field_of_expertise }}
+                    {{ object.get_field_of_expertise_display }}
                 </div>
                 <div class="field">
                     <label>What is you background and expertise? (short CV or profile)</label>
