@@ -1,11 +1,14 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <h1>Article</h1>
     <a href="{% url 'console_news_list' %}">Back to Article List</a>
-    <br />
-    <br />
-    <br />
     
     <table>
         <tbody>
@@ -19,10 +22,10 @@
             </tr>
             <tr>
                 <td>{{ object.get_state_display }}</td>
-                <td>{{ object.image }}</td>
+                <td><img src="{{ object.get_100x150_url }}"></td>
                 <td>{{ object.title }}</td>
                 <td>{{ object.publish_at|date:"j F Y" }}</td>
-                <td>{{ object.rich_content|safe|truncatewords:"30" }}</td>
+                <td>{{ object.rich_content|safe|truncatewords:"20" }}</td>
                 <td>
                     <a href="{% url 'console_news_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
                     <a href="{% url 'console_news_delete' object.pk %}">Delete&nbsp;&raquo;</a> 

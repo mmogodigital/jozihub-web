@@ -15,7 +15,7 @@
     <br />
     <br />
 	
-	<form id="frmUpdateNews" action="." method="POST">{% csrf_token %}
+	<form id="frmUpdateNews" action="." method="POST" enctype="multipart/form-data">{% csrf_token %}
 	    <label for="id_state">State</label>
 	    {{ form.state }}{{ form.state.errors }}
 	
