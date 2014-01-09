@@ -20,18 +20,28 @@
             <div class="clear"></div>
             <div class="block">
                 <form id="frmRegister" method="post" action=".">{% csrf_token %}
+                    <p class="head">User Information</p>                    
+                    <div class="field">
+                        <label for="id_email">Email <span>*</span></label>
+                        {{ form.email }}{{ form.email.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_password1">Password <span>*</span></label>
+                        {{ form.password1 }}{{ form.password1.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_password2">Confirm Password <span>*</span></label>
+                        {{ form.password2 }}{{ form.password2.errors }}
+                    </div>
+                    <div class="clear"></div>
                     <p class="head">General Information</p>
                     <div class="field">
-                        <label for="id_first_name">First Name</label>
+                        <label for="id_first_name">First Name <span>*</span></label>
                         {{ form.first_name }}{{ form.first_name.errors }}
                     </div>
                     <div class="field">
-                        <label for="id_last_name">Last Name</label>
+                        <label for="id_last_name">Last Name <span>*</span></label>
                         {{ form.last_name }}{{ form.last_name.errors }}
-                    </div>
-                    <div class="field">
-                        <label for="id_email">Email</label>
-                        {{ form.email }}{{ form.email.errors }}
                     </div>
                     <div class="field">
                         <label for="id_phone_number">Contact number</label>
@@ -149,22 +159,15 @@
                         <label>What can you offer as a mentor?</label>
                         {{ form.what_can_you_offer_as_a_mentor }}{{ form.what_can_you_offer_as_a_mentor.errors }}
                     </div>
+                    <div class="clear"></div>
                     <div class="field">
                         <label>How much time a month can you assist in mentoring?</label>
                         {{ form.mentoring_time }}{{ form.mentoring_time.errors }}
                     </div>
-                    <div class="field">
-                        <label for="id_password1">Password <span>*</span></label>
-                        {{ form.password1 }}{{ form.password1.errors }}
-                    </div>
-                    <div class="field">
-                        <label for="id_password2">Confirm Password <span>*</span></label>
-                        {{ form.password2 }}{{ form.password2.errors }}
-                    </div>
                     <div class="clear"></div>
-                    <p class="btns">
+                    <div class="btns">
                         <input type="submit" value="Apply" />
-                    </p>
+                    </div>
                 </form>
             </div>
             <div class="clear"></div>           
