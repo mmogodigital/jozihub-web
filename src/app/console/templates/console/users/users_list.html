@@ -1,54 +1,41 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-	<h1>Users List</h1>
-	<br/>
-<br/>
-	<a href="{% url 'console_users_create' %}">Add Users</a>
-    {% comment %}
-    <form>
-        <label id="id_first_name">First Name</label>
-        {{ form.first_name }}{{ form.first_name.errors }}
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Users</p>
+            <h1>Users List</h1>
+            <div class="clear"></div>
 
-        <label id="id_last_name">Last Name</label>
-        {{ form.first_name }}{{ form.first_name.errors }}
-        
-        <label id="id_email">Email</label>
-        {{ form.first_name }}{{ form.first_name.errors }}
-
-    </form>
-    {% endcomment %}
-	<table width="100%">
-	    <thead>
-	        <tr>
-	            <th>User</th>
-                <th>Email</th>
-                <th>&nbsp;</th>
-	        </tr>
-	    </thead>
-	    <tbody>
-	        {% for object in object_list %}
-	            <tr>
-	                <td><a href="{% url 'console_users_detail' object.pk %}">{% if not object.title %}&nbsp;{% endif %}{{ object.get_full_name }}</a></td>
-	                <td>{{ object.email }}</td>
-	                <td>
-	                    <a href="{% url 'console_users_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
-	                    <a href="{% url 'console_users_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
-	                </td>
-	            </tr>
-	        {% empty %}
-	            <tr>
-	                <td colspan="2">There are no users to list.</td>
-	            <tr>
-	        {% endfor %}
-	    </tbody>
-	</table>
-<br/>
-<br/>
+            <div class="block">
+                <a href="{% url 'console_users_create' %}">Add Users</a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for object in object_list %}
+                            <tr>
+                                <td><a href="{% url 'console_users_detail' object.pk %}">{% if not object.title %}&nbsp;{% endif %}{{ object.get_full_name }}</a></td>
+                                <td>{{ object.email }}</td>
+                                <td>
+                                    <a href="{% url 'console_users_detail' object.pk %}">View&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                    <a href="{% url 'console_users_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                    <a href="{% url 'console_users_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="3">There are no users to list.</td>
+                            <tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
 {% endblock %}

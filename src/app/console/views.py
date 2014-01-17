@@ -173,7 +173,9 @@ class JobsUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'jobs.change_jobs'
     
     def get_success_url(self):
+        print '********************** Setting success url'
         job = JobPost.objects.get(pk=self.object.pk)
+        print 'job', job
         if job.state == core_constants.STATE_DELETED:
             return reverse('console_jobs_list')
         else:
