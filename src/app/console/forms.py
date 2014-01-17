@@ -6,9 +6,9 @@ Created on 3 Dec 2013
 from django import forms
 
 from tunobase.core.models import Gallery
+from tunobase.corporate.media.models import Event
 
 from app.authentication.models import EndUser
-from app.events.models import Event
 from app.jobs.models import JobPost
 from app.news.models import News
 

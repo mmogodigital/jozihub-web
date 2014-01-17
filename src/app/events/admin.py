@@ -5,6 +5,6 @@ Created on 25 Nov 2013
 '''
 from django.contrib import admin
 
-from app.events import models
+from tunobase.corporate.media import models
 
 admin.site.register(models.Event)
