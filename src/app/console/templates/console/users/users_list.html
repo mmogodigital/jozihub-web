@@ -9,6 +9,30 @@
 
             <div class="block">
                 <a href="{% url 'console_users_create' %}">Add Users</a>
+                <form id="usersFilter" action="." method="GET">
+                    <div class="row">
+                        <div class="field field-half">
+                            <label>First Name</label>
+                            <div class="clear"></div>
+                            {{ filter_form.first_name }}{{ filter_form.first_name.errors }}
+                        </div>
+                        <div class="field field-half align-right">
+                            <label>Last Name</label>
+                            <div class="clear"></div>
+                            {{ filter_form.last_name }}{{ filter_form.last_name.errors }}
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <div class="clear"></div>
+                            {{ filter_form.email }}{{ filter_form.email.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="buttons">
+                            <input type="submit" id="submit" value="Filter" class="btn" />
+                        </div>
+                    </div>
+                </form>
                 <table>
                     <thead>
                         <tr>

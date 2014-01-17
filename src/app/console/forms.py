@@ -11,9 +11,11 @@ from app.authentication.models import EndUser
 from app.events.models import Event
 from app.jobs.models import JobPost
 from app.news.models import News
-        
+
 class UsersForm(forms.ModelForm):
-    
+    password1 = forms.CharField(max_length=128, widget=forms.PasswordInput, required=False)
+    password2 = forms.CharField(max_length=128, widget=forms.PasswordInput, required=False)
+
     class Meta:
         model = EndUser
         exclude = [
@@ -22,6 +24,39 @@ class UsersForm(forms.ModelForm):
                 'country', 'web_address', 'is_regular_user', 'is_active',
                 'is_admin', 'is_console_user', 'password', 'last_login'
         ]
+
+    def clean_email(self):
+        """
+        We don't do any checking to confirm that their 'new' email address
+        isn't already taken, so don't allow the user to change their email
+        address.
+        """
+        if self.instance.id:
+            if self.instance.email != self.cleaned_data['email']:
+                raise forms.ValidationError(
+                        "You cannot change your email address"
+                )
+
+    def clean_password2(self):
+        if ('password1' in self.cleaned_data and
+                'password2' in self.cleaned_data):
+            if self.cleaned_data['password1'] != self.cleaned_data['password2']:
+                raise forms.ValidationError("Passwords didn't match.")
+
+    def save(self, commit=True):
+        obj = super(UsersForm, self).save(commit)
+
+        if self.clean_data['password1']:
+            obj.set_password(self.cleaned_data['password1'])
+
+        obj.save()
+
+        return obj
+
+class UserFilter(forms.Form):
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
+    email = forms.CharField(required=False)
 
 class EventsForm(forms.ModelForm):
     

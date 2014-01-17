@@ -3,10 +3,10 @@ Created on 03 Dec 2013
 
 @author: christina
 '''
-from django.views import generic as generic_views
-from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
+from django.views import generic as generic_views
+from django.views.generic.base import TemplateView
 
 from tunobase.core import (
     mixins as core_mixins, 
@@ -16,10 +16,13 @@ from tunobase.core import (
 )
 from tunobase.console import mixins as console_mixins
 from tunobase.core.models import Gallery
+
 from app.authentication.models import EndUser
+from app.console import forms
 from app.events.models import Event 
-from app.news.models import News 
 from app.jobs.models import JobPost
+from app.news.models import News 
+
 
 class AdminMixin(
     console_mixins.ConsoleUserRequiredMixin, 
@@ -34,21 +37,19 @@ class ConsoleLanding(AdminMixin, TemplateView):
 # Console: Users
 class UsersCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'users.add_users'
-    
+
     def get_success_url(self):
         return reverse('console_users_detail', args=(self.object.pk,))
 
 class UsersUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'users.change_users'
-    
+
     def get_success_url(self):
         return reverse('console_users_detail', args=(self.object.pk,))
 
     def get_queryset(self):
         return EndUser.objects.all()
-    
-    def form_invalid(self, form):
-        print form.errors
+
 
 class UsersDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'users.change_users'
@@ -58,20 +59,33 @@ class UsersDetail(AdminMixin, generic_views.DetailView):
             EndUser, pk=self.kwargs['pk']
         )
 
+
 class UsersDelete(AdminMixin, core_views.MarkDeleteView):
     permission_required = 'users.delete_users'
-    
+
     def get_success_url(self):
         return reverse('console_users_list')
 
     def get_queryset(self):
         return EndUser.objects.all()
 
-class UsersList(AdminMixin, generic_views.ListView):
+
+class UsersList(AdminMixin, core_mixins.FilterMixin, generic_views.ListView):
     permission_required = 'users.change_users'
-    
+
+    allowed_filters = {
+            'first_name': 'first_name__icontains',
+            'last_name': 'last_name__icontains',
+            'email': 'email__icontains',
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super(UsersList, self).get_context_data(**kwargs)
+        context['filter_form'] = forms.UserFilter(self.request.GET)
+        return context
+
     def get_queryset(self):
-        return EndUser.objects.all()
+        return EndUser.objects.filter(**self.get_queryset_filters())
 
 #-----------------------------------------------------------------------------
 # Console: Events
