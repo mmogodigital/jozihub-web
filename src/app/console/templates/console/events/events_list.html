@@ -1,45 +1,45 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-	<h1>Events List</h1>
-	<a href="{% url 'console_events_create' %}">Add Event</a>
-    <br />
-    <br />
-    <br />
-	<table width="100%">
-	    <thead>
-            <tr>
-                <th>State</th>
-                <th>Title</th>
-                <th>Venue</th>
-                <th>Date</th>
-                <th>&nbsp;</th>
-            </tr>
-	    </thead>
-	    <tbody>
-	        {% for object in object_list %}
-            <tr>
-                <td>{{ object.get_state_display }}</td>
-                <td><a href="{% url 'console_events_detail' object.pk %}">{{ object.title }}</a></td>
-                <td>{{ object.venue_name }}</td>
-                <td>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</td>
-                <td>
-                    <a href="{% url 'console_events_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
-                    <a href="{% url 'console_events_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
-                </td>
-            </tr>
-	        {% empty %}
-	            <tr>
-	                <td colspan="2">There are no events to list.</td>
-	            <tr>
-	        {% endfor %}
-	    </tbody>
-	</table>
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Events</p>
+            <h1>Events List</h1>
+            <div class="clear"></div>
+
+            <div class="block">
+                <a href="{% url 'console_events_create' %}">Add Event</a>
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Title</th>
+                            <th>Venue</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for object in object_list %}
+                        <tr>
+                            <td>{{ object.get_state_display }}</td>
+                            <td><a href="{% url 'console_events_detail' object.pk %}">{{ object.title }}</a></td>
+                            <td>{{ object.venue_name }}</td>
+                            <td>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</td>
+                            <td>
+                                <a href="{% url 'console_events_detail' object.pk %}">View&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                <a href="{% url 'console_events_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                <a href="{% url 'console_events_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                            </td>
+                        </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="5">There are no events to list.</td>
+                            <tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
 {% endblock %}

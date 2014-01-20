@@ -1,37 +1,43 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-	<h1>Gallery List</h1>
-	<a href="{% url 'console_gallery_create' %}">Add Gallery</a>
-    <br />
-    <br />
-    <br />
-	<table>
-	    <thead>
-            <tr>
-                <th>State</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Date</th>
-                <th>&nbsp;</th>
-            </tr>
-	    </thead>
-	    <tbody>
-	        {% for object in object_list %}
-            <tr>
-                <td>{{ object.get_state_display }}</td>
-                <td><a href="{% url 'console_gallery_detail' object.pk %}">{{ object.title }}</a></td>
-                <td>{{ object.image.get_100x150_url }}</td>
-                <td>
-                    <a href="{% url 'console_gallery_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
-                    <a href="{% url 'console_gallery_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
-                </td>
-            </tr>
-	        {% empty %}
-	            <tr>
-	                <td colspan="2">There are no galleries to list.</td>
-	            <tr>
-	        {% endfor %}
-	    </tbody>
-	</table>
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Galleries</p>
+            <h1>Galleries List</h1>
+            <div class="clear"></div>
+
+            <div class="block">
+                <a href="{% url 'console_gallery_create' %}">Add Gallery</a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for object in object_list %}
+                        <tr>
+                            <td>{{ object.get_state_display }}</td>
+                            <td>{{ object.image.get_100x150_url }}</td>
+                            <td><a href="{% url 'console_gallery_detail' object.pk %}">{{ object.title }}</a></td>
+                            <td>
+                                <a href="{% url 'console_gallery_detail' object.pk %}">View&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                <a href="{% url 'console_gallery_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                <a href="{% url 'console_gallery_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                            </td>
+                        </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="4">There are no galleries to list.</td>
+                            <tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
 {% endblock %}

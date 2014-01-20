@@ -1,42 +1,45 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-	<h1>News List</h1>
-	<a href="{% url 'console_news_create' %}">Add News Article</a>
-	<table>
-	    <thead>
-            <tr>
-                <th>State</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Published Date</th>
-                <th>&nbsp;</th>
-            </tr>
-	    </thead>
-	    <tbody>
-	        {% for object in object_list %}
-            <tr>
-                <td>{{ object.get_state_display }}</td>
-                <td><a href="{% url 'console_news_detail' object.pk %}">{{ object.title }}</a></td>
-                {% comment %}
-                <td>{{ object.publish_at|date:"j F Y" }}</td>
-                {% endcomment %}
-                <td>{{ object.rich_content|safe|truncatewords:"30" }}</td>
-                <td>
-                    <a href="{% url 'console_news_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
-                    <a href="{% url 'console_news_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
-                </td>
-            </tr>
-	        {% empty %}
-	            <tr>
-	                <td colspan="2">There are no news articles to list.</td>
-	            <tr>
-	        {% endfor %}
-	    </tbody>
-	</table>
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">News</p>
+            <h1>News List</h1>
+            <div class="clear"></div>
+
+            <div class="block">
+                <a href="{% url 'console_news_create' %}">Add an article</a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for object in object_list %}
+                        <tr>
+                            <td>{{ object.get_state_display }}</td>
+                            <td><img src="{{ object.get_100x150_url }}" /></td>
+                            <td><a href="{% url 'console_news_detail' object.pk %}">{{ object.title }}</a></td>
+                            <td>{{ object.rich_content|safe|truncatewords:20 }}</td>
+                            <td>
+                                <a href="{% url 'console_news_detail' object.pk %}">View&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                <a href="{% url 'console_news_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                <a href="{% url 'console_news_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                            </td>
+                        </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="3">There are no news articles to list.</td>
+                            <tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div><!--/container-->
+    </div><!--/content-->
 {% endblock %}
