@@ -166,6 +166,7 @@ INSTALLED_APPS = (
     'tunobase',
     'tunobase.core',
     'tunobase.mailer',
+    'tunobase.corporate.media',
     'ckeditor',
     'photologue',
     #'registration',
