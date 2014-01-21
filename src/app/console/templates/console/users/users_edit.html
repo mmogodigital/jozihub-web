@@ -6,7 +6,7 @@
         <div class="container">
             <h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} User</h1>
             <a href="{% url 'console_users_list' %}">Back to User List</a>
-            
+
             <div class="clear"></div>
             <div class="block">
                 <form id="frmRegister" method="post" action=".">{% csrf_token %}

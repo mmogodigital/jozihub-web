@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from tunobase.corporate.media import views as media_views
+from app.events import views
 
 
 urlpatterns = patterns('',
@@ -10,9 +11,9 @@ urlpatterns = patterns('',
         ),
         name='events'
     ),
-                       
+
     url(r'^(?P<slug>[-\w]+)/$',
-        media_views.EventDetail.as_view(
+        views.EventDetail.as_view(
             template_name='events/event_detail.html',
         ),
         name='event_detail'

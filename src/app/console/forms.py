@@ -59,7 +59,7 @@ class UserFilter(forms.Form):
     email = forms.CharField(required=False)
 
 class EventsForm(forms.ModelForm):
-    
+
     class Meta:
         model = Event
         fields = [
@@ -68,8 +68,28 @@ class EventsForm(forms.ModelForm):
                 'state', 'rich_content',
         ]
 
+        def __init__(self, *args, **kwargs):
+            super(EventsForm, self).__init__(*args, **kwargs)
+
+
+            if 'instance' in kwargs:
+                self.object = kwargs['instance']
+
+            self.fields['start'].widget.attrs.update({
+                'class': 'required',
+            })
+            self.fields['venue_address'].widget.attrs.update({
+                'class': 'required',
+            })
+            self.fields['venue_name'].widget.attrs.update({
+                'class': 'required',
+            })
+            self.fields['title'].widget.attrs.update({
+                'class': 'required',
+            })
+
 class NewsForm(forms.ModelForm):
-    
+
     class Meta:
         model = News
         fields = [
@@ -77,7 +97,7 @@ class NewsForm(forms.ModelForm):
         ]
 
 class JobsForm(forms.ModelForm):
-    
+
     class Meta:
         model = JobPost
         fields = [
@@ -85,7 +105,7 @@ class JobsForm(forms.ModelForm):
         ]
 
 class GalleryForm(forms.ModelForm):
-    
+
     class Meta:
         model = Gallery
         fields = [

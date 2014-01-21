@@ -16,10 +16,10 @@ from tunobase.core import (
 )
 from tunobase.console import mixins as console_mixins
 from tunobase.core.models import Gallery
+from tunobase.corporate.media.models import Event
 
 from app.authentication.models import EndUser
 from app.console import forms
-from app.events.models import Event 
 from app.jobs.models import JobPost
 from app.news.models import News 
 
@@ -30,8 +30,10 @@ class AdminMixin(
 ):
     raise_exception = False
 
+
 class ConsoleLanding(AdminMixin, TemplateView):
     permission_required = 'events.add_events'
+
 
 #----------------------------------------------------------------------------
 # Console: Users
@@ -87,17 +89,23 @@ class UsersList(AdminMixin, core_mixins.FilterMixin, generic_views.ListView):
     def get_queryset(self):
         return EndUser.objects.filter(**self.get_queryset_filters())
 
+
 #-----------------------------------------------------------------------------
 # Console: Events
 class EventsCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'events.add_events'
-    
+
     def get_success_url(self):
         return reverse('console_events_detail', args=(self.object.pk,))
 
+
 class EventsUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'events.change_events'
-    
+
+    def form_invalid(self, form):
+        print '*' * 10
+        print form.errors
+
     def get_success_url(self):
         event = Event.objects.get(pk=self.object.pk)
         if event.state == core_constants.STATE_DELETED:
@@ -108,6 +116,7 @@ class EventsUpdate(AdminMixin, generic_views.UpdateView):
     def get_queryset(self):
         return Event.objects.exclude(state=core_constants.STATE_DELETED)
 
+
 class EventsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'events.change_events'
 
@@ -116,32 +125,36 @@ class EventsDetail(AdminMixin, generic_views.DetailView):
             Event, pk=self.kwargs['pk']
         )
 
+
 class EventsDelete(AdminMixin, core_views.MarkDeleteView):
     permission_required = 'events.delete_events'
-    
+
     def get_success_url(self):
         return reverse('console_events_list')
 
     def get_queryset(self):
         return Event.objects.all()
 
+
 class EventsList(AdminMixin, generic_views.ListView):
     permission_required = 'events.change_events'
-    
+
     def get_queryset(self):
         return Event.objects.exclude(state=core_constants.STATE_DELETED)
-    
+
+
 #-----------------------------------------------------------------------------
 # Console: News
 class NewsCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'news.add_news'
-    
+
     def get_success_url(self):
         return reverse('console_news_detail', args=(self.object.pk,))
 
+
 class NewsUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'news.change_news'
-    
+
     def get_success_url(self):
         news = News.objects.get(pk=self.object.pk)
         if news.state == core_constants.STATE_DELETED:
@@ -152,6 +165,7 @@ class NewsUpdate(AdminMixin, generic_views.UpdateView):
     def get_queryset(self):
         return News.objects.exclude(state=core_constants.STATE_DELETED)
 
+
 class NewsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'news.change_news'
 
@@ -160,36 +174,38 @@ class NewsDetail(AdminMixin, generic_views.DetailView):
             News, pk=self.kwargs['pk']
         )
 
+
 class NewsDelete(AdminMixin, core_views.MarkDeleteView):
     permission_required = 'news.delete_news'
-    
+
     def get_success_url(self):
         return reverse('console_news_list')
 
     def get_queryset(self):
         return News.objects.exclude(state=core_constants.STATE_DELETED)
 
+
 class NewsList(AdminMixin, generic_views.ListView):
     permission_required = 'news.change_news'
-    
+
     def get_queryset(self):
         return News.objects.exclude(state=core_constants.STATE_DELETED)
-    
+
+
 #-----------------------------------------------------------------------------
 # Console: Jobs
 class JobsCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'jobs.add_jobs'
-    
+
     def get_success_url(self):
         return reverse('console_jobs_detail', args=(self.object.pk,))
 
+
 class JobsUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'jobs.change_jobs'
-    
+
     def get_success_url(self):
-        print '********************** Setting success url'
         job = JobPost.objects.get(pk=self.object.pk)
-        print 'job', job
         if job.state == core_constants.STATE_DELETED:
             return reverse('console_jobs_list')
         else:
@@ -197,6 +213,7 @@ class JobsUpdate(AdminMixin, generic_views.UpdateView):
 
     def get_queryset(self):
         return JobPost.objects.exclude(state=core_constants.STATE_DELETED)
+
 
 class JobsDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'jobs.change_jobs'
@@ -206,32 +223,36 @@ class JobsDetail(AdminMixin, generic_views.DetailView):
             JobPost, pk=self.kwargs['pk']
         )
 
+
 class JobsDelete(AdminMixin, core_views.MarkDeleteView):
     permission_required = 'jobs.delete_jobs'
-    
+
     def get_success_url(self):
         return reverse('console_jobs_list')
 
     def get_queryset(self):
         return JobPost.objects.exclude(state=core_constants.STATE_DELETED)
 
+
 class JobsList(AdminMixin, generic_views.ListView):
     permission_required = 'jobs.change_jobs'
-    
+
     def get_queryset(self):
         return JobPost.objects.exclude(state=core_constants.STATE_DELETED)
-    
- #-----------------------------------------------------------------------------
+
+
+#-----------------------------------------------------------------------------
 # Console: Gallery
 class GalleryCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'gallery.add_gallery'
-    
+
     def get_success_url(self):
         return reverse('console_gallery_detail', args=(self.object.pk,))
 
+
 class GalleryUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'gallery.change_gallery'
-    
+
     def get_success_url(self):
         gallery = Gallery.objects.get(pk=self.object.pk)
         if gallery.state == core_constants.STATE_DELETED:
@@ -242,6 +263,7 @@ class GalleryUpdate(AdminMixin, generic_views.UpdateView):
     def get_queryset(self):
         return Gallery.objects.all()
 
+
 class GalleryDetail(AdminMixin, generic_views.DetailView):
     permission_required = 'gallery.change_gallery'
 
@@ -250,19 +272,19 @@ class GalleryDetail(AdminMixin, generic_views.DetailView):
             Gallery, pk=self.kwargs['pk']
         )
 
+
 class GalleryDelete(AdminMixin, core_views.MarkDeleteView):
     permission_required = 'gallery.delete_gallery'
-    
+
     def get_success_url(self):
         return reverse('console_gallery_list')
 
     def get_queryset(self):
         return Gallery.objects.all()
 
+
 class GalleryList(AdminMixin, generic_views.ListView):
     permission_required = 'gallery.change_gallery'
-    
+
     def get_queryset(self):
         return Gallery.objects.all()
-    
-    

@@ -1,16 +1,35 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-    <h1>Confirm Delete?</h1>
-    <form id="frmConfirmDelete" action="{% block confirm_delete_url %}{% endblock %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-        <input type="submit" value="Confirm" />
-        <a href="{% block decline_delete_url %}{% endblock %}">Decline</a>
-    </form>
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Delete Post</p>
+            <h1>Delete Post</h1>
+            <div class="clear"></div>
+
+            <div class="form delete_form">
+                <form id="frmConfirmDelete" action="{% block confirm_delete_url %}{% endblock %}" method="POST">
+                    {% csrf_token %}
+                    <div class="field check">
+                        <label name="checkboxDelete">
+                            <input type="checkbox" class="required" id="confirm_delete" name="confirm_delete">
+                            Are you sure you want to delete this post?
+                        </label>
+                    </div>
+                    <div class="clear"></div>
+                    <p class="btns">
+                        <input type="submit" value="Yes, delete this post." />
+                    </p>
+                    <div class="clear"></div>
+                </form>
+            </div><!--/form delete_form -->
+            <a class="back" href="{% block decline_delete_url %}{% endblock %}">No, take me back to safety.</a> 
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}
+
+{% block bottom_js %}
+    <script>
+        $('#frmConfirmDelete').validate();
+    </script>
 {% endblock %}
