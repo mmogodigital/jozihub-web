@@ -68,25 +68,24 @@ class EventsForm(forms.ModelForm):
                 'state', 'rich_content',
         ]
 
-        def __init__(self, *args, **kwargs):
-            super(EventsForm, self).__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super(EventsForm, self).__init__(*args, **kwargs)
 
+        if 'instance' in kwargs:
+            self.object = kwargs['instance']
 
-            if 'instance' in kwargs:
-                self.object = kwargs['instance']
-
-            self.fields['start'].widget.attrs.update({
-                'class': 'required',
-            })
-            self.fields['venue_address'].widget.attrs.update({
-                'class': 'required',
-            })
-            self.fields['venue_name'].widget.attrs.update({
-                'class': 'required',
-            })
-            self.fields['title'].widget.attrs.update({
-                'class': 'required',
-            })
+        self.fields['start'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['venue_address'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['venue_name'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['title'].widget.attrs.update({
+            'class': 'required',
+        })
 
 class NewsForm(forms.ModelForm):
 
@@ -96,6 +95,19 @@ class NewsForm(forms.ModelForm):
                 'state', 'title', 'rich_content', 'image'
         ]
 
+    def __init__(self, *args, **kwargs):
+        super(NewsForm, self).__init__(*args, **kwargs)
+
+        if 'instance' in kwargs:
+            self.object = kwargs['instance']
+
+        self.fields['title'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['rich_content'].widget.attrs.update({
+            'class': 'required',
+        })
+
 class JobsForm(forms.ModelForm):
 
     class Meta:
@@ -104,6 +116,22 @@ class JobsForm(forms.ModelForm):
                 'state', 'title', 'location', 'application_date', 'description',
         ]
 
+    def __init__(self, *args, **kwargs):
+        super(JobsForm, self).__init__(*args, **kwargs)
+
+        if 'instance' in kwargs:
+            self.object = kwargs['instance']
+
+        self.fields['title'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['application_date'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['description'].widget.attrs.update({
+            'class': 'required',
+        })
+
 class GalleryForm(forms.ModelForm):
 
     class Meta:
@@ -111,3 +139,16 @@ class GalleryForm(forms.ModelForm):
         fields = [
                 'state', 'title', 'rich_content', 'images',
         ]
+
+    def __init__(self, *args, **kwargs):
+        super(GalleryForm, self).__init__(*args, **kwargs)
+
+        if 'instance' in kwargs:
+            self.object = kwargs['instance']
+
+        self.fields['title'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['images'].widget.attrs.update({
+            'class': 'required',
+        })
