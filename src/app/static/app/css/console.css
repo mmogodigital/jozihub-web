@@ -3,9 +3,12 @@
 
     /* Tables */
     #content table { width: 100%; margin: 15px 0 30px; clear: both; }
-    #content table th { background: #3db7b8; color: #fff; padding: 10px; text-align: left; text-transform: uppercase; }
+    #content table th { background: #3db7b8; color: #fff; text-align: left; text-transform: uppercase; }
     #content table tr:nth-child(odd) { background: #f4f4f5; }
-    #content table ul { margin: 0; }
-    
+    #content table ul { margin: 0; }    
     /* Form */
     .block form .btns { width: auto; padding: 10px 50px 12px; }
+        .field { position: relative; }
+        .block .field label.error { position: absolute; top: 26px; left: 0; } 
+    /* back */
+    .back { display: block; padding: 15px 0 0; }
