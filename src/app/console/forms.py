@@ -22,8 +22,31 @@ class UsersForm(forms.ModelForm):
                 'job_title', 'company', 'username', 'date_joined',
                 'street_address', 'state_province', 'zip_postal_code',
                 'country', 'web_address', 'is_regular_user', 'is_active',
-                'is_admin', 'is_console_user', 'password', 'last_login'
+                'is_admin', 'is_console_user', 'password', 'last_login',
         ]
+
+    def __init__(self, *args, **kwargs):
+        super(UsersForm, self).__init__(*args, **kwargs)
+
+        if self.instance and self.instance.pk:
+            self.fields['email'].widget.attrs['readonly'] = True
+        else:
+            self.fields['email'].widget.attrs.update({
+                'class': 'required email',
+            })
+
+        self.fields['first_name'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['last_name'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['phone_number'].widget.attrs.update({
+            'class': 'number',
+        })
+        self.fields['age'].widget.attrs.update({
+            'class': 'number',
+        })
 
     def clean_email(self):
         """
@@ -67,6 +90,9 @@ class EventsForm(forms.ModelForm):
                 'repeat', 'repeat_until', 'external_link', 'calendar_link',
                 'state', 'rich_content',
         ]
+        widgets = {
+                'image': forms.FileInput
+        }
 
     def __init__(self, *args, **kwargs):
         super(EventsForm, self).__init__(*args, **kwargs)
@@ -94,6 +120,9 @@ class NewsForm(forms.ModelForm):
         fields = [
                 'state', 'title', 'rich_content', 'image'
         ]
+        widgets = {
+                'image': forms.FileInput
+        }
 
     def __init__(self, *args, **kwargs):
         super(NewsForm, self).__init__(*args, **kwargs)
@@ -139,6 +168,9 @@ class GalleryForm(forms.ModelForm):
         fields = [
                 'state', 'image', 'title', 'rich_content', 'images',
         ]
+        widgets = {
+                'image': forms.FileInput
+        }
 
     def __init__(self, *args, **kwargs):
         super(GalleryForm, self).__init__(*args, **kwargs)
