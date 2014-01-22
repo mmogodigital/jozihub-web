@@ -1,6 +1,46 @@
 [
 {
     "pk": 1, 
+    "model": "authentication.eventhostingchoice", 
+    "fields": {
+        "name": "Developing", 
+        "order": 0
+    }
+},
+{
+    "pk": 2, 
+    "model": "authentication.eventhostingchoice", 
+    "fields": {
+        "name": "Art and design", 
+        "order": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "authentication.eventhostingchoice", 
+    "fields": {
+        "name": "Entrepreneurship", 
+        "order": 2
+    }
+},
+{
+    "pk": 4, 
+    "model": "authentication.eventhostingchoice", 
+    "fields": {
+        "name": "Financing and raising capital", 
+        "order": 3
+    }
+},
+{
+    "pk": 5, 
+    "model": "authentication.eventhostingchoice", 
+    "fields": {
+        "name": "Other:", 
+        "order": 4
+    }
+},
+{
+    "pk": 1, 
     "model": "authentication.enduser", 
     "fields": {
         "mentoring_time": null, 
@@ -27,7 +67,7 @@
         "partnership_expectation": null, 
         "field_of_expertise": null, 
         "is_superuser": true, 
-        "last_login": "2013-12-02T12:46:42.955Z", 
+        "last_login": "2014-01-22T08:22:06.522Z", 
         "information_about_jozihub": null, 
         "email": "euan@unomena.com", 
         "job_title": null, 
