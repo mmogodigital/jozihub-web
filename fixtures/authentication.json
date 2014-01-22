@@ -1,6 +1,38 @@
 [
 {
     "pk": 1, 
+    "model": "authentication.heardaboutchoice", 
+    "fields": {
+        "name": "Media (article, blog, etc)", 
+        "order": 0
+    }
+},
+{
+    "pk": 2, 
+    "model": "authentication.heardaboutchoice", 
+    "fields": {
+        "name": "Website", 
+        "order": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "authentication.heardaboutchoice", 
+    "fields": {
+        "name": "Friend", 
+        "order": 3
+    }
+},
+{
+    "pk": 4, 
+    "model": "authentication.heardaboutchoice", 
+    "fields": {
+        "name": "Other:", 
+        "order": 4
+    }
+},
+{
+    "pk": 1, 
     "model": "authentication.eventhostingchoice", 
     "fields": {
         "name": "Developing", 
@@ -37,6 +69,70 @@
     "fields": {
         "name": "Other:", 
         "order": 4
+    }
+},
+{
+    "pk": 1, 
+    "model": "authentication.typeofspacerequiredchoice", 
+    "fields": {
+        "name": "Open space ( no charge, access depends on availability)", 
+        "order": 0
+    }
+},
+{
+    "pk": 2, 
+    "model": "authentication.typeofspacerequiredchoice", 
+    "fields": {
+        "name": "Part time hot desk space (60 hours a week for R800)", 
+        "order": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "authentication.typeofspacerequiredchoice", 
+    "fields": {
+        "name": "Part time hot desk space (120 hours a week for R1500)", 
+        "order": 2
+    }
+},
+{
+    "pk": 4, 
+    "model": "authentication.typeofspacerequiredchoice", 
+    "fields": {
+        "name": "Full time hot desk space (Fixed desk for R2550)", 
+        "order": 4
+    }
+},
+{
+    "pk": 5, 
+    "model": "authentication.typeofspacerequiredchoice", 
+    "fields": {
+        "name": "Office space", 
+        "order": 5
+    }
+},
+{
+    "pk": 1, 
+    "model": "authentication.partnerchoice", 
+    "fields": {
+        "name": "Strategic partner (present courses, event or service)", 
+        "order": 0
+    }
+},
+{
+    "pk": 2, 
+    "model": "authentication.partnerchoice", 
+    "fields": {
+        "name": "Funder", 
+        "order": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "authentication.partnerchoice", 
+    "fields": {
+        "name": "Other:", 
+        "order": 3
     }
 },
 {
