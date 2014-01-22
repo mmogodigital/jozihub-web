@@ -6,7 +6,7 @@ Created on 25 Nov 2013
 from django.views import generic as generic_views
 
 from tunobase.core import utils as core_utils
-from tunobase.core import models
+from tunobase.corporate.media import models
 
 
 class Events(generic_views.ListView):
