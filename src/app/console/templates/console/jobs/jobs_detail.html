@@ -1,37 +1,43 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <h1>Jobs</h1>
-    <a href="{% url 'console_jobs_list' %}">Back to List</a>
-    
-    <table>
-        <tbody>
-            <tr>
-                <th>State</th>
-                <th>Job Title</th>
-                <th>Application Date</th>
-                <th>Location</th>
-                <th>Job Categories</th>
-                <th>Description</th>
-                <th>&nbsp;</th>
-            </tr>
-            <tr>
-                <td>{{ object.get_state_display }}</td>
-                <td>{{ object.title }}</td>
-                <td>{{ object.application_date|date:"j F Y" }}</td>
-                <td>{{ object.location }}</td>
-                <td>{{ object.get_job_categories }}</td>
-                <td>
-                    <a href="{% url 'console_jobs_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
-                    <a href="{% url 'console_jobs_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="content">
+        <div class="container">
+		    <h1>Job Detail</h1>
+		    <a href="{% url 'console_jobs_list' %}">Back to List</a>
+		    <div class="clear"></div>
+		    
+		    <div class="block">
+			    <table>
+					<tr>
+					    <th width=160>State</th>
+					    <td>{{ object.get_state_display }}</td>
+					</tr>
+			        <tr>
+						<th>Job Title</th>
+						<td>{{ object.title }}</td>
+			        </tr>
+			        <tr>
+			            <th>Application Date</th> 
+			            <td>{{ object.application_date|date:"j F Y" }}</td>
+			        </tr>
+			        <tr>
+			            <th>Location</th>
+			            <td>{{ object.location }}</td>
+			        </tr>
+			        <tr>
+			            <th>Job Categories</th>
+			            <td>{{ object.get_job_categories }}</td>
+			        </tr>
+			        <tr>
+			            <th>Description</th>
+			            <td>
+                            <a href="{% url 'console_jobs_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                            <a href="{% url 'console_jobs_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                        </td>
+			        </tr>   
+			    </table>
+		    </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
 {% endblock %}
