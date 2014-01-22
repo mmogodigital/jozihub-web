@@ -27,18 +27,19 @@
                             {{ filter_form.email }}{{ filter_form.email.errors }}
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="buttons">
-                            <input type="submit" id="submit" value="Filter" class="btn" />
-                        </div>
+                    <div class="clear"></div>
+                    <div class="btns">
+                        <input type="submit" id="submit" value="Filter" />
                     </div>
+                    <div class="clear"></div>
                 </form>
                 <table>
                     <thead>
                         <tr>
                             <th>User</th>
                             <th>Email</th>
-                            <th>Actions</th>
+                            <th width="160">Last login</th>
+                            <th width="160">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,6 +47,7 @@
                             <tr>
                                 <td><a href="{% url 'console_users_detail' object.pk %}">{% if not object.title %}&nbsp;{% endif %}{{ object.get_full_name }}</a></td>
                                 <td>{{ object.email }}</td>
+                                <td>{{ object.last_login }}</td>
                                 <td>
                                     <a href="{% url 'console_users_detail' object.pk %}">View&nbsp;&raquo;</a> &nbsp; &nbsp;
                                     <a href="{% url 'console_users_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
