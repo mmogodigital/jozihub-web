@@ -2,9 +2,8 @@
 
 {% block content %}
     <script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
-    <div id="content"  class="up">
+    <div id="content">
         <div class="container">
-            <p class="context">News</p>
             <h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} News</h1>
                 <a href="{% url 'console_news_list' %}">Back to News List</a>
             <div class="clear"></div>
