@@ -50,7 +50,7 @@ urlpatterns = patterns('',
     url(r'^users/$',
         views.UsersList.as_view(
             template_name='console/users/users_list.html',
-            paginate_by=20
+            paginate_by=10
         ),
         name='console_users_list'
     ),
@@ -91,7 +91,7 @@ urlpatterns = patterns('',
     url(r'^events/$',
         views.EventsList.as_view(
             template_name='console/events/events_list.html',
-            paginate_by=20
+            paginate_by=10
         ),
         name='console_events_list'
     ),
@@ -132,7 +132,7 @@ urlpatterns = patterns('',
     url(r'^news/$',
         views.NewsList.as_view(
             template_name='console/news/news_list.html',
-            paginate_by=20
+            paginate_by=10
         ),
         name='console_news_list'
     ),
@@ -173,7 +173,7 @@ urlpatterns = patterns('',
     url(r'^jobs/$',
         views.JobsList.as_view(
             template_name='console/jobs/jobs_list.html',
-            paginate_by=20
+            paginate_by=10
         ),
         name='console_jobs_list'
     ),
@@ -214,7 +214,7 @@ urlpatterns = patterns('',
     url(r'^gallery/$',
         views.GalleryList.as_view(
             template_name='console/gallery/gallery_list.html',
-            paginate_by=20
+            paginate_by=10
         ),
         name='console_gallery_list'
     ),
