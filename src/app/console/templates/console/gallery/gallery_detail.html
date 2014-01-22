@@ -1,46 +1,63 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-    <h1>Events</h1>
-    <a href="{% url 'console_events_list' %}">Back to List</a>
-    <br />
-    <br />
-    <br />
-    
-    <table>
-        <tbody>
-            <tr>
-                <th>State</th>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Images</th>
-                <th>&nbsp;</th>
-            </tr>
-            <tr>
-                <td>{{ object.get_state_display }}</td>
-                <td>{{ object.image }}</td>
-                <td>{{ object.title }}</td>
-                <td>{{ object.rich_content|safe }}</td>
-                <td>
-                    <div class="galleria">
-                        {% for image in object.images.permitted %}
-                            <a href="{{ image.image.url }}">
-                                <img 
-                                    src="{{ image.image.url }}"
-                                    data-big="{{ image.image.url }}"
-                                >
+    <div id="content"  class="up">
+        <div class="container">
+            <p class="context">Gallery</p>
+            <h1>{{ object.title }}</h1>
+                <a href="{% url 'console_gallery_list' %}">Back to Gallery List</a>
+            <div class="clear"></div>
+
+            <div class="block">
+                <table>
+                    <tr>
+                        <th width="140">State</th>
+                        <td>{{ object.get_state_display }}</a></td>
+                    </tr>
+                    <tr>
+                        <th width="140">Image</th>
+                        <td>
+                            <img src="{{ object.get_64x64_url }}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="140">Title</th>
+                        <td>{{ object.title }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Description</th>
+                        <td>{{ object.rich_content|safe }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Images</th>
+                        <td>
+                            <div class="galleria">
+                                {% for image in object.images.permitted %}
+                                    <a href="{{ image.image.url }}">
+                                        <img 
+                                            src="{{ image.image.url }}"
+                                            data-big="{{ image.image.url }}"
+                                        >
+                                    </a>
+                                {% endfor %}
+                            </div> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="140">Actions</th>
+                        <td>
+                            <a href="{% url 'console_gallery_update' object.pk %}">
+                                Edit
+                            </a> |
+                            <a href="{% url 'console_gallery_delete' object.pk %}">
+                                Delete
                             </a>
-                        {% endfor %}
-                    </div> 
-                </td>
-                <td>
-                    <a href="{% url 'console_gallery_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
-                    <a href="{% url 'console_gallery_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
 {% endblock %}
 {% block bottom_js %}
     <script>
