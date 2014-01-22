@@ -1,8 +1,7 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-<br/><br/>
-    <div id="content" class="up">
+    <div id="content">
         <div class="container">
             <h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} User</h1>
             <a href="{% url 'console_users_list' %}">Back to User List</a>

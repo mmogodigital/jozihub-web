@@ -278,7 +278,7 @@
     
     /* Tables */
     #content table { width: 100%; }
-    #content table th { background: #3db7b8; color: #fff; }
+    #content table th { background: #3db7b8; color: #fff; text-transform: uppercase; }
     #content table tr:nth-child(odd) { background: #f4f4f5; }
     #content table tr:last-child { background: #fff; }
     #content table ul { margin: 0; }
@@ -289,7 +289,7 @@
 /**************************************************************************************************************************************/
 /*  FOOTER */
 
-    #footer { padding: 45px 0w; }
+    #footer { padding: 45px 0; }
         #footer .address { float: left; padding: 0 0 0 82px; background: url('../img/footer_icon.png') left center no-repeat; font-size: 15px; text-transform: uppercase; color: #232c32; }
         #footer .address a:hover { color: #232c32; }
         #footer ul { float: right; margin: 0; padding: 0; list-style: none; }
