@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/console.css" />
+{% endblock %}
+
 {% block header %}
     {% include 'includes/console_top_nav.html' %}    
 {% endblock %}

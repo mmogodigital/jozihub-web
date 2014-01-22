@@ -14,7 +14,7 @@
           {% if user.can_access_console %}
             <li {% if on == 'console' %}class="on"{% endif %}><a href="{% url 'console_landing_page' %}">Console</a></li>
           {% endif %}
-          <li {% if on == 'profile' %}class="on"{% endif %}><a href="{% url 'secure_profile' %}">My Profile</a></li>
+          {% comment %}<li {% if on == 'profile' %}class="on"{% endif %}><a href="{% url 'secure_profile' %}">My Profile</a></li>{% endcomment %}
           <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'auth_logout' %}">Logout</a></li>
         {% endif %}
     </ul>

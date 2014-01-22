@@ -279,11 +279,8 @@
     /* Tables */
     #content table { width: 100%; }
     #content table th { background: #3db7b8; color: #fff; }
-    #content table th:nth-child(1) { padding: 0 0 0 5px; text-align: left; }
     #content table tr:nth-child(odd) { background: #f4f4f5; }
-    #content table tr:nth-child(1) td:nth-child(1) { background-color: #fff; }
-    #content table tr:nth-child(1) td:nth-child(2) { background: #222b32!important; color: #fff; font-weight: bold; }
-    #content table td:nth-child(1) { padding: 0 0 0 5px; text-align: left; }
+    #content table tr:last-child { background: #fff; }
     #content table ul { margin: 0; }
     
     

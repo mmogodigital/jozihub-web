@@ -1,0 +1,8 @@
+/**************************************************************************************************************************************/
+/*  CONSOLE */
+
+    /* Tables */
+    #content table { width: 100%; }
+    #content table th { background: #3db7b8; color: #fff; padding: 10px; text-align: left; }
+    #content table tr:nth-child(odd) { background: #f4f4f5; }
+    #content table ul { margin: 0; }
