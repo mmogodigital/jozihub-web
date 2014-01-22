@@ -2,11 +2,10 @@
 
 {% block content %}
     <script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
-    <div id="content"  class="up">
+    <div id="content">
         <div class="container">
-            <p class="context">Gallery</p>
             <h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} Gallery</h1>
-                <a href="{% url 'console_gallery_list' %}">Back to Gallery List</a>
+            <a href="{% url 'console_gallery_list' %}">Back to Gallery List</a>
             <div class="clear"></div>
 
             <div class="block">
@@ -16,7 +15,6 @@
                         <label for="id_state">State</label>
                         {{ form.state }}{{ form.state.errors }}
                     </div>
-
                     <div class="field">
                         <div class="field edit-image">
                                 {% if form.object %}

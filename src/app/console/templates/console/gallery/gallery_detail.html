@@ -1,35 +1,34 @@
 {% extends 'console_base.html' %}
 
 {% block content %}
-    <div id="content"  class="up">
+    <div id="content">
         <div class="container">
-            <p class="context">Gallery</p>
             <h1>{{ object.title }}</h1>
-                <a href="{% url 'console_gallery_list' %}">Back to Gallery List</a>
+            <a href="{% url 'console_gallery_list' %}">Back to Gallery List</a>
             <div class="clear"></div>
 
             <div class="block">
                 <table>
                     <tr>
-                        <th width="140">State</th>
-                        <td>{{ object.get_state_display }}</a></td>
+                        <th width="160">State</th>
+                        <td>{{ object.get_state_display }}</td>
                     </tr>
                     <tr>
-                        <th width="140">Image</th>
+                        <th>Image</th>
                         <td>
                             <img src="{{ object.get_64x64_url }}" />
                         </td>
                     </tr>
                     <tr>
-                        <th width="140">Title</th>
+                        <th>Title</th>
                         <td>{{ object.title }}</td>
                     </tr>
                     <tr>
-                        <th width="140">Description</th>
+                        <th>Description</th>
                         <td>{{ object.rich_content|safe }}</td>
                     </tr>
                     <tr>
-                        <th width="140">Images</th>
+                        <th>Images</th>
                         <td>
                             <div class="galleria">
                                 {% for image in object.images.permitted %}
@@ -44,7 +43,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th width="140">Actions</th>
+                        <th>Actions</th>
                         <td>
                             <a href="{% url 'console_gallery_update' object.pk %}">
                                 Edit
