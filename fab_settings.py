@@ -1,6 +1,7 @@
 import getpass
 
-APP_NAME = 'jozihub'
+# Don't change this. Leave as 'app'
+APP_NAME = 'app'
 
 REPO_PATH = 'praekelt/jozihub'
 
