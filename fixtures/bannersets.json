@@ -14,5 +14,21 @@
         "publish_at": "2014-01-21T13:59:06Z", 
         "order": 0
     }
+},
+{
+    "pk": 2, 
+    "model": "core.htmlbanner", 
+    "fields": {
+        "title": "event promo", 
+        "rich_content": "<div class=\"event\" id=\"promo\">\r\n\t<div class=\"wrapper\">\r\n\t\t<div class=\"container\">\r\n\t\t\t<div class=\"panel\">\r\n\t\t\t\t<h1>\r\n\t\t\t\t\tWe&rsquo;re champions for people who<br />\r\n\t\t\t\t\tcreate <a href=\"/authentication/secure/register/\">great experiences</a>. Everywhere<br />\r\n\t\t\t\t\tand every way they work.</h1>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<img src=\"/media/promo/promo_event.png\" /></div>\r\n<!--/Promo-->", 
+        "retract_at": null, 
+        "sites": [
+            1
+        ], 
+        "plain_content": "", 
+        "state": 0, 
+        "publish_at": "2014-01-22T08:04:49Z", 
+        "order": 0
+    }
 }
 ]
