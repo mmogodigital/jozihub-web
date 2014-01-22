@@ -137,7 +137,7 @@ class GalleryForm(forms.ModelForm):
     class Meta:
         model = Gallery
         fields = [
-                'state', 'title', 'rich_content', 'images',
+                'state', 'image', 'title', 'rich_content', 'images',
         ]
 
     def __init__(self, *args, **kwargs):
