@@ -257,7 +257,6 @@
             .block .error { color: #ee4423; }
             .block .errorlist { list-style-type: none; margin: 2px 0 0; padding: 0; }
                 .block .errorlist li { color: #ee4423; }
-            .block ul li:first-child { display: none; }
             .block ul { list-style-type: none; padding: 0; }
                    
         

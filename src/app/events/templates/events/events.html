@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load core_widgets %}
 
-{% block title %}News{% endblock %}
+{% block title %}Events{% endblock %}
 
 {% block header %}
     {% include 'includes/top_nav.html' with on='events' %}
@@ -16,7 +16,7 @@
         <div class="container">
             <p class="context">Events</p>
             <h1>Upcoming Events</h1>
-            
+
             <div class="clear"></div>
             <div class="block">
                 {% for object in object_list %}

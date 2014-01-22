@@ -9,18 +9,28 @@
             <div class="clear"></div>
             <div class="block">
                 <form id="frmRegister" method="post" action=".">{% csrf_token %}
+                    <p class="head">User Information</p>
+                    <div class="field">
+                        <label for="id_email">Email <span>*</span></label>
+                        {{ form.email }}{{ form.email.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_password1">Password <span>{% if not form.instance.id %}*{% endif %}</span></label>
+                        {{ form.password1 }}{{ form.password1.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_password2">Confirm Password <span>{% if not form.instance.id %}*{% endif %}</span></label>
+                        {{ form.password2 }}{{ form.password2.errors }}
+                    </div>
+                    <div class="clear"></div>
                     <p class="head">General Information</p>
                     <div class="field">
-                        <label for="id_first_name">First Name</label>
+                        <label for="id_first_name">First Name <span>*</span></label>
                         {{ form.first_name }}{{ form.first_name.errors }}
                     </div>
                     <div class="field">
-                        <label for="id_last_name">Last Name</label>
+                        <label for="id_last_name">Last Name <span>*</span></label>
                         {{ form.last_name }}{{ form.last_name.errors }}
-                    </div>
-                    <div class="field">
-                        <label for="id_email">Email</label>
-                        {{ form.email }}{{ form.email.errors }}
                     </div>
                     <div class="field">
                         <label for="id_phone_number">Contact number</label>
@@ -48,13 +58,12 @@
                         {{ form.submit_reason }}{{ form.submit_reason.errors }}
                     </div>
                     <div class="clear"></div>
-                    
                     <div class="field">
                         <label>I would like to get information and update for the JoziHub</label>
                         {{ form.information_about_jozihub }}{{ form.information_about_jozihub.errors }}
                     </div>
                     <div class="clear"></div>
-                    <p class="head">Tell us about yourself</p>                    
+                    <p class="head">Tell us about yourself</p>
                     <div class="field">
                         <label>Educational background</label>
                         {{ form.educational_background }}{{ form.educational_background.errors }}
@@ -79,7 +88,7 @@
                         {{ form.required_from_us }}{{ form.required_from_us.errors }}
                     </div>
                     <div class="clear"></div>
-                    
+
                     <p class="head">Work space</p>
                     <div class="field">
                         <label>How can you contribute to the JoziHub community?</label>
@@ -102,7 +111,7 @@
                         {{ form.happy_with_the_price }}{{ form.happy_with_the_price.errors }}
                     </div>
                     <div class="clear"></div>
-                    
+
                     <p class="head">Partners</p>
                     <div class="field">
                         <label>Do you want to become a partner or funder for the Hub?</label>
@@ -122,7 +131,6 @@
                         {{ form.partnership_expectation }}{{ form.partnership_expectation.errors }}
                     </div>
                     <div class="clear"></div>
-                    
                     <p class="head">Mentor</p>
                     <div class="field">
                         <label>What is your field of expertise?</label>
@@ -147,7 +155,13 @@
                     </p>
                 </form>
             </div>
-            <div class="clear"></div>           
+            <div class="clear"></div>
         </div> 
     </div><!--/Content-->
+{% endblock %}
+
+{% block bottom_js %}
+    <script>
+        $('#frmRegister').validate();
+    </script>
 {% endblock %}

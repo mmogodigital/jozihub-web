@@ -46,6 +46,13 @@ class UsersCreate(AdminMixin, generic_views.CreateView):
 class UsersUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'users.change_users'
 
+    def form_invalid(self, form, **kwargs):
+        print '*' * 10
+        print dir(form)
+        from pprint import pprint
+        pprint(kwargs)
+        pprint(form.errors)
+
     def get_success_url(self):
         return reverse('console_users_detail', args=(self.object.pk,))
 
