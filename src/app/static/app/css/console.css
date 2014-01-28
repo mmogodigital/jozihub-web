@@ -5,7 +5,8 @@
     #content table { width: 100%; margin: 15px 0 30px; clear: both; }
     #content table th { background: #3db7b8; color: #fff; text-align: left; text-transform: uppercase; }
     #content table tr:nth-child(odd) { background: #f4f4f5; }
-    #content table ul { margin: 0; }    
+    #content table ul { margin: 0; }
+    #content table th.head { color: #222c32; }    
     /* Form */
     .block form .btns { width: auto; padding: 10px 50px 12px; }
         .field { position: relative; }

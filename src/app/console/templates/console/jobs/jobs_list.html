@@ -1,6 +1,10 @@
 {% extends 'console_base.html' %}
 {% load core_widgets %}
 
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='jobs' %}
+{% endblock %}
+
 {% block content %}
     <div id="content">
         <div class="container">

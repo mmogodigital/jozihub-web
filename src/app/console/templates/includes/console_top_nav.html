@@ -2,12 +2,12 @@
     <a href="{% url 'index' %}" class="logo"></a>
     {% if user.can_access_console %}
     <ul> 
-        <li><a href="{% url 'console_users_list' %}">Users</a></li>
-        <li><a href="{% url 'console_events_list' %}">Events</a></li>
-        <li><a href="{% url 'console_news_list' %}">News</a></li>
-        <li><a href="{% url 'console_jobs_list' %}">Jobs</a></li>
-        <li><a href="{% url 'console_gallery_list' %}">Gallery</a></li>
-        <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+        <li {% if on == 'users' %}class="on"{% endif %}><a href="{% url 'console_users_list' %}">Users</a></li>
+        <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'console_events_list' %}">Events</a></li>
+        <li {% if on == 'news' %}class="on"{% endif %}><a href="{% url 'console_news_list' %}">News</a></li>
+        <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'console_jobs_list' %}">Jobs</a></li>
+        <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'console_gallery_list' %}">Gallery</a></li>
+        <li {% if on == 'logout' %}class="on"{% endif %}><a href="{% url 'auth_logout' %}">Logout</a></li>
     </ul>
     {% endif %}
     <a href="javascript: void(0);" class="mobi_handle"></a>

@@ -1,5 +1,9 @@
 {% extends 'console_base.html' %}
 
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='events' %}
+{% endblock %}
+
 {% block content %}
     <script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
     <div id="content">
