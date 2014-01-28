@@ -238,7 +238,7 @@
             .block form { overflow: auto; }
             .block form .head { padding: 10px; font-size: 24px; text-transform: uppercase; background: #3eb7b8; color: #fff; line-height: 28px; }
             .block .field { width: 490px; float: left; margin: 10px 0; }
-            .block label { display: block; }
+            .block label { display: block; margin: 0 0 5px; }
             .block .field input[type="text"],
             .block .field input[type="password"],
             .block .field input[type="email"],
@@ -251,21 +251,21 @@
             .block form .field textarea:focus { background: #fff; border: 2px solid #3db7b8; }
             .block input[type="checkbox"] { margin: 0 20px 0 0; }
             .block input[type="radio"] { margin: 0 10px 0 0; }
-            .block form .btns { width: 423px; margin: 18px 0 0; }
-            .block .btns input { border: none; background: #3db7b8; color: #fff; text-transform: uppercase; font-weight: bold; }
+            .block form .btns { margin: 18px 0 0; }
+            .block .btns input { padding: 10px 35px; border: none; background: #3db7b8; color: #fff; text-transform: uppercase; font-weight: bold; }
             .block form .forgot { clear: both; padding: 10px 0 0; }
-            .block .error { color: #ee4423; }
+            .block .error { color: #ee4423; font-size: 13px; }
             .block .errorlist { list-style-type: none; margin: 2px 0 0; padding: 0; }
-                .block .errorlist li { color: #ee4423; }
+                .block .errorlist li { color: #ee4423; font-size: 13px; }
             .block ul { list-style-type: none; padding: 0; }
                    
         
     /* Buttons */
-    .btns { width: 211px; margin: 0 10px 0 0; float: left; padding: 10px 15px; background: #3db7b8; text-align: center; }
-    .btns a { color: #fff; text-transform: uppercase; font-weight: bold; }
+    .btns { margin: 0 10px 0 0; float: left; background: #3db7b8; text-align: center; }
+    .btns a { display: block; padding: 10px 35px; color: #fff; text-transform: uppercase; font-weight: bold; }
     
     /* Post button */
-    #content .post { float: right; padding: 0 45px; background: #d71232; display: inline-block; font-size: 18px; text-transform: uppercase; color: #fff; line-height: 74px; }
+    #content .post { float: right; padding: 10px; background: #3eb7b8; display: inline-block; font-size: 18px; text-transform: uppercase; color: #fff; line-height: 24px; border-radius: 8px; }
     #content .post a:hover { color: #fff; }
     
     /* Galleria */

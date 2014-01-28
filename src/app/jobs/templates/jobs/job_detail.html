@@ -19,13 +19,16 @@
             
             <div class="clear"></div>
             <div class="block">
-                <a href="{% url 'jobs' %}">Back</a>
-                <p class="details">Application Date: {{ object.application_date|date:"l" }}, {{ object.application_date|date:"j F Y" }}</p>
-                <p class="details">Location: {{ object.location }}</p>
-                <p class="details">Job Category: {{ object.get_job_categories }}</p>
-                <p class="title">Description</p>
-                {{ object.description }}
-                <div class="clear"></div>          
+	                <div class="block1">
+	                <p class="details"><strong>Application Date</strong>: {{ object.application_date|date:"l" }}, {{ object.application_date|date:"j F Y" }}</p>
+	                <p class="details"><strong>Location</strong>: {{ object.location }}</p>
+	                <p class="details"><strong>Job Category</strong>: {{ object.get_job_categories }}</p>
+	                <p class="title">Description</p>
+	                <p>{{ object.description }}</p>
+	                <div class="clear"></div>
+	                <a href="{% url 'jobs' %}">Back</a>
+	                <div class="clear"></div>
+                </div>          
             </div><!--/block-->          
         </div> 
     </div><!--/Content-->
