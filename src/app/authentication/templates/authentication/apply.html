@@ -56,20 +56,19 @@
                         {{ form.city }}{{ form.city.errors }}
                     </div>
                     <div class="field">
-                        <label>How did you hear about us?</label>
-                        {{ form.heard_about_from }}{{ form.heard_about_from.errors }}    
-                        {{ form.heard_about_from_other }}{{ form.heard_about_from_other.errors }}
-                    </div>
-                    <div class="field">
                         <label>Your affiliation</label>
                         {{ form.affiliation }}{{ form.affiliation.errors }}
                     </div>
                     <div class="field">
+                        <label>How did you hear about us?</label>
+                        {{ form.heard_about_from }}{{ form.heard_about_from.errors }}
+                        <div>If other please add below</div>    
+                        {{ form.heard_about_from_other }}{{ form.heard_about_from_other.errors }}
+                    </div>                    
+                    <div class="field">
                         <label>What is your reason for submitting this form?</label>
                         {{ form.submit_reason }}{{ form.submit_reason.errors }}
                     </div>
-                    <div class="clear"></div>
-                    
                     <div class="field">
                         <label>I would like to get information and update for the JoziHub</label>
                         {{ form.information_about_jozihub }}{{ form.information_about_jozihub.errors }}
@@ -90,6 +89,7 @@
                     <div class="field">
                         <label>What event are you interested in hosting?</label>
                         {{ form.events_interested_in_hosting }}{{ form.events_interested_in_hosting.errors }}
+                        <div>If other please add below</div>
                         {{ form.events_interested_in_hosting_other }}{{ form.events_interested_in_hosting_other.errors }}
                     </div>
                     <div class="field">
@@ -129,6 +129,7 @@
                     <div class="field">
                         <label>Do you want to become a partner or funder for the Hub?</label>
                         {{ form.become_a_partner_or_funder }}{{ form.become_a_partner_or_funder.errors }}
+                        <div>If other please add below</div>
                         {{ form.become_a_partner_or_funder_other }}{{ form.become_a_partner_or_funder_other.errors }}
                     </div>
                     <div class="field">
@@ -149,7 +150,7 @@
                     <div class="field">
                         <label>What is your field of expertise?</label>
                         {{ form.field_of_expertise }}{{ form.field_of_expertise.errors }}
-                        <div>Please add below</div>
+                        <div>If other please add below</div>
                         {{ form.field_of_expertise_other }}{{ form.field_of_expertise_other.errors }}
                     </div>
                     <div class="field">
