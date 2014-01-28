@@ -113,6 +113,13 @@ class EventsForm(forms.ModelForm):
             'class': 'required',
         })
 
+    def save(self, commit=True):
+        obj = super(EventsForm, self).save(commit)
+        obj.sites.add(1)
+        obj.save()
+        return obj
+
+
 class NewsForm(forms.ModelForm):
 
     class Meta:
@@ -136,6 +143,12 @@ class NewsForm(forms.ModelForm):
         self.fields['rich_content'].widget.attrs.update({
             'class': 'required',
         })
+
+    def save(self, commit=True):
+        obj = super(NewsForm, self).save(commit)
+        obj.sites.add(1)
+        obj.save()
+        return obj
 
 class JobsForm(forms.ModelForm):
 
@@ -161,6 +174,12 @@ class JobsForm(forms.ModelForm):
             'class': 'required',
         })
 
+    def save(self, commit=True):
+        obj = super(JobsForm, self).save(commit)
+        obj.sites.add(1)
+        obj.save()
+        return obj
+
 class GalleryForm(forms.ModelForm):
 
     class Meta:
@@ -184,3 +203,9 @@ class GalleryForm(forms.ModelForm):
         self.fields['images'].widget.attrs.update({
             'class': 'required',
         })
+
+    def save(self, commit=True):
+        obj = super(GalleryForm, self).save(commit)
+        obj.sites.add(1)
+        obj.save()
+        return obj
