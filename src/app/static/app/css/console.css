@@ -9,6 +9,6 @@
     /* Form */
     .block form .btns { width: auto; padding: 10px 50px 12px; }
         .field { position: relative; }
-        .block .field label.error { position: absolute; top: 26px; left: 0; } 
+        .block .field label.error { position: absolute; top: 0; right: 35px; } 
     /* back */
     .back { display: block; padding: 15px 0 0; }
