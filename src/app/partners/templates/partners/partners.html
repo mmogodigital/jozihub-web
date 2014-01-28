@@ -12,21 +12,23 @@
 {% endblock %}
 
 {% block content %}
-    <div id="content" class="up">
+    <div id="content">
         <div class="container">
             <p class="context">Partners</p>
             <h1>Partners</h1>
             
             <div class="clear"></div>
-            {% for object in object_list %}
-	            <div class="block">
-	                <div class="title">{{ object.title }}</div>
-	                <a class="logo" href="{{ object.external_link }}" target="_blank"><img src="{{ object.image.url }}"></a>
-	                {{ object.rich_content|safe }}
-	            </div>
-	        {% empty %}
-	           <p>There are no partners to list.</p>
-	        {% endfor %}
+            <div class="block">
+	            {% for object in object_list %}
+		            <div class="block1">
+		                <div class="title">{{ object.title }}</div>
+		                <a class="logo" href="{{ object.external_link }}" target="_blank"><img src="{{ object.image.url }}"></a>
+		                {{ object.rich_content|safe }}
+		            </div>
+		        {% empty %}
+		           <p>There are no partners to list.</p>
+		        {% endfor %}
+	        </div><!--/block-->
             <div class="clear"></div>           
         </div> 
     </div><!--/Content-->

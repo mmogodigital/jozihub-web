@@ -220,16 +220,16 @@
         
         .block { margin: 20px 0 0; padding: 30px 0 0; border-top: 2px solid #e2e3e4; }
             .block .std_terms { font-style: italic; }
-            .block .title { font-size: 30px; color: #222b32; }
-            .block a.logo { float: right; margin: 20px 0 10px 10px; padding: 8px; border: 1px solid #e2e3e4; }
+            .block .title { padding: 0 0 18px; font-size: 30px; color: #222b32; }
+            .block a.logo { float: right; margin: 10px 0 20px 20px; padding: 30px; border: 1px solid #e2e3e4; }
             .block .block1 { width: 100%; display: block; }
             .block .block1 img { float: left; margin: 0 30px 0 0; }
-            .block .block1 .title { margin: 30px 0 0; padding: 0 0 8px; }
+            .block .block1 .title { margin: 30px 0 0; padding: 0 0 8px; line-height: 30px; }
             .block .block1 .details { margin: 0; font-size: 20px; color: #222b32; }
             
             .block .block2 { width: 450px; float: left; margin: 0 40px 30px 0; }
             .block .block2 .block_head img { float: left; margin: 0 30px 0 0; }
-            .block .block2 .block_head .title { margin: 30px 0 0; padding: 0 0 8px; }
+            .block .block2 .block_head .title { margin: 30px 0 0; padding: 0 0 8px; line-height: 30px; }
             .block .block2 .block_head .details { margin: 0; font-size: 20px; color: #222b32; }
             
             .block .block3 { width: 290px; float: left; margin: 0 30px 30px 0; }
