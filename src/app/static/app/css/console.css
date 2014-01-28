@@ -12,3 +12,5 @@
         .block .field label.error { position: absolute; top: 0; right: 35px; } 
     /* back */
     .back { display: block; padding: 15px 0 0; }
+    /* footer */
+    .footer_border { border-top: 1px solid #e2e3e4; }
