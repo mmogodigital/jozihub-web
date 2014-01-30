@@ -372,8 +372,6 @@ class ProjectRegistrationManager(models.Manager):
     
     @transaction.atomic
     def create_inactive_user(self, site, **kwargs):
-        from pprint import pprint
-        pprint(kwargs)
         email = ProjectRegistrationManager.normalize_email(kwargs['email'])
         profile = EndUser.objects.create(
             first_name=kwargs['first_name'], 
