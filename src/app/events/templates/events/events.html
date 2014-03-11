@@ -26,12 +26,14 @@
                         <div class="block_head">
                             <img src="{{ object.get_100x98_url }}" />
                             <p class="title">{{ object.title }}</p>
-                            <p class="details"><strong>When</strong>: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
-                            <p class="details"><strong>Where</strong>: {{ object.venue_name }}</p>                
+                            <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
+                            <p class="details">Where: {{ object.venue_name }}</p>                
                         </div>
                         <div class="clear"></div>
                         <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
-                        <p><a href="{% url 'event_detail' object.slug %}">Read more</a></p>
+{% comment %}
+                        <p class="btns"><a href="{% url 'event_detail' object.slug %}">Read more</a></p>
+{% endcomment %}             
                         {% if object.calendar_link %}
                             <p class="btns"><a target="_blank" href="{{ object.calendar_link }}">Add to my calendar</a></p>
                         {% endif %}

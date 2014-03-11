@@ -7,7 +7,7 @@
     [hidden] { display: none; }
 
     html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    html, button, input, select, textarea { font-family: 'Open Sans', 'Arial', 'Helvetica', 'Verdana', sans-serif; color: #5b656c; outline: none!important; }
+    html, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #5b656c; outline: none!important; }
     body { margin: 0; font-size: 13px; line-height: 21px; }
 
     ::-moz-selection { background: #999; color: #000; text-shadow: none; }
@@ -82,6 +82,7 @@
     .no-marg-right { margin-right: 0!important; }
     .no-pad { padding: 0!important; }
     .hidden { display: none; }
+    .marg-top { margin-top: 10px!important; }
 
 
 /**************************************************************************************************************************************/
@@ -115,11 +116,11 @@
     #footer ul li a,
     #promo .deets a, 
     .title,
-    .post { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
+    .post,
+    .table_title { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
     h2,
     .block .block2 .block_head .details,
-    .block .details,    
-    table,
+    .block .details, 
     em { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; }
 
 
@@ -163,7 +164,7 @@
         #promo h1 { text-transform: uppercase; color: #d71232; }
         #promo .desc { font-size: 16px; line-height: 28px; }
         #promo .deets a { font-size: 32px; text-transform: uppercase; color: #d71232; line-height: 38px; }
-        #promo .deets a img { display: inline-block; padding: 0 0 0 25px; margin: -3px 0 0 0; }
+        #promo .deets a img { display: inline-block; padding: 0 0 0 20px; margin: -6px 0 0 0; }
         /* Promo on event page */
         #promo.event .wrapper { background: none; }
         #promo.event .panel { width: 980px; text-align: center; }
@@ -215,17 +216,18 @@
     /* Content */
     #content { padding: 149px 0 75px 0; font-size: 16px; line-height: 28px; }
         #content.up { padding: 60px 0 75px 0; }
-        #content h1 { padding-bottom: 10px; }
+        #content h1 { padding-bottom: 10px; text-transform: capitalize; }
         #content h2 { margin: 30px 0; }
-        #content .page_intro { width: 445px; margin: 0 90px 0 0; float: left; padding: 30px 0 0 0; font-size: 16px; line-height: 28px; display: inline-table; } 
+        #content .page_intro { width: 445px; margin: 0 90px 10px 0; float: left; padding: 30px 0 0 0; font-size: 16px; line-height: 28px; display: inline-table; } 
         
-        .block { margin: 20px 0 0; padding: 30px 0 0; border-top: 2px solid #e2e3e4; }
+        .block { margin: 20px 0 0; padding: 10px 0 0; border-top: 2px solid #e2e3e4; }
             .block .std_terms { font-style: italic; }
             .block .title { padding: 0 0 18px; font-size: 30px; color: #222b32; }
+            .block .table_title { padding: 0 0 25px; font-size: 30px; color: #222b32; }
             .block a.logo { float: right; margin: 10px 0 20px 20px; padding: 30px; border: 1px solid #e2e3e4; }
-            .block .block1 { width: 100%; display: block; }
+            .block .block1 { width: 100%; display: block; padding: 0 0 25px; }
             .block .block1 img { float: left; margin: 0 30px 0 0; }
-            .block .block1 .title { margin: 30px 0 0; padding: 0 0 8px; line-height: 30px; }
+            .block .block1 .title { margin: 30px 0 0; padding: 0 0 15px; line-height: 30px; }
             .block .block1 .details { margin: 0; font-size: 20px; color: #222b32; }
             
             .block .block2 { width: 450px; float: left; margin: 0 40px 30px 0; }
@@ -251,7 +253,7 @@
             .block form .field select:focus,
             .block form .field textarea:focus { background: #fff; border: 2px solid #3db7b8; }
             .block input[type="checkbox"] { margin: 0 20px 0 0; }
-            .block input[type="radio"] { margin: 0 10px 0 0; }
+            .block input[type="radio"] { margin: 0 10px 0 1px; }
             .block form .btns { margin: 18px 0 0; }
             .block .btns input { padding: 10px 35px; border: none; background: #3db7b8; color: #fff; text-transform: uppercase; font-weight: bold; }
             .block form .forgot { clear: both; padding: 10px 0 0; }
@@ -263,11 +265,10 @@
         
     /* Buttons */
     .btns { margin: 0 10px 0 0; float: left; background: #3db7b8; text-align: center; }
-    .btns a { display: block; padding: 10px 35px; color: #fff; text-transform: uppercase; font-weight: bold; }
+    .btns a { display: block; padding: 10px 35px; color: #fff; text-transform: uppercase; font-weight: 700; }
     
     /* Post button */
-    #content .post { float: right; padding: 10px; background: #3eb7b8; display: inline-block; font-size: 18px; text-transform: uppercase; color: #fff; line-height: 24px; border-radius: 8px; }
-    #content .post a:hover { color: #fff; }
+    #content .post { float: right; padding: 10px 35px; background: #3eb7b8; display: inline-block; font-size: 18px; text-transform: uppercase; color: #fff; line-height: 24px; }
     
     /* Galleria */
     .galleria { width: 980px; height: 400px; background: #f4f4f5; }
@@ -275,12 +276,14 @@
     /* Override galleria styles */
     .galleria-container { background: #f4f4f5!important; }
     .galleria-info-link { background: #ccc!important; }
+    /* Disqus*/
+    .comment_top { margin: 50px 0 0; } 
     
     /* Tables */
     #content table { width: 100%; }
-    #content table th { background: #3db7b8; color: #fff; text-transform: uppercase; }
+    #content table th { background: #3db7b8; color: #fff; text-transform: uppercase; text-align: left; }
     #content table th,
-    #content table td { padding: 10px; }
+    #content table td { padding: 15px 25px; line-height: 24px; }
     #content table tr:nth-child(odd) { background: #f4f4f5; }
     #content table tr:last-child { background: #fff; }
     #content table ul { margin: 0; }
