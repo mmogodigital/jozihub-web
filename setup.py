@@ -24,7 +24,6 @@ setup(
         'django-photologue==2.8.praekelt',
         'django-registration==1.0',
         'django-preferences',
-        'django-countries',
         'python-memcached',
         'django_compressor',
         'gunicorn',
