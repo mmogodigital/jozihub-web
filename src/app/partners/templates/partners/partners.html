@@ -7,9 +7,11 @@
     {% include 'includes/top_nav.html' with on='partners' %}
 {% endblock %}
 
-{% block promo %}
-    {% html_bannerset_widget 'partners' %}
-{% endblock %}
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'partners' %}
+	{% endblock %}
+{% endcomment %}
 
 {% block content %}
     <div id="content">

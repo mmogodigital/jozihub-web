@@ -7,9 +7,11 @@
     {% include 'includes/top_nav.html' with on='jobs' %}
 {% endblock %}
 
-{% block promo %}
-    {% html_bannerset_widget 'jobs' %}
-{% endblock %}
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'jobs' %}
+	{% endblock %}
+{% endcomment %}
 
 {% block content %}
     <div id="content">

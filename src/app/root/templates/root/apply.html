@@ -7,9 +7,11 @@
     {% include 'includes/top_nav.html' with on='apply' %}
 {% endblock %}
 
-{% block promo %}
-    {% html_bannerset_widget 'apply' %}
-{% endblock %}
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'apply' %}
+	{% endblock %}
+{% endcomment %}
 
 {% block content %}
     <div id="content">

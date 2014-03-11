@@ -7,9 +7,11 @@
     {% include 'includes/top_nav.html' with on='news' %}
 {% endblock %}
 
-{% block promo %}
-    {% html_bannerset_widget 'news' %}
-{% endblock %}
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'news' %}
+	{% endblock %}
+{% endcomment %}
 
 {% block content %}
     <div id="content">
