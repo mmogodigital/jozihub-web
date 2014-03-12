@@ -232,8 +232,8 @@
             
             .block .block2 { width: 450px; float: left; margin: 0 40px 30px 0; }
             .block .block2 .block_head img { float: left; margin: 0 30px 0 0; }
-            .block .block2 .block_head .title { margin: 30px 0 0; padding: 0 0 8px; line-height: 30px; }
-            .block .block2 .block_head .details { margin: 0; font-size: 20px; color: #222b32; }
+            .block .block2 .block_head .title { margin: 30px 0 0 130px; padding: 0 0 8px; line-height: 30px; }
+            .block .block2 .block_head .details { margin: 0 0 0 130px; font-size: 20px; color: #222b32; }
             
             .block .block3 { width: 290px; float: left; margin: 0 30px 30px 0; }
             .block .block3 .title { margin: 30px 0 0; font-size: 30px; color: #222b32; }
