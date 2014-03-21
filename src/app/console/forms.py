@@ -4,6 +4,10 @@ Created on 3 Dec 2013
 @author: christina
 '''
 from django import forms
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.sites.models import Site
+
+from ckeditor.widgets import CKEditorWidget
 
 from tunobase.core.models import Gallery
 from tunobase.corporate.media.models import Event
@@ -207,5 +211,31 @@ class GalleryForm(forms.ModelForm):
     def save(self, commit=True):
         obj = super(GalleryForm, self).save(commit)
         obj.sites.add(1)
+        obj.save()
+        return obj
+
+class FlatPageForm(forms.ModelForm):
+
+    class Meta:
+        model = FlatPage
+        fields = ['title', 'content']
+        widgets = {
+            'content': CKEditorWidget(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(FlatPageForm, self).__init__(*args, **kwargs)
+
+
+        self.fields['title'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['content'].widget.attrs.update({
+            'class': 'required',
+        })
+
+    def save(self, commit=True):
+        obj = super(FlatPageForm, self).save(commit)
+        obj.sites.add(Site.objects.get_current())
         obj.save()
         return obj

@@ -219,4 +219,24 @@ urlpatterns = patterns('',
         name='console_gallery_list'
     ),
     #-------------------------------------------------------------------------
+    # Console: Flatpages
+        url(r'^flatpages/$',
+            views.FlatPagesList.as_view(
+                template_name='console/flatpages/flatpage_list.html',
+            ),
+            name='console_flatpage_list'
+        ),
+        url(r'^flatpages/(?P<pk>\d+)/$',
+            views.FlatPagesDetail.as_view(
+                template_name='console/flatpages/flatpage_detail.html'
+            ),
+            name='console_flatpage_detail'
+        ),
+        url(r'^flatpages/update/(?P<pk>\d+)/$',
+            views.FlatPagesUpdate.as_view(
+                form_class=forms.FlatPageForm,
+                template_name='console/flatpages/flatpage_edit.html',
+            ),
+            name='console_flatpage_edit'
+        ),
 )
