@@ -17,11 +17,12 @@
     <div id="content">
         <div class="container">
             <p class="context">Events</p>
+            {% if current_and_future_events %}
             <h1>Upcoming Events</h1>
 
             <div class="clear"></div>
             <div class="block">
-                {% for object in object_list %}
+                {% for object in current_and_future_events %}
                     <div class="block2">
                         <div class="block_head">
                             <img src="{{ object.get_100x98_url }}" />
@@ -31,9 +32,6 @@
                         </div>
                         <div class="clear"></div>
                         <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
-{% comment %}
-                        <p class="btns"><a href="{% url 'event_detail' object.slug %}">Read more</a></p>
-{% endcomment %}             
                         {% if object.calendar_link %}
                             <p class="btns"><a target="_blank" href="{{ object.calendar_link }}">Add to my calendar</a></p>
                         {% endif %}
@@ -43,6 +41,33 @@
                 {% endfor %}
             <div class="clear"></div>          
             </div><!--/block-->          
+            {% endif %}
+
+            {% if past_events %}
+            <h1>Past Events</h1>
+
+            <div class="clear"></div>
+            <div class="block">
+                {% for object in past_events %}
+                    <div class="block2">
+                        <div class="block_head">
+                            <img src="{{ object.get_100x98_url }}" />
+                            <p class="title">{{ object.title }}</p>
+                            <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
+                            <p class="details">Where: {{ object.venue_name }}</p>                
+                        </div>
+                        <div class="clear"></div>
+                        <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
+                        {% if object.calendar_link %}
+                            <p class="btns"><a target="_blank" href="{{ object.calendar_link }}">Add to my calendar</a></p>
+                        {% endif %}
+                    </div><!--/block2-->
+                {% empty %}
+                    <p>There are no previous events to list.</p>
+                {% endfor %}
+            <div class="clear"></div>          
+            </div><!--/block-->          
+            {% endif %}
         </div> 
     </div><!--/Content-->
 {% endblock %}
