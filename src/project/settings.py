@@ -214,7 +214,7 @@ HONEYPOT_VALUE = 'unomena'
 
 # CK Editor Settings
 
-CKEDITOR_UPLOAD_PATH = MEDIA_ROOT.child('uploads')
+CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 CKEDITOR_STATIC_PREFIX = '/static/ckeditor/'
 
 # Email Settings
