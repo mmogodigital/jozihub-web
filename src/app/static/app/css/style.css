@@ -354,7 +354,7 @@
 
         /* Global */
         #main { width: auto; }
-        .container { width: auto; }
+        .container { width: auto; padding: 0 20px; }
         .overflow { overflow-x: auto; }
         
         /* Header */
