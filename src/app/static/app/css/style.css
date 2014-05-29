@@ -296,6 +296,9 @@
     #content table tr:nth-child(odd) { background: #f4f4f5; }
     #content table tr:last-child { background: #fff; }
     #content table ul { margin: 0; }
+    
+    /* Images on detail pages */
+    .detail_image { width: 200px; float: right; margin: 0 0 30px 0; border: 7px solid #39b7b8; }
 
 /**************************************************************************************************************************************/
 /*  FOOTER */
