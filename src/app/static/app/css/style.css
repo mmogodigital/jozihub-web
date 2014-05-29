@@ -155,7 +155,7 @@
 /*  SECTIONS */
 
     /* Promo */
-    #promo { padding: 74px 0 0 0; min-height: 522px; background: #f4f4f5; position: relative; }
+    /*#promo { padding: 74px 0 0 0; min-height: 522px; background: #f4f4f5; position: relative; }
         #promo > img { position: absolute; top: 0; left: 0; z-index: 1; }
         #promo .wrapper { min-height: 522px; background: url('../img/promo.png') left center no-repeat; position: relative; z-index: 2; }
         #promo .container { padding: 85px 0 75px 0;  }
@@ -164,13 +164,20 @@
         #promo h1 { text-transform: uppercase; color: #d71232; }
         #promo .desc { font-size: 16px; line-height: 28px; }
         #promo .deets a { font-size: 32px; text-transform: uppercase; color: #d71232; line-height: 38px; }
-        #promo .deets a img { display: inline-block; padding: 0 0 0 20px; margin: -6px 0 0 0; }
+        #promo .deets a img { display: inline-block; padding: 0 0 0 20px; margin: -6px 0 0 0; } 
+     */
         /* Promo on event page */
-        #promo.event .wrapper { background: none; }
+        /* #promo.event .wrapper { background: none; }
         #promo.event .panel { width: 980px; text-align: center; }
         #promo.event h1 { margin: 70px 0 0; line-height: 60px; font-size: 60px; text-transform: none; color: #fff; }
         #promo.event h1 a { color: #3db7b8; }
         #promo > img { top: 74px; }
+        */
+        
+    /* Image only promo */
+    #promo  { padding: 74px 0 0 0; min-height: 282px; background: #fff; position: relative; }
+    	#promo .container { padding: 0; }
+    	#promo > img { position: absolute; top: 0; left: 0; z-index: 1; }
 
     /* Our Vision */
     #vision { padding: 75px 0 85px 0; }
@@ -329,18 +336,24 @@
         #header { width: 100%; height: auto; position: relative; }
         #header .logo { margin: 16px 10px 0 30px; }
         #header ul li a { margin: 0 8px; }
-        #header .nav_connect { padding: 0 10px; }        
+        #header .nav_connect { padding: 0 10px; }   
+        
+        /* Promo */ 
+        #promo { min-height: 100%; }
+        #promo img { width: 100%!important; height: auto!important; }     
         
         /* Content */
         
         #vision { padding: 75px 25px 85px; }
             #vision .intro { width: auto; }
             #vision .intro:last-child { float: none; }
+        #pics img { width: 100%; }
         #become { padding: 75px 25px 85px; }
             #become .container { background: none; }
         #partners { padding: 75px 25px 85px; }
         #social { padding: 75px 25px; }
-        #footer { padding: 0 25px; }
+        #social ul li { margin: 0 50px 0 0; }
+        #footer { padding: 20px 25px!important; }
         #footer ul li { padding: 0 0 0 20px; }
         
         #content.up { padding: 60px 25px 75px; }
@@ -371,18 +384,21 @@
         #header ul li.on a { background: none; }
         
         /* Promo */ 
+        #promo { min-height: 100%; }
+        #promo img { width: 100%!important; height: auto!important; }
 
         /* Content */
         
-        #vision { padding: 75px 25px 85px; }
+        #vision { padding: 55px 25px 65px; }
             #vision .intro { width: auto; }
             #vision .intro:last-child { float: none; }
-        #become { padding: 75px 25px 85px; }
+        #pics img { width: 100%; }
+        #become { padding: 55px 25px 65px; }
             #become .container { background: none; }        
-        #partners { padding: 75px 25px 85px; }
+        #partners { padding: 55px 25px 65px; }
             #partners .logos { text-align: center; }
             #partners .logos a { display: block; }
-        #social { padding: 75px 25px; }
+        #social { padding: 55px 25px; }
             #social ul { float: none; }
             #social ul li { width: 100px; float: none; display: inline-block; clear: both; margin: 0 20px 0 0; }
             #social ul li a { width: auto; float: none; display: block; }
