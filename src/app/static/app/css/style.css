@@ -323,11 +323,12 @@
         #main { width: auto; }
         .container { width: auto; padding: 0 20px; }
         .overflow { overflow-x: auto; }
+        h1 br { display: none; }
         
         /* Header */
         #header { width: 100%; height: auto; position: relative; }
         #header .logo { margin: 16px 10px 0 30px; }
-        #header ul li a { margin: 0 8px; font-size: 13px; }
+        #header ul li a { margin: 0 8px; }
         #header .nav_connect { padding: 0 10px; }        
         
         /* Content */
@@ -356,6 +357,7 @@
         #main { width: auto; }
         .container { width: auto; padding: 0 20px; }
         .overflow { overflow-x: auto; }
+        h1 br { display: none; }
         
         /* Header */
         #header { width: 100%; height: auto; position: relative; }
@@ -382,7 +384,7 @@
             #partners .logos a { display: block; }
         #social { padding: 75px 25px; }
             #social ul { float: none; }
-            #social ul li { width: 100%; float: none; display: block; clear: both; margin: 0; }
+            #social ul li { width: 100px; float: none; display: inline-block; clear: both; margin: 0 20px 0 0; }
             #social ul li a { width: auto; float: none; display: block; }
         #footer ul { float: none; display: block; clear: both; padding: 20px 0 0; }
             #footer .address { float: none; padding: 66px 0 0; text-align: center; background: url("../img/footer_icon.png") no-repeat scroll center 0 rgba(0, 0, 0, 0); }
