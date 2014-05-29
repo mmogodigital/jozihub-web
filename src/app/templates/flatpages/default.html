@@ -5,5 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    {{ flatpage.content|safe }}
+    <div id="content">
+        <div class="container">
+    		{{ flatpage.content|safe }}   
+        	<div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
 {% endblock %}

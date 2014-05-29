@@ -321,14 +321,14 @@
 
         /* Global */
         #main { width: auto; }
-        .container { width: auto; }
+        .container { width: auto; padding: 0 20px; }
         .overflow { overflow-x: auto; }
         
         /* Header */
         #header { width: 100%; height: auto; position: relative; }
         #header .logo { margin: 16px 10px 0 30px; }
-        #header ul li a { margin: 0 8px; }
-        #header .nav_connect { padding: 0 15px; }        
+        #header ul li a { margin: 0 8px; font-size: 13px; }
+        #header .nav_connect { padding: 0 10px; }        
         
         /* Content */
         
