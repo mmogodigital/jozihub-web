@@ -14,7 +14,7 @@ try:
 except ImportError:
     datetime_now = datetime.datetime.now
 
-from django_countries import CountryField
+from django_countries.fields import CountryField
 
 from photologue.models import ImageModel
 
