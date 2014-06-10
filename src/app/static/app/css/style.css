@@ -371,6 +371,7 @@
         .container { width: auto; padding: 0 20px; }
         .overflow { overflow-x: auto; }
         h1 br { display: none; }
+        h1 { font-size: 40px; line-height: 44px; }
         
         /* Header */
         #header { width: 100%; height: auto; position: relative; }
@@ -389,16 +390,16 @@
 
         /* Content */
         
-        #vision { padding: 55px 25px 65px; }
+        #vision { padding: 55px 0 65px; }
             #vision .intro { width: auto; }
             #vision .intro:last-child { float: none; }
         #pics img { width: 100%; }
-        #become { padding: 55px 25px 65px; }
+        #become { padding: 55px 0 65px; }
             #become .container { background: none; }        
-        #partners { padding: 55px 25px 65px; }
+        #partners { padding: 55px 0 65px; }
             #partners .logos { text-align: center; }
             #partners .logos a { display: block; }
-        #social { padding: 55px 25px; }
+        #social { padding: 55px 0; }
             #social ul { float: none; }
             #social ul li { width: 100px; float: none; display: inline-block; clear: both; margin: 0 20px 0 0; vertical-align: top; }
             #social ul li a { width: auto; float: none; display: block; }
