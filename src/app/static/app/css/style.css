@@ -298,7 +298,7 @@
     #content table ul { margin: 0; }
     
     /* Images on detail pages */
-    .detail_image { width: 200px; float: right; margin: 0 0 30px 0; border: 7px solid #39b7b8; }
+    .detail_image { width: 200px; float: right; margin: 0 0 30px 30px; border: 7px solid #39b7b8; }
 
 /**************************************************************************************************************************************/
 /*  FOOTER */
@@ -419,6 +419,8 @@
         .block .field input[type="url"], 
         .block .field textarea { width: 93%; }
         .block .field select { width: 100%; }    
+        
+        .detail_image { float: none; margin: 0 0 30px 0; display: block; }
 
     }
 
