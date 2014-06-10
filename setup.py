@@ -33,7 +33,8 @@ setup(
         'Pillow',
         'psycopg2',
         'flufl.password==1.2.1',
-        'tunobase==1.0.3'
+        'tunobase==1.0.3',
+        'raven'
     ],
     include_package_data=True,
 )
