@@ -410,7 +410,14 @@
         #content.up { padding: 60px 25px 75px; }
         
         .block .block2 { width: auto; }
-            
+        .block .field { width: 100%; float: none; }
+        .block .field input[type="text"], 
+        .block .field input[type="password"], 
+        .block .field input[type="email"], 
+        .block .field input[type="number"], 
+        .block .field input[type="url"], 
+        .block .field textarea { width: 93%; }
+        .block .field select { width: 100%; }    
 
     }
 
