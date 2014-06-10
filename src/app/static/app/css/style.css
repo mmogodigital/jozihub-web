@@ -366,9 +366,6 @@
     /* Phones */
     @media only screen and (max-width: 767px) {
 
-        /* Grid */
-        /*.span12 { width: auto; float: none; display: block; }*/
-
         /* Global */
         #main { width: auto; }
         .container { width: auto; padding: 0 20px; }
