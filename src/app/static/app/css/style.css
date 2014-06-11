@@ -420,7 +420,7 @@
         .block .field textarea { width: 93%; }
         .block .field select { width: 100%; }    
         
-        .detail_image { float: none; margin: 0 0 30px 0; display: block; }
+        .detail_image { float: none!important; margin: 0 0 30px 0; display: block; }
 
     }
 
