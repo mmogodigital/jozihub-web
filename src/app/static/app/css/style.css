@@ -246,7 +246,6 @@
             .block .block3 { width: 290px; float: left; margin: 0 30px 30px 0; }
             .block .block3 .title { margin: 30px 0 0; font-size: 30px; color: #222b32; }
             
-            .block form { overflow: auto; }
             .block form .head { padding: 10px; font-size: 24px; text-transform: uppercase; background: #3eb7b8; color: #fff; line-height: 28px; }
             .block .field { width: 490px; float: left; margin: 10px 0; }
             .block label { display: block; margin: 0 0 5px; }
@@ -418,7 +417,7 @@
         .block .field input[type="number"], 
         .block .field input[type="url"], 
         .block .field textarea { width: 93%; }
-        .block .field select { width: 100%; }    
+        .block .field select { width: 100%; }  
         
         .detail_image { float: none!important; margin: 0 0 30px 0; display: block; }
 
