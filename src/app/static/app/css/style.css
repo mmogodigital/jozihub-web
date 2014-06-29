@@ -200,7 +200,7 @@
     /* Social Section at the bottom of Homepage (possibly all pages) */
     #social { padding: 75px 0; background: #f4f4f5; }
         #social .context { color: #ffae00; }
-        #social ul { float: left; margin: 0; padding: 0; list-style: none; }
+        #social ul { float: left; margin: 0; padding: 0; list-style: none; text-align: center; }
         #social ul li { width: 100px; float: left; margin: 0 75px 0 0; padding: 50px 0 0 0; display: inline-block; text-align: center; }
         #social ul li:last-child { margin: 0; }
         #social ul li a { width: 100px; float: left; padding: 110px 0 0 0; font-size: 15px; text-transform: uppercase; color: #232c32; }
