@@ -384,11 +384,12 @@
         #header ul li.on a { background: none; }
         
         /* Promo */ 
-        #promo { min-height: 100%; }
+        #promo { min-height: 100%; padding: 0; }
         #promo img { width: 100%!important; height: auto!important; }
 
         /* Content */
         
+        #content { padding: 20px 0  0; }
         #vision { padding: 55px 0 65px; }
             #vision .intro { width: auto; }
             #vision .intro:last-child { float: none; }
