@@ -1,0 +1,112 @@
+/**************************************************************************************************************************************/
+/*  RESPONSIVE */
+    
+    /* Default Site */
+    @media only screen and (min-width: 1280px) {
+
+        /* Global */
+        .container { width: 980px; }
+
+    }
+
+    /* Tablets */
+    @media only screen and (min-width: 768px) and (max-width: 979px) {
+
+        /* Grid */
+        /*.span12 { width: auto; float: none; display: block; }*/
+
+        /* Global */
+        #main { width: auto; }
+        .container { width: auto; padding: 0 20px; }
+        .overflow { overflow-x: auto; }
+        h1 br { display: none; }
+        
+        /* Header */
+        #header { width: 100%; height: auto; position: relative; }
+        #header .logo { margin: 16px 10px 0 30px; }
+        #header ul li a { margin: 0 8px; }
+        #header .nav_connect { padding: 0 10px; }   
+        
+        /* Promo */ 
+        #promo { min-height: 100%; }
+        #promo img { width: 100%!important; height: auto!important; }     
+        
+        /* Content */
+        
+        #vision { padding: 75px 25px 85px; }
+            #vision .intro { width: auto; }
+            #vision .intro:last-child { float: none; }
+        #pics img { width: 100%; }
+        #become { padding: 75px 25px 85px; }
+            #become .container { background: none; }
+        #partners { padding: 75px 25px 85px; }
+        #social { padding: 75px 25px; }
+        #social ul li { margin: 0 50px 0 0; vertical-align: top; }
+        #footer { padding: 20px 25px!important; }
+        #footer ul li { padding: 0 0 0 20px; }
+        
+        #content.up { padding: 60px 25px 75px; }
+
+    }
+
+    /* Phones */
+    @media only screen and (max-width: 767px) {
+
+        /* Global */
+        #main { width: auto; }
+        .container { width: auto; padding: 0 20px; }
+        .overflow { overflow-x: auto; }
+        h1 br { display: none; }
+        h1 { font-size: 40px; line-height: 44px; }
+        
+        /* Header */
+        #header { width: 100%; height: 74px; position: relative; }
+        #header .logo { margin: 16px 0 0 17px; background-size: 142px 36px; }
+        #header .mobi_handle { width: 17px; height: 13px; float: right; display: block; background: url('../img/mobile_handle.png') no-repeat; position: absolute; top: 31px; right: 130px; }
+        #header .nav_connect { padding: 0 25px; }
+        #header ul { display: none; width: 100%; background: #d71232; position: absolute; top: 74px; left: 0; right: 0; }
+        #header ul li { width: auto; float: none; padding: 0; border-bottom: 1px solid #D75232; }
+        #header ul li a { display: block; color: #fff; }
+        #header ul li a:hover { color: #232c32; }
+        #header ul li.on a { background: none; }
+        
+        /* Promo */ 
+        #promo { min-height: 100%; padding: 0; }
+        #promo img { width: 100%!important; height: auto!important; }
+
+        /* Content */
+        
+        #content { padding: 20px 0  0; }
+        #vision { padding: 55px 0 65px; }
+            #vision .intro { width: auto; }
+            #vision .intro:last-child { float: none; }
+        #pics img { width: 100%; }
+        #become { padding: 55px 0 65px; }
+            #become .container { background: none; }        
+        #partners { padding: 55px 0 65px; }
+            #partners .logos { text-align: center; }
+            #partners .logos a { display: block; }
+        #social { padding: 55px 0; }
+            #social ul { float: none; }
+            #social ul li { width: 100px; float: none; display: inline-block; clear: both; margin: 0 10px 0 0; vertical-align: top; }
+            #social ul li a { width: auto; float: none; display: block; }
+        #footer ul { float: none; display: block; clear: both; padding: 20px 0 0; }
+            #footer .address { float: none; padding: 66px 0 0; text-align: center; background: url("../img/footer_icon.png") no-repeat scroll center 0 rgba(0, 0, 0, 0); }
+            #footer ul li { float: none; padding: 0; text-align: center; margin: 0; }
+            #footer ul li a { line-height: 25px; }
+            
+        #content.up { padding: 60px 25px 75px; }
+        
+        .block .block2 { width: auto; }
+        .block .field { width: 100%; float: none; }
+        .block .field input[type="text"], 
+        .block .field input[type="password"], 
+        .block .field input[type="email"], 
+        .block .field input[type="number"], 
+        .block .field input[type="url"], 
+        .block .field textarea { width: 93%; }
+        .block .field select { width: 100%; }  
+        
+        .detail_image { float: none!important; margin: 0 0 30px 0; display: block; }
+
+    }
