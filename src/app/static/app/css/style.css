@@ -128,7 +128,6 @@
 /*  GLOBAL */
 
     html, body { background: #222b32 url('../img/bg.png') top center no-repeat; }
-    #wrap { width: 100%; clear: both; }
     #main { width: 1400px; margin: 0 auto; background: #fff; position: relative; }        
         .banner_error { position: absolute; top: 80px; left: 30px; color: #ff0000; }
     .container { width: 980px; margin: 0 auto; /* this controls the width of the site for media queries - check at the bottom of this file */ }
