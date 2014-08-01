@@ -139,7 +139,7 @@
 /**************************************************************************************************************************************/
 /*  HEADER */
 
-    #header { width: 1400px; height: 74px; background: #fff url('../img/border.png') bottom repeat-x; position: fixed; z-index: 1000; }
+    #header { width: 1400px; height: 74px; background: #fff url('../img/border.png') bottom repeat-x; position: relative; z-index: 1000; }
         #header .logo { width: 162px; height: 41px; float: left; margin: 16px 190px 0 30px; background: url('../img/logo.png') no-repeat; }
         #header .mobi_handle { display: none; }
         #header ul { margin: 0; padding: 0; list-style: none; }
@@ -220,7 +220,7 @@
     #title { padding: 75px 0; background: #f4f4f5; }
 
     /* Content */
-    #content { padding: 149px 0 75px 0; font-size: 16px; line-height: 28px; }
+    #content { padding: 75px 0; font-size: 16px; line-height: 28px; }
         #content.up { padding: 60px 0 75px 0; }
         #content h1 { padding-bottom: 10px; text-transform: capitalize; }
         #content h2 { margin: 30px 0; }
