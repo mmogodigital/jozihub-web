@@ -1,5 +1,6 @@
 <div id="header">
     <a href="{% url 'index' %}" class="logo"></a>
+    <a href="#social" class="nav_connect">Connect</a>
     <ul>
         <li {% if on == 'news' %}class="on"{% endif %}><a href="{% url 'news' %}">News</a></li>
         <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'events' %}">Events</a></li>
@@ -19,5 +20,4 @@
         {% endif %}
     </ul>
     <a href="javascript: void(0);" class="mobi_handle"></a>
-    <a href="#social" class="nav_connect">Connect</a>
 </div><!--/Header-->
