@@ -6,7 +6,7 @@
     audio:not([controls]) { display: none; }
     [hidden] { display: none; }
 
-    html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    html { font-size: 100%; }
     html, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #5b656c; outline: none!important; }
     body { margin: 0; font-size: 13px; line-height: 21px; }
 
@@ -128,8 +128,7 @@
 /*  GLOBAL */
 
     html, body { background: #222b32 url('../img/bg.png') top center no-repeat; }
-    #wrap { width: 100%; clear: both; }
-    #main { width: 1400px; margin: 0 auto; background: #fff; position: relative; }        
+    #main { width: 1280px; margin: 0 auto; background: #fff; position: relative; overflow-x: hidden; }        
         .banner_error { position: absolute; top: 80px; left: 30px; color: #ff0000; }
     .container { width: 980px; margin: 0 auto; /* this controls the width of the site for media queries - check at the bottom of this file */ }
     .context { margin: 0; padding: 0; font-size: 24px; text-transform: uppercase; color: #3eb7b8; line-height: 28px; }
@@ -140,10 +139,10 @@
 /**************************************************************************************************************************************/
 /*  HEADER */
 
-    #header { width: 1400px; height: 74px; background: #fff url('../img/border.png') bottom repeat-x; position: fixed; z-index: 1000; }
-        #header .logo { width: 162px; height: 41px; float: left; margin: 16px 190px 0 30px; background: url('../img/logo.png') no-repeat; }
+    #header { width: 1280px; height: 74px; background: #fff url('../img/border.png') bottom repeat-x; position: relative; z-index: 1000; }
+        #header .logo { width: 162px; height: 41px; float: left; margin: 16px 0 0 30px; background: url('../img/logo.png') no-repeat; }
         #header .mobi_handle { display: none; }
-        #header ul { margin: 0; padding: 0; list-style: none; }
+        #header ul { float: right; margin: 0; padding: 0; list-style: none; }
         #header ul li { float: left; }
         #header ul li a { margin: 0 19px; display: inline-block; font-size: 18px; text-transform: uppercase; color: #222c32; line-height: 74px; }
         #header ul li a:hover { color: #3db7b8; }
@@ -200,7 +199,7 @@
     /* Social Section at the bottom of Homepage (possibly all pages) */
     #social { padding: 75px 0; background: #f4f4f5; }
         #social .context { color: #ffae00; }
-        #social ul { float: left; margin: 0; padding: 0; list-style: none; }
+        #social ul { float: left; margin: 0; padding: 0; list-style: none; text-align: center; }
         #social ul li { width: 100px; float: left; margin: 0 75px 0 0; padding: 50px 0 0 0; display: inline-block; text-align: center; }
         #social ul li:last-child { margin: 0; }
         #social ul li a { width: 100px; float: left; padding: 110px 0 0 0; font-size: 15px; text-transform: uppercase; color: #232c32; }
@@ -221,7 +220,7 @@
     #title { padding: 75px 0; background: #f4f4f5; }
 
     /* Content */
-    #content { padding: 149px 0 75px 0; font-size: 16px; line-height: 28px; }
+    #content { padding: 75px 0; font-size: 16px; line-height: 28px; }
         #content.up { padding: 60px 0 75px 0; }
         #content h1 { padding-bottom: 10px; text-transform: capitalize; }
         #content h2 { margin: 30px 0; }
@@ -246,7 +245,6 @@
             .block .block3 { width: 290px; float: left; margin: 0 30px 30px 0; }
             .block .block3 .title { margin: 30px 0 0; font-size: 30px; color: #222b32; }
             
-            .block form { overflow: auto; }
             .block form .head { padding: 10px; font-size: 24px; text-transform: uppercase; background: #3eb7b8; color: #fff; line-height: 28px; }
             .block .field { width: 490px; float: left; margin: 10px 0; }
             .block label { display: block; margin: 0 0 5px; }
@@ -298,7 +296,7 @@
     #content table ul { margin: 0; }
     
     /* Images on detail pages */
-    .detail_image { width: 200px; float: right; margin: 0 0 30px 0; border: 7px solid #39b7b8; }
+    .detail_image { width: 200px; float: right; margin: 0 0 30px 30px; border: 7px solid #39b7b8; }
 
 /**************************************************************************************************************************************/
 /*  FOOTER */
@@ -310,112 +308,6 @@
         #footer ul li { float: left; padding: 0 0 0 35px; }
         #footer ul li a { display: block; font-size: 15px; text-transform: uppercase; color: #232c32; line-height: 60px; }
         #footer ul li a:hover { color: #39b7b8; }
-
-
-/**************************************************************************************************************************************/
-/*  RESPONSIVE */
-    
-    /* Default Site */
-    @media only screen and (min-width: 1280px) {
-
-        /* Global */
-        .container { width: 980px; }
-
-    }
-
-    /* Tablets */
-    @media only screen and (min-width: 768px) and (max-width: 979px) {
-
-        /* Grid */
-        /*.span12 { width: auto; float: none; display: block; }*/
-
-        /* Global */
-        #main { width: auto; }
-        .container { width: auto; padding: 0 20px; }
-        .overflow { overflow-x: auto; }
-        h1 br { display: none; }
-        
-        /* Header */
-        #header { width: 100%; height: auto; position: relative; }
-        #header .logo { margin: 16px 10px 0 30px; }
-        #header ul li a { margin: 0 8px; }
-        #header .nav_connect { padding: 0 10px; }   
-        
-        /* Promo */ 
-        #promo { min-height: 100%; }
-        #promo img { width: 100%!important; height: auto!important; }     
-        
-        /* Content */
-        
-        #vision { padding: 75px 25px 85px; }
-            #vision .intro { width: auto; }
-            #vision .intro:last-child { float: none; }
-        #pics img { width: 100%; }
-        #become { padding: 75px 25px 85px; }
-            #become .container { background: none; }
-        #partners { padding: 75px 25px 85px; }
-        #social { padding: 75px 25px; }
-        #social ul li { margin: 0 50px 0 0; }
-        #footer { padding: 20px 25px!important; }
-        #footer ul li { padding: 0 0 0 20px; }
-        
-        #content.up { padding: 60px 25px 75px; }
-
-    }
-
-    /* Phones */
-    @media only screen and (max-width: 767px) {
-
-        /* Grid */
-        /*.span12 { width: auto; float: none; display: block; }*/
-
-        /* Global */
-        #main { width: auto; }
-        .container { width: auto; padding: 0 20px; }
-        .overflow { overflow-x: auto; }
-        h1 br { display: none; }
-        
-        /* Header */
-        #header { width: 100%; height: auto; position: relative; }
-        #header .logo { margin: 16px 0 0 30px; }
-        #header .mobi_handle { width: 17px; height: 13px; float: right; display: block; background: url('../img/mobile_handle.png') no-repeat; position: absolute; top: 31px; right: 130px; }
-        #header .nav_connect { padding: 0 25px; }
-        #header ul { display: none; width: 100%; background: #d71232; position: absolute; top: 74px; left: 0; right: 0; }
-        #header ul li { width: auto; float: none; padding: 0; border-bottom: 1px solid #D75232; }
-        #header ul li a { display: block; color: #fff; }
-        #header ul li a:hover { color: #232c32; }
-        #header ul li.on a { background: none; }
-        
-        /* Promo */ 
-        #promo { min-height: 100%; }
-        #promo img { width: 100%!important; height: auto!important; }
-
-        /* Content */
-        
-        #vision { padding: 55px 25px 65px; }
-            #vision .intro { width: auto; }
-            #vision .intro:last-child { float: none; }
-        #pics img { width: 100%; }
-        #become { padding: 55px 25px 65px; }
-            #become .container { background: none; }        
-        #partners { padding: 55px 25px 65px; }
-            #partners .logos { text-align: center; }
-            #partners .logos a { display: block; }
-        #social { padding: 55px 25px; }
-            #social ul { float: none; }
-            #social ul li { width: 100px; float: none; display: inline-block; clear: both; margin: 0 20px 0 0; }
-            #social ul li a { width: auto; float: none; display: block; }
-        #footer ul { float: none; display: block; clear: both; padding: 20px 0 0; }
-            #footer .address { float: none; padding: 66px 0 0; text-align: center; background: url("../img/footer_icon.png") no-repeat scroll center 0 rgba(0, 0, 0, 0); }
-            #footer ul li { float: none; padding: 0; text-align: center; margin: 0; }
-            #footer ul li a { line-height: 25px; }
-            
-        #content.up { padding: 60px 25px 75px; }
-        
-        .block .block2 { width: auto; }
-            
-
-    }
 
 
 /**************************************************************************************************************************************/
