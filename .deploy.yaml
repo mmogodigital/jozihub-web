@@ -1,0 +1,13 @@
+buildscript: scripts/build.sh
+postinstall: scripts/postinstall.sh
+dependencies:
+ - nginx
+ - postgresql-server-dev-9.1
+ - libpq-dev
+ - postgresql
+ - redis-server
+ - python-yaml
+ - libjpeg-dev
+ - zlib1g-dev
+ - libproj0
+ - libproj-dev
