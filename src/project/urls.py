@@ -7,8 +7,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
     (r'^', include('%s.urls' % settings.PROJECT_NAME)),
-    
-    # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^secure/ckeditor/', include('ckeditor.urls')),
 )

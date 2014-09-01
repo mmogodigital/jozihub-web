@@ -6,3 +6,6 @@ pip install http://github.com/unomena/tunobase/tarball/1.0.9#egg=tunobase-1.0.9
 
 $manage syncdb --noinput --no-initial-data --migrate
 $manage collectstatic --noinput
+
+supervisorctl restart jozihub
+

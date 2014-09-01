@@ -10,8 +10,8 @@
             <div class="block">
                 <div class="block1">
                     <img src="{{ object.get_100x98_url }}" />
-                    <p class="details"><strong>When</strong>: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
-                    <p class="details"><strong>Where</strong>: {{ object.venue_name }}</p>
+                    <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
+                    <p class="details">Where: {{ object.venue_name }}</p>
                     <div class="clear"></div>
                 </div>
                 <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>

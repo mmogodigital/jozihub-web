@@ -4,6 +4,8 @@ Created on 03 Dec 2013
 @author: christina
 '''
 from django.core.urlresolvers import reverse
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.sites.models import Site
 from django.shortcuts import get_object_or_404
 from django.views import generic as generic_views
 from django.views.generic.base import TemplateView
@@ -295,3 +297,34 @@ class GalleryList(AdminMixin, generic_views.ListView):
 
     def get_queryset(self):
         return Gallery.objects.all()
+
+# Flatpages
+
+class FlatPagesList(AdminMixin, generic_views.ListView):
+    permission_required = 'blogs.blogs_list'
+
+    def get_queryset(self):
+        return FlatPage.objects.filter(
+            sites=Site.objects.get_current(),
+        )
+
+class FlatPagesDetail(AdminMixin, generic_views.DetailView):
+    permission_required = 'parters.partners_update'
+
+    def get_object(self):
+        return get_object_or_404(
+            FlatPage,
+            pk=self.kwargs['pk'],
+            sites=Site.objects.get_current(),
+        )
+
+class FlatPagesUpdate(AdminMixin, generic_views.UpdateView):
+    permission_required = 'partners.partners_update'
+
+    def get_success_url(self):
+        return reverse('console_flatpage_detail', args=(self.object.pk,))
+
+    def get_queryset(self):
+        return FlatPage.objects.filter(
+            sites=Site.objects.get_current(),
+        )

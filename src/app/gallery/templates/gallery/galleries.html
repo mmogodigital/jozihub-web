@@ -7,15 +7,17 @@
     {% include 'includes/top_nav.html' with on='gallery' %}
 {% endblock %}
 
-{% block promo %}
-    {% html_bannerset_widget 'gallery' %}
-{% endblock %}
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'gallery' %}
+	{% endblock %}
+{% endcomment %}
 
 {% block content %}
     <div id="content">
         <div class="container">
             <p class="context">Gallery</p>
-            <h1>Gallery</h1>
+            <h1>Photo Gallery</h1>
             
             <div class="clear"></div>
             <div class="block">

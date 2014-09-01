@@ -16,7 +16,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Unomena Developers', 'dev@unomena.com'),
+    ('Praekelt', 'devops@praekelt.com'),
 )
 
 MANAGERS = ADMINS
@@ -177,6 +177,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'honeypot',
     'django.contrib.admin',
+    'raven.contrib.django.raven_compat',
 )
 
 CACHES = {
@@ -220,13 +221,9 @@ CKEDITOR_STATIC_PREFIX = '/static/ckeditor/'
 # Email Settings
 
 EMAIL_ENABLED = False
-DEFAULT_FROM_EMAIL = 'Unomena <unomena.com>'
-CONTACT_MESSAGE_TO_EMAIL = 'dev@unomena.com'
-EMAIL_USE_TLS = False
-EMAIL_HOST = 'mail.unomena.net'
-EMAIL_HOST_USER = 'mailman'
-EMAIL_HOST_PASSWORD = 'AKmiQldQ2e'
-EMAIL_EXTRA_BCC_LIST = ['dev@unomena.com']
+DEFAULT_FROM_EMAIL = 'Praekelt <devops@praekelt.com>'
+CONTACT_MESSAGE_TO_EMAIL = 'devops@praekelt.com'
+EMAIL_HOST = 'localhost'
 
 # Default Image Settings
 
@@ -241,20 +238,9 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '[%(levelname)s] %(module)s.%(funcName)s:  %(message)s'
-        },
-    },
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
@@ -265,26 +251,13 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        },
+        }
     },
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
-        },
-        'console': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-        'mail': {
-            'handlers': ['mail_admins'],
-            'level': 'DEBUG',
         },
     }
 }

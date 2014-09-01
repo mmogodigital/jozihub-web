@@ -1,0 +1,33 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='flatpages' %}
+{% endblock %}
+
+{% block content %}
+	<script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
+	<div id="content">
+        <div class="container">
+			<h1>Edit Flatpage</h1>
+			<a href="{% url 'console_flatpage_list' %}">Back to List</a>
+			
+			<div class="block">
+				<form id="frmUpdateJobs" action="." method="POST">{% csrf_token %}
+		            <div class="field">		
+					    <label for="id_title">Title</label>
+					    {{ form.title }}{{ form.title.errors }}
+				    </div>
+                    <div class="clear"></div>
+				    <div class="field">
+					    <label for="id_application">Content</label>
+					    {{ form.content }}{{ form.content.errors }}
+				    </div>
+                    <div class="clear"></div>
+				    <div class="btns">
+				        <input type="submit" value="Update Flatpage" />
+				    </div>
+				</form>
+			</div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}

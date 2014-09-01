@@ -23,7 +23,7 @@ setup(
         'django-photologue==2.8.praekelt',
         'django-registration==1.0',
         'django-preferences',
-        'django-countries',
+        'django-countries==1.5',
         'python-memcached',
         'django_compressor',
         'gunicorn',
@@ -33,7 +33,8 @@ setup(
         'Pillow',
         'psycopg2',
         'flufl.password==1.2.1',
-        'tunobase==1.0.3'
+        'tunobase==1.0.3',
+        'raven'
     ],
     include_package_data=True,
 )

@@ -10,13 +10,14 @@
 /bin/
 /nginx/
 /scheduler/
+/media/
+/src/project/media/
 /develop-eggs/
 /parts/
 /static/
 /logs/
 /supervisor/
 settings_local.py
-/media/
 .DS_Store
 *.swp
 *.sh~
