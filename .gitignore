@@ -24,3 +24,4 @@ settings_local.py
 /crt/
 *~
 .settings/
+src/project/media/
