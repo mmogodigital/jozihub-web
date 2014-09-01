@@ -278,7 +278,7 @@
     #content .post { float: right; padding: 10px 35px; background: #3eb7b8; display: inline-block; font-size: 18px; text-transform: uppercase; color: #fff; line-height: 24px; }
     
     /* Galleria */
-    .galleria { max-width: 980px; height: 550px;}
+    .galleria { max-width: 980px;}
     /*.galleria.more_marg { margin: 30px 0 0; }*/
     /* Override galleria styles */
     /*.galleria-container { background: #f4f4f5!important; }
