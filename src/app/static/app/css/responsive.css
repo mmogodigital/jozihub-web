@@ -62,6 +62,11 @@
         
         #content.up { padding: 60px 25px 75px; }
 
+        /* block elements */
+        .block .block2 {
+            width: 100%;
+        }
+
     }
 
     /* Phones */
@@ -103,7 +108,7 @@
             
         #content.up { padding: 60px 25px 75px; }
         
-        .block .block2 { width: auto; }
+        .block .block2 { width: 100%; }
         .block .field { width: 100%; float: none; }
         .block .field input[type="text"], 
         .block .field input[type="password"], 

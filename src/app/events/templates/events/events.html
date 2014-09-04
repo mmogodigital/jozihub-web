@@ -25,8 +25,8 @@
                 {% for object in current_and_future_events %}
                     <div class="block2">
                         <div class="block_head">
-                            <img src="{{ object.get_100x98_url }}" />
                             <p class="title">{{ object.title }}</p>
+                            <img src="{{ object.get_100x98_url }}" />
                             <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                             <p class="details">Where: {{ object.venue_name }}</p>
                             <p class="details">Address: {{ object.venue_address }}</p>                
@@ -52,8 +52,8 @@
                 {% for object in past_events %}
                     <div class="block2">
                         <div class="block_head">
-                            <img src="{{ object.get_100x98_url }}" />
                             <p class="title">{{ object.title }}</p>
+                            <img src="{{ object.get_100x98_url }}" />
                             <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                             <p class="details">Where: {{ object.venue_name }}</p>                
                         </div>
