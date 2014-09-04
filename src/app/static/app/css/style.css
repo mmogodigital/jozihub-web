@@ -239,6 +239,7 @@
             .block .block2 { width: 450px; float: left; margin: 0 80px 30px 0; }
             .block .block2:nth-child(even) { margin: 0 0 30px 0!important; }
             .block .block2 .block_head img { float: left; margin: 0 30px 0 0; }
+            .block .block2  a { word-break:break-all;}
             .block .block2 .block_head .title { margin: 30px 0 10px 0; padding: 0 0 8px; line-height: 30px; text-transform: capitalize; }
             .block .block2 .block_head .details { margin: 0 0 0 130px; font-size: 20px; color: #222b32; }
             
