@@ -229,7 +229,7 @@
         
         .block { margin: 20px 0 0; padding: 10px 0 0; border-top: 2px solid #e2e3e4; }
             .block .std_terms { font-style: italic; }
-            .block .title { padding: 0 0 18px; font-size: 30px; color: #222b32; }
+            .block .title a, .block .title { padding: 0 0 18px; font-size: 30px; color: #222b32; }
             .block .table_title { padding: 15px 0 25px; font-size: 30px; color: #222b32; }
             .block a.logo { width: 202px; float: right; margin: 10px 0 20px 20px; padding: 30px; text-align: center; border: 1px solid #e2e3e4; }
             .block .block1 { width: 100%; display: block; padding: 0 0 25px; }
