@@ -49,8 +49,8 @@
         /* Content */
         
         #vision { padding: 75px 25px 85px; }
-            #vision .intro { width: auto; }
-            #vision .intro:last-child { float: none; }
+            #vision .intro { width: auto;padding: 30px 0 0 0; }
+            #vision .intro:last-child { float: none;margin-left: 0; }
         #pics img { width: 100%; }
         #become { padding: 75px 25px 85px; }
             #become .container { background: none; }
@@ -91,8 +91,8 @@
         
         #content { padding: 20px 0  0; }
         #vision { padding: 55px 0 65px; }
-            #vision .intro { width: auto; }
-            #vision .intro:last-child { float: none; }
+            #vision .intro { width: auto; padding: 30px 0 0 0; }
+            #vision .intro:last-child { float: none; margin-left: 0; }
         #pics img { width: 100%; }
         #become { padding: 55px 0 65px; }
             #become .container { background: none; }        

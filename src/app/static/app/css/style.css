@@ -180,8 +180,8 @@
 
     /* Our Vision */
     #vision { padding: 75px 0 85px 0; }
-        #vision .intro { width: 445px; padding: 30px 0 0 0; font-size: 16px; line-height: 28px; display: inline-block; }
-        #vision .intro:last-child { float: right; }
+        #vision .intro { width: 445px; padding: 30px 0 85px 0; font-size: 16px; line-height: 28px; display: inline-block;float: left; }
+        #vision .intro:last-child {margin-left: 90px; }
 
     /* Become a Member */
     #become { padding: 75px 0 85px 0; background: #f4f4f5; }
