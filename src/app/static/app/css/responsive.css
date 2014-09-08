@@ -121,3 +121,11 @@
         .detail_image { float: none!important; margin: 0 0 30px 0; display: block; }
 
     }
+
+    @media only screen and (max-width: 650px) {
+        .container.registration,.container.post_job {padding-bottom: 20px;}
+        .block a.logo { float: none;display: block;margin: 0 auto !important; }
+        .container.job {position: relative;}
+        #content .post {position: absolute;top: -11px;right:20px;float: none;}
+        #content h1 {padding-top: 15px;}
+    }
