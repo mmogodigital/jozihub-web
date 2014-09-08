@@ -12,7 +12,7 @@ from app.news import models
 class News(generic_views.ListView):
     
     def get_queryset(self):
-        return models.News.objects.permitted()
+        return models.News.objects.permitted().order_by('-publish_at')
     
 class NewsDetail(generic_views.DetailView):
     
