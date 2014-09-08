@@ -124,7 +124,7 @@
 
     @media only screen and (max-width: 650px) {
         .container.registration,.container.post_job {padding-bottom: 20px;}
-        .block a.logo { float: none;display: block;margin: 0 auto !important; }
+        .block a.logo { float: none;display: block;margin: 20px auto !important;width: 220px; }
         .container.job {position: relative;}
         #content .post {position: absolute;top: -11px;right:20px;float: none;}
         #content h1 {padding-top: 15px;}
