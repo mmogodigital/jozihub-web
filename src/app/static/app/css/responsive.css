@@ -72,9 +72,11 @@
     /* Phones */
     @media only screen and (max-width: 767px) {
 
+
         /* Global */
         #main { width: auto; }
         .container { width: auto; padding: 0 20px; }
+        .container.registration,.container.post_job,.container.loginfrm {padding-bottom: 20px;}
         .overflow { overflow-x: auto; }
         h1 br { display: none; }
         h1 { font-size: 40px; line-height: 44px; }
@@ -123,7 +125,6 @@
     }
 
     @media only screen and (max-width: 650px) {
-        .container.registration,.container.post_job {padding-bottom: 20px;}
         .block a.logo { float: none;display: block;margin: 20px auto !important;width: 220px; }
         .container.job {position: relative;}
         #content .post {position: absolute;top: -11px;right:20px;float: none;}
