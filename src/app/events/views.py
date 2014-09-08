@@ -18,7 +18,7 @@ class Events(generic_views.ListView):
 
         context.update({
             'current_and_future_events': events.current_and_future_events()\
-                    .order_by('start'),
+                   .order_by('-publish_at'),
             'past_events': events.past_events(),
             'object_list': events,
         })
