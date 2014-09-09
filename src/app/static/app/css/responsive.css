@@ -134,3 +134,12 @@
         #content .post {position: absolute;top: -11px;right:20px;float: none;}
         #content h1 {padding-top: 15px;}
     }
+
+    @media only screen and (max-width: 479px) {
+        #content table {font-size: 10px !important;position: relative;left: -15px;}
+        #content table th, #content table td {
+            padding: 5px 3px 3px !important;
+            word-wrap:break-word;
+            max-width: 81px;
+        }
+    }
