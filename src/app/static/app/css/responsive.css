@@ -55,10 +55,12 @@
         #become { padding: 75px 25px 85px; }
             #become .container { background: none; }
         #partners { padding: 75px 25px 85px; }
-        #social { padding: 75px 25px; }
+        #social { padding: 75px 15px; }
         #social ul li { margin: 0 50px 0 0; vertical-align: top; }
-        #footer { padding: 20px 25px!important; }
+        #footer { padding: 20px 15px!important; }
+        #footer .address {padding: 0 0 0 75px;font-size: 14px;}
         #footer ul li { padding: 0 0 0 20px; }
+        #footer ul li a {font-size: 14px;}
         
         #content.up { padding: 60px 25px 75px; }
 
@@ -125,6 +127,8 @@
     }
 
     @media only screen and (max-width: 650px) {
+        #main { width: auto; }
+        .container { width: auto; padding: 0 20px; }
         .block a.logo { float: none;display: block;margin: 20px auto !important;width: 220px; }
         .container.job {position: relative;}
         #content .post {position: absolute;top: -11px;right:20px;float: none;}
