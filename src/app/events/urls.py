@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, include, url
 
-from tunobase.corporate.media import views as media_views
+#from tunobase.corporate.media import views as media_views
 from app.events import views
 
 
 urlpatterns = patterns('',
     url(r'^$',
-        media_views.Events.as_view(
+        views.Events.as_view(
             template_name='events/events.html',
         ),
         name='events'
