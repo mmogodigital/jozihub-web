@@ -200,7 +200,7 @@
     #social { padding: 75px 0; background: #f4f4f5; }
         #social .context { color: #ffae00; }
         #social ul { float: left; margin: 0; padding: 0; list-style: none; text-align: center; }
-        #social ul li { width: 100px; float: left; margin: 0 75px 0 0; padding: 50px 0 0 0; display: inline-block; text-align: center; }
+        #social ul li { width: 100px; float: left; margin: 0 45px 0 0; padding: 50px 0 0 0; display: inline-block; text-align: center; }
         #social ul li:last-child { margin: 0; }
         #social ul li a { width: 100px; float: left; padding: 110px 0 0 0; font-size: 15px; text-transform: uppercase; color: #232c32; }
         #social ul li.soc_contact a { background: url('../img/icon_contact.png') top center no-repeat; }
@@ -213,6 +213,8 @@
         #social ul li.soc_flickr a:hover { color: #d41332; }
         #social ul li.soc_gplus a { background: url('../img/icon_gplus.png') top center no-repeat; }
         #social ul li.soc_gplus a:hover { color: #e56d2e; }
+        #social ul li.soc_facebook a { background: url('../img/icon_facebook.png') top center no-repeat; }
+        #social ul li.soc_facebook a:hover { color: #4773B6; }
         #social ul li.soc_map a { background: url('../img/icon_map.png') top center no-repeat; }
         #social ul li.soc_map a:hover { color: #689f32; }
 
