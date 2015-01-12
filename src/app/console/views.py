@@ -3,9 +3,12 @@ Created on 03 Dec 2013
 
 @author: christina
 '''
+import csv
+
 from django.core.urlresolvers import reverse
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.sites.models import Site
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.views import generic as generic_views
 from django.views.generic.base import TemplateView
@@ -97,6 +100,37 @@ class UsersList(AdminMixin, core_mixins.FilterMixin, generic_views.ListView):
 
     def get_queryset(self):
         return EndUser.objects.filter(**self.get_queryset_filters())
+
+
+class UserExport(generic_views.View):
+
+    queryset = None
+
+    def get(self, request, *args, **kwargs):
+
+        if request.method == 'GET':
+            kwargs = {}
+
+            if request.GET.has_key('start_date'):
+                kwargs['timestamp__gte'] = request.GET['start_date'].strip()
+
+            if request.GET.has_key('end_date') and request.GET['end_date'].strip():
+                kwargs['timestamp__lte'] = request.GET['end_date'].strip()
+
+            queryset = self.queryset.filter(**kwargs)
+
+            response = HttpResponse(mimetype='text/csv')
+            response['Content-Disposition'] = 'attachment;filename=contact-inquiries.csv'
+            writer = csv.writer(response)
+
+            opts = queryset.model._meta
+            field_names = [field.name for field in opts.fields]
+            field_names.remove('password')
+            writer.writerow(field_names)
+
+            for obj in queryset:
+                writer.writerow([str(getattr(obj, field)).encode('ascii', 'ignore') for field in field_names])
+            return response
 
 
 #-----------------------------------------------------------------------------

@@ -6,6 +6,7 @@ Created on 03 Dec 2013
 from django.conf.urls import patterns, url
 
 #from tunobase.corporate.media.console import views, forms
+from app.authentication.models import EndUser
 from app.console import views, forms
 
 urlpatterns = patterns('',
@@ -53,6 +54,13 @@ urlpatterns = patterns('',
             paginate_by=10
         ),
         name='console_users_list'
+    ),
+
+    url(r'^export/$',
+        views.UserExport.as_view(
+            queryset=EndUser.objects.all(),
+        ),
+        name='console_user_export'
     ),
     #-------------------------------------------------------------------------
 
