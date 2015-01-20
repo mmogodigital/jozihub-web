@@ -133,6 +133,10 @@ class ProjectRegistrationForm(forms.ModelForm):
         widget=forms.RadioSelect(),
         choices=root_constants.FIELD_OF_EXPERTISE_CHOICES,
     )
+    information_about_jozihub = forms.ChoiceField(
+        widget=forms.RadioSelect(),
+        choices=root_constants.INFORMATION_ABOUT_JOZIHUB_CHOICES,
+    )
 
     
     def clean_email(self):
