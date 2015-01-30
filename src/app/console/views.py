@@ -26,7 +26,8 @@ from tunobase.corporate.media.models import Event
 from app.authentication.models import EndUser
 from app.console import forms
 from app.jobs.models import JobPost
-from app.news.models import News 
+from app.news.models import News
+from app.root import utils
 
 
 class AdminMixin(
@@ -121,7 +122,7 @@ class UserExport(generic_views.View):
 
             response = HttpResponse(mimetype='text/csv')
             response['Content-Disposition'] = 'attachment;filename=contact-inquiries.csv'
-            writer = csv.writer(response)
+            writer = utils.UnicodeWriter(response)
 
             opts = queryset.model._meta
             field_names = [field.name for field in opts.fields]
@@ -129,7 +130,7 @@ class UserExport(generic_views.View):
             writer.writerow(field_names)
 
             for obj in queryset:
-                writer.writerow([str(getattr(obj, field)).encode('ascii', 'ignore') for field in field_names])
+                writer.writerow([getattr(obj, field) for field in field_names])
             return response
 
 
