@@ -148,6 +148,12 @@
         #header ul li a:hover { color: #3db7b8; }
         #header ul li.on a { background: url('../img/nav_hit.png') top repeat-x; }
         #header .nav_connect { float: right; padding: 0 45px; background: #d71232; display: inline-block; font-size: 18px; text-transform: uppercase; color: #fff; line-height: 74px; }
+        #header ul li:hover .sub-menu { display: block!important; }
+        #header .sub-menu { padding: 20px 20px 10px; position: absolute; z-index: 99; background: #2a2a2d; min-width: 172px; -webkit-border-radius: 0px 0px 4px 4px; -moz-border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4px; display: none; } 
+        #header ul .sub-menu ul { float: none; margin: 10px 0px 0px; }
+        #header ul .sub-menu ul li { float: none; display: block; list-style: none; }
+        #header ul .sub-menu li a { font-size: 16px; line-height: 24px; font-weight: normal; color: #fff; text-decoration: none; display: block; margin: 0px 0px 14px; text-transform: capitalize; background: none; }
+        #header ul .sub-menu li a:hover { color: #39b7b8; } 
 
 
 /**************************************************************************************************************************************/
