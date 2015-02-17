@@ -21,6 +21,12 @@
         #header ul li a { display: block; color: #fff; }
         #header ul li a:hover { color: #232c32; }
         #header ul li.on a { background: none; }
+        #header .sub-menu { padding: 0; position: relative; display: block; background: none; }
+        #header .sub-menu ul { position: relative; top: 0; }
+        #header ul .sub-menu li a { padding: 10px 0 0 30px; }
+        #header ul .sub-menu li a:hover { color: #000; }
+        #header ul .sub-menu li:first-child { border-top: 1px solid #D75232; }
+        #header ul .sub-menu li:last-child { border-bottom: 0; }
         
     }
 
