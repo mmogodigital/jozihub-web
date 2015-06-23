@@ -220,9 +220,9 @@ CKEDITOR_STATIC_PREFIX = '/static/ckeditor/'
 
 # Email Settings
 
-EMAIL_ENABLED = False
-DEFAULT_FROM_EMAIL = 'Praekelt <devops@praekelt.com>'
-CONTACT_MESSAGE_TO_EMAIL = 'devops@praekelt.com'
+EMAIL_ENABLED = True
+DEFAULT_FROM_EMAIL = 'Jozihub <info@jozihub.org>'
+CONTACT_MESSAGE_TO_EMAIL = 'info@jozihub.org'
 EMAIL_HOST = 'localhost'
 
 # Default Image Settings
