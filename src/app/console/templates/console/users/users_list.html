@@ -66,6 +66,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% if object_list %}
+                    <a href="{% url 'console_user_export' %}">Export</a>
+                {% endif %}
                 {% pagination_widget page_obj %}
             </div><!--/block-->
         </div><!--/container-->

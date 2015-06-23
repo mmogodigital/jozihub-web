@@ -24,7 +24,7 @@
                 <div class="clear"></div>
                 {% for object in object_list %}
                     <div class="block1">
-                        <p class="title">{{ object.title }}</p>
+                        <p class="title"><a href="{% url 'news_detail' object.slug %}">{{ object.title }}</a></p>
                         <p class="details">{{ object.publish_at|date:"j F Y" }}</p>
                         <p>{{ object.rich_content|safe|truncatewords:"30" }}</p>
                         <p><a href="{% url 'news_detail' object.slug %}">Read more</a></p>                 

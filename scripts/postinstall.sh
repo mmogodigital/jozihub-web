@@ -8,3 +8,4 @@ $manage syncdb --noinput --no-initial-data --migrate
 $manage collectstatic --noinput
 
 supervisorctl restart jozihub
+

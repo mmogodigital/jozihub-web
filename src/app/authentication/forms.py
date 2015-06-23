@@ -12,6 +12,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 
 from app.authentication import signals, constants, models
+from app.root import constants as root_constants
 
 # Profile Update Form
 
@@ -116,6 +117,27 @@ class ProjectRegistrationForm(forms.ModelForm):
     '''
     password1 = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
+    when_to_host_event = forms.ChoiceField(
+        widget=forms.RadioSelect(),
+        choices=root_constants.WHEN_TO_HOST_EVENT_CHOICES,
+    )
+    when_to_get_access = forms.ChoiceField(
+        widget=forms.RadioSelect(),
+        choices=root_constants.WHEN_TO_GET_ACCESS_CHOICES,
+    )
+    happy_with_the_price = forms.ChoiceField(
+        widget=forms.RadioSelect(),
+        choices=root_constants.HAPPY_WITH_THE_PRICE_CHOICES,
+    )
+    field_of_expertise = forms.ChoiceField(
+        widget=forms.RadioSelect(),
+        choices=root_constants.FIELD_OF_EXPERTISE_CHOICES,
+    )
+    information_about_jozihub = forms.ChoiceField(
+        widget=forms.RadioSelect(),
+        choices=root_constants.INFORMATION_ABOUT_JOZIHUB_CHOICES,
+    )
+
     
     def clean_email(self):
         '''
@@ -178,10 +200,6 @@ class ProjectRegistrationForm(forms.ModelForm):
             'type_of_space_required': forms.CheckboxSelectMultiple,
             'become_a_partner_or_funder': forms.CheckboxSelectMultiple,
             'information_about_jozihub': forms.RadioSelect(),
-            'when_to_host_event': forms.RadioSelect(),
-            'field_of_expertise': forms.RadioSelect(),
-            'when_to_get_access': forms.RadioSelect(),
-            'happy_with_the_price': forms.RadioSelect(),
             'password1' : forms.PasswordInput(),
             'password2' : forms.PasswordInput(),
         }

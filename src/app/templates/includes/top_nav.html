@@ -3,7 +3,14 @@
     <a href="#social" class="nav_connect">Connect</a>
     <ul>
         <li {% if on == 'news' %}class="on"{% endif %}><a href="{% url 'news' %}">News</a></li>
-        <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'events' %}">Events</a></li>
+        <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'events' %}">Events</a>
+          <div class="sub-menu">
+            <ul>
+              <li><a href="{% url 'events' %}">Events Calendar</a></li>
+              <li><a target="_blank" href="{{ STATIC_URL }}app/pdfs/JoziHub_Event_Info_Ratecard.pdf">Venue Hire</a></li>
+            </ul>  
+          </div>
+        </li>
         <li {% if on == 'membership' %}class="on"{% endif %}><a href="/membership/">Membership</a></li>
         <li {% if on == 'partners' %}class="on"{% endif %}><a href="{% url 'partners' %}">Partners</a></li>
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'galleries' %}">Gallery</a></li>

@@ -7,21 +7,23 @@
             <h1>{{ object.title }}</h1>
             
             <div class="clear"></div>
+            {{ object.rich_content|safe }}
+
             <div class="block">
                 <div class="galleria">
                     {% for image in object.images.permitted %}
-	                    <a href="{{ image.image.url }}">
-	                        <img 
-	                            src="{{ image.image.url }}"
-	                            data-big="{{ image.image.url }}"
-	                        >
-	                    </a>
-	                {% endfor %}
+                        <a href="{{ image.image.url }}">
+                            <img
+                                src="{{ image.image.url }}"
+                                data-big="{{ image.image.url }}"
+                            >
+                        </a>
+                    {% endfor %}
                 </div> 
                 <div id="disqus_thread" class="comment_top"></div>
                 <a target="_blank" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            <div class="clear"></div>          
-            </div><!--/block-->          
+            <div class="clear"></div>
+            </div><!--/block-->
         </div> 
     </div><!--/Content-->
 {% endblock %}
@@ -29,10 +31,10 @@
 {% block bottom_js %}
     <script>
         // Load the classic theme
-        Galleria.loadTheme('{{ STATIC_URL }}app/js/libs/galleria.classic.min.js');
-    
+        Galleria.loadTheme('{{ STATIC_URL }}app/js/libs/galleria.twelve.min.js');
+
         // Initialize Galleria
-        Galleria.run('.galleria');
+        Galleria.run('.galleria', {imagePosition: 'top center',responsive: true,height: 0.5});
         
         var disqus_shortname = 'httpjozihuborg'; // required: replace example with your forum shortname
 
