@@ -11,10 +11,3 @@ install:
 
 script:
   - python manage.py test
-
-notifications:
-  emails:
-    recipients:
-      - info@jozihub.org
-    on_success: [always|never|change]
-    on_failure: [always|never|change]
