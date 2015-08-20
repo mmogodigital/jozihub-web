@@ -221,11 +221,9 @@ CKEDITOR_STATIC_PREFIX = '/static/ckeditor/'
 # Email Settings
 
 EMAIL_ENABLED = True
+DEFAULT_FROM_EMAIL = 'Jozihub <info@jozihub.org>'
+CONTACT_MESSAGE_TO_EMAIL = 'info@jozihub.org'
 EMAIL_HOST = 'localhost'
-EMAIL_HOST_USER = 'info@jozihub.org'
-EMAIL_HOST_PASSWORD = 'password'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 # Default Image Settings
 
