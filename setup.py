@@ -3,6 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='app',
     version='0.0.1',
+    url='https://github.com/praekelt/jozihub-web',
     description='Website',
     author='Unomena Developers',
     author_email='dev@unomena.com',
