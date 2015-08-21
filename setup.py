@@ -5,17 +5,16 @@ setup(
     version='0.0.1',
     url='https://github.com/praekelt/jozihub-web',
     description='Website',
-    author='Unomena Developers',
-    author_email='dev@unomena.com',
-    url='http://unomena.com',
-    packages = find_packages('src'),
-    package_dir = {'': 'src'},
-    dependency_links = [
+    author='Praekelt Developers',
+    author_email='dev@praekeltfoundation.org',
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
+    dependency_links=[
         'http://github.com/unomena/django-photologue/tarball/2.8.praekelt#egg=django-photologue-2.8.praekelt',
         'http://github.com/unomena/django-ckeditor-new/tarball/3.6.2.2#egg=django-ckeditor-3.6.2.2',
         'http://github.com/unomena/tunobase/tarball/1.0.3#egg=tunobase-1.0.3'
     ],
-    install_requires = [
+    install_requires=[
         'South',
         'django-debug-toolbar==0.11.0',
         'django-countries',
