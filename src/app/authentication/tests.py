@@ -3,7 +3,7 @@ from django.core import mail
 from django.test.utils import override_settings
 
 
-@override_settings(EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend')
+@override_settings(EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend')
 class EmailTest(TestCase):
 
     def test_send_email(self):
