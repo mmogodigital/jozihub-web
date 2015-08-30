@@ -40,46 +40,99 @@ https://github.com/praekelt/jozihub-web/issues/7 | 0.5 hours
 Prakelt will:
 - Change the News link on the website to the blog as directed
 
-# Schedule
-- Company ABC will deliver the project to Client XYZ by so and so date, providing weekly status reports and project updates. Define the task / project start and finish dates, timelines for different phases of the project and the various milestones.
+### New Events layout
+> This should still list our events but we feel there could be a better way of showcasing the events each month - perhaps each event in a cube with an image and logo that you can click through to the full details? We need to add a line that says "if you'd like your event listed on the jozihub website please send the details through to rea@jozihub.org
 
-# Price
-- It should clearly define the project cost for developing the application, resource expenses, overheads, pricing assumptions based on fixed-fee or time and materials project, payment terms and schedule etc. You may want to take this course to get a basic understanding of financial terms.
+Github issue                                     | Estimated effort
+------------------------------------------------ | ----------------
+https://github.com/praekelt/jozihub-web/issues/8 | 2 hours
 
-# Key Assumptions
-- This must define the conditions on which the project depends. For example, in this case, one assumption could be 'Delays in UX design approval from client XYZ will lead to project kick-off delays' etc.
+Praeklet will:
+- Implement the new design for the events supplied by JoziHub
 
-# Acceptance
-- This must clearly outline the inspection requirements, testing and validation processes, approval process, client sign-offs and acceptance.
-- Once
+### Membership options
+> There are five membership options:
+  1. **Community Member**: Anyone interested or involved in technology, entrepreneurship, business, government, social impact and more can join the JoziHub Community to receive our newsletter, find out about events and happenings and get involved
+  2. **Resident Startup Member**: Tech Startup companies can apply for permanent or semi-permanent workspace at JoziHub as a resident startup member
+  3. **Social Impact Member**: Social Impact organisations or NGO's can apply for permanent or semi-permanent workspace at JoziHub as a social impact member
+  4. **Developer Network Member**: Individual developers can apply for ad hoc use of the JoziHub co-working space for free
+  5. **Mentorship Member**: Individuals or companies who would like to give of their time, experience and expertise to mentor the JoziHub Resident Startups
 
-## Work to be completed
-The following items have been identified as needed to be completed:
+> There should be a clickable button within this section at the top that says 'click here to register' that takes you to the application page
 
-### Email on registration
-After investigation, it appears that the code should mail the client. This will be troubleshooted and confirmed as working.
+Github issue                                     | Estimated effort
+------------------------------------------------ | -----------------
+https://github.com/praekelt/jozihub-web/issues/9 | ?? needs grooming
 
-3 hours estimated.
+Praekelt will:
+- Investigate what is required for this issue
 
-### Database download
-> "We would like to be able to download the full database with just the basic information (name, surname, affiliation, e-mail address, mobile number only) onto an excel doc from the website or have it feed directly into a google doc so it can be easily accessed. Is it possible to add in the old database off the old site into this database so that we have just one database to work from?"
+### Partners
 
-Still need to know where the old database is.
+Github issue                                      | Estimated effort
+------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/11 | 2 hours
 
-Into excel.
+> List of partners, this should again be more user friendly, perhaps blocks again with the logos that you can scroll over to see more info.
 
-8 hours - 1 day
+Praekelt will:
+- Implement the design supplied by JoziHub
 
-#### Menu changes - events
-5 minute
+### Galleries
+> Gallery (please change gallery to Companies) Companies - this is a list of our startups. We should be able to upload a logo, upload a pic of them and insert a short profile with contact details. There are some really wonderful examples to be found below as suggested by Andy at Google: [http://www.flat6labs.com/companies/](http://www.flat6labs.com/companies/) (this is our favourite) [http://www.thegreekcampus.com/#!greek-building/c1wj7](http://www.thegreekcampus.com/#!greek-building/c1wj7) [http://www.galatabusinessangels.com/en/portfolio](http://www.galatabusinessangels.com/en/portfolio)
 
-Figure out how this works. Possibly ask Simon.
+> Information to capture per startup (currently 30 startups but this will increase):
 
-> We need to add a line that says "if you'd like your event listed on the jozihub website please send the details through to rea@jozihub.org
+```
+Name
+Logo
+20 word short descriptor
+150 word long descriptor
+Founder photographs
+Link to their website
+Social media profiles
+Contact details
+```
 
-Need input from client.
+Github issue                                      | Estimated effort
+------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/14 | 4 hours
 
-### carousel
-2 hours
+Praekelt will:
+- Remove the gallery link from the site
+- Implement a new model for startups
+- Provide training on how to use the new startup model
+- Implement the design as supplied by JoziHub
 
-16 hours - 2 days for the startup database
+### Other
+> First image at the top of the site - is it possible to change this at all to reflect an image of the hub. This will be provided. Second image on site: The image with pictures of people and icons. Can we change this to be of some of our actual startups and their logos? when you click on this image it should take you to the page with the startup listings. Inclusion of our JoziHub metrics on the front page of the site: See this link for example of how this could work: [http://www.flat6labs.com/](http://www.flat6labs.com/)
+
+> JoziHub metrics would be:
+
+```
+Resident Startup Companies
+Jobs Created
+Events
+Community members
+```
+
+Github issue                                      | Estimated effort
+------------------------------------------------- | ----------------------
+https://github.com/praekelt/jozihub-web/issues/12 | ?? needs to be groomed
+
+Praekelt will:
+- Expose the metrics
+- Assist with the design supplied by JoziHub
+
+## Cost
+The cost of these updates are calculated as the total number of estimated hours.
+
+Once the scope of work has been approved a cost estimate will be supplied to JoziHub.
+
+On approval a 50% deposit is required.
+
+## Assumptions
+- Work will commence 10 working days after the cost estimate has been approved.
+- Praekelt will be minimally involved with the design of the site.
+- Each issue will be tracked in GitHub under their respective issues and will lead towards a milestone.
+- Deadlines and delivery dates can only be confirmed once deposit is made and estimated efforts are not a guarantee of scheduled delivery.
