@@ -16,6 +16,7 @@ setup(
     ],
     install_requires = [
         'South',
+        'django==1.6.5',
         'django-debug-toolbar==0.11.0',
         'django-countries',
         'django-polymorphic',
