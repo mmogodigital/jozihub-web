@@ -1,4 +1,4 @@
-Django
+Django==1.6.5
 South
 django-debug-toolbar==0.11.0
 django-polymorphic
@@ -15,4 +15,4 @@ Pillow
 psycopg2
 flufl.password==1.2.1
 raven
-
+django-extensions
