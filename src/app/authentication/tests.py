@@ -3,7 +3,6 @@ from django.test import TestCase
 from django.core import mail
 from django.test.utils import override_settings
 from django.conf import settings
-from registration import signals as registration_signals
 
 
 @override_settings(EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend', USE_CELERY=False)

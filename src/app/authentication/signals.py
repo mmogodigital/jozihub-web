@@ -14,7 +14,7 @@ from app.authentication import tasks
 password_was_reset = Signal(providing_args=["sender", "context"])
 
 
-@receiver(registration_signals.user_registered)
+@receiver(registration_signals.user_registered, weak=False)
 def registration_profile_created(sender, **kwargs):
     registration_profile = kwargs.pop('registration_profile', None)
     site = kwargs.pop('site', None)
@@ -27,8 +27,7 @@ def registration_profile_created(sender, **kwargs):
         else:
             tasks.email_account_activation(registration_profile.id, site.id)
 
-
-@receiver(registration_signals.user_activated)
+@receiver(registration_signals.user_activated, weak=False)
 def registration_profile_created(sender, **kwargs):
     user = kwargs.pop('user', None)
 
