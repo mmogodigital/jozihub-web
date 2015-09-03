@@ -89,14 +89,22 @@ JoziHub will:
 
 > There should be a clickable button within this section at the top that says 'click here to register' that takes you to the application page
 
+Prakelet will:
+- implement refined HTML design
+- we will investigate data storage of registrations
+
+JoziHub will:
+- membership page
+- Supply simplified HTML design
+
 Github issue                                     | Estimated effort
------------------------------------------------- | -----------------
-https://github.com/praekelt/jozihub-web/issues/9 | ?? needs grooming
+------------------------------------------------ | ----------------
+https://github.com/praekelt/jozihub-web/issues/9 | 3 hours
 
 Praekelt will:
 - Investigate what is required for this issue
 
-### Partners
+### Partners layout
 
 Github issue                                      | Estimated effort
 ------------------------------------------------- | ----------------
@@ -107,8 +115,11 @@ https://github.com/praekelt/jozihub-web/issues/11 | 2 hours
 Praekelt will:
 - Implement the design supplied by JoziHub
 
-### Galleries
-> Gallery (please change gallery to Companies) Companies - this is a list of our startups. We should be able to upload a logo, upload a pic of them and insert a short profile with contact details. There are some really wonderful examples to be found below as suggested by Andy at Google: [http://www.flat6labs.com/companies/](http://www.flat6labs.com/companies/) (this is our favourite) [http://www.thegreekcampus.com/#!greek-building/c1wj7](http://www.thegreekcampus.com/#!greek-building/c1wj7) [http://www.galatabusinessangels.com/en/portfolio](http://www.galatabusinessangels.com/en/portfolio)
+JoziHub will:
+- Supply new design for partners page.
+
+### Startup Companies
+> Gallery  Companies - this is a list of our startups. We should be able to upload a logo, upload a pic of them and insert a short profile with contact details. There are some really wonderful examples to be found below as suggested by Andy at Google: [http://www.flat6labs.com/companies/](http://www.flat6labs.com/companies/) (this is our favourite) [http://www.thegreekcampus.com/#!greek-building/c1wj7](http://www.thegreekcampus.com/#!greek-building/c1wj7) [http://www.galatabusinessangels.com/en/portfolio](http://www.galatabusinessangels.com/en/portfolio)
 
 > Information to capture per startup (currently 30 startups but this will increase):
 
@@ -161,6 +172,22 @@ Praekelt will:
 
 JoziHub will:
 - Supply HTML design for the metrics and inclusion on the home page
+
+## Update galleries
+
+Github issue                                      | Estimated effort
+------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/17 | ?? hours
+
+Praekelt will:
+- Investigate pulling instagram pictures onto the gallery
+- Write an instagram integration to pull photos from there
+
+JoziHub will:
+- Supply HTML layout for the gallery
+
+## Excluded from scope
+- Multiple login forms, we will only be simplifying the current application form
 
 ## Cost
 The cost of these updates are calculated as the total number of estimated hours.
