@@ -187,7 +187,8 @@ JoziHub will:
 - Supply HTML layout for the gallery
 
 ## Remove Jobs
-Prakelet will remove "Jobs" Prakelet will remove "Sign in"
+Praekelt will:
+- remove "Jobs" Praekelt will remove "Sign in"
 
 ## Book a venue
 Praekelt investigate form to email and validation.
@@ -208,7 +209,7 @@ Github issue                                      | Estimated effort
 https://github.com/praekelt/jozihub-web/issues/19 | ?? hours
 
 ## Excluded from scope
-- Multiple login forms, we will only be simplifying the current application form
+- Multiple application forms, we will only be simplifying the current application form
 - Integrate Inspiration Labs off.
 
 ## Cost
