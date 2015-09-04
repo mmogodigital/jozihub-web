@@ -63,8 +63,7 @@ Github issue                                                  | Estimated effort
 https://github.com/praekelt/jozihub-web/issues/12  (Point 1.) | 4 hours
 
 Praekelt will:
-- Provide a gallery to upload images
-- Implement a carousel on the front page
+- Implement a carousel on the front page, based on startup company images
 
 ### New Events layout
 > This should still list our events but we feel there could be a better way of showcasing the events each month - perhaps each event in a cube with an image and logo that you can click through to the full details? We need to add a line that says "if you'd like your event listed on the JoziHub website please send the details through to rea@jozihub.org"
