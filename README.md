@@ -1,42 +1,22 @@
 # JoziHub website
 ## Installation
-To get a local development server up and working, do the following:
+See [INSTALL.md](INSTALL.md) to get a development server up and running.
 
-```
-$ virtualenv ve
-New python executable in ve/bin/python2.7
-Also creating executable in ve/bin/python
-Installing setuptools, pip, wheel...done.
-$ . ve/bin/activate
-(ve)$ ./install.sh
-...
-Successfully installed South django-debug-toolbar django-countries django-polymorphic django-ckeditor django-photologue django-registration django-preferences python-memcached django-compressor gunicorn celery django-celery django-honeypot Pillow psycopg2 flufl.password tunobase raven app django sqlparse six django-appconf billiard python-dateutil kombu pytz facebook-sdk twython google-api-python-client requests anyjson amqp requests-oauthlib httplib2 oauthlib
-Cleaning up...
-(ve)$ cd src
-(ve)$ ./manage.py syncdb
-...
+## Workflow
+Work carried out follows these steps:
+- The client decides what they want
+- Praekelt meets the client and discuss the requirements
+- Praekelt splits the requirements up into GitHub issues in the project
+- Praekelt writes a scope of work about the requirements and give estimates
+- Praekelt and the client agree on the scope of work and it is signed off by the client
+- Praekelt add all the issues for the current scope into a GitHub milestone
+- Praekelt completes the work and gets signoff from the client
 
-You just installed Django's auth system, which means you don't have any superusers defined.
-Would you like to create one now? (yes/no): yes
-...
-> app.jobs
-> ckeditor
-> photologue
-> preferences
-> django.contrib.admin
-> raven.contrib.django.raven_compat
+## Current scopes of work
+Here are a list of scope of works, their states, github milestone and total hour estimates.
 
-Not synced (use migrations):
-- djcelery
-- tunobase.core
-- tunobase.mailer
-- tunobase.corporate.media
-(use ./manage.py migrate to migrate these)
-(ve)$ ./manage.py migrate
-Running migrations for djcelery:
- - Migrating forwards to 0004_v30_changes.
-...
- - Loading initial data for media.
-Installed 0 object(s) from 0 fixture(s)
-(ve)$ ./manage.py runserver
-```
+Once a scope of work commences or completes, this file should be updated to reflect the state of the scope of work.
+
+Scope of work                                    | State              | GitHub Milestone | Estimated hours
+------------------------------------------------ | ------------------ | ---------------- | ---------------
+[2015-08-27](docs/2015-08-27-jozihub-website.md) | close to be agreed |                  | ±40 hours       |
