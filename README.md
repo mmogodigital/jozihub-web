@@ -17,6 +17,6 @@ Here are a list of scope of works, their states, github milestone and total hour
 
 Once a scope of work commences or completes, this file should be updated to reflect the state of the scope of work.
 
-Scope of work                                    | State              | GitHub Milestone                                                                                    | Estimated hours
------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------- | ---------------
-[2015-08-27](docs/2015-08-27-jozihub-website.md) | close to be agreed | [2015-087-27](https://github.com/praekelt/jozihub-web/milestones/2015-08-27%20-%20Website%20update) | ±40 hours       |
+Scope of work                                    | State              | GitHub Milestone                                                                                   | Estimated hours
+------------------------------------------------ | ------------------ | -------------------------------------------------------------------------------------------------- | ---------------
+[2015-08-27](docs/2015-08-27-jozihub-website.md) | close to be agreed | [2015-08-27](https://github.com/praekelt/jozihub-web/milestones/2015-08-27%20-%20Website%20update) | ±40 hours       |
