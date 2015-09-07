@@ -24,13 +24,7 @@ class EmailTest(TestCase):
                                           settings.HONEYPOT_FIELD_NAME: settings.HONEYPOT_VALUE})
         print response
         self.assertEquals(len(mail.outbox), 1)
-        self.assertEqual(response.status_code, 200)
-        self.failUnless(response.context['form'])
-        self.failUnless(response.context['form'].errors)
-
-    def test_activation_view(self):
-        mail.send_mail('Copy for basic membership application',
-                       'Here is the message.',
-                       'info@jozihub.org', ['foo@example2.com'],
-                       fail_silently=True)
-        self.assertEquals(len(mail.outbox), 1)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['Location'],
+                         'http://testserver%s' %
+                         reverse('registration_complete'))
