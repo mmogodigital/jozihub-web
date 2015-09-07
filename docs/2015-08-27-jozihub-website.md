@@ -49,7 +49,7 @@ Github issue                                     | Estimated effort
 ------------------------------------------------ | ----------------
 https://github.com/praekelt/jozihub-web/issues/7 | 0.5 hours
 
-Prakelt will:
+Praekelt will:
 - Change the News link on the website to the blog as directed
 
 JoziHub will:
@@ -176,7 +176,7 @@ JoziHub will:
 
 Github issue                                      | Estimated effort
 ------------------------------------------------- | ----------------
-https://github.com/praekelt/jozihub-web/issues/17 | ?? hours
+https://github.com/praekelt/jozihub-web/issues/17 | 3 hours
 
 Praekelt will:
 - Investigate pulling instagram pictures onto the gallery
@@ -190,11 +190,13 @@ Praekelt will:
 - remove "Jobs" Praekelt will remove "Sign in"
 
 ## Book a venue
-Praekelt investigate form to email and validation.
+Praekelt will:
+- Supply a form to email
+- Validate form to email subscription
 
 Github issue                                      | Estimated effort
 ------------------------------------------------- | ----------------
-https://github.com/praekelt/jozihub-web/issues/18 | ?? hours
+https://github.com/praekelt/jozihub-web/issues/18 | 3 hours
 
 ## Update footer
 Praekelt will:
@@ -205,7 +207,7 @@ JoziHub will:
 
 Github issue                                      | Estimated effort
 ------------------------------------------------- | ----------------
-https://github.com/praekelt/jozihub-web/issues/19 | ?? hours
+https://github.com/praekelt/jozihub-web/issues/19 | 0.5 hour
 
 ## Excluded from scope
 - Multiple application forms, we will only be simplifying the current application form
