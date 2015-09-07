@@ -27,15 +27,17 @@ def registration_profile_created(sender, **kwargs):
         else:
             tasks.email_account_activation(registration_profile.id, site.id)
 
+
 @receiver(registration_signals.user_activated, weak=False)
 def registration_profile_created(sender, **kwargs):
-    user = kwargs.pop('user', None)
+    activated_user = kwargs.pop('activated_user', None)
+    send_email = kwargs.pop('send_email', False)
 
-    if user is not None:
+    if activated_user is not None and send_email:
         if settings.USE_CELERY:
-            tasks.email_account_post_activation.delay(user.email)
+            tasks.email_account_post_activation.delay(activated_user.email)
         else:
-            tasks.email_account_post_activation(user.email)
+            tasks.email_account_post_activation(activated_user.email)
 
 
 @receiver(password_was_reset)
