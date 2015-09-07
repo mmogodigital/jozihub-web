@@ -35,7 +35,8 @@ setup(
         'psycopg2',
         'flufl.password==1.2.1',
         'tunobase==1.0.3',
-        'raven'
+        'raven',
+        'django-extensions'
     ],
     include_package_data=True,
 )
