@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.core import mail
 from django.test.utils import override_settings
 from django.conf import settings
+from .models import ProjectRegistrationProfile
 
 
 @override_settings(EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend', USE_CELERY=False)
@@ -28,3 +29,9 @@ class EmailTest(TestCase):
         self.assertEqual(response['Location'],
                          'http://testserver%s' %
                          reverse('registration_complete'))
+
+    def test_activation_view(self):
+        response = self.client.get(reverse('secure_activate',
+                                           kwargs={'activation_key': ProjectRegistrationProfile.objects.get(user=self.sample_user).activation_key}))
+        self.assertEquals(len(mail.outbox), 1)
+        self.assertEqual(response.status_code, 200)
