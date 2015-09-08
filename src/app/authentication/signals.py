@@ -30,14 +30,14 @@ def registration_profile_created(sender, **kwargs):
 
 @receiver(registration_signals.user_activated, weak=False)
 def registration_profile_created(sender, **kwargs):
-    activated_user = kwargs.pop('activated_user', None)
+    activated_user = kwargs.pop('user', None)
     send_email = kwargs.pop('send_email', False)
 
     if activated_user is not None and send_email:
         if settings.USE_CELERY:
-            tasks.email_account_post_activation.delay(activated_user.email)
+            tasks.email_account_post_activation.delay(activated_user.id)
         else:
-            tasks.email_account_post_activation(activated_user.email)
+            tasks.email_account_post_activation(activated_user.id)
 
 
 @receiver(password_was_reset)

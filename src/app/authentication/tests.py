@@ -49,7 +49,9 @@ class EmailTest(TestCase):
         response = self.client.get(reverse('secure_activate', kwargs={
             'activation_key': ProjectRegistrationProfile.objects.get(
                 user__email='foo@example2.com').activation_key}))
-        self.assertEquals(len(mail.outbox), 1)
+        self.assertEquals(len(mail.outbox), 2)
+        self.assertEquals(
+            mail.outbox[1].subject, 'Copy for basic membership application')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(
             response['Location'],

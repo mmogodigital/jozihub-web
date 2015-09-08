@@ -146,7 +146,9 @@ class ProjectActivation(BaseActivationView):
         the class of this backend as the sender.
 
         """
-        activated_user = models.ProjectRegistrationProfile.objects.activate_user(activation_key)
+        activated_user = models.ProjectRegistrationProfile.objects \
+            .activate_user(activation_key)
+
         if activated_user:
             registration_signals.user_activated.send(
                 sender=self.__class__,

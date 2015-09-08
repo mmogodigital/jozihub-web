@@ -43,20 +43,21 @@ def email_account_activation(registration_profile_id, site_id):
 
 
 @task(default_retry_delay=10 * 60)
-def email_account_post_activation(email):
+def email_account_post_activation(user_id):
     try:
-        activated_user = get_user_model().objects.get(pk=email['user_id'])
-        # from app.authentication import models
-        # activated_user = models.ProjectRegistrationProfile.objects.get(
-        #     pk=email['registration_profile_id'])
+        activated_user = get_user_model().objects.get(pk=user_id)
+        context = {
+            'user': activated_user,
+            'app_name': settings.APP_NAME
+        }
 
         mailer_utils.send_mail(
             subject='Copy for basic membership application',
             html_content='email/html/post_activation_email.html',
             text_content='email/txt/post_activation_email.txt',
-            context=email,
+            context=context,
             to_addresses=[activated_user.email, ],
-            activated_user=activated_user
+            user=activated_user
         )
     except Exception, exc:
         raise email_account_post_activation.retry(exc=exc)
