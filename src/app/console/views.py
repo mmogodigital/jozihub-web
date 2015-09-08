@@ -14,9 +14,9 @@ from django.views import generic as generic_views
 from django.views.generic.base import TemplateView
 
 from tunobase.core import (
-    mixins as core_mixins, 
-    utils as core_utils, 
-    views as core_views, 
+    mixins as core_mixins,
+    utils as core_utils,
+    views as core_views,
     constants as core_constants
 )
 from tunobase.console import mixins as console_mixins
@@ -31,7 +31,7 @@ from app.root import utils
 
 
 class AdminMixin(
-    console_mixins.ConsoleUserRequiredMixin, 
+    console_mixins.ConsoleUserRequiredMixin,
     core_mixins.PermissionRequiredMixin
 ):
     raise_exception = False
@@ -41,13 +41,14 @@ class ConsoleLanding(AdminMixin, TemplateView):
     permission_required = 'events.add_events'
 
 
-#----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
 # Console: Users
 class UsersCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'users.add_users'
 
     def get_success_url(self):
         return reverse('console_users_detail', args=(self.object.pk,))
+
 
 class UsersUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'users.change_users'
@@ -126,52 +127,34 @@ class UserExport(generic_views.View):
 
             opts = queryset.model._meta
             field_names = [field.name for field in opts.fields]
-            field_names.remove('last_login')
-            field_names.remove('username')
-            field_names.remove('is_superuser')
-            field_names.remove('image')
-            field_names.remove('date_taken')
-            field_names.remove('view_count')
-            field_names.remove('crop_from')
-            field_names.remove('effect')
-            field_names.remove('title')
-            field_names.remove('age')
-            field_names.remove('job_title')
-            field_names.remove('company')
-            field_names.remove('phone_number')
-            field_names.remove('date_joined')
-            field_names.remove('street_address')
-            field_names.remove('city')
-            field_names.remove('state_province')
-            field_names.remove('zip_postal_code')
-            field_names.remove('country')
-            field_names.remove('web_address')
-            field_names.remove('is_regular_user')
-            field_names.remove('is_active')
-            field_names.remove('is_admin')
-            field_names.remove('is_console_user')
-            field_names.remove('heard_about_from_other')
-            field_names.remove('submit_reason')
-            field_names.remove('information_about_jozihub')
-            field_names.remove('educational_background')
-            field_names.remove('about_you')
-            field_names.remove('events_interested_in_hosting_other')
-            field_names.remove('when_to_host_event')
-            field_names.remove('required_from_us')
-            field_names.remove('how_can_you_contribute_to_jozihub')
-            field_names.remove('aims_to_get_from_jozihub')
-            field_names.remove('when_to_get_access')
-            field_names.remove('happy_with_the_price')
-            field_names.remove('become_a_partner_or_funder_other')
-            field_names.remove('about_your_organisation')
-            field_names.remove('what_do_you_aim_to_achieve')
-            field_names.remove('partnership_expectation')
-            field_names.remove('field_of_expertise')
-            field_names.remove('field_of_expertise_other')
-            field_names.remove('background_and_expertise')
-            field_names.remove('what_can_you_offer_as_a_mentor')
-            field_names.remove('mentoring_time')
-            field_names.remove('password')
+
+            excluded_fields = [
+                'id', 'last_login', 'username', 'is_superuser',
+                'image', 'date_taken', 'view_count',
+                'crop_from', 'effect', 'title', 'age',
+                'job_title', 'company', 'phone_number',
+                'date_joined', 'street_address', 'city',
+                'state_province', 'zip_postal_code', 'country',
+                'web_address', 'is_regular_user', 'is_active',
+                'is_console_user', 'heard_about_from_other',
+                'submit_reason', 'information_about_jozihub',
+                'educational_background', 'about_you',
+                'events_interested_in_hosting_other',
+                'when_to_host_event', 'required_from_us',
+                'how_can_you_contribute_to_jozihub',
+                'aims_to_get_from_jozihub',
+                'when_to_get_access', 'happy_with_the_price',
+                'become_a_partner_or_funder_other',
+                'about_your_organisation',
+                'what_do_you_aim_to_achieve',
+                'partnership_expectation', 'field_of_expertise',
+                'field_of_expertise_other',
+                'background_and_expertise',
+                'what_can_you_offer_as_a_mentor',
+                'mentoring_time', 'password']
+
+            for field in excluded_fields:
+                field_names.remove(field)
 
             writer.writerow(field_names)
 
@@ -180,7 +163,7 @@ class UserExport(generic_views.View):
             return response
 
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Console: Events
 class EventsCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'events.add_events'
@@ -233,7 +216,7 @@ class EventsList(AdminMixin, generic_views.ListView):
         return Event.objects.exclude(state=core_constants.STATE_DELETED)
 
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Console: News
 class NewsCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'news.add_news'
@@ -282,7 +265,7 @@ class NewsList(AdminMixin, generic_views.ListView):
         return News.objects.exclude(state=core_constants.STATE_DELETED)
 
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Console: Jobs
 class JobsCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'jobs.add_jobs'
@@ -331,7 +314,7 @@ class JobsList(AdminMixin, generic_views.ListView):
         return JobPost.objects.exclude(state=core_constants.STATE_DELETED)
 
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Console: Gallery
 class GalleryCreate(AdminMixin, generic_views.CreateView):
     permission_required = 'gallery.add_gallery'
