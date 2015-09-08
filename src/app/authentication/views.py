@@ -19,41 +19,44 @@ from tunobase.core import mixins as core_mixins
 
 from app.authentication import forms, models
 
+
 class UpdateProfile(core_mixins.LoginRequiredMixin, generic_views.UpdateView):
-    
+
     def get_object(self):
         return self.request.user
-    
+
     def form_valid(self, form):
         self.object = form.save()
-        
+
         messages.success(self.request, 'Profile details updated')
-        
+
         return self.render_to_response(self.get_context_data(form=form))
-    
+
+
 class UpdateProfilePassword(core_mixins.LoginRequiredMixin, generic_views.FormView):
-    
+
     def get_form_kwargs(self):
         kwargs = super(UpdateProfilePassword, self).get_form_kwargs()
         kwargs['user'] = self.request.user
         return kwargs
-    
+
     def form_valid(self, form):
         form.save()
-        
+
         messages.success(self.request, 'Password updated.')
 
         return self.render_to_response(self.get_context_data(form=form))
-    
+
 # Registration views
 
+
 class ProjectRegistration(BaseRegistrationView):
-    
+
     def get_context_data(self, **kwargs):
         context = super(ProjectRegistration, self).get_context_data(**kwargs)
-        
+
         context['activation_required'] = settings.REGISTRATION_ACTIVATION_REQUIRED
-        
+
         return context
 
     def register(self, request, **cleaned_data):
@@ -84,10 +87,10 @@ class ProjectRegistration(BaseRegistrationView):
             site = Site.objects.get_current()
         else:
             site = RequestSite(request)
-        
+
         if settings.REGISTRATION_ACTIVATION_REQUIRED:
             registration_profile = models.ProjectRegistrationProfile.objects.create_inactive_user(
-                site, 
+                site,
                 **cleaned_data
             )
             registration_signals.user_registered.send(
@@ -97,16 +100,16 @@ class ProjectRegistration(BaseRegistrationView):
                 site=site,
                 send_email=True
             )
-            
+
             return registration_profile.user
-        
+
         registration_profile = models.ProjectRegistrationProfile.objects.create_active_user(
-            site, 
+            site,
             **cleaned_data
         )
-        
+
         return registration_profile
-    
+
     def registration_allowed(self, request):
         """
         Indicate whether account registration is currently permitted,
@@ -118,7 +121,7 @@ class ProjectRegistration(BaseRegistrationView):
 
         * If ``REGISTRATION_OPEN`` is both specified and set to
           ``False``, registration is not permitted.
-        
+
         """
         return getattr(settings, 'REGISTRATION_OPEN', True)
 
@@ -126,10 +129,11 @@ class ProjectRegistration(BaseRegistrationView):
         """
         Return the name of the URL to redirect to after successful
         user registration.
-        
+
         """
         return ('registration_complete', (), {})
-    
+
+
 class ProjectActivation(BaseActivationView):
     def activate(self, request, activation_key):
         """
@@ -140,31 +144,35 @@ class ProjectActivation(BaseActivationView):
         ``registration.signals.user_activated`` will be sent, with the
         newly activated ``User`` as the keyword argument ``user`` and
         the class of this backend as the sender.
-        
+
         """
-        activated_user = models.ProjectRegistrationProfile.objects.activate_user(activation_key)
+        activated_user = models.ProjectRegistrationProfile.objects \
+            .activate_user(activation_key)
+
         if activated_user:
             registration_signals.user_activated.send(
                 sender=self.__class__,
                 user=activated_user,
-                request=request
+                request=request,
+                send_email=True
             )
-            
+
         return activated_user
 
     def get_success_url(self, request, user):
         return ('registration_activation_complete', (), {})
-    
+
+
 class ResendRegistrationEmail(generic_views.TemplateView):
-    
+
     def get(self, request, *args, **kwargs):
         if Site._meta.installed:
             site = Site.objects.get_current()
         else:
             site = RequestSite(request)
-        
+
         registration_profile = get_object_or_404(models.ProjectRegistrationProfile, pk=self.kwargs['pk'])
-        
+
         registration_signals.user_registered.send(
             sender=self.__class__,
             registration_profile=registration_profile,
@@ -172,9 +180,9 @@ class ResendRegistrationEmail(generic_views.TemplateView):
             site=site,
             send_email=True
         )
-        
+
         messages.success(request, 'Email resent successfully.')
-        
+
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
@@ -201,9 +209,9 @@ def login(request, template_name='authentication/login.html',
             # host.
             elif netloc and netloc != request.get_host():
                 redirect_to = settings.LOGIN_REDIRECT_URL
-            
+
             the_user = form.get_user()
-            
+
             # Okay, security checks complete. Log the user in.
             backend = get_backends()[0]
             the_user.backend = "%s.%s" % (backend.__module__, backend.__class__.__name__)
@@ -213,7 +221,7 @@ def login(request, template_name='authentication/login.html',
                 request.session.delete_test_cookie()
 
             response = HttpResponseRedirect(redirect_to)
-                
+
             return response
     else:
         form = authentication_form(request)
@@ -229,13 +237,14 @@ def login(request, template_name='authentication/login.html',
         'site_name': current_site.name,
     }
     context.update(extra_context or {})
-    
+
     return render_to_response(
-        template_name, 
+        template_name,
         context,
         context_instance=RequestContext(request, current_app=current_app)
     )
-    
+
+
 def logout(request, next_page=None,
            template_name='authentication/logged_out.html',
            redirect_field_name=REDIRECT_FIELD_NAME,
@@ -244,14 +253,14 @@ def logout(request, next_page=None,
     Logs out the user and displays 'You are logged out' message.
     """
     auth_logout(request)
-    
+
     redirect_to = request.REQUEST.get(redirect_field_name, '')
     if redirect_to:
         netloc = urlparse.urlparse(redirect_to)[1]
         # Security check -- don't allow redirection to a different host.
         if not (netloc and netloc != request.get_host()):
             response = HttpResponseRedirect(redirect_to)
-            
+
             return response
 
     if next_page is None:
@@ -264,11 +273,12 @@ def logout(request, next_page=None,
         if extra_context is not None:
             context.update(extra_context)
         response = TemplateResponse(request, template_name, context,
-                                current_app=current_app)
-            
+                                    current_app=current_app
+                                    )
+
         return response
     else:
         # Redirect to this page until the session has been cleared.
         response = HttpResponseRedirect(next_page or request.path)
-            
+
         return response
