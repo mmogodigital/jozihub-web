@@ -178,6 +178,7 @@ INSTALLED_APPS = (
     'honeypot',
     'django.contrib.admin',
     'raven.contrib.django.raven_compat',
+    'django_extensions',
 )
 
 CACHES = {

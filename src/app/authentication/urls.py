@@ -33,7 +33,7 @@ urlpatterns = patterns('',
     
     url(r'^secure/activate/(?P<activation_key>\w+)/$', 
         views.ProjectActivation.as_view(
-            template_name='authentication/activate.html'
+            template_name='authentication/activation_complete.html'
         ),
         name='secure_activate'
     ),
