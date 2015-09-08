@@ -1,10 +1,23 @@
 # JoziHub website updates
 ## Objective
-Prakelet Foundation has been tasked with updating JoziHub's website.
+Praeklet Foundation has been tasked with updating JoziHub's website.
 
 This document outlines the scope of the work, the time in which it should be completed, its cost and the assumptions that were made.
 
 ## Scope of Work
+### Register GitHub organization and move jozihub-web code base
+JoziHub's code for the website is currently here: [https://github.com/praekelt/jozihub-web](https://github.com/praekelt/jozihub-web). This is to be moved to it's own GitHub organization.
+
+Github issue | Estimated effort
+------------ | ----------------
+n/a          | 1 hour
+
+Praekelt will:
+- Move the jozihub repository from Praekelt's organization to JoziHub's.
+
+JoziHub will:
+- Provide the Github organization
+
 ### E-mail registration and confirmation
 > Upon registration a customer should receive a welcome response to the person registered.
 
@@ -17,15 +30,14 @@ Investigation into the current code-base shows that e-mails should be sent out.
 Praekelt Foundation will:
 - troubleshoot and diagnose why this is not happening
 - update the content of the mail with supplied copy from JoziHub
+- Add BCC capability to the emailer to notify JoziHub
 
 ### Database accessed
 > We would like to be able to download the full database with just the basic information (name, surname, affiliation, e-mail address, mobile number only) onto an excel doc from the website or have it feed directly into a google doc so it can be easily accessed.
 
 Github issue                                                                                         | Estimated effort
 ---------------------------------------------------------------------------------------------------- | ----------------
-[https://github.com/praekelt/jozihub-web/issues/6](https://github.com/praekelt/jozihub-web/issues/6) | 7 hours
-
-Github issue:  Estimated effort: 7 hours
+[https://github.com/praekelt/jozihub-web/issues/6](https://github.com/praekelt/jozihub-web/issues/6) | 8 hours
 
 Praekelt will:
 - Enable an excel export of this data
@@ -37,11 +49,24 @@ Github issue                                     | Estimated effort
 ------------------------------------------------ | ----------------
 https://github.com/praekelt/jozihub-web/issues/7 | 0.5 hours
 
-Prakelt will:
+Praekelt will:
 - Change the News link on the website to the blog as directed
 
+JoziHub will:
+- Supply the link to the blog
+
+### Carousel
+> Second image on site: The image with pictures of people and icons. Can we change this to be of some of our actual startups and their logos? when you click on this image it should take you to the page with the startup listings.
+
+Github issue                                                  | Estimated effort
+------------------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/12  (Point 1.) | 4 hours
+
+Praekelt will:
+- Implement a carousel on the front page, based on startup company images
+
 ### New Events layout
-> This should still list our events but we feel there could be a better way of showcasing the events each month - perhaps each event in a cube with an image and logo that you can click through to the full details? We need to add a line that says "if you'd like your event listed on the jozihub website please send the details through to rea@jozihub.org
+> This should still list our events but we feel there could be a better way of showcasing the events each month - perhaps each event in a cube with an image and logo that you can click through to the full details? We need to add a line that says "if you'd like your event listed on the JoziHub website please send the details through to rea@jozihub.org"
 
 Github issue                                     | Estimated effort
 ------------------------------------------------ | ----------------
@@ -49,6 +74,9 @@ https://github.com/praekelt/jozihub-web/issues/8 | 2 hours
 
 Praeklet will:
 - Implement the new design for the events supplied by JoziHub
+
+JoziHub will:
+- Supply a new HTML design for implementation
 
 ### Membership options
 > There are five membership options:
@@ -60,14 +88,22 @@ Praeklet will:
 
 > There should be a clickable button within this section at the top that says 'click here to register' that takes you to the application page
 
+Prakelet will:
+- implement refined HTML design
+- we will investigate data storage of registrations
+
+JoziHub will:
+- membership page
+- Supply simplified HTML design
+
 Github issue                                     | Estimated effort
------------------------------------------------- | -----------------
-https://github.com/praekelt/jozihub-web/issues/9 | ?? needs grooming
+------------------------------------------------ | ----------------
+https://github.com/praekelt/jozihub-web/issues/9 | 3 hours
 
 Praekelt will:
 - Investigate what is required for this issue
 
-### Partners
+### Partners layout
 
 Github issue                                      | Estimated effort
 ------------------------------------------------- | ----------------
@@ -78,8 +114,11 @@ https://github.com/praekelt/jozihub-web/issues/11 | 2 hours
 Praekelt will:
 - Implement the design supplied by JoziHub
 
-### Galleries
-> Gallery (please change gallery to Companies) Companies - this is a list of our startups. We should be able to upload a logo, upload a pic of them and insert a short profile with contact details. There are some really wonderful examples to be found below as suggested by Andy at Google: [http://www.flat6labs.com/companies/](http://www.flat6labs.com/companies/) (this is our favourite) [http://www.thegreekcampus.com/#!greek-building/c1wj7](http://www.thegreekcampus.com/#!greek-building/c1wj7) [http://www.galatabusinessangels.com/en/portfolio](http://www.galatabusinessangels.com/en/portfolio)
+JoziHub will:
+- Supply new design for partners page.
+
+### Startup Companies
+> Gallery  Companies - this is a list of our startups. We should be able to upload a logo, upload a pic of them and insert a short profile with contact details. There are some really wonderful examples to be found below as suggested by Andy at Google: [http://www.flat6labs.com/companies/](http://www.flat6labs.com/companies/) (this is our favourite) [http://www.thegreekcampus.com/#!greek-building/c1wj7](http://www.thegreekcampus.com/#!greek-building/c1wj7) [http://www.galatabusinessangels.com/en/portfolio](http://www.galatabusinessangels.com/en/portfolio)
 
 > Information to capture per startup (currently 30 startups but this will increase):
 
@@ -104,8 +143,13 @@ Praekelt will:
 - Provide training on how to use the new startup model
 - Implement the design as supplied by JoziHub
 
+JoziHub will:
+- Supply the HTML design for the new Companies model
+
 ### Other
-> First image at the top of the site - is it possible to change this at all to reflect an image of the hub. This will be provided. Second image on site: The image with pictures of people and icons. Can we change this to be of some of our actual startups and their logos? when you click on this image it should take you to the page with the startup listings. Inclusion of our JoziHub metrics on the front page of the site: See this link for example of how this could work: [http://www.flat6labs.com/](http://www.flat6labs.com/)
+> First image at the top of the site - is it possible to change this at all to reflect an image of the hub. This will be provided.  
+
+> Inclusion of our JoziHub metrics on the front page of the site: See this link for example of how this could work: [http://www.flat6labs.com/](http://www.flat6labs.com/)
 
 > JoziHub metrics would be:
 
@@ -117,12 +161,57 @@ Community members
 ```
 
 Github issue                                      | Estimated effort
-------------------------------------------------- | ----------------------
-https://github.com/praekelt/jozihub-web/issues/12 | ?? needs to be groomed
+------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/12 | 16 hours
 
 Praekelt will:
+- Replace JoziHub image
 - Expose the metrics
 - Assist with the design supplied by JoziHub
+
+JoziHub will:
+- Supply HTML design for the metrics and inclusion on the home page
+
+## Update galleries
+
+Github issue                                      | Estimated effort
+------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/17 | 3 hours
+
+Praekelt will:
+- Investigate pulling instagram pictures onto the gallery
+- Write an instagram integration to pull photos from there
+
+JoziHub will:
+- Supply HTML layout for the gallery
+
+## Remove Jobs
+Praekelt will:
+- remove "Jobs" Praekelt will remove "Sign in"
+
+## Book a venue
+Praekelt will:
+- Supply a form to email
+- Validate form to email subscription
+
+Github issue                                      | Estimated effort
+------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/18 | 3 hours
+
+## Update footer
+Praekelt will:
+- Implement new footer
+
+JoziHub will:
+- Supply new footer
+
+Github issue                                      | Estimated effort
+------------------------------------------------- | ----------------
+https://github.com/praekelt/jozihub-web/issues/19 | 0.5 hour
+
+## Excluded from scope
+- Multiple application forms, we will only be simplifying the current application form
+- Integrate Inspiration Labs off.
 
 ## Cost
 The cost of these updates are calculated as the total number of estimated hours.
