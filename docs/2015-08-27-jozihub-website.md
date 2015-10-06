@@ -187,7 +187,10 @@ JoziHub will:
 
 ## Remove Jobs
 Praekelt will:
-- remove "Jobs" Praekelt will remove "Sign in"
+- remove "Jobs"
+- remove "Sign in"
+
+menu items.
 
 ## Book a venue
 Praekelt will:
