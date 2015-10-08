@@ -1,0 +1,17 @@
+{% extends 'email/base.html' %}
+
+{% block content %}
+A new user has registered on {{ app_name }} at http://{{ site }}<br/>
+
+<p>
+User details:
+  <ul>
+    <li>Username - {{ user.get_username }}</li>
+    <li>Display name - {{ user.display_name }}</li>
+    <li>Email - {{ user.email }}</li>
+  </ul>
+</p>
+<br/>
+This is an automated email. Replies will be sent directly to {{ user.email }}
+<br/>
+{% endblock %}
