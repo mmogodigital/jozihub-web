@@ -40,16 +40,19 @@ def email_account_activation(registration_profile_id, site_id):
             user=registration_profile.user
         )
 
-        decoded_emails = EndUser.objects.filter(is_admin=True).values_list('email', flat=True)
+        admin_users = EndUser.objects.filter(is_admin=True)
+        decoded_emails = admin_users.values_list('email', flat=True)
         admin_emails = [email.encode("utf8") for email in decoded_emails]
         mailer_utils.send_mail(
             subject='Jozihub - New User',
             text_content='email/txt/activation_email_to_admin.txt',
             html_content='email/html/activation_email_to_admin.html',
-            context={'user': registration_profile.user, 'site': site, 'app_name': settings.APP_NAME},
+            context={
+                'user': registration_profile.user,
+                'site': site,
+                'app_name': settings.APP_NAME},
             to_addresses=admin_emails,
             from_address=registration_profile.user.email,
-            
         )
     except Exception, exc:
         raise email_account_activation.retry(exc=exc)
