@@ -7,7 +7,6 @@ from celery.decorators import task
 
 from django.contrib.sites.models import Site
 from django.conf import settings
-from django.template.loader import render_to_string
 from django.contrib.auth import get_user_model
 
 from tunobase.mailer import utils as mailer_utils
