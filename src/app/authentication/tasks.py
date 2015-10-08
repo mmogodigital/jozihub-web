@@ -42,7 +42,7 @@ def email_account_activation(registration_profile_id, site_id):
         )
 
         decoded_emails = EndUser.objects.filter(is_admin=True).values_list('email', flat=True)
-        admin_emails = [email.encode("utf8") for email in encoded_emails]
+        admin_emails = [email.encode("utf8") for email in decoded_emails]
         mailer_utils.send_mail(
             subject='Jozihub - New User',
             text_content='email/txt/activation_email_to_admin.txt',
