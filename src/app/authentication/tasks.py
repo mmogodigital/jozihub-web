@@ -12,6 +12,8 @@ from django.contrib.auth import get_user_model
 
 from tunobase.mailer import utils as mailer_utils
 
+from models import EndUser
+
 
 @task(default_retry_delay=10 * 60)
 def email_account_activation(registration_profile_id, site_id):
@@ -38,6 +40,8 @@ def email_account_activation(registration_profile_id, site_id):
             to_addresses=[registration_profile.user.email, ],
             user=registration_profile.user
         )
+
+        decoded_emails = EndUser.objects.filter(is_admin=True).values_list('email', flat=True)
     except Exception, exc:
         raise email_account_activation.retry(exc=exc)
 
