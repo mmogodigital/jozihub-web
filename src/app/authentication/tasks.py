@@ -42,6 +42,8 @@ def email_account_activation(registration_profile_id, site_id):
         )
 
         decoded_emails = EndUser.objects.filter(is_admin=True).values_list('email', flat=True)
+        admin_emails = [email.encode("utf8") for email in encoded_emails]
+
     except Exception, exc:
         raise email_account_activation.retry(exc=exc)
 
