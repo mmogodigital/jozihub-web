@@ -45,9 +45,9 @@ def email_account_activation(registration_profile_id, site_id):
         admin_emails = [email.encode("utf8") for email in encoded_emails]
         mailer_utils.send_mail(
             subject='Jozihub - New User',
-            text_content='stuuuuf',
-            html_content='and moaaar stuuuuf',
-            context={},
+            text_content='email/txt/activation_email_to_admin.txt',
+            html_content='email/html/activation_email_to_admin.html',
+            context={'user': registration_profile.user, 'site': site, 'app_name': settings.APP_NAME},
             to_addresses=admin_emails,
             from_address=registration_profile.user.email,
             
