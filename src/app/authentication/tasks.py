@@ -43,7 +43,15 @@ def email_account_activation(registration_profile_id, site_id):
 
         decoded_emails = EndUser.objects.filter(is_admin=True).values_list('email', flat=True)
         admin_emails = [email.encode("utf8") for email in encoded_emails]
-
+        mailer_utils.send_mail(
+            subject='Jozihub - New User',
+            text_content='stuuuuf',
+            html_content='and moaaar stuuuuf',
+            context={},
+            to_addresses=admin_emails,
+            from_address=registration_profile.user.email,
+            
+        )
     except Exception, exc:
         raise email_account_activation.retry(exc=exc)
 
