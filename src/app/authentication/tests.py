@@ -23,7 +23,7 @@ class EmailTest(TestCase):
                                           'when_to_get_access': 1,
                                           'happy_with_the_price': 1,
                                           settings.HONEYPOT_FIELD_NAME: settings.HONEYPOT_VALUE})
-        self.assertEquals(len(mail.outbox), 1)
+        self.assertEquals(len(mail.outbox), 2)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response['Location'],
                          'http://testserver%s' %
@@ -49,9 +49,9 @@ class EmailTest(TestCase):
         response = self.client.get(reverse('secure_activate', kwargs={
             'activation_key': ProjectRegistrationProfile.objects.get(
                 user__email='foo@example2.com').activation_key}))
-        self.assertEquals(len(mail.outbox), 2)
+        self.assertEquals(len(mail.outbox), 3)
         self.assertEquals(
-            mail.outbox[1].subject, 'Copy for basic membership application')
+            mail.outbox[2].subject, 'Copy for basic membership application')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(
             response['Location'],
