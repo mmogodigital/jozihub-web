@@ -7,7 +7,8 @@ from django.views import generic as generic_views
 
 from tunobase.core import utils as core_utils
 from tunobase.corporate.media import models
-
+from forms import VenueHireForm
+from django.contrib import messages
 
 class Events(generic_views.TemplateView):
 
@@ -34,3 +35,9 @@ class EventDetail(generic_views.DetailView):
             models.Event,
             slug=self.kwargs['slug']
         )
+
+class VenueHire(generic_views.edit.FormView):
+    def form_valid(self, form):
+        form.send_email()
+        messages.success(self.request, 'Venue request sent')
+        return self.render_to_response(self.get_context_data(form=form))
