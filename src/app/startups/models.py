@@ -8,16 +8,14 @@ def get_uplaad_file_name(instance, filename):
 
 
 class startup_companies(models.Model):
-	name = models.CharField(max_length=120, blank=True, null=True)
-	logo = models.FileField(upload_to=get_uplaad_file_name)
-	short_descriptor = models.TextField(
-        blank=True, 
-        null=True
-    )
-    long_descriptor = models.TextField(
-        blank=True, 
-        null=True
-    )
+    name = models.CharField(max_length=120, blank=True, null=True)
+    logo = models.FileField(upload_to=get_uplaad_file_name)
+    short_descriptor = models.TextField(blank=True, 
+                                        null=True
+                                       )
+    long_descriptor = models.TextField(blank=True, 
+                                       null=True
+                                      )
     founder_photographs = models.TextField(max_length=120, blank=True, null=True)
     Link_to_their_website = models.TextField(max_length=120, blank=True, null=True)
     social_media_profiles = models.TextField(max_length=120, blank=True, null=True)
