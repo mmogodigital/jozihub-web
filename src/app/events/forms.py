@@ -1,5 +1,8 @@
+import collections
+from django.conf import settings
 from django import forms
 
+from app.events import tasks
 
 # Profile Update Form
 
@@ -14,4 +17,19 @@ class VenueHireForm(forms.Form):
         
     def send_email(self):
         # send email using the self.cleaned_data dictionary
+        context = convert_to_utf8(self.cleaned_data)
+        if settings.USE_CELERY:
+            tasks.email_venue_hire.delay(context)
+        else:
+            tasks.email_venue_hire(context)
         pass
+
+def convert_to_utf8(data):
+    if isinstance(data, basestring):
+        return data.encode("utf8")
+    elif isinstance(data, collections.Mapping):
+        return dict(map(convert_to_utf8, data.iteritems()))
+    elif isinstance(data, collections.Iterable):
+        return type(data)(map(convert_to_utf8, data))
+    else:
+        return data
