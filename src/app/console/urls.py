@@ -227,6 +227,48 @@ urlpatterns = patterns('',
         name='console_gallery_list'
     ),
     #-------------------------------------------------------------------------
+
+     #-------------------------------------------------------------------------
+    # Console: Startups
+    # url(r'^startups/create/$',
+    #     views.StartupCreate.as_view(
+    #         form_class=forms.StartupForm,
+    #         template_name='console/startups/startups_edit.html'
+    #     ),
+    #     name='console_startups_create'
+    # ),
+
+    # url(r'^startups/update/(?P<pk>\d+)/$',
+    #     views.StartupUpdate.as_view(
+    #         form_class=forms.StartupForm,
+    #         template_name='console/startups/startups_edit.html'
+    #     ),
+    #     name='console_startups_update'
+    # ),
+
+    url(r'^startups/(?P<pk>\d+)/detail/$',
+        views.StartupDetail.as_view(
+            template_name='console/startups/startups_detail.html'
+        ),
+        name='console_startups_detail'
+    ),
+
+    # url(r'^startups/delete/(?P<pk>\d+)/$',
+    #     views.StartupDelete.as_view(
+    #         template_name='console/startups/startups_confirm_delete.html'
+    #     ),
+    #     name='console_startups_delete'
+    # ),
+
+    url(r'^startups/$',
+        views.StartupList.as_view(
+            template_name='console/startups/startups_list.html',
+            paginate_by=10
+        ),
+        name='console_startups_list'
+    ),
+    #-------------------------------------------------------------------------
+
     # Console: Flatpages
         url(r'^flatpages/$',
             views.FlatPagesList.as_view(

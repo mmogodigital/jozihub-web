@@ -27,6 +27,7 @@ from app.authentication.models import EndUser
 from app.console import forms
 from app.jobs.models import JobPost
 from app.news.models import News
+from app.startups.models import startup_companies
 from app.root import utils
 
 
@@ -361,6 +362,54 @@ class GalleryList(AdminMixin, generic_views.ListView):
 
     def get_queryset(self):
         return Gallery.objects.all()
+
+# -----------------------------------------------------------------------------
+# Console: Startup
+class StartupCreate(AdminMixin, generic_views.CreateView):
+    permission_required = 'startups.add_startups'
+
+    def get_success_url(self):
+        return reverse('console_startups_detail', args=(self.object.pk,))
+
+
+class StartupUpdate(AdminMixin, generic_views.UpdateView):
+    permission_required = 'startups.change_startups'
+
+    def get_success_url(self):
+        startups = startup_companies.objects.get(pk=self.object.pk)
+        if startups.state == core_constants.STATE_DELETED:
+            return reverse('console_startups_list')
+        else:
+            return reverse('console_startups_detail', args=(self.object.pk,))
+
+    def get_queryset(self):
+        return startup_companies.objects.all()
+
+
+class StartupDetail(AdminMixin, generic_views.DetailView):
+    permission_required = 'startups.change_startups'
+
+    def get_object(self):
+        return core_utils.get_permitted_object_or_404(
+            startup_companies, pk=self.kwargs['pk']
+        )
+
+
+# class StartupDelete(AdminMixin, core_views.MarkDeleteView):
+#     permission_required = 'startups.delete_startups'
+
+#     def get_success_url(self):
+#         return reverse('console_startups_list')
+
+#     def get_queryset(self):
+        return startup_companies.objects.all()
+
+
+class StartupList(AdminMixin, generic_views.ListView):
+    permission_required = 'startups.change_startups'
+
+    def get_queryset(self):
+        return startup_companies.objects.all()
 
 # Flatpages
 
