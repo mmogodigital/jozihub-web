@@ -7,10 +7,11 @@ from celery.decorators import task
 
 from django.contrib.sites.models import Site
 from django.conf import settings
-from django.template.loader import render_to_string
 from django.contrib.auth import get_user_model
 
 from tunobase.mailer import utils as mailer_utils
+
+from models import EndUser
 
 
 @task(default_retry_delay=10 * 60)
@@ -37,6 +38,20 @@ def email_account_activation(registration_profile_id, site_id):
             context=ctx_dict,
             to_addresses=[registration_profile.user.email, ],
             user=registration_profile.user
+        )
+
+        admin_users = EndUser.objects.filter(is_admin=True)
+        admin_emails = admin_users.values_list('email', flat=True)
+        mailer_utils.send_mail(
+            subject='Jozihub - New User',
+            text_content='email/txt/activation_email_to_admin.txt',
+            html_content='email/html/activation_email_to_admin.html',
+            context={
+                'user': registration_profile.user,
+                'site': site,
+                'app_name': settings.APP_NAME},
+            to_addresses=admin_emails,
+            from_address=registration_profile.user.email,
         )
     except Exception, exc:
         raise email_account_activation.retry(exc=exc)
