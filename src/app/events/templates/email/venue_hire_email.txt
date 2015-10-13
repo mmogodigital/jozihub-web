@@ -1,0 +1,6 @@
+
+{{ first_name }} {{ last_name }} has requested a Venue {% if affiliated_organisation %}on behalf of {{ affiliated_organisation }}{% endif %}.
+Event description:
+  {{ event_description }}
+
+Contact email: {{ contact_email }}
