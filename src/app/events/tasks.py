@@ -17,8 +17,7 @@ from app.authentication.models import EndUser
 def email_venue_hire(context):
     try:
         admin_users = EndUser.objects.filter(is_admin=True)
-        decoded_emails = admin_users.values_list('email', flat=True)
-        admin_emails = [email.encode("utf8") for email in decoded_emails]
+        admin_emails = admin_users.values_list('email', flat=True)
         mailer_utils.send_mail(
             subject='email/subjects/venue_hire_email_subject.txt',
             html_content='email/html/venue_hire_email.html',
