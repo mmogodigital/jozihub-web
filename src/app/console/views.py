@@ -395,13 +395,13 @@ class StartupDetail(AdminMixin, generic_views.DetailView):
         )
 
 
-# class StartupDelete(AdminMixin, core_views.MarkDeleteView):
-#     permission_required = 'startups.delete_startups'
+class StartupDelete(AdminMixin, core_views.MarkDeleteView):
+    permission_required = 'startups.delete_startups'
 
-#     def get_success_url(self):
-#         return reverse('console_startups_list')
+    def get_success_url(self):
+        return reverse('console_startups_list')
 
-#     def get_queryset(self):
+    def get_queryset(self):
         return startup_companies.objects.all()
 
 

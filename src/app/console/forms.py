@@ -220,17 +220,16 @@ class StartupForm(forms.ModelForm):
     class Meta:
         model = startup_companies
         fields = [
-                'logo', 'name', 'short_descriptor',
-                'long_descriptor', 'founder_photographs',
+                'image', 'name', 'founder_photographs',
                 'Link_to_their_website', 'social_media_profiles',
-                'contact_details',
+                'contact_details', 'rich_content',
         ]
         widgets = {
                 'logo': forms.FileInput
         }
 
     def __init__(self, *args, **kwargs):
-        super(startup_companies, self).__init__(*args, **kwargs)
+        super(StartupForm, self).__init__(*args, **kwargs)
 
         if 'instance' in kwargs:
             self.object = kwargs['instance']
@@ -238,12 +237,12 @@ class StartupForm(forms.ModelForm):
         self.fields['name'].widget.attrs.update({
             'class': 'required',
         })
-        self.fields['logo'].widget.attrs.update({
+        self.fields['image'].widget.attrs.update({
             'class': 'required',
         })
 
     def save(self, commit=True):
-        obj = super(startup_companies, self).save(commit)
+        obj = super(StartupForm, self).save(commit)
         obj.sites.add(1)
         obj.save()
         return obj

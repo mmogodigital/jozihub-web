@@ -1,8 +1,7 @@
 {% extends 'console/confirm_delete_base.html' %}
 
 {% block header %}
-    {% include 'includes/console_top_nav.html' with on='gallery' %}
+    {% include 'includes/console_top_nav.html' with on='startups' %}
 {% endblock %}
 
 {% block confirm_delete_url %}{% url 'console_startups_delete' object.pk %}{% endblock %}
-{% block decline_delete_url %}{% url 'console_statrups_list' %}{% endblock %}
