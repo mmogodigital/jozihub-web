@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import startup_companies
+from app.startups import models
 
 
-admin.site.register(startup_companies)
+admin.site.register(models.startup_companies)
