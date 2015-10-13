@@ -4,4 +4,4 @@ from django.contrib import admin
 from app.startups import models
 
 
-admin.site.register(models.startup_companies)
+admin.site.register(models.StartupCompanies)

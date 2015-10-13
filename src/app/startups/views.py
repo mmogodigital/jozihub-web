@@ -7,12 +7,12 @@ from app.startups import models
 class Startup(generic_views.ListView):
     
     def get_queryset(self):
-        return models.startup_companies.objects.permitted()
+        return models.StartupCompanies.objects.permitted()
     
 class StartupDetail(generic_views.DetailView):
     
     def get_object(self):
         return core_utils.get_permitted_object_or_404(
-            models.startup_companies, 
+            models.StartupCompanies, 
             slug=self.kwargs['slug']
         )
