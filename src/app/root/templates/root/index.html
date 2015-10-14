@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load core_widgets %}
-
-
-
+-{% block promo %}
+-    {% html_bannerset_widget 'home' %}
+-{% endblock %}
 {% block content %}
     <div id="vision">
         <div class="container">
