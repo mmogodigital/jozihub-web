@@ -1,9 +1,45 @@
 {% extends 'base.html' %}
 {% load core_widgets %}
 -{% block promo %}
--    {% html_bannerset_widget 'home' %}
+<div id="promo">
+    <ul class="cb-slideshow">
+            <li><span>Image 01</span><div></div></li>
+            <li><span>Image 02</span><div></div></li>
+            <li><span>Image 03</span><div></div></li>
+            <li><span>Image 04</span><div></div></li>
+            <li><span>Image 05</span><div></div></li>
+            <li><span>Image 06</span><div></div></li>
+        </ul>
+        <div id="stats">
+        <div class="startup-stats">
+        <span class="startups-number">23</span><br /><span>Startups</span>
+        </div>
+        
+        <div class="clear-stats"></div>
+        
+        <div class="partners-stats">
+        <span class="partners-number">15+</span><br /><span>Partners</span>
+        </div>
+        
+        <div class="clear-stats"></div>
+        
+        <div class="events-stats">
+        <span class="events-number">182+</span><br /><span>Events<br /> Hosted</span>
+        </div>
+        <div class="clear-stats"></div>
+        
+        <div class="mentors-stats">
+        <span class="mentors-number">19+</span><br /><span>Mentors</span>
+        </div>
+        </div>
+    </div>
+
+<!--/Promo-->
 -{% endblock %}
 {% block content %}
+    <div class="parallax">
+
+    
     <div id="vision">
         <div class="container">
             <p class="context">Our Vision</p>
@@ -24,23 +60,33 @@
         </div>
     </div><!--/Become-->
 
-    <div id="partners">
+    <div id="footer" >
         <div class="container">
-            <p class="context">Partners</p>
-            <h1>JoziHub exists because of the generous support of our partners.</h1>
-            <h2>Read more about them below and get in touch if you want to play a part in shaping Africa's future.</h2>
-            <div class="logos">
-                <a href="http://www.google.com/entrepreneurs/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_google.png" /></a>
-                <a href="http://www.praekeltfoundation.org/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_prkfoundation.png" /></a>
-                <a href="http://www.omidyar.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_omidyar.png" /></a>
-                <a href="http://afrilabs.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_afrilabs.png" /></a>
-                <a href="http://www.siliconcape.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_silicon.png" /></a>
-                <a href="http://www.islabs.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_is.png" /></a>
-                <a href="http://www.thinkpaint.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_thinkpaint.png" /></a>
-                <a href="http://indigotrust.wordpress.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_indigo.png" /></a>
-                <a href="http://www.venturesolutions.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_venture.png" /></a>
-            </div>
+            
+            <div class="address">&copy; Jozihub<br />44 Stanley Ave, Milpark, Johannesburg,<br />  South Africa<br />info@jozihub.org</div>
+                <div id="social">
+                <div class="container">
+                    <p class="context">Connect With Us</p>
+                <ul>
+                    <li class="soc_facebook"><a href="https://www.facebook.com/jozihub" target="_blank"></a></li>
+                    <li class="soc_twitter"><a href="https://twitter.com/JoziHub" target="_blank"></a></li>
+                    <li class="soc_tumblr"><a href="http://www.tumblr.com/blog/jozihub" target="_blank"></a></li>
+                    <li class="soc_flickr"><a href="https://www.flickr.com/photos/95726857@N06/sets/" target="_blank"></a></li>
+                    <li class="soc_gplus"><a href="https://plus.google.com/u/0/communities/103952260929848965709" target="_blank"></a></li>
+                    <li class="soc_contact"><a href="mailto:info@jozihub.org?Subject=Enquiry from www.jozihub.org" class="mail"></a></li>
+                </ul>
+                </div>
+            </div><!--/Social-->
+            <ul>
+                <li><a href="/membership-terms/">Membership Terms</a></li>
+                <li><a href="/data-protection-policy/">Data Protection Policy</a></li>
+                <li><a href="/code-of-conduct/">Code Of Conduct</a></li>
+              <li><a href="{{ MEDIA_URL }}uploads/JoziHub_Event_Info_Ratecard.pdf" target="_blank">Venue Hire</a></li>
+            </ul>
             <div class="clear"></div>
-        </div> 
-    </div><!--/Partners-->
+        </div>
+    </div><!--/Footer-->
+</div>
+</div><!--/Main-->
+</div><!--/Wrap-->
 {% endblock %}

@@ -6,14 +6,20 @@
     <title>JoziHub {% block title %}{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
     <link rel="shortcut icon" href="{{ STATIC_URL }}app/img/favi.ico" />
     <link rel="apple-touch-icon" href="{{ STATIC_URL }}app/img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" sizes="50x50" href="{{ STATIC_URL }}app/img/apple-touch-icon-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ STATIC_URL }}app/img/apple-touch-icon-57x57-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}app/img/apple-touch-icon-72x72-precomposed.png" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css?v=2" />
-     <link rel="stylesheet" href="{{ STATIC_URL }}app/css/responsive.css?v=1" />     
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/stylehomepage.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/demo.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/style1.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}app/js/libs/modernizr.custom.86080.js" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/responsive.css" />     
     <link rel="stylesheet" href="{{ STATIC_URL }}app/css/galleria.twelve.css" />
+
     <link rel="stylesheet" href="{{ STATIC_URL }}app/css/customize.css" />
     {% block extra_css %}{% endblock %}
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Open+Sans:400,600,700,300" type="text/css">
@@ -37,41 +43,15 @@
         {% include 'includes/top_nav.html' %}
     {% endblock %}
 
-    {% block promo %}{% endblock %}
+    {% block promo %}
 
-    {% block content %}{% endblock %}
     
-    {% block social %}
-		<div id="social">
-		    <div class="container">
-		        <p class="context">Connect With Us</p>
-		        <ul>
-		            <li class="soc_contact"><a href="mailto:info@jozihub.org?Subject=Enquiry from www.jozihub.org" class="mail">Contact us</a></li>
-                    <li class="soc_facebook"><a href="https://www.facebook.com/jozihub" target="_blank">Facebook</a></li>
-		            <li class="soc_twitter"><a href="https://twitter.com/JoziHub" target="_blank">Twitter</a></li>
-		            <li class="soc_tumblr"><a href="http://www.tumblr.com/blog/jozihub" target="_blank">Tumblr</a></li>
-		            <li class="soc_flickr"><a href="https://www.flickr.com/photos/95726857@N06/sets/" target="_blank">Flickr</a></li>
-		            <li class="soc_gplus"><a href="https://plus.google.com/u/0/communities/103952260929848965709" target="_blank">Google +</a></li>
-		            <li class="soc_map"><a href="https://maps.google.co.za/maps?ie=UTF8&cid=17258781349820171613&q=44+Stanley+Avenue+Centre&iwloc=A&gl=ZA&hl=en" target="_blank">44 Stanley Ave, Milpark, Jozi</a></li>
-		        </ul>
-		        <div class="clear"></div>
-		    </div>
-		</div><!--/Social-->
-	{% endblock %}
+    {% endblock %}
 
-	<div id="footer" {% block console_class %}{% endblock %}>
-	    <div class="container">
-	        <div class="address">&copy; Jozihub<br />44 Stanley Ave, Milpark, Jozi, SA<br />Site by <a href="http://unomena.com/" target="_blank">Unomena</a></div>
-	        <ul>
-	            <li><a href="/membership-terms/">Membership Terms</a></li>
-	            <li><a href="/data-protection-policy/">Data Protection Policy</a></li>
-	            <li><a href="/code-of-conduct/">Code Of Conduct</a></li>
-              <li><a href="{{ MEDIA_URL }}uploads/JoziHub_Event_Info_Ratecard.pdf" target="_blank">Venue Hire</a></li>
-	        </ul>
-	        <div class="clear"></div>
-	    </div>
-	</div><!--/Footer-->
+    {% block content %}
 
+    {% endblock %}
+    
 </div><!--/Main-->
 </div><!--/Wrap-->
 <script type="text/javascript" src="{{ STATIC_URL }}app/js/libs/jquery-1.10.2.min.js"></script>
@@ -94,6 +74,18 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    //Mobi
+    $(".mobi_handle").click(function() {
+        $('#header ul').toggle();
+    });
+    
+});
 
 </script>
 </body>
