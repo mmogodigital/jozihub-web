@@ -15,6 +15,7 @@ from tunobase.corporate.media.models import Event
 from app.authentication.models import EndUser
 from app.jobs.models import JobPost
 from app.news.models import News
+from app.startups.models import StartupCompanies
 
 class UsersForm(forms.ModelForm):
     password1 = forms.CharField(max_length=128, widget=forms.PasswordInput, required=False)
@@ -211,6 +212,38 @@ class GalleryForm(forms.ModelForm):
     def save(self, commit=True):
         obj = super(GalleryForm, self).save(commit)
         obj.sites.add(1)
+        obj.save()
+        return obj
+
+class StartupForm(forms.ModelForm):
+
+    class Meta:
+        model = StartupCompanies
+        fields = [
+                'image', 'name', 'founder_photographs',
+                'Link_to_their_website', 'social_media_profiles',
+                'contact_details', 'rich_content',
+        ]
+        widgets = {
+                'logo': forms.FileInput
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(StartupForm, self).__init__(*args, **kwargs)
+
+        if 'instance' in kwargs:
+            self.object = kwargs['instance']
+
+        self.fields['name'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['image'].widget.attrs.update({
+            'class': 'required',
+        })
+
+    def save(self, commit=True):
+        obj = super(StartupForm, self).save(commit)
+        sites=Site.objects.get_current(),
         obj.save()
         return obj
 

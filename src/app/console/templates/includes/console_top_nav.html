@@ -8,6 +8,7 @@
         <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'console_jobs_list' %}">Jobs</a></li>
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'console_gallery_list' %}">Gallery</a></li>
         <li {% if on == 'flatpages' %}class="on"{% endif %}><a href="{% url 'console_flatpage_list' %}">Flatpages</a></li>
+         <li {% if on == 'startups' %}class="on"{% endif %}><a href="{% url 'console_startups_list' %}">Startups</a></li>
         <li {% if on == 'logout' %}class="on"{% endif %}><a href="{% url 'auth_logout' %}">Logout</a></li>
     </ul>
     {% endif %}

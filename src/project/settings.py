@@ -166,6 +166,7 @@ INSTALLED_APPS = (
     'app.partners',
     'app.gallery',
     'app.jobs',
+    'app.startups',
     'tunobase',
     'tunobase.core',
     'tunobase.mailer',

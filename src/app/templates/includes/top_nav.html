@@ -17,6 +17,7 @@
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'galleries' %}">Gallery</a></li>
         <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'secure_register' %}">Apply</a></li>
         <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'jobs' %}">Jobs</a></li>
+         <li {% if on == 'startups' %}class="on"{% endif %}><a href="{% url 'startups' %}">Startup</a></li>
         {% if not user.is_authenticated %}
           <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_login' %}">Sign In</a></li>
         {% else %}
