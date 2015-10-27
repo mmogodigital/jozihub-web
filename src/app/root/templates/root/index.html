@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load core_widgets %}
--{% block promo %}
-<div id="wrap">
-<div id="main">
+
+{% block promo %}
+
 <div id="promo">
     <ul class="cb-slideshow">
             <li><span>Image 01</span><div></div></li>
@@ -61,34 +61,5 @@
             <h1><a href="{% url 'secure_register' %}">Join now to become part of this highly <br />dynamic, interactive environment.<img src="{{ STATIC_URL }}app/img/arrow_promo.png" /></a></h1>
         </div>
     </div><!--/Become-->
-
-    <div id="footer" >
-        <div class="container">
-            
-            <div class="address">&copy; Jozihub<br />44 Stanley Ave, Milpark, Johannesburg,<br />  South Africa<br />info@jozihub.org</div>
-                <div id="social">
-                <div class="container">
-                    <p class="context">Connect With Us</p>
-                <ul>
-                    <li class="soc_facebook"><a href="https://www.facebook.com/jozihub" target="_blank"></a></li>
-                    <li class="soc_twitter"><a href="https://twitter.com/JoziHub" target="_blank"></a></li>
-                    <li class="soc_tumblr"><a href="http://www.tumblr.com/blog/jozihub" target="_blank"></a></li>
-                    <li class="soc_flickr"><a href="https://www.flickr.com/photos/95726857@N06/sets/" target="_blank"></a></li>
-                    <li class="soc_gplus"><a href="https://plus.google.com/u/0/communities/103952260929848965709" target="_blank"></a></li>
-                    <li class="soc_contact"><a href="mailto:info@jozihub.org?Subject=Enquiry from www.jozihub.org" class="mail"></a></li>
-                </ul>
-                </div>
-            </div><!--/Social-->
-            <ul>
-                <li><a href="/membership-terms/">Membership Terms</a></li>
-                <li><a href="/data-protection-policy/">Data Protection Policy</a></li>
-                <li><a href="/code-of-conduct/">Code Of Conduct</a></li>
-              <li><a href="{{ MEDIA_URL }}uploads/JoziHub_Event_Info_Ratecard.pdf" target="_blank">Venue Hire</a></li>
-            </ul>
-            <div class="clear"></div>
-        </div>
-    </div><!--/Footer-->
 </div>
-</div><!--/Main-->
-</div><!--/Wrap-->
 {% endblock %}
