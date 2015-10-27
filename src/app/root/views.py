@@ -5,10 +5,20 @@ Created on 21 Oct 2013
 '''
 from django.views import generic as generic_views
 from django.core.urlresolvers import reverse
+from app.startups.models import StartupCompanies
 
 
 class Index(generic_views.TemplateView):
-    pass
+    def get_context_data(self, *args, **kwargs):
+        context = super(Index, self).get_context_data(**kwargs)
+
+
+        context.update({
+            'num_startups': StartupCompanies.objects.all().count(),
+        })
+
+
+        return context
 
 
 class Apply(generic_views.CreateView):
