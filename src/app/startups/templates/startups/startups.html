@@ -14,41 +14,27 @@
 {% endcomment %}
 
 {% block content %}
-    <div id="content">
+      <div id="content">
         <div class="container">
             <p class="context">Startups</p>
-            <h1>Startup Companies</h1>
             
+            <h1>Resident Startups</h1>
+
             <div class="clear"></div>
-            <div class="block">
-               {% for object in object_list %}
-                    <div class="block2">
-                        <div class="block_head">
-                            <img src="{{ object.get_100x98_url }}"/>
-                            <p class="title">{{ object.name }}</p>
-                        </div>
-                        <div class="clear"></div>
-                        {{ object.founder_photographs }}
-                        <p class="btn"><a href="#"></a></p>
-                        <div class="clear"></div>
-                        {{ object.Link_to_their_website }}
-                        <p class="btn"><a href="#"></a></p>
-                        <div class="clear"></div>
-                        {{ object.social_media_profiles }}
-                        <p class="btn"><a href="#"></a></p>
-                        <div class="clear"></div>
-                        {{ object.contact_details }}
-                        <p class="btn"><a href="#"></a></p>
-                        <div class="clear"></div>
-                        {{ object.rich_content }}
-                        <p class="btn"><a href="#"></a></p>
-                    </div><!--/block2-->
+             {% for object in object_list %}
+           <ul class="just-logos startups">
+                <li class="cai">
+                    <img src="{{ object.get_100x98_url }} " alt="Conte Creative"/>
+                    <p class="startupsblue">{{ object.name }}</p>
+                    <p>{{ object.rich_content }}</p>
+                    <a href="#">More Info</a>
+                </li>
+            </ul>
                     {% empty %}
                         <p>There are no startup to list</p>
                 {% endfor%}
 
-            <div class="clear"></div>          
-            </div><!--/block-->          
+            <div class="clear"></div>               
         </div> 
     </div><!--/Content-->
 {% endblock %}
