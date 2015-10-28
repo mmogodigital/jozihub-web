@@ -23,20 +23,16 @@
             <div class="clear"></div>
             <div class="block">
                 {% for object in current_and_future_events %}
-                    <div class="block2">
-                        <div class="block_head">
-                            <p class="title">{{ object.title }}</p>
+                    <ul class="just-logos startups">
+                     <li class="cai">
+                            
                             <img src="{{ object.get_100x98_url }}" />
-                            <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
-                            <p class="details">Where: {{ object.venue_name }}</p>
-                            <p class="details">Address: {{ object.venue_address }}</p>                
-                        </div>
-                        <div class="clear"></div>
-                        <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
-                        {% if object.calendar_link %}
-                            <p class="btns"><a target="_blank" href="{{ object.calendar_link }}">Add to my calendar</a></p>
-                        {% endif %}
-                    </div><!--/block2-->
+                            <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
+                            <p class="startupsblue">{{ object.title }}</p>
+                            <p>{{ object.rich_content|safe }}</p>
+                             <a href="{{ object.external_link }}">Coming Soon</a> 
+                             </li>
+                             </ul>
                 {% empty %}
                     <p>There are no events to list.</p>
                 {% endfor %}
@@ -50,21 +46,18 @@
             <div class="clear"></div>
             <div class="block">
                 {% for object in past_events %}
-                    <div class="block2">
-                        <div class="block_head">
-                            <p class="title">{{ object.title }}</p>
+                    <ul class="just-logos startups">
+                     <li class="cai">
+                            
                             <img src="{{ object.get_100x98_url }}" />
-                            <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
-                            <p class="details">Where: {{ object.venue_name }}</p>                
-                        </div>
-                        <div class="clear"></div>
-                        <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
-                        {% if object.calendar_link %}
-                            <p class="btns"><a target="_blank" href="{{ object.calendar_link }}">Add to my calendar</a></p>
-                        {% endif %}
-                    </div><!--/block2-->
+                            <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
+                            <p class="startupsblue">{{ object.title }}</p>
+                            <p>{{ object.rich_content|safe }}</p>
+                             <a href="{{ object.external_link }}">More Info</a> 
+                             </li>
+                             </ul>
                 {% empty %}
-                    <p>There are no previous events to list.</p>
+                    <p>There are no events to list.</p>
                 {% endfor %}
             <div class="clear"></div>          
             </div><!--/block-->          
