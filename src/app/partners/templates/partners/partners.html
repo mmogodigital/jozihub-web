@@ -17,22 +17,22 @@
     <div id="content">
         <div class="container">
             <p class="context">Partners</p>
-            <h1>We are proud to be associated with the following partners</h1>
-            
+			<h1>We are proud to be associated with the following partners</h1>
             <div class="clear"></div>
-            <div class="block">
+			<div class="block">
+            
+		            <ul class="just-logos partners">
 	            {% for object in object_list %}
-		            <div class="block1">
-		                <div class="title">{{ object.title }}</div>
+                    	<li class="cai">
 		                <a class="logo" href="{{ object.external_link }}" target="_blank"><img src="{{ object.image.url }}"></a>
-		                {{ object.rich_content|safe }}
-		            </div>
-		            <div class="clear"></div>
+		            	</li>
+		            
 		        {% empty %}
 		           <p>There are no partners to list.</p>
 		        {% endfor %}
-	        </div><!--/block-->
-            <div class="clear"></div>           
-        </div> 
+		            </ul>
+		            </div>
+		            <div class="clear"></div>
+	        </div><!--/container-->         
     </div><!--/Content-->
 {% endblock %}

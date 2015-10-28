@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load core_widgets %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/stylehomepage.css" />
+{% endblock %}
+
 {% block promo %}
 
 <div id="promo">
