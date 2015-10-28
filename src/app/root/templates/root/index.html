@@ -1,9 +1,47 @@
 {% extends 'base.html' %}
 {% load core_widgets %}
--{% block promo %}
--    {% html_bannerset_widget 'home' %}
--{% endblock %}
+
+{% block promo %}
+
+<div id="promo">
+    <ul class="cb-slideshow">
+            <li><span>Image 01</span><div></div></li>
+            <li><span>Image 02</span><div></div></li>
+            <li><span>Image 03</span><div></div></li>
+            <li><span>Image 04</span><div></div></li>
+            <li><span>Image 05</span><div></div></li>
+            <li><span>Image 06</span><div></div></li>
+        </ul>
+        <div id="stats">
+        <div class="startup-stats">
+        <span class="startups-number">{{ num_startups }}</span><br /><span>Startups</span>
+        </div>
+        
+        <div class="clear-stats"></div>
+        
+        <div class="partners-stats">
+        <span class="partners-number">{{ num_partners }}+</span><br /><span>Partners</span>
+        </div>
+        
+        <div class="clear-stats"></div>
+        
+        <div class="events-stats">
+        <span class="events-number">{{ num_events }}+</span><br /><span>Events<br /> Hosted</span>
+        </div>
+        <div class="clear-stats"></div>
+        
+        <div class="mentors-stats">
+        <span class="mentors-number">{{ num_mentors }}+</span><br /><span>Mentors</span>
+        </div>
+        </div>
+    </div>
+
+<!--/Promo-->
+{% endblock %}
 {% block content %}
+    <div class="parallax">
+
+    
     <div id="vision">
         <div class="container">
             <p class="context">Our Vision</p>
@@ -23,24 +61,5 @@
             <h1><a href="{% url 'secure_register' %}">Join now to become part of this highly <br />dynamic, interactive environment.<img src="{{ STATIC_URL }}app/img/arrow_promo.png" /></a></h1>
         </div>
     </div><!--/Become-->
-
-    <div id="partners">
-        <div class="container">
-            <p class="context">Partners</p>
-            <h1>JoziHub exists because of the generous support of our partners.</h1>
-            <h2>Read more about them below and get in touch if you want to play a part in shaping Africa's future.</h2>
-            <div class="logos">
-                <a href="http://www.google.com/entrepreneurs/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_google.png" /></a>
-                <a href="http://www.praekeltfoundation.org/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_prkfoundation.png" /></a>
-                <a href="http://www.omidyar.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_omidyar.png" /></a>
-                <a href="http://afrilabs.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_afrilabs.png" /></a>
-                <a href="http://www.siliconcape.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_silicon.png" /></a>
-                <a href="http://www.islabs.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_is.png" /></a>
-                <a href="http://www.thinkpaint.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_thinkpaint.png" /></a>
-                <a href="http://indigotrust.wordpress.com/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_indigo.png" /></a>
-                <a href="http://www.venturesolutions.co.za/" target="_blank"><img src="{{ STATIC_URL }}app/img/logo_venture.png" /></a>
-            </div>
-            <div class="clear"></div>
-        </div> 
-    </div><!--/Partners-->
+</div>
 {% endblock %}
