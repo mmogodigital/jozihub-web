@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load core_widgets %}
 
+{% block extra_css %}
+
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>  
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/responsive.css" />    
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/galleria.twelve.css" />
+
+{% endblock %}
+
 {% block title %}Events{% endblock %}
 
 {% block header %}
