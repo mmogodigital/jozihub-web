@@ -1,32 +1,124 @@
 {% extends 'base.html' %}
+{% load core_widgets %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>  
+
+{% endblock %}
 
 {% block title %}Venue Hire{% endblock %}
+{% block header %}
+    {% include 'includes/top_nav.html' with on='venue_hire' %}
+{% endblock %}
+
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'partners' %}
+	{% endblock %}
+{% endcomment %}
 
 {% block content %}
+
     <div id="content">
-        <div class="container venueHire">
-            <p class="context">Hire a Venue</p>
-            <h1>Use the form below to request a venue</h1>
-		    {% include 'includes/message_error_header.html' %}
-		    
-		    <div class="block">
-				<form id="frmVenueHire" method="POST" action="." class="validate_form">{% csrf_token %}
-				    <input type="hidden" name="next" value="{{ next }}"/>
-					{% for field in form %}
+        <div class="container">
+            <p class="context"></p>
+            
+            <h1>Hire the JoziHub Venue</h1>
+			<p>JoziHub is available for hire for your workshop, strategy session, launch event or meeting. We also have a range of resources and services to cater for your event including technical, catering & refreshments, speakers and more. Let us know a little more about you and your event so we can get back to you asap.</p>
+
+			<div class="block">
+				<form id="frmEventhire" method="POST" action="" class="validate_form">{% csrf_token %}
+				    <p class="head">Booking Details</p>
+					 <div class="clear"></div> 
+					 <div id="inputs">
+					<input type="hidden" name="next" value="">
+					
                         <div class="field">
-				            {{ field.label_tag }}
-				            {{ field }}
-                            {{ field.errors }}
+				            <label for="id_eventname">Event Name:</label>
+				            <input id="id_eventname" maxlength="75" name="eventname" type="text">
+                            
                         </div>
-				    {% endfor %}
+				     <div class="clear"></div> 
+                       
+				            <label>Event Description:</label>
+							<textarea name="eventdescription" rows="8" cols="0" dir="auto" style="width:100%"></textarea>
+				
+						<div class="clear"></div>
+						<br />
+						
+				    <p class="head">Booking Details</p>
 			        <div class="clear"></div>
+					
+					<div class="field">
+						<label for="id_desiredvenue">Desired Venue:</label>
+						<select name="desiredvenue">
+							<option value="jozihubboardroom">JoziHub Board Room</option>
+							<option value="jozihubmaineventspace">JoziHub Main Event Space</option>
+						</select>	
+					</div>
+					
+						 <div class="clear"></div>
+				    
+                        <div class="field">
+				            <label for="id_satartdate">Venue Booking Start Date:</label>
+				            <input id="id_satartdate" name="id_satartdate" type="text" placeholder="DD - MM - YYYY">             
+                        </div>
+						
+						<div class="field">
+				            <label for="id_satarttime">Venue Booking Start Time:</label>
+							<input id="id_venuebookingstarttime" name="venuebookingstarttime" type="text" placeholder="H : M - AM/PM">
+             
+                        </div>
+						
+						<div class="field">
+				            <label for="id_enddate">Venue Booking End Date</label>
+				            <input id="id_enddate" name="id_enddate" type="text" placeholder="DD - MM - YYYY">
+                        </div>
+					
+					<div class="field">
+				            <label for="id_endtime">Venue Booking End Time</label>
+					<input id="id_venuebookingsendtime" name="venuebookingsendtime" type="text" placeholder="H : M - AM/PM">
+                        </div>
+						<br />
+						<div class="clear"></div>
+						<p class="head">Contact Person</p>
+						<br />
+						<div class="clear"></div>
+						<div class="field">
+				            <label for="id_contactpersonname">Name:</label>
+				            <input id="id_contactpersonname" maxlength="75" name="contactpersonname" type="text">
+                            
+                        </div>
+						
+						<div class="field">
+				            <label for="id_contactpersoncompany">Company:</label>
+				            <input id="id_contactpersoncompany" maxlength="75" name="contactpersoncompany" type="text" required>
+                            
+                        </div>
+						
+						<div class="field">
+				            <label for="id_contactpersonemail">Email:</label>
+				            <input id="id_contactpersonemail" maxlength="75" name="id_contactpersonemail" type="text">
+                            
+                        </div>
+						
+						<div class="field">
+				            <label for="id_contactpersoncontactnumber">Contact Number:</label>
+				            <input id="id_contactpersoncontactnumber" maxlength="75" name="contactpersoncontactnumber" type="text">
+                            
+                        </div>
+						</div>
+						<div class="clear"></div>
+						
 			        <div class="btns">
-				        <input type="submit" value="Request Venue" />				    
-                    </div>		    
+				        <input type="submit" value="Submit">				    
+                    </div>
 				</form>
-			</div><!--/block-->
-		</div><!--/container-->
-	</div><!--/content-->
+			</div>
+            <div class="clear"></div>           
+               
+            
+        </div> 
+    </div><!--/Content-->
 {% endblock %}
 
 
