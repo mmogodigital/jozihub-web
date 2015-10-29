@@ -3,7 +3,7 @@
 Booking Details
 Event Name: {{ eventname }}
 Event Description: {{ eventdescription }}
-Desired Venue: {{ desiredvenue }}
+Desired Venue: {{ desiredvenue_name }}
 Booking Start: {{ startdate }} {{ starttime }}
 Booking End: {{ enddate }} {{ endtime }}
 

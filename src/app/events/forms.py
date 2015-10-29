@@ -35,6 +35,12 @@ class VenueHireForm(forms.Form):
     def send_email(self):
         # send email using the self.cleaned_data dictionary
         context = self.cleaned_data
+        venue_name = ""
+        for (id,name) in self.CHOICES:
+            if id == context['desiredvenue']:
+                venue_name = name
+                break
+        context['desiredvenue_name'] = venue_name
         if settings.USE_CELERY:
             tasks.email_venue_hire.delay(context)
         else:
