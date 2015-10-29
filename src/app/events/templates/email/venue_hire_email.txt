@@ -1,6 +1,13 @@
+{{ contactname }} has requested a Venue {% if contactcompany %}on behalf of {{ contactcompany }}{% endif %}.
 
-{{ first_name }} {{ last_name }} has requested a Venue {% if affiliated_organisation %}on behalf of {{ affiliated_organisation }}{% endif %}.
-Event description:
-  {{ event_description }}
+Booking Details
+Event Name: {{ eventname }}
+Event Description: {{ eventdescription }}
+Desired Venue: {{ desiredvenue }}
+Booking Start: {{ startdate }} {{ starttime }}
+Booking End: {{ enddate }} {{ endtime }}
 
-Contact email: {{ contact_email }}
+Contact Name: {{ contactname }}
+Company: {{ contactcompany }}
+Contact Email: {{ contactemail }}
+Contact Number: {{ contactnumber }}

@@ -7,13 +7,20 @@ from app.events import tasks
 # Profile Update Form
 
 class VenueHireForm(forms.Form):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    contact_email = forms.EmailField()
-    affiliated_organisation = forms.CharField(required=False)
-    # event_start_time = forms.DateTimeField(widget=forms.DateTimeInput)
-    # event_end_time = forms.DateTimeField(widget=forms.SplitDateTimeWidget)
-    event_description = forms.CharField(widget=forms.Textarea)
+    CHOICES = [('jozihubboardroom', 'JoziHub Board Room'),
+               ('jozihubmaineventspace', 'JoziHub Main Event Space')]
+    eventname = forms.CharField(label='Event Name')
+    eventdescription = forms.CharField(widget=forms.Textarea,
+                                       label='Event Description')
+    contactname = forms.CharField(label='Name')
+    contactemail = forms.EmailField(label='Email')
+    contactnumber = forms.CharField(label='Contact Number')
+    contactcompany = forms.CharField(label='Company')
+    startdate = forms.DateField(label='Venue Booking Start Date')
+    starttime = forms.TimeField(label='Venue Booking Start Time')
+    enddate = forms.DateField(label='Venue Booking End Date')
+    endtime = forms.TimeField(label='Venue Booking End Time')
+    desiredvenue = forms.ChoiceField(label='Desired Venue', choices=CHOICES)
         
     def send_email(self):
         # send email using the self.cleaned_data dictionary
