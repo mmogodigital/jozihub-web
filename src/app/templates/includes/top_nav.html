@@ -6,7 +6,7 @@
         <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'events' %}">Events</a>
         <li {% if on == 'services' %}class="on"{% endif %}><a href="/services/">Services</a></li>
         <li {% if on == 'partners' %}class="on"{% endif %}><a href="{% url 'partners' %}">Partners</a></li>
-        <li {% if on == 'venuehire' %}class="on"{% endif %}><a href="/venuehire/">Venue Hire</a></li>
+        <li {% if on == 'venuehire' %}class="on"{% endif %}><a href="{% url 'venue_hire' %}">Venue Hire</a></li>
         <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'secure_register' %}">Join</a></li>
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'galleries' %}">Gallery</a></li>
         <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'jobs' %}">Jobs</a></li>
