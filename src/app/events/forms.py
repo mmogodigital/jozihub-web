@@ -15,13 +15,13 @@ class VenueHireForm(forms.Form):
                              '%I : %M-%p',
                              '%I : %M - %p']
 
-    eventname = forms.CharField(label='Event Name')
+    eventname = forms.CharField(label='Event Name', max_length=75)
     eventdescription = forms.CharField(widget=forms.Textarea,
                                        label='Event Description')
-    contactname = forms.CharField(label='Name')
-    contactemail = forms.EmailField(label='Email')
-    contactnumber = forms.CharField(label='Contact Number')
-    contactcompany = forms.CharField(label='Company')
+    contactname = forms.CharField(label='Name', max_length=75)
+    contactemail = forms.EmailField(label='Email', max_length=75)
+    contactnumber = forms.CharField(label='Contact Number', max_length=75)
+    contactcompany = forms.CharField(label='Company', max_length=75)
     startdate = forms.DateField(input_formats=accepted_date_formats,
                                 label='Venue Booking Start Date')
     starttime = forms.TimeField(input_formats=accepted_time_formats,
