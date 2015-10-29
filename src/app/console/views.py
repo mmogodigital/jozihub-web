@@ -384,7 +384,7 @@ class StartupUpdate(AdminMixin, generic_views.UpdateView):
             return reverse('console_startups_detail', args=(self.object.pk,))
 
     def get_queryset(self):
-        return StartupCompanies.objects.all()
+        return StartupCompanies.objects.exclude(state=core_constants.STATE_DELETED)
 
 
 class StartupDetail(AdminMixin, generic_views.DetailView):
@@ -403,14 +403,14 @@ class StartupDelete(AdminMixin, core_views.MarkDeleteView):
         return reverse('console_startups_list')
 
     def get_queryset(self):
-        return StartupCompanies.objects.all()
+        return StartupCompanies.objects.exclude(state=core_constants.STATE_DELETED)
 
 
 class StartupList(AdminMixin, generic_views.ListView):
     permission_required = 'startups.change_startups'
 
     def get_queryset(self):
-        return StartupCompanies.objects.all()
+        return StartupCompanies.objects.exclude(state=core_constants.STATE_DELETED)
 
 # -----------------------------------------------------------------------------
 # Console: Partners
