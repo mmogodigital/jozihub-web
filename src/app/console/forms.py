@@ -16,6 +16,7 @@ from app.authentication.models import EndUser
 from app.jobs.models import JobPost
 from app.news.models import News
 from app.startups.models import StartupCompanies
+from app.partners.models import Partner
 
 class UsersForm(forms.ModelForm):
     password1 = forms.CharField(max_length=128, widget=forms.PasswordInput, required=False)
@@ -243,6 +244,37 @@ class StartupForm(forms.ModelForm):
 
     def save(self, commit=True):
         obj = super(StartupForm, self).save(commit)
+        sites=Site.objects.get_current(),
+        obj.save()
+        return obj
+
+class PartnerForm(forms.ModelForm):
+
+    class Meta:
+        model = Partner
+        fields = [
+                'image', 'title', 'rich_content',
+                'external_link',
+        ]
+        widgets = {
+                'image': forms.FileInput
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(PartnerForm, self).__init__(*args, **kwargs)
+
+        if 'instance' in kwargs:
+            self.object = kwargs['instance']
+
+        self.fields['title'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['image'].widget.attrs.update({
+            'class': 'required',
+        })
+
+    def save(self, commit=True):
+        obj = super(PartnerForm, self).save(commit)
         sites=Site.objects.get_current(),
         obj.save()
         return obj

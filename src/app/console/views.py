@@ -28,6 +28,7 @@ from app.console import forms
 from app.jobs.models import JobPost
 from app.news.models import News
 from app.startups.models import StartupCompanies
+from app.partners.models import Partner
 from app.root import utils
 
 
@@ -410,6 +411,54 @@ class StartupList(AdminMixin, generic_views.ListView):
 
     def get_queryset(self):
         return StartupCompanies.objects.all()
+
+# -----------------------------------------------------------------------------
+# Console: Partners
+class PartnerCreate(AdminMixin, generic_views.CreateView):
+    permission_required = 'partners.add_partners'
+
+    def get_success_url(self):
+        return reverse('console_partners_detail', args=(self.object.pk,))
+
+
+class PartnerUpdate(AdminMixin, generic_views.UpdateView):
+    permission_required = 'partners.change_partners'
+
+    def get_success_url(self):
+        partners = Partner.objects.get(pk=self.object.pk)
+        if partners.state == core_constants.STATE_DELETED:
+            return reverse('console_partners_list')
+        else:
+            return reverse('console_partners_detail', args=(self.object.pk,))
+
+    def get_queryset(self):
+        return Partner.objects.exclude(state=core_constants.STATE_DELETED)
+
+
+class PartnerDetail(AdminMixin, generic_views.DetailView):
+    permission_required = 'partners.change_partners'
+
+    def get_object(self):
+        return core_utils.get_permitted_object_or_404(
+            Partner, pk=self.kwargs['pk']
+        )
+
+
+class PartnerDelete(AdminMixin, core_views.MarkDeleteView):
+    permission_required = 'partners.delete_partners'
+
+    def get_success_url(self):
+        return reverse('console_partners_list')
+
+    def get_queryset(self):
+        return Partner.objects.exclude(state=core_constants.STATE_DELETED)
+
+
+class PartnerList(AdminMixin, generic_views.ListView):
+    permission_required = 'partners.change_partners'
+
+    def get_queryset(self):
+        return Partner.objects.exclude(state=core_constants.STATE_DELETED)
 
 # Flatpages
 

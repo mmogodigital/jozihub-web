@@ -269,6 +269,47 @@ urlpatterns = patterns('',
     ),
     #-------------------------------------------------------------------------
 
+    #-------------------------------------------------------------------------
+    # Console: Partners
+    url(r'^partners/create/$',
+        views.PartnerCreate.as_view(
+            form_class=forms.PartnerForm,
+            template_name='console/partners/partners_edit.html'
+        ),
+        name='console_partners_create'
+    ),
+
+    url(r'^partners/update/(?P<pk>\d+)/$',
+        views.PartnerUpdate.as_view(
+            form_class=forms.PartnerForm,
+            template_name='console/partners/partners_edit.html'
+        ),
+        name='console_partners_update'
+    ),
+
+    url(r'^partners/(?P<pk>\d+)/detail/$',
+        views.PartnerDetail.as_view(
+            template_name='console/partners/partners_detail.html'
+        ),
+        name='console_partners_detail'
+    ),
+
+    url(r'^partners/delete/(?P<pk>\d+)/$',
+        views.PartnerDelete.as_view(
+            template_name='console/partners/partners_confirm_delete.html'
+        ),
+        name='console_partners_delete'
+    ),
+
+    url(r'^partners/$',
+        views.PartnerList.as_view(
+            template_name='console/partners/partners_list.html',
+            paginate_by=10
+        ),
+        name='console_partners_list'
+    ),
+    #-------------------------------------------------------------------------
+
     # Console: Flatpages
         url(r'^flatpages/$',
             views.FlatPagesList.as_view(
