@@ -153,7 +153,7 @@ class UserExport(generic_views.View):
                 'field_of_expertise_other',
                 'background_and_expertise',
                 'what_can_you_offer_as_a_mentor',
-                'mentoring_time', 'password']
+                'mentoring_time', 'password', 'affiliation']
 
             for field in excluded_fields:
                 field_names.remove(field)
