@@ -32,80 +32,80 @@
 					 <div id="inputs">
 					<input type="hidden" name="next" value="">
 					
-                        <div class="field">
-				            <label for="id_eventname">Event Name:</label>
-				            <input id="id_eventname" maxlength="75" name="eventname" type="text">
-                            
-                        </div>
-				     <div class="clear"></div> 
-                       
-				            <label>Event Description:</label>
-							<textarea name="eventdescription" rows="8" cols="0" dir="auto" style="width:100%"></textarea>
-				
+            <div class="field">
+              {{ form.eventname.label_tag }}
+              {{ form.eventname }}
+              {{ form.eventname.errors }}
+            </div>
+				    <div class="clear"></div> 
+              {{ form.eventdescription.label_tag }}
+              <textarea name="eventdescription" rows="8" cols="0" dir="auto" style="width:100%">{% if form.eventdescription.value %}{{ form.eventdescription.value }}{% endif %}</textarea>
+              {{ form.eventdescription.errors }}
 						<div class="clear"></div>
 						<br />
 						
 				    <p class="head">Booking Details</p>
 			        <div class="clear"></div>
 					
-					<div class="field">
-						<label for="id_desiredvenue">Desired Venue:</label>
-						<select name="desiredvenue">
-							<option value="jozihubboardroom">JoziHub Board Room</option>
-							<option value="jozihubmaineventspace">JoziHub Main Event Space</option>
-						</select>	
-					</div>
+  					<div class="field">
+              {{ form.desiredvenue.label_tag }}
+              {{ form.desiredvenue}}
+              {{ form.desiredvenue.errors }}
+  					</div>
 					
 						 <div class="clear"></div>
 				    
-                        <div class="field">
-				            <label for="id_satartdate">Venue Booking Start Date:</label>
-				            <input id="id_satartdate" name="id_satartdate" type="text" placeholder="DD - MM - YYYY">             
-                        </div>
+            <div class="field">
+              {{ form.startdate.label_tag }}
+              <input id="id_startdate" name="startdate" type="text" placeholder="DD - MM - YYYY" {% if form.startdate.value %}value="{{ form.startdate.value }}"{% endif %}>
+              {{ form.startdate.errors }}
+            </div>
 						
 						<div class="field">
-				            <label for="id_satarttime">Venue Booking Start Time:</label>
-							<input id="id_venuebookingstarttime" name="venuebookingstarttime" type="text" placeholder="H : M - AM/PM">
-             
-                        </div>
+              {{ form.starttime.label_tag }}
+              <input id="id_venuebookingstarttime" name="starttime" type="text" placeholder="H : M - AM/PM" {% if form.starttime.value %}value="{{ form.starttime.value }}"{% endif %}>
+              {{ form.starttime.errors }}
+            </div>
 						
 						<div class="field">
-				            <label for="id_enddate">Venue Booking End Date</label>
-				            <input id="id_enddate" name="id_enddate" type="text" placeholder="DD - MM - YYYY">
-                        </div>
+              {{ form.enddate.label_tag }}
+              <input id="id_enddate" name="enddate" type="text" placeholder="DD - MM - YYYY" {% if form.enddate.value %}value="{{ form.enddate.value }}"{% endif %}>
+              {{ form.enddate.errors }}
+            </div>
 					
-					<div class="field">
-				            <label for="id_endtime">Venue Booking End Time</label>
-					<input id="id_venuebookingsendtime" name="venuebookingsendtime" type="text" placeholder="H : M - AM/PM">
-                        </div>
+  					<div class="field">
+              {{ form.endtime.label_tag }}
+              <input id="id_venuebookingendtime" name="endtime" type="text" placeholder="H : M - AM/PM" {% if form.endtime.value %}value="{{ form.endtime.value }}"{% endif %}>
+              {{ form.endtime.errors }}
+            </div>
 						<br />
 						<div class="clear"></div>
 						<p class="head">Contact Person</p>
 						<br />
 						<div class="clear"></div>
 						<div class="field">
-				            <label for="id_contactpersonname">Name:</label>
-				            <input id="id_contactpersonname" maxlength="75" name="contactpersonname" type="text">
-                            
-                        </div>
+              {{ form.contactname.label_tag }}
+              {{ form.contactname }}
+              {{ form.contactname.errors }}
+            </div>
 						
 						<div class="field">
-				            <label for="id_contactpersoncompany">Company:</label>
-				            <input id="id_contactpersoncompany" maxlength="75" name="contactpersoncompany" type="text" required>
-                            
-                        </div>
+              {{ form.contactcompany.label_tag }}
+              {{ form.contactcompany }}
+              {{ form.contactcompany.errors }}
+            </div>
 						
 						<div class="field">
-				            <label for="id_contactpersonemail">Email:</label>
-				            <input id="id_contactpersonemail" maxlength="75" name="id_contactpersonemail" type="text">
-                            
-                        </div>
+              {{ form.contactemail.label_tag }}
+              {{ form.contactemail }}
+              {{ form.contactemail.errors }}
+            </div>
 						
 						<div class="field">
-				            <label for="id_contactpersoncontactnumber">Contact Number:</label>
-				            <input id="id_contactpersoncontactnumber" maxlength="75" name="contactpersoncontactnumber" type="text">
-                            
-                        </div>
+              {{ form.contactnumber.label_tag }}
+              {{ form.contactnumber }}
+              {{ form.contactnumber.errors }}
+            </div>
 						</div>
 						<div class="clear"></div>
 						
