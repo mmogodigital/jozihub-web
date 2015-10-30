@@ -31,44 +31,53 @@
                     <p class="head">Personal Information</p>
                      <div class="clear"></div> 
                      <input type="hidden" name="next" value="">
+                     <input type="hidden" name="password" value="1234">
 
                         <div class="field">
                         <label for="id_firstname">First Name:</label>
-                        <input id="id_firstname" maxlength="75" name="firstname" type="text">
+                        {{ form.first_name }}
+                        {{ form.first_name.errors }}
                         </div>
                     
                         <div class="field">
                         <label for="id_lastname">Last Name:</label>
-                        <input id="id_lastname" name="lastname" type="text">
+                        {{ form.last_name }}
+                        {{ form.last_name.errors }}
                         </div>
                         
                         <div class="field">
                         <label for="id_emailaddress">Email address:</label>
-                        <input id="id_emailaddress" maxlength="75" name="emailaddress" type="text">   
+                        {{ form.email }}
+                        {{ form.email.errors }}
                         </div>
                         
                         <div class="field">
                         <label for="id_contactnumbers">Contact Numbers:</label>
-                        <input id="id_contactnumbers" maxlength="75" name="contactnumbers" type="text">  
+                        {{ form.phone_number }}
+                        {{ form.phone_number.errors }}
                         </div>
 
                         <div class="clear"></div>
+                        {% render_honeypot_field %}
                         <br />
                     <p class="head">Company Information</p>
                     <div class="clear"></div>
                     <div class="field">
                     <label for="id_companyname">Company Name:</label>
-                    <input id="id_companyname" maxlength="75" name="companyname" type="text">   
+                    {{ form.company }}
+                    {{ form.company.errors }}
                     </div>
                     
                         <div class="field">
                         <label for="id_companyindustry">Company Industry:</label>
-                        <input id="id_companyindustry" name="companyindustry" type="text">
+                        {{ form.about_your_organisation }}
+                        {{ form.about_your_organisation.errors }}
                         </div>
                         
                         <div class="field">
                             <label for="id_roleincompany">Role In Company:</label>
-                            <input id="id_roleincompany" maxlength="75" name="roleincompany" type="text">
+                            {{ form.job_title }}
+                            {{ form.job_title.errors }}
                             
                         </div>
                         
@@ -78,21 +87,15 @@
                         <div class="clear"></div>
                         <div class="field">
                         <label for="id_companyindustry">Which type of membership are you interested in?:</label>
-                        <select name="membershiptype">
-                            <option value="networkmembership">Network Membership</option>
-                            <option value="residentstartupmembership">Resident Startup Membership</option>
-                            <option value="socialimpactmembership">Social Impact Membership</option>
-                            <option value="developernetworkmembership">Developer Network Membership</option>
-                            <option value="mentormembership">Mentor Membership</option>
-                            <option value="corporatemembership">Corporate Membership</option>
-                        </select>   
+                        {{ form.membership_type }}
+                        {{ form.membership_type.errors }}
                         </div>
                         
                         <div class="clear"></div>
                         
                         <label>Please provide a brief motivation to support your suitability for the membership selected above:</label>
-                        <textarea name="briefmotivation" rows="8" cols="0" dir="auto" style="width:100%"></textarea>
-                        
+                        {{ form.what_do_you_aim_to_achieve }}
+                        {{ form.what_do_you_aim_to_achieve.errors }}
                         <div class="clear"></div>
                         
                     <div class="btns">
