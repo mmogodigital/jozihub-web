@@ -233,6 +233,12 @@ class EndUser(ImageModel, AbstractBaseUser, PermissionsMixin):
         null=True
     )
 
+    membership_type = models.PositiveSmallIntegerField(
+        choices=constants.MEMBERSHIP_TYPE,
+        blank=True,
+        null=True
+    )
+
     default_image_category = 'user'
     
     USERNAME_FIELD = 'email'
