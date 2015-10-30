@@ -380,7 +380,6 @@ class ProjectRegistrationManager(models.Manager):
     def create_inactive_user(self, site, **kwargs):
         email = ProjectRegistrationManager.normalize_email(kwargs['email'])
         for field_name in EndUser._meta.get_all_field_names():
-            print field_name
             if not field_name in kwargs:
                 kwargs[field_name] = None
         profile = EndUser.objects.create(
