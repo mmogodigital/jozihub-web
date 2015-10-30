@@ -1,0 +1,51 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='partners' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>{{ object.name }}</h1>
+            <a href="{% url 'console_partners_list' %}">Back to partners List</a>
+            <div class="clear"></div>
+
+            <div class="block">
+                <table>
+                   
+                    <tr>
+                        <th>Image</th>
+                        <td>
+                            <img src="{{ object.get_64x64_url }}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ object.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ object.rich_content }}</td>
+                    </tr>
+                    <tr>
+                        <th>Website Link</th>
+                        <td>{{ object.external_link }}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Actions</th>
+                        <td>
+                            <a href="{% url 'console_partners_update' object.pk %}">
+                                Edit
+                            </a> |
+                            <a href="{% url 'console_partners_delete' object.pk %}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}
