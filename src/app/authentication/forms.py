@@ -115,30 +115,7 @@ class ProjectRegistrationForm(forms.ModelForm):
     saving of collected user data is delegated to the active
     registration backend.
     '''
-    password1 = forms.CharField(widget=forms.PasswordInput())
-    password2 = forms.CharField(widget=forms.PasswordInput())
-    when_to_host_event = forms.ChoiceField(
-        widget=forms.RadioSelect(),
-        choices=root_constants.WHEN_TO_HOST_EVENT_CHOICES,
-    )
-    when_to_get_access = forms.ChoiceField(
-        widget=forms.RadioSelect(),
-        choices=root_constants.WHEN_TO_GET_ACCESS_CHOICES,
-    )
-    happy_with_the_price = forms.ChoiceField(
-        widget=forms.RadioSelect(),
-        choices=root_constants.HAPPY_WITH_THE_PRICE_CHOICES,
-    )
-    field_of_expertise = forms.ChoiceField(
-        widget=forms.RadioSelect(),
-        choices=root_constants.FIELD_OF_EXPERTISE_CHOICES,
-    )
-    information_about_jozihub = forms.ChoiceField(
-        widget=forms.RadioSelect(),
-        choices=root_constants.INFORMATION_ABOUT_JOZIHUB_CHOICES,
-    )
 
-    
     def clean_email(self):
         '''
         Validate that the supplied email address is unique for the
@@ -148,60 +125,17 @@ class ProjectRegistrationForm(forms.ModelForm):
             raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
         
         return self.cleaned_data['email']
-
-    def clean_password2(self):
-        '''
-        Verify that the values entered into the two password fields
-        match. Note that an error here will end up in
-        ``non_field_errors()`` because it doesn't apply to a single
-        field.
-        '''
-        if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
-            if self.cleaned_data['password1'] and self.cleaned_data['password2']:
-                if self.cleaned_data['password1'] != self.cleaned_data['password2']:
-                    raise forms.ValidationError('The password fields didn\'t match: Password confirmation failed.')
-            return self.cleaned_data['password2']
-
-    def clean(self):
-        '''
-        Verify that the values entered into the two password fields
-        match. Note that an error here will end up in
-        ``non_field_errors()`` because it doesn't apply to a single
-        field.
-        '''
-        if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
-            if self.cleaned_data['password1'] and self.cleaned_data['password2']:
-                if self.cleaned_data['password1'] != self.cleaned_data['password2']:
-                    raise forms.ValidationError('The two password fields didn\'t match.')
-        return self.cleaned_data
+    
 
     class Meta:
         model = models.EndUser
         fields = [
-                'first_name', 'last_name', 'email', 'phone_number', 'age',
-                'city', 'heard_about_from', 'heard_about_from_other',
-                'affiliation', 'submit_reason', 'information_about_jozihub',
-                'educational_background', 'about_you',
-                'events_interested_in_hosting',
-                'events_interested_in_hosting_other', 'when_to_host_event',
-                'required_from_us', 'how_can_you_contribute_to_jozihub',
-                'aims_to_get_from_jozihub', 'when_to_get_access',
-                'type_of_space_required','happy_with_the_price',
-                'become_a_partner_or_funder',
-                'become_a_partner_or_funder_other', 'about_your_organisation',
-                'what_do_you_aim_to_achieve', 'partnership_expectation',
-                'field_of_expertise', 'field_of_expertise_other',
-                'background_and_expertise', 'what_can_you_offer_as_a_mentor',
-                'mentoring_time',
+                'first_name', 'last_name', 'email', 'phone_number',
+                'company', 'about_your_organisation', 'job_title',
+                'membership_type', 'what_do_you_aim_to_achieve',
         ]
         widgets = {
-            'heard_about_from': forms.CheckboxSelectMultiple,
-            'events_interesting_in_hosting': forms.CheckboxSelectMultiple,
-            'type_of_space_required': forms.CheckboxSelectMultiple,
-            'become_a_partner_or_funder': forms.CheckboxSelectMultiple,
-            'information_about_jozihub': forms.RadioSelect(),
-            'password1' : forms.PasswordInput(),
-            'password2' : forms.PasswordInput(),
+            'about_your_organisation': forms.TextInput,
         }
 
     def __init__(self, *args, **kwargs):
@@ -215,30 +149,8 @@ class ProjectRegistrationForm(forms.ModelForm):
                 .attrs.update({'class':'required'})
         self.fields['email'].widget\
                 .attrs.update({'class':'required email'})
-        self.fields['password1'].widget\
-                .attrs.update({'class':'required'})
-        self.fields['password2'].widget\
-                .attrs.update({'class':'required'})
-        self.fields['about_you'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['educational_background'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['required_from_us'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['how_can_you_contribute_to_jozihub'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['aims_to_get_from_jozihub'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['about_your_organisation'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
         self.fields['what_do_you_aim_to_achieve'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['partnership_expectation'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['background_and_expertise'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
-        self.fields['what_can_you_offer_as_a_mentor'].widget\
-                .attrs.update({'cols': '50', 'rows': '2'})
+                .attrs.update({'rows': '7', 'style': 'width:100%'})
     
 class ProjectAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label='Email address', max_length=75)
