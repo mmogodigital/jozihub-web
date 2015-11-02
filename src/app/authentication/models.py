@@ -233,6 +233,12 @@ class EndUser(ImageModel, AbstractBaseUser, PermissionsMixin):
         null=True
     )
 
+    membership_type = models.PositiveSmallIntegerField(
+        choices=constants.MEMBERSHIP_TYPE,
+        blank=True,
+        null=True
+    )
+
     default_image_category = 'user'
     
     USERNAME_FIELD = 'email'
@@ -373,6 +379,9 @@ class ProjectRegistrationManager(models.Manager):
     @transaction.atomic
     def create_inactive_user(self, site, **kwargs):
         email = ProjectRegistrationManager.normalize_email(kwargs['email'])
+        for field_name in EndUser._meta.get_all_field_names():
+            if not field_name in kwargs:
+                kwargs[field_name] = None
         profile = EndUser.objects.create(
             first_name=kwargs['first_name'], 
             last_name=kwargs['last_name'], 
@@ -425,6 +434,9 @@ class ProjectRegistrationManager(models.Manager):
     @transaction.atomic
     def create_active_user(self, site, **kwargs):
         email = ProjectRegistrationManager.normalize_email(kwargs['email'])
+        for field_name in EndUser._meta.get_all_field_names():
+            if not field_name in kwargs:
+                kwargs[field_name] = None
         profile = EndUser.objects.create(
             first_name=kwargs['first_name'], 
             last_name=kwargs['last_name'], 
@@ -433,23 +445,19 @@ class ProjectRegistrationManager(models.Manager):
             phone_number=kwargs['phone_number'],
             age=kwargs['age'],
             city=kwargs['city'],
-            heard_about_from=kwargs.get('heard_about_from'),
             heard_about_from_other=kwargs['heard_about_from_other'],
             affiliation=kwargs['affiliation'],
             submit_reason=kwargs['submit_reason'],
             information_about_jozihub=kwargs['information_about_jozihub'],
             educational_background=kwargs['educational_background'],
             about_you=kwargs['about_you'],
-            events_interested_in_hosting=kwargs['events_interested_in_hosting'],
             events_interested_in_hosting_other=kwargs['events_interested_in_hosting_other'],
             when_to_host_event=kwargs['when_to_host_event'],
             required_from_us=kwargs['required_from_us'],
             how_can_you_contribute_to_jozihub=kwargs['how_can_you_contribute_to_jozihub'],
             aims_to_get_from_jozihub=kwargs['aims_to_get_from_jozihub'],
             when_to_get_access=kwargs['when_to_get_access'],
-            type_of_space_required=kwargs['type_of_space_required'],
             happy_with_the_price=kwargs['happy_with_the_price'],
-            become_a_partner_or_funder=kwargs['become_a_partner_or_funder'],
             become_a_partner_or_funder_other=kwargs['become_a_partner_or_funder_other'],
             about_your_organisation=kwargs['about_your_organisation'],
             what_do_you_aim_to_achieve=kwargs['what_do_you_aim_to_achieve'],
@@ -460,7 +468,18 @@ class ProjectRegistrationManager(models.Manager):
             what_can_you_offer_as_a_mentor=kwargs['what_can_you_offer_as_a_mentor'],
             mentoring_time=kwargs['mentoring_time'],
         )
-        
+        if kwargs['heard_about_from']:
+            profile.heard_about_from.add(kwargs['heard_about_from'])
+
+        if kwargs['become_a_partner_or_funder']:
+            profile.become_a_partner_or_funder.add(kwargs['become_a_partner_or_funder'])
+
+        if kwargs['type_of_space_required']:
+            profile.type_of_space_required.add(kwargs['type_of_space_required'])
+
+        if kwargs['events_interested_in_hosting']:
+            profile.events_interested_in_hosting.add(kwargs['events_interested_in_hosting'])
+
         profile.update(**kwargs)
 
         return profile
