@@ -30,7 +30,7 @@
                 <li class="cai">
                     <img src="{{ object.get_100x98_url }} " alt="Conte Creative"/>
                     <p class="startupsblue">{{ object.name }}</p>
-                    <p>{{ object.rich_content }}</p>
+                    <p>{{ object.rich_content|safe|truncatechars:500 }}</p>
                     <a href="#">More Info</a>
                 </li>
             </ul>
