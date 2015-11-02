@@ -36,7 +36,7 @@
                             <img src="{{ object.get_100x98_url }}" />
                             <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                             <p class="startupsblue">{{ object.title }}</p>
-                            <p>{{ object.rich_content|safe }}</p>
+                            <p>{{ object.rich_content|safe|truncatechars:500 }}</p>
                              <a href="{{ object.external_link }}">Coming Soon</a> 
                              </li>
                              </ul>
@@ -59,7 +59,7 @@
                             <img src="{{ object.get_100x98_url }}" />
                             <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                             <p class="startupsblue">{{ object.title }}</p>
-                            <p>{{ object.rich_content|safe }}</p>
+                            <p>{{ object.rich_content|safe|truncatechars:500 }}</p>
                              <a href="{{ object.external_link }}">More Info</a> 
                              </li>
                              </ul>
