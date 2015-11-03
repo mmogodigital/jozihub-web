@@ -221,7 +221,7 @@ class StartupForm(forms.ModelForm):
     class Meta:
         model = StartupCompanies
         fields = [
-                'image', 'name', 'founder_photographs',
+                'image', 'name', 'founder_photographs', 'title',
                 'Link_to_their_website', 'social_media_profiles',
                 'contact_details', 'rich_content',
         ]
@@ -235,7 +235,7 @@ class StartupForm(forms.ModelForm):
         if 'instance' in kwargs:
             self.object = kwargs['instance']
 
-        self.fields['name'].widget.attrs.update({
+        self.fields['title'].widget.attrs.update({
             'class': 'required',
         })
         self.fields['image'].widget.attrs.update({

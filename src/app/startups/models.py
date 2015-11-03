@@ -10,8 +10,3 @@ class StartupCompanies(core_models.BaseContentModel):
     Link_to_their_website = models.TextField(max_length=120, blank=True, null=True)
     social_media_profiles = models.TextField(max_length=120, blank=True, null=True)
     contact_details = models.TextField(max_length=120, blank=True, null=True)
-    rel_date = models.DateTimeField(auto_now_add=True, auto_now=False)
-    update = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-    def __unicode__(self):
-        return self.name
