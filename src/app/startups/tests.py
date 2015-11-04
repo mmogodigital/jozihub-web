@@ -20,6 +20,7 @@ class Startups(TestCase):
         response = self.client.post(
             reverse('console_startups_create'),
             data={
+                'title': 'foo',
                 'name': 'foo',
                 'rich_content': 'some txt',
                 'founder_photographs': 'foo',

@@ -14,4 +14,4 @@ class StartupCompanies(core_models.BaseContentModel):
     update = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.name
+    	return self.title
