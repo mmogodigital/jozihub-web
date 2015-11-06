@@ -26,7 +26,14 @@
             <div class="clear"></div>
             <div class="block">
                <div id="instafeed">
-        
+                  <script type="text/javascript">
+                    window.onload = function(){
+                          var anchors = document.getElementById('instafeed').getElementsByTagName('a');
+                          for (var i=0; i<anchors.length; i++){
+                            anchors[i].setAttribute('target', '_blank');
+                          }
+                    }
+                  </script>
         		</div><!--instafeed-->
 
             <div class="clear"></div>          
