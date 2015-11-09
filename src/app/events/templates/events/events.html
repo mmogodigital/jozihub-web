@@ -35,7 +35,7 @@
                             
                             <img src="{{ object.get_100x98_url }}" />
                             <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
-                            <p class="startupsblue">{{ object.title }}</p>
+                             <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
                             <p>{{ object.rich_content|safe|truncatechars:500 }}</p>
                              <a href="{% url 'event_detail'  object.slug %}">Coming Soon</a> 
                              </li>
