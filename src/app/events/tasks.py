@@ -16,8 +16,7 @@ from app.authentication.models import EndUser
 @task(default_retry_delay=10 * 60)
 def email_venue_hire(context):
     try:
-        admin_users = EndUser.objects.filter(is_admin=True)
-        admin_emails = admin_users.values_list('email', flat=True)
+        admin_emails = settings.TEMP_EMAIL_ADDRESS
         mailer_utils.send_mail(
             subject='email/subjects/venue_hire_email_subject.txt',
             html_content='email/html/venue_hire_email.html',

@@ -225,6 +225,9 @@ CKEDITOR_STATIC_PREFIX = '/static/ckeditor/'
 EMAIL_ENABLED = True
 DEFAULT_FROM_EMAIL = 'Jozihub <info@jozihub.org>'
 CONTACT_MESSAGE_TO_EMAIL = 'info@jozihub.org'
+TEMP_EMAIL_ADDRESS = ('sam@jozihub.org',
+                      'thabo@jozihub.org',
+                      'kaitlyn@praekelt.com')
 EMAIL_HOST = 'localhost'
 
 # Default Image Settings
