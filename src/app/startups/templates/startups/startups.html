@@ -29,7 +29,7 @@
            <ul class="just-logos startups">
                 <li class="cai">
                     <img src="{{ object.get_100x98_url }} " alt="Conte Creative"/>
-                    <p class="startupsblue">{{ object.name }}</p>
+                    <p class="startupsblue">{{ object.title }}</p>
                     <p>{{ object.rich_content|safe|truncatechars:500 }}</p>
                     <a href="{% url 'startups_detail' object.slug %}">More Info</a>
                 </li>
