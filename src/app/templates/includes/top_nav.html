@@ -10,12 +10,8 @@
         <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'secure_register' %}">Join</a></li>
         <li {% if on == 'gallery' %}class="on"{% endif %}><a href="{% url 'galleries' %}">Gallery</a></li>
         <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'jobs' %}">Jobs</a></li>
-        {% if not user.is_authenticated %}
-          <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'secure_login' %}">Sign In</a></li>
-        {% else %}
-          {% if user.can_access_console %}
+          {% if user.is_authenticated %}
           <li {% if on == 'console' %}class="on"{% endif %}><a href="{% url 'console_landing_page' %}">Console</a></li>
-          {% endif %}
           {% comment %}<li {% if on == 'profile' %}class="on"{% endif %}><a href="{% url 'secure_profile' %}">My Profile</a></li>{% endcomment %}
           <li {% if on == 'sign_in' %}class="on"{% endif %}><a href="{% url 'auth_logout' %}">Logout</a></li>
         {% endif %}
