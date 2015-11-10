@@ -11,7 +11,7 @@ APP_NAME = 'Jozihub'
 
 PROJECT_NAME = 'app'
 
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
 
