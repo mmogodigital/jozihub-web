@@ -183,7 +183,6 @@
 }
 #stats{
     float: right;
-    z-index: 10000;
     position: fixed;
 	width: 100%;
 	font-family: 'Open Sans Condensed', sans-serif;
