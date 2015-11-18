@@ -205,7 +205,7 @@
 .startups-number{
 	font-size: 35px;
     padding-top: 0px;
-    line-height: 33px
+    line-height: 33px;
 }
 
 .partners-stats{
@@ -224,7 +224,7 @@
 .partners-number{
 	font-size: 35px;
     padding-top: 0px;
-    line-height: 33px
+    line-height: 33px;
 }
 
 .events-stats{
@@ -238,12 +238,13 @@
     color: #000;
     line-height: 22px;
 	opacity: 1;
+    min-width: 65px;
 }
 
 .events-number{
 	font-size: 35px;
     padding-top: 0px;
-    line-height: 33px
+    line-height: 33px;
 }
 
 .mentors-stats{
