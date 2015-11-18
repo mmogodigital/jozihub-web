@@ -200,6 +200,7 @@
     color: #000;
     line-height: 22px;
 	opacity: 1;
+    min-width: 65px;
 }
 
 .startups-number{
@@ -219,6 +220,7 @@
     color: #000;
     line-height: 22px;
 	opacity: 1;
+    min-width: 65px;
 }
 
 .partners-number{
@@ -258,6 +260,7 @@
     color: #000;
     line-height: 22px;
 	opacity: 1;
+    min-width: 65px;
 }
 
 .mentors-number{
