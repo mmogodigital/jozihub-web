@@ -9,6 +9,7 @@ from app.startups.models import StartupCompanies
 from tunobase.corporate.media import models
 from app.partners.models import Partner
 from app.authentication.models import EndUser
+from app.authentication.models import constants
 
 
 class Index(generic_views.TemplateView):
@@ -21,7 +22,7 @@ class Index(generic_views.TemplateView):
             'num_startups': StartupCompanies.objects.all().count(),
             'num_events': events,
             'num_partners': Partner.objects.all().count(),
-            'num_mentors': EndUser.objects.all().count(),
+            'num_mentors': EndUser.objects.filter(membership_type=constants.MENTOR_MEMBERSHIP).count(),
         })
 
 
