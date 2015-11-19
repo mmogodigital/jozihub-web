@@ -28,9 +28,9 @@
              {% for object in object_list %}
            <ul class="just-logos startups">
                 <li class="cai">
-                    <img src="{{ object.get_100x98_url }} " alt="Conte Creative"/>
+                     <div id='transparent-container'><img src="{{ object.image.url }}" /></div>
                     <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
-                    <p>{{ object.rich_content|safe|truncatechars:250 }}</p>
+                    <p>{{ object.rich_content|safe|truncatechars:220 }}</p>
                     <a href="{% url 'startups_detail' object.slug %}">More Info</a>
                 </li>
             </ul>
