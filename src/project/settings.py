@@ -1,5 +1,7 @@
 import os
 from django.utils import timezone
+import djcelery
+djcelery.setup_loader()
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -115,6 +117,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'google_analytics.middleware.GoogleAnalyticsMiddleware',
     #'tunobase.age_gate.middleware.AgeGateMiddleware'
 )
 
@@ -154,6 +157,7 @@ INSTALLED_APPS = (
     'django_countries',
     'polymorphic',
     'debug_toolbar',
+    'google_analytics',
     'djcelery',
     'south',
     'compressor',
@@ -189,6 +193,17 @@ CACHES = {
         'TIMEOUT': 60 * 15
     }
 }
+
+# Google Analytics
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'UA-70288318-1',
+}
+GOOGLE_ANALYTICS_IGNORE_PATH = ['/health/', ]
+
+# Celery
+
+CELERY_IMPORTS = ('google_analytics.tasks',)
 
 # Debug Toolbar Settings
 

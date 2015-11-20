@@ -16,3 +16,5 @@ psycopg2
 flufl.password==1.2.1
 raven
 django-extensions
+django-google-analytics-app
+django-celery
