@@ -267,6 +267,8 @@ LOGGING = {
     }
 }
 
+INSTA_ID = '37771083db114cdebd99608013713d5c'
+
 try:
     from project.settings_local import *
 except ImportError:
