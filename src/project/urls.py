@@ -9,7 +9,6 @@ urlpatterns = patterns('',
     (r'^', include('%s.urls' % settings.PROJECT_NAME)),
     (r'^admin/', include(admin.site.urls)),
     (r'^secure/ckeditor/', include('ckeditor.urls')),
-    (r'^djga/', include('google_analytics.urls')),
 )
 
 #------------------------------------------------------------------------------
