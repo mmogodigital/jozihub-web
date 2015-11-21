@@ -4,7 +4,7 @@
     <ul>
         <li {% if on == 'startups' %}class="on"{% endif %}><a href="{% url 'startups' %}">Startups</a></li>
         <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'events' %}">Events</a>
-        <li {% if on == 'Services' %}class="on"{% endif %}><a href="/services/">Services</a></li>
+        <li {% if on == 'services' %}class="on"{% endif %}><a href="/services/">Services</a></li>
         <li {% if on == 'partners' %}class="on"{% endif %}><a href="{% url 'partners' %}">Partners</a></li>
         <li {% if on == 'venuehire' %}class="on"{% endif %}><a href="{% url 'venue_hire' %}">Venue Hire</a></li>
         <li {% if on == 'apply' %}class="on"{% endif %}><a href="{% url 'secure_register' %}">Join</a></li>

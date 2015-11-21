@@ -64,9 +64,9 @@
     "model": "flatpages.flatpage", 
     "fields": {
         "registration_required": false, 
-        "title": "Services", 
-        "url": "/Services/", 
-        "template_name": "flatpages/Services.html", 
+        "title": "services", 
+        "url": "/services/", 
+        "template_name": "flatpages/services.html", 
         "sites": [
             1
         ], 
