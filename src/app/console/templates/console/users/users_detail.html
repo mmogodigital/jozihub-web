@@ -15,7 +15,7 @@
             <div class="block">
                 <table>
                     <tr>                        
-                        <th colspan="2" class="head">General Information</th>
+                        <th colspan="2" class="head">Personal Information</th>
                     </tr>
                     <tr>
                         <th width="140">First Name</th>
@@ -31,125 +31,40 @@
                     </tr>
                     <tr>
                         <th width="140">Contact number</th>
-                        <td>{{ object.mobile_number }}</td>
+                        <td>{{ object.phone_number }}</td>
+                    </tr>
+                        <th colspan="2" class="head">Company Information</th>
                     </tr>
                     <tr>
-                        <th width="140">Age</th>
-                        <td>{{ object.age }}</td>
+                        <th width="140">Company Name</th>
+                        <td>{{ object.company }}</td>
                     </tr>
                     <tr>
-                        <th width="140">Which area do you live in?</th>
-                        <td>{{ object.city }}</td>
+                        <th width="140">Company Industry</th>
+                        <td>{{ object.about_your_organisation}}</td>
+                    </tr>
+                     <tr>
+                        <th width="140">Role In Company:</th>
+                        <td>{{ object.job_title}}</td>
                     </tr>
                     <tr>
-                        <th width="140">How did you hear about us?</th>
-                        <td>{{ object.get_heard_about_from_options }}</td>
+                        <th colspan="2" class="head">Membership Information</th>
                     </tr>
                     <tr>
-                        <th width="140">Your affiliation</th>
-                        <td>{{ object.get_affiliation_display }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">What is your reason for submitting this form?</th>
-                        <td>{{ object.get_submit_reason_display }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">I would like to get information and updates for the JoziHub</th>
-                        <td>{{ object.get_information_about_jozihub_display }}</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" class="head">Tell us about yourself</th>
-                    </tr>
-                    <tr>
-                        <th width="140">Educational background</th>
-                        <td>{{ object.educational_background }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">Tell us about yourself</th>
-                        <td>{{ object.about_you }}</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" class="head">Events hosting</th>
-                    </tr>
-                    <tr>
-                        <th width="140">What event are you interested in hosting?</th>
-                        <td>{{ object.get_events_interesting_in_hosting_options }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">When would you like to host the event?</th>
-                        <td>{{ object.get_when_to_host_event_display }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">What do you require from us?</th>
-                        <td>{{ object.required_from_us }}</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" class="head">Work space</th>
-                    </tr>
-                    <tr>
-                        <th width="140">How can you contribute to the JoziHub community?</th>
-                        <td>{{ object.how_can_you_contribute_to_jozihub }}</td>
+                        <th width="140">Membership Type</th>
+                        <td>{{ object.membership_type }}</td>
                     </tr>
                     <tr>
                         <th width="140">What do you aim to get from the JoziHub?</th>
-                        <td>{{ object.aims_to_get_from_jozihub }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">When would you like to get access to the space?</th>
-                        <td>{{ object.get_when_to_get_access_display }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">What type of space do you require?</th>
-                        <td>{{ object.get_type_of_space_required_options }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">Are you happy with the price?</th>
-                        <td>{{ object.get_happy_with_the_price_display }}</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" class="head">Partners</th>
-                    </tr>
-                    <tr>
-                        <th width="140">Do you want to become a partner or funder for the Hub?</th>
-                        <td>{{ object.get_become_a_partner_or_funder_options }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">Tell us about your organisation</th>
-                        <td>{{ object.about_your_organisation }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">What do you aim to achieve out of the partnership?</th>
                         <td>{{ object.what_do_you_aim_to_achieve }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">What do you expect from the partnership?</th>
-                        <td>{{ object.partnership_expectation }}</td>
-                    </tr> 
-                    <tr>
-                        <th colspan="2" class="head">Mentor</th>                  
-                    <tr>
-                        <th width="140">What is your field of expertise?</th>
-                        <td>{{ object.get_field_of_expertise_display }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">What is you background and expertise? (short CV or profile)</th>
-                        <td>{{ object.background_and_expertise }}</td>
-                    </tr>
-                    <tr>
-                        <th width="140">What can you offer as a mentor?</th>
-                        <td>{{ object.what_can_you_offer_as_a_mentor }}</td>
-                    </tr>                    
-                    <tr>
-                        <th width="140">How much time a month can you assist in mentoring?</th>
-                        <td>{{ object.mentoring_time }}</td>
                     </tr>
                     <tr>
                         <th width="140">Actions</th>
                         <td>
-                            <a href="{% url 'console_news_update' object.pk %}">
+                            <a href="{% url 'console_users_update' object.pk %}">
                                 Edit
                             </a> |
-                            <a href="{% url 'console_news_delete' object.pk %}">
+                            <a href="{% url 'console_users_delete' object.pk %}">
                                 Delete
                             </a>
                         </td>
