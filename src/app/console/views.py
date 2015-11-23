@@ -56,8 +56,6 @@ class UsersUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'users.change_users'
 
     def form_invalid(self, form):
-        print '*' * 10
-        print form
         return super(UsersUpdate, self).form_invalid(form)
 
     def get_success_url(self):
