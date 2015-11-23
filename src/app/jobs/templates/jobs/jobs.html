@@ -21,7 +21,9 @@
     <div id="content">
         <div class="container job">
             <p class="context">Jobs</p>
+            {% if user.is_authenticated %}
             <a class="post" href="{% url 'post_job' %}">Post a job</a>
+            {% endif %}
             <h1>Interested in working with us</h1>
             
             <div class="clear"></div>
