@@ -25,7 +25,7 @@ class UsersForm(forms.ModelForm):
     class Meta:
         model = EndUser
         exclude = [
-                'job_title', 'company', 'username', 'date_joined',
+                'username', 'date_joined',
                 'street_address', 'state_province', 'zip_postal_code',
                 'country', 'web_address', 'is_regular_user', 'is_active',
                 'is_admin', 'is_console_user', 'password', 'last_login',
@@ -65,6 +65,7 @@ class UsersForm(forms.ModelForm):
                 raise forms.ValidationError(
                         "You cannot change your email address"
                 )
+        return self.cleaned_data['email']
 
     def clean_password2(self):
         if ('password1' in self.cleaned_data and
@@ -75,7 +76,7 @@ class UsersForm(forms.ModelForm):
     def save(self, commit=True):
         obj = super(UsersForm, self).save(commit)
 
-        if self.clean_data['password1']:
+        if self.cleaned_data['password1']:
             obj.set_password(self.cleaned_data['password1'])
 
         obj.save()

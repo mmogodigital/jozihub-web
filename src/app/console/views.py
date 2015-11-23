@@ -55,14 +55,11 @@ class UsersCreate(AdminMixin, generic_views.CreateView):
 class UsersUpdate(AdminMixin, generic_views.UpdateView):
     permission_required = 'users.change_users'
 
-    def form_invalid(self, form, **kwargs):
-        print '*' * 10
-        print dir(form)
-        from pprint import pprint
-        pprint(kwargs)
-        pprint(form.errors)
+    def form_invalid(self, form):
+        return super(UsersUpdate, self).form_invalid(form)
 
     def get_success_url(self):
+        user = EndUser.objects.get(pk=self.object.pk)
         return reverse('console_users_detail', args=(self.object.pk,))
 
     def get_queryset(self):
