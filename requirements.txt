@@ -14,5 +14,5 @@ django-honeypot
 Pillow
 psycopg2
 flufl.password==1.2.1
-raven
+raven==5.1.1
 django-extensions
