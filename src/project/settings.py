@@ -16,7 +16,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Praekelt', 'devops@praekelt.com'),
+    ('Praekelt', 'dev@praekeltfoundation.org'),
 )
 
 MANAGERS = ADMINS
