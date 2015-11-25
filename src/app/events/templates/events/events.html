@@ -33,7 +33,7 @@
                     <ul class="just-logos startups">
                      <li class="cai">
                             
-                            <div id='transparent-container'><img src="{{ object.image.url }}" /></div>
+                            <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
                             <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                              <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
                             <p>{{ object.rich_content|safe|truncatechars:100 }}</p>
@@ -56,7 +56,7 @@
                     <ul class="just-logos startups">
                      <li class="cai">
                             
-                             <div id='transparent-container'><img src="{{ object.image.url }}" /></div>
+                             <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
                             <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                             <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
                             <p>{{ object.rich_content|safe|truncatechars:100 }}</p>
