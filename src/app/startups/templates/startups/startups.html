@@ -28,7 +28,7 @@
              {% for object in object_list %}
            <ul class="just-logos startups">
                 <li class="cai">
-                     <div id='transparent-container'><img src="{{ object.image.url }}" /></div>
+                     <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
                     <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
                     <p>{{ object.rich_content|safe|truncatechars:220 }}</p>
                     <a href="{% url 'startups_detail' object.slug %}">More Info</a>
