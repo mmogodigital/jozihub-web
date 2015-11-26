@@ -36,7 +36,7 @@
                             <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
                             <p>{{ object.start|date:"j M Y" }} from {{ object.start|date:"g:i A" }}</p>
                              <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
-                            <p>{{ object.rich_content|safe|truncatechars:100 }}</p>
+                            <p>{{ object.rich_content|striptags|truncatechars:100 }}</p>
                              <a href="{% url 'event_detail'  object.slug %}">Coming Soon</a>
                              </li>
                              </ul>
