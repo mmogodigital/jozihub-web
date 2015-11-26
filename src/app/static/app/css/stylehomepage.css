@@ -202,6 +202,9 @@
 	opacity: 1;
     min-width: 65px;
 }
+.statlink{
+    color: #000!important; 
+}
 
 .startups-number{
 	font-size: 35px;

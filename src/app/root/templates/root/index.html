@@ -23,19 +23,19 @@
         </ul>
         <div id="stats">
         <div class="startup-stats">
-        <span class="startups-number">{{ num_startups }}</span><br /><span>Startups</span>
+        <span class="startups-number">{{ num_startups }}</span><br /><span><a href="{% url 'startups' %}" class="statlink">Startups</a></span>
         </div>
         
         <div class="clear-stats"></div>
         
         <div class="partners-stats">
-        <span class="partners-number">{{ num_partners }}+</span><br /><span>Partners</span>
+        <span class="partners-number">{{ num_partners }}+</span><br /><span><a href="{% url 'partners' %}" class="statlink">Partners</a></span>
         </div>
         
         <div class="clear-stats"></div>
         
         <div class="events-stats">
-        <span class="events-number">{{ num_events }}+</span><br /><span>Events<br /> Hosted</span>
+        <span class="events-number">{{ num_events }}+</span><br /><span><a href="{% url 'events' %}" class="statlink">Events<br /> Hosted</a></span>
         </div>
         <div class="clear-stats"></div>
         
