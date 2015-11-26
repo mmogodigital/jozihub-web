@@ -3,7 +3,7 @@
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>  
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>
 
 
 {% endblock %}
@@ -32,43 +32,46 @@
                 {% for object in current_and_future_events %}
                     <ul class="just-logos startups">
                      <li class="cai">
-                            
+
                             <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
                             <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                              <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
                             <p>{{ object.rich_content|safe|truncatechars:100 }}</p>
-                             <a href="{% url 'event_detail'  object.slug %}">Coming Soon</a> 
+                             <a href="{% url 'event_detail'  object.slug %}">Coming Soon</a>
                              </li>
                              </ul>
                 {% empty %}
                     <p>There are no events to list.</p>
                 {% endfor %}
-            <div class="clear"></div>          
-            </div><!--/block-->          
+            <div class="clear"></div>
+            </div><!--/block-->
             {% endif %}
 
-            {% if past_events %}
+            {% if event_list %}
             <h1>Past Events</h1>
 
             <div class="clear"></div>
             <div class="block">
-                {% for object in past_events %}
+                {% for object in event_list %}
                     <ul class="just-logos startups">
                      <li class="cai">
-                            
+
                              <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
                             <p>{{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
                             <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
                             <p>{{ object.rich_content|safe|truncatechars:100 }}</p>
-                             <a href="{% url 'event_detail'  object.slug %}">More Info</a> 
+                             <a href="{% url 'event_detail'  object.slug %}">More Info</a>
                              </li>
                              </ul>
                 {% empty %}
                     <p>There are no events to list.</p>
                 {% endfor %}
-            <div class="clear"></div>          
-            </div><!--/block-->          
+            <div class="clear"></div>
+            </div><!--/block-->
+            <div class="pagination">
+            {% pagination_widget page_obj %}
+          </div>
             {% endif %}
-        </div> 
+        </div>
     </div><!--/Content-->
 {% endblock %}

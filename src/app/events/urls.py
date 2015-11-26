@@ -11,7 +11,7 @@ urlpatterns = patterns('',
         ),
         name='events'
     ),
-    url(r'^venue_hire/$', 
+    url(r'^venue_hire/$',
         views.VenueHire.as_view(
             form_class=forms.VenueHireForm,
             template_name='events/venue_hire.html'
