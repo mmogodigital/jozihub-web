@@ -11,7 +11,7 @@ from django.contrib import messages
 
 
 class Events(generic_views.ListView):
-    paginate_by = 20
+    paginate_by = 12
 
     def get_queryset(self):
         return models.Event.objects.permitted().for_current_site()
