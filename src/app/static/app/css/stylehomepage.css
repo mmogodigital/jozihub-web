@@ -128,8 +128,8 @@
 /*  GLOBAL */
 
     html, body { background: #222b32 url('../img/bg.png') top center no-repeat; }
-    #main { max-width: 100%; margin: 0 auto; background: #fff; position: relative; overflow-x: hidden; }        
-        .banner_error { position: absolute; top: 80px; left: 30px; color: #ff0000; }
+    #main { max-width: 100%; margin: 0 auto; position: relative; overflow-x: hidden; }        
+    .banner_error { position: absolute; top: 80px; left: 30px; color: #ff0000; }
     .container { max-width: 980px; margin: 0 auto; /* this controls the width of the site for media queries - check at the bottom of this file */ }
     .context { margin: 0; padding: 0; font-size: 24px; text-transform: uppercase; color: #3eb7b8; line-height: 28px; }
     h1 { margin: 5px 0 0 0; font-size: 48px; color: #232c32; line-height: 52px; }
