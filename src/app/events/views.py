@@ -14,7 +14,8 @@ class Events(generic_views.ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        return models.Event.objects.permitted().for_current_site()
+        return models.Event.objects.permitted()\
+            .for_current_site().past_events().order_by('-start')
 
     def get_context_data(self, *args, **kwargs):
         context = super(Events, self).get_context_data(**kwargs)
@@ -23,8 +24,7 @@ class Events(generic_views.ListView):
 
         context.update({
             'current_and_future_events':
-                events.current_and_future_events().order_by('start'),
-            'past_events': events.past_events(),
+                events.current_and_future_events().order_by('start')
         })
 
         return context
