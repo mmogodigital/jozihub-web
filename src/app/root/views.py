@@ -16,15 +16,15 @@ class Index(generic_views.TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super(Index, self).get_context_data(**kwargs)
         events = models.Event.objects.all().count()
-        
 
         context.update({
             'num_startups': StartupCompanies.objects.all().count(),
             'num_events': events,
             'num_partners': Partner.objects.all().count(),
-            'num_mentors': EndUser.objects.filter(membership_type=constants.MENTOR_MEMBERSHIP).count(),
+            'num_mentors': EndUser.objects.filter(
+                membership_type=constants.MENTOR_MEMBERSHIP,
+                is_active=True).count(),
         })
-
 
         return context
 
