@@ -40,7 +40,7 @@ def email_account_activation(registration_profile_id, site_id):
             user=registration_profile.user
         )
 
-        admin_emails = settings.TEMP_EMAIL_ADDRESS
+        admin_emails = (settings.CONTACT_MESSAGE_TO_EMAIL, )
         mailer_utils.send_mail(
             subject='Jozihub - New User',
             text_content='email/txt/activation_email_to_admin.txt',
