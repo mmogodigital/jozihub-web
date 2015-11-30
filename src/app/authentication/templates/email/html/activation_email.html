@@ -1,13 +1,14 @@
 {% extends 'email/base.html' %}
 
 {% block content %}
-Dear {{ user.display_name }},<br/>
-<br/>
-You have been registered on {{ app_name }} at http://{{ site }}<br/>
-<br/>
-Your username is: {{ user.get_username }}<br/>
-<br/>
-To activate your account, go to http://{{ site }}/authentication/secure/activate/{{ activation_key }}/<br/>
-<br/>
-You have {{ expiration_days }} days to activate your account.<br/>
+Dear {{ user.first_name }},
+
+Thank you for registering with us via the <a href="http://{{ site }}">jozihub.org</a> website.
+We’re excited that you are on board with us and we hope to see you at JoziHub soon.
+We’ll keep you posted on updated news and events via our newsletter. But before that we need you to validate your registration so <a href="http://{{ site }}/authentication/secure/activate/{{ activation_key }}/">please click HERE</a>
+
+Remember to follow us on twitter and instagram @jozihub or on <a href="https://facebook.com/jozihub">facebook.com/jozihub</a>
+
+Take care,
+The JoziHub Comms Team
 {% endblock %}

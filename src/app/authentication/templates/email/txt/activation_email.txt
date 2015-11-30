@@ -1,12 +1,10 @@
-Dear {{ user.display_name }},
+Dear {{ user.first_name }},
 
-You have been registered on {{ app_name }} at http://{{ site }}
+Thank you for registering with us via the {{ site }} website.
+We’re excited that you are on board with us and we hope to see you at JoziHub soon.
+We’ll keep you posted on updated news and events via our newsletter. But before that we need you to validate your registration so please click here http://{{ site }}/authentication/secure/activate/{{ activation_key }}/
 
-Your username is: {{ user.get_username }}
+Remember to follow us on twitter and instagram @jozihub or on facebook.com/jozihub
 
-To activate your account, go to http://{{ site }}/authentication/secure/activate/{{ activation_key }}/
-
-You need to do this within {{ expiration_days }} days, before this key will expire.
-
-Kind regards,
-The {{ app_name }} Team.
+Take care,
+The JoziHub Comms Team
