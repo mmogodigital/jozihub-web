@@ -2,7 +2,10 @@
 {% load core_widgets %}
 {% block extra_css %}
 <link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>  
+{% endblock %}
 
+{% block extra_js %}
+<script type="text/javascript" src="{{ STATIC_URL }}app/js/libs/instafeed.min.js"></script>
 {% endblock %}
 
 {% block title %}Gallery{% endblock %}
