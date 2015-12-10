@@ -4,8 +4,17 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>  
 {% endblock %}
 
-{% block top_js %}
+{% block bottom_js %}
 <script type="text/javascript" src="{{ STATIC_URL }}app/js/libs/instafeed.min.js"></script>
+<script type="text/javascript">
+                    var feed = new Instafeed({
+                        get: 'tagged',
+                        tagName: 'jozihub',
+                        limit: 32,
+                        clientId: '{{insta_id}}'
+                    });
+                    feed.run();
+                </script>
 {% endblock %}
 
 {% block title %}Gallery{% endblock %}
@@ -29,17 +38,6 @@
             <div class="clear"></div>
             <div class="block">
                <div id="instafeed">
-
-               <script type="text/javascript">
-                    var feed = new Instafeed({
-                        get: 'tagged',
-                        tagName: 'jozihub',
-                        limit: 32,
-                        clientId: '{{insta_id}}'
-                    });
-                    feed.run();
-                </script>
-                
                   <script type="text/javascript">
                     window.onload = function(){
                           var anchors = document.getElementById('instafeed').getElementsByTagName('a');
