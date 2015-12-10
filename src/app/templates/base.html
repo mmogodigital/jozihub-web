@@ -17,17 +17,6 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}app/css/customize.css" />
     {% block extra_css %}{% endblock %}
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Open+Sans:400,600,700,300" type="text/css">
-    {% block extra_js %}{% endblock %}
-    <script type="text/javascript">
-    var feed = new Instafeed({
-        get: 'tagged',
-        tagName: 'jozihub',
-        limit: 32,
-        clientId: '{{insta_id}}'
-    });
-    feed.run();
-</script>
-
 </head>
 <body>
 <div id="wrap">
