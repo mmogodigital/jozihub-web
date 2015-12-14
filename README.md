@@ -19,4 +19,4 @@ Once a scope of work commences or completes, this file should be updated to refl
 
 Scope of work                                    | State                    | GitHub milestone                                                                                   | Estimated hours
 ------------------------------------------------ | ------------------------ | -------------------------------------------------------------------------------------------------- | ---------------
-[2015-08-27](docs/2015-08-27-jozihub-website.md) | awaiting client approval | [2015-08-27](https://github.com/praekelt/jozihub-web/milestones/2015-08-27%20-%20Website%20update) | 47 hours        |
+[2015-08-27](docs/2015-08-27-jozihub-website.md) | completed | [2015-08-27](https://github.com/praekelt/jozihub-web/milestones/2015-08-27%20-%20Website%20update) | 47 hours        |
