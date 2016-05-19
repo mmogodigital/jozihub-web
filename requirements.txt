@@ -1,7 +1,7 @@
 Django==1.6.5
 South
 django-debug-toolbar==0.11.0
-django-polymorphic==0.8.1
+django-polymorphic==0.7.2
 django-registration==1.0
 django-preferences
 django-countries
