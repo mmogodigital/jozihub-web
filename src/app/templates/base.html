@@ -6,42 +6,43 @@
     <title>JoziHub {% block title %}{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  
+
     <link rel="shortcut icon" href="{{ STATIC_URL }}app/img/favi.ico" />
     <link rel="apple-touch-icon" href="{{ STATIC_URL }}app/img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" sizes="50x50" href="{{ STATIC_URL }}app/img/apple-touch-icon-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ STATIC_URL }}app/img/apple-touch-icon-57x57-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}app/img/apple-touch-icon-72x72-precomposed.png" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/responsive.css" />    
+    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/responsive.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}app/css/galleria.twelve.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}app/css/customize.css" />
     {% block extra_css %}{% endblock %}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Open+Sans:400,600,700,300" type="text/css">    
-    <!-- Google Tag Manager -->
-    <noscript>
-        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MMRHSN" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <script>
-        (function(w,d,s,l,i){
-            w[l]=w[l]||[];
-            w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-            var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-            j.async=true;j.src= '//www.googletagmanager.com/gtm.js id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-MMRHSN');
-    </script>
-    <!-- End Google Tag Manager -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Open+Sans:400,600,700,300" type="text/css">
+
 </head>
 <body>
+  <!-- Google Tag Manager -->
+  <noscript>
+      <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MMRHSN" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <script>
+      (function(w,d,s,l,i){
+          w[l]=w[l]||[];
+          w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+          var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+          j.async=true;j.src= '//www.googletagmanager.com/gtm.js id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MMRHSN');
+  </script>
+  <!-- End Google Tag Manager -->
 <div id="wrap">
 <div id="main">
-    
+
     {% block header %}
         {% include 'includes/top_nav.html' %}
     {% endblock %}
 
     {% block promo %}
 
-    
+
     {% endblock %}
 
     {% block content %}
@@ -52,7 +53,7 @@
      <div class="parallax">
             <div id="footer" >
         <div class="container">
-            
+
             <div class="address">&copy; Jozihub<br />44 Stanley Ave, Milpark, Johannesburg,<br />  South Africa<br />info@jozihub.org</div>
                 <div id="social">
                 <div class="container">
@@ -78,7 +79,7 @@
     </div><!--/Footer-->
 </div>
     {% endblock %}
-    
+
 </div><!--/Main-->
 </div><!--/Wrap-->
 <script type="text/javascript" src="{{ STATIC_URL }}app/js/libs/jquery-1.10.2.min.js"></script>
