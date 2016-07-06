@@ -16,7 +16,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Praekelt', 'dev@praekeltfoundation.org'),
+    ('JoziHub Developers', 'jozihubweb@googlegroups.com'),
 )
 
 MANAGERS = ADMINS
