@@ -167,6 +167,7 @@ INSTALLED_APPS = (
     'app.gallery',
     'app.jobs',
     'app.startups',
+    'app.services',
     'tunobase',
     'tunobase.core',
     'tunobase.mailer',
@@ -189,6 +190,7 @@ CACHES = {
         'TIMEOUT': 60 * 15
     }
 }
+
 
 # Debug Toolbar Settings
 

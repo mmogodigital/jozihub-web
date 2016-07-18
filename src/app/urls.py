@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^gallery/', include('app.gallery.urls')),
     (r'^jobs/', include('app.jobs.urls')),
     (r'^startups/', include('app.startups.urls')),
+    (r'^services/', include('app.services.urls')),
     
     (r'^', include('app.root.urls')),
 )
