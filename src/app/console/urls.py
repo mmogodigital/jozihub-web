@@ -308,6 +308,47 @@ urlpatterns = patterns('',
         ),
         name='console_partners_list'
     ),
+
+    #-------------------------------------------------------------------------
+# TODO Create service form
+    # Console: Services
+        url(r'^services/$',
+            views.ServiceList.as_view(
+                template_name='console/services/services_list.html',
+            ),
+            name='console_services_list'
+        ),
+
+        url(r'^services/create/$',
+            views.ServiceCreate.as_view(
+                form_class=forms.ServiceForm,
+                template_name='console/services/service_edit.html'
+            ),
+            name='console_service_create'
+        ),
+
+        url(r'^services/update/(?P<pk>\d+)/$',
+            views.ServiceUpdate.as_view(
+                form_class=forms.ServiceForm,
+                template_name='console/services/service_edit.html'
+            ),
+            name='console_service_update'
+        ),
+
+        url(r'^services/(?P<pk>\d+)/detail/$',
+            views.ServiceDetail.as_view(
+                template_name='console/services/service_detail.html'
+            ),
+            name='console_service_detail'
+        ),
+
+        url(r'^services/delete/(?P<pk>\d+)/$',
+            views.ServiceDelete.as_view(
+                template_name='console/services/service_confirm_delete.html'
+            ),
+            name='console_service_delete'
+        ),
+
     #-------------------------------------------------------------------------
 
     # Console: Flatpages
@@ -330,4 +371,5 @@ urlpatterns = patterns('',
             ),
             name='console_flatpage_edit'
         ),
+
 )

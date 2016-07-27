@@ -17,6 +17,7 @@ from app.jobs.models import JobPost
 from app.news.models import News
 from app.startups.models import StartupCompanies
 from app.partners.models import Partner
+from app.services.models import Services
 
 class UsersForm(forms.ModelForm):
     password1 = forms.CharField(max_length=128, widget=forms.PasswordInput, required=False)
@@ -303,5 +304,37 @@ class FlatPageForm(forms.ModelForm):
     def save(self, commit=True):
         obj = super(FlatPageForm, self).save(commit)
         obj.sites.add(Site.objects.get_current())
+        obj.save()
+        return obj
+
+
+class ServiceForm(forms.ModelForm):
+
+    class Meta:
+        model = Services
+        fields = [
+                'image', 'title', 'rich_content',
+                'order',
+        ]
+        widgets = {
+                'image': forms.FileInput
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ServiceForm, self).__init__(*args, **kwargs)
+
+        if 'instance' in kwargs:
+            self.object = kwargs['instance']
+
+        self.fields['title'].widget.attrs.update({
+            'class': 'required',
+        })
+        self.fields['image'].widget.attrs.update({
+            'class': 'required',
+        })
+
+    def save(self, commit=True):
+        obj = super(ServiceForm, self).save(commit)
+        sites=Site.objects.get_current(),
         obj.save()
         return obj
