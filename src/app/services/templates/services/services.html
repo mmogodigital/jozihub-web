@@ -5,15 +5,15 @@
 
 {% endblock %}
 
-{% block title %}Partners{% endblock %}
+{% block title %}Services{% endblock %}
 
 {% block header %}
-    {% include 'includes/top_nav.html' with on='partners' %}
+    {% include 'includes/top_nav.html' with on='services' %}
 {% endblock %}
 
 {% comment %}
 	{% block promo %}
-	    {% html_bannerset_widget 'partners' %}
+	    {% html_bannerset_widget 'services' %}
 	{% endblock %}
 {% endcomment %}
 
@@ -35,7 +35,7 @@
               			{{ object.rich_content | safe }}
 		            {% endif %}
 		        {% empty %}
-		           <p>There are no partners to list.</p>
+		           <p>There are no services to list.</p>
 		        {% endfor %}
 		    </div>
 		    <div class="clear"></div>

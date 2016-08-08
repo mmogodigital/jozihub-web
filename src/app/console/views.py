@@ -29,6 +29,7 @@ from app.jobs.models import JobPost
 from app.news.models import News
 from app.startups.models import StartupCompanies
 from app.partners.models import Partner
+from app.services.models import Services
 from app.root import utils
 
 
@@ -487,3 +488,55 @@ class FlatPagesUpdate(AdminMixin, generic_views.UpdateView):
         return FlatPage.objects.filter(
             sites=Site.objects.get_current(),
         )
+
+# -----------------------------------------------------------------------------
+# Console: Services
+class ServiceCreate(AdminMixin, generic_views.CreateView):
+    permission_required = 'services.add_services'
+
+    def get_success_url(self):
+        return reverse('console_service_detail', args=(self.object.pk,))
+
+
+class ServiceUpdate(AdminMixin, generic_views.UpdateView):
+    permission_required = 'services.change_services'
+
+    def get_success_url(self):
+        services = Services.objects.get(pk=self.object.pk)
+        if services.state == core_constants.STATE_DELETED:
+            return reverse('console_services_list')
+        else:
+            return reverse('console_service_detail', args=(self.object.pk,))
+
+    def get_queryset(self):
+        return Services.objects.exclude(state=core_constants.STATE_DELETED)
+
+
+class ServiceDetail(AdminMixin, generic_views.DetailView):
+    permission_required = 'services.change_services'
+
+    def get_object(self):
+        return core_utils.get_permitted_object_or_404(
+            Services, pk=self.kwargs['pk']
+        )
+
+
+class ServiceDelete(AdminMixin, core_views.MarkDeleteView):
+    permission_required = 'services.delete_services'
+
+    def get_success_url(self):
+        return reverse('console_services_list')
+
+    def get_queryset(self):
+        return Services.objects.exclude(state=core_constants.STATE_DELETED)
+
+
+class ServiceList(AdminMixin, generic_views.ListView):
+    permission_required = 'services.change_services'
+
+    def get_queryset(self):
+        return Services.objects.exclude(state=core_constants.STATE_DELETED)
+
+
+
+

@@ -5,5 +5,9 @@ from tunobase.core import models as core_models
 class Services(core_models.BaseContentModel):
     pass
 
+    class Meta:
+        verbose_name = 'Service'
+        verbose_name_plural = 'Services'
+
     def __unicode__(self):
         return self.title

@@ -10,6 +10,5 @@ urlpatterns = patterns('',
     (r'^jobs/', include('app.jobs.urls')),
     (r'^startups/', include('app.startups.urls')),
     (r'^services/', include('app.services.urls')),
-    
     (r'^', include('app.root.urls')),
 )
