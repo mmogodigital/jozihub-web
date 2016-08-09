@@ -13,6 +13,7 @@ from django.utils.safestring import mark_safe
 
 from app.authentication import models
 
+from import_export.admin import ImportExportModelAdmin
 
 class CustomUserCreationForm(UserCreationForm):
 
@@ -58,7 +59,7 @@ class CustomUserChangeForm(UserChangeForm):
         return self.is_bound and not bool(self.errors)
 
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin, ImportExportModelAdmin):
     search_fields = ('first_name', 'last_name', 'email')
     list_display = (
         'email', 'first_name', 'last_name', 'is_admin',
@@ -90,6 +91,9 @@ class CustomUserAdmin(UserAdmin):
 
     form = CustomUserChangeForm
     add_form = CustomUserCreationForm
+
+    class Meta:
+        exclude = ('password',)
 
 
 class ProjectRegistrationProfileAdmin(admin.ModelAdmin):
