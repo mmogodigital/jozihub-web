@@ -16,3 +16,4 @@ psycopg2
 flufl.password==1.2.1
 raven==5.1.1
 django-extensions
+django-import-export
