@@ -171,7 +171,6 @@ INSTALLED_APPS = (
     'tunobase',
     'tunobase.core',
     #'tunobase.mailer',
-    'mmogo.mailer',
     'tunobase.corporate.media',
     'ckeditor',
     'photologue',
@@ -182,6 +181,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'raven.contrib.django.raven_compat',
     'django_extensions',
+    'import_export',
 )
 
 CACHES = {
