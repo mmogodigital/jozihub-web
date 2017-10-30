@@ -6,7 +6,7 @@ See [INSTALL.md](INSTALL.md) to get a development server up and running.
 On 14 December 2015, the website was transferred from Praekelt to JoziHub.
 Additionally, it was set from a private repository to a public repository.
 
-##How do I make a contribution?
+## How do I make a contribution?
 
 Never made an open source contribution before? Wondering how contributions work in the in our project? Here's a quick rundown!
 
