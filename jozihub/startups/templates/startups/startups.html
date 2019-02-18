@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{# load core_widgets #}
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/style.css"/>
+
+{% endblock %}
+
+{% block title %}Startups{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='startups' %}
+{% endblock %}
+
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'startups' %}
+	{% endblock %}
+{% endcomment %}
+
+{% block content %}
+      <div id="content">
+        <div class="container">
+            <p class="context">Startups</p>
+
+            <h1>Resident Startups</h1>
+
+            <div class="clear"></div>
+             {% for object in startups %}
+           <ul class="just-logos startups">
+                <li class="cai">
+                     <div id='transparent-container'>{% if object.image %}<img src="/{{ object.image }}" />{% endif %}</div>
+                    <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
+                    <p>{{ object.description|safe|truncatechars:120 }}</p>
+                    {% if object.website %}
+                    <a href="{{ object.website }}" target="_blank">More Info</a>
+                    {% endif %}
+                </li>
+            </ul>
+                    {% empty %}
+                        <p>There are no startup to list</p>
+                {% endfor%}
+
+            <div class="clear"></div>
+        </div>
+    </div><!--/Content-->
+{% endblock %}

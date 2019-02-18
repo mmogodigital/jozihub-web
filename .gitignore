@@ -27,3 +27,5 @@ settings_local.py
 .settings/
 src/project/media/
 /ve
+/venv
+venv/

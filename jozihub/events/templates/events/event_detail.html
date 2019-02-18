@@ -1,0 +1,62 @@
+{% extends 'events/events.html' %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <p class="context">Event</p>
+            <h1>{{ object.title }}</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <div class="block1">
+                    <img src="{{ object.get_100x98_url }}" />
+                    <p class="details">When: {{ object.start|date:"j F Y" }} from {{ object.start|date:"g:i a" }}</p>
+                    <p class="details">Where: {{ object.venue_name }}</p>
+                    <div class="clear"></div>
+                </div>
+                <p>{{ object.rich_content|safe }} {% if object.external_link %}More info here <a target="_blank" href="{{ object.external_link }}">{{ object.external_link }}</a>{% endif %}</p>
+                {% if object.calendar_link %}
+                    <p class="btns"><a href="{{ object.calendar_link }}">Add to my calendar</a></p>
+                {% endif %}
+                <div class="clear"></div>
+                {% if object.is_in_past and object.gallery %}
+                    <div class="galleria more_marg">
+	                    {% for image in object.gallery.images.permitted %}
+	                        <a href="{{ image.image.url }}">
+	                            <img 
+	                                src="{{ image.image.url }}"
+	                                data-big="{{ image.image.url }}"
+	                            >
+	                        </a>
+	                    {% endfor %}
+	                </div>
+	            {% endif %}
+                
+                <div id="disqus_thread"></div>
+                <a target="_blank" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                <div class="clear"></div>          
+            </div><!--/block-->         
+        </div> 
+    </div><!--/Content-->
+{% endblock %}
+
+{% block bottom_js %}
+    <script>
+        {% if object.is_in_past and object.gallery %}
+	        // Load the classic theme
+	        Galleria.loadTheme('{{ STATIC_URL }}app/js/libs/galleria.classic.min.js');
+	    
+	        // Initialize Galleria
+	        Galleria.run('.galleria');
+	    {% endif %}
+        
+        var disqus_shortname = 'httpjozihuborg'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+{% endblock %}
