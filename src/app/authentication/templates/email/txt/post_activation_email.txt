@@ -1,6 +1,0 @@
-Dear {{ user.display_name }},
-
-Thank you for your application to join the JoziHub community. You’ll start to receive our regular newsletter and event updates via e-mail and we hope to . Please also feel free to visit us at 44 Stanley anytime. More information on up and coming events can be located on the jozihub.org website and facebook and twitter @jozihub
-
-Kind regards,
-The {{ app_name }} Team.

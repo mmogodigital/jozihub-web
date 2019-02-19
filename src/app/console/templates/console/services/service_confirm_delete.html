@@ -1,8 +1,0 @@
-{% extends 'console/confirm_delete_base.html' %}
-
-{% block header %}
-    {% include 'includes/console_top_nav.html' with on='services' %}
-{% endblock %}
-
-{% block confirm_delete_url %}{% url 'console_service_delete' object.pk %}{% endblock %}
-{% block decline_delete_url %}{% url 'console_services_list' %}{% endblock %}

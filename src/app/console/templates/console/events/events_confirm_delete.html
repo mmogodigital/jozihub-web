@@ -1,8 +1,0 @@
-{% extends 'console/confirm_delete_base.html' %}
-
-{% block header %}
-    {% include 'includes/console_top_nav.html' with on='events' %}
-{% endblock %}
-
-{% block confirm_delete_url %}{% url 'console_events_delete' object.pk %}{% endblock %}
-{% block decline_delete_url %}{% url 'console_events_list' %}{% endblock %}
