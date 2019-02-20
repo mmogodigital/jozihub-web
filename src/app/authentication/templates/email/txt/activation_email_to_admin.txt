@@ -1,8 +1,0 @@
-A new user has registered on {{ app_name }} at http://{{ site }}
-
-User details:
-Username - {{ user.get_username }}
-Display name - {{ user.display_name }}
-Email - {{ user.email }}
-
-This is an automated email. Replies will be directed to {{ user.email }}
