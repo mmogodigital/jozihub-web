@@ -1,10 +1,9 @@
 language: python
 python:
-  - "2.7"
+  - "3.5"
 
 install:
-  - pip install "pip<1.5"
   - pip install -e .
 
 script:
-  - cd src; python manage.py test --settings=project.settings
+  - cd src; python manage.py test --settings=admin.settings

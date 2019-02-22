@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{# load core_widgets #}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}static/css/stylehomepage.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}static/css/demo.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}static/css/style1.css" />
+{% endblock %}
+
+{% block promo %}
+
+<div id="promo">
+    <ul class="cb-slideshow">
+            <li><span>Image 01</span><div></div></li>
+            <li><span>Image 02</span><div></div></li>
+            <li><span>Image 03</span><div></div></li>
+            <li><span>Image 04</span><div></div></li>
+            <li><span>Image 05</span><div></div></li>
+            <li><span>Image 06</span><div></div></li>
+        </ul>
+        <div id="stats">
+        <div class="startup-stats">
+        <span class="startups-number">{{ num_startups }}</span><br /><span><a href="/startups/" class="statlink">Startups</a></span>
+        </div>
+
+        <div class="clear-stats"></div>
+
+        <div class="partners-stats">
+        <span class="partners-number">{{ num_partners }}+</span><br /><span><a href="/partners/" class="statlink">Partners</a></span>
+        </div>
+
+        <div class="clear-stats"></div>
+
+        <div class="events-stats">
+        <span class="events-number">{{ num_events }}+</span><br /><span><a href="/events/" class="statlink">Events<br /> Hosted</a></span>
+        </div>
+        <div class="clear-stats"></div>
+
+        <div class="mentors-stats">
+        <span class="mentors-number">{{ num_mentors }}+</span><br /><span>Mentors</span>
+        </div>
+        </div>
+    </div>
+
+<!--/Promo-->
+{% endblock %}
+{% block content %}
+    <div class="parallax">
+
+
+    <div id="vision">
+        <div class="container">
+            <p class="context">Our Vision</p>
+            <h1>JoziHub is a co-creation space in Johannesburg dedicated to creating sustainable change in Africa.</h1>
+            <div class="intro">South Africa has the most developed telecommunications industry on the continent (there are more Sim cards than people). Within the context of this dynamic country, Johannesburg continues to be the engine room of the African economy and the perfect location for an incubator created to kickstart &amp; accelerate innovation in the tech and social spheres.</div>
+            <div class="intro">We foster a culture of openness and innovation &ndash; providing a space to share ideas, collaborate and explore the opportunities created by the social and technological changes which are transforming our continent. In addition to providing a stimulating working environment we provide our members with access to a network of innovators and inspirational events and activities.</div>
+        </div>
+    </div><!--/Vision-->
+
+    <div id="pics">
+        <img src="{{ STATIC_URL }}static/img/member_collage.jpg" />
+    </div><!--/Pics-->
+
+    <div id="become">
+        <div class="container">
+            <p class="context">Become a Member</p>
+            <h1><a href="/authentication/secure/register/">Join now to become part of this highly <br />dynamic, interactive environment.<img src="{{ STATIC_URL }}app/img/arrow_promo.png" /></a></h1>
+        </div>
+    </div><!--/Become-->
+</div>
+{% endblock %}
