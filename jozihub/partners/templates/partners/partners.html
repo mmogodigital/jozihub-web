@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{# load core_widgets #}
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/style.css"/>  
+
+{% endblock %}
+
+{% block title %}Partners{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='partners' %}
+{% endblock %}
+
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'partners' %}
+	{% endblock %}
+{% endcomment %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <p class="context">Partners</p>
+			<h1>We are proud to be associated with the following partners</h1>
+            <div class="clear"></div>
+			<div class="block">
+            
+		            <ul class="just-logos partners">
+	            {% for object in object_list %}
+                    	<li class="cai">
+		                <a class="logo" href="{{ object.external_link }}" target="_blank">{% if object.image %}<img src="{{ object.image.url }}" height="56px" />{% endif %}</a>
+		            	</li>
+		            
+		        {% empty %}
+		           <p>There are no partners to list.</p>
+		        {% endfor %}
+		            </ul>
+		            </div>
+		            <div class="clear"></div>
+	        </div><!--/container-->         
+    </div><!--/Content-->
+{% endblock %}

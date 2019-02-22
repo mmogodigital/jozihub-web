@@ -1,0 +1,65 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='events' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>{{ object.title }}</h1>
+                <a href="{% url 'console_events_list' %}">Back to Event List</a>
+            <div class="clear"></div>
+
+            <div class="block">
+                <table>
+                    <tr>
+                        <th width="140">Image</th>
+                        <td>
+                            <a href="{{ object.external_link }}" target="_blank">
+                                <img src="{{ object.get_64x64_url }}" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="140">Title</th>
+                        <td><a href="{{ object.external_link }}" target="_blank">{{ object.title }}</a></td>
+                    </tr>
+                    <tr>
+                        <th width="140">Content</th>
+                        <td>{{ object.rich_content|safe }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Date</th>
+                        <td>
+                            {% if object.end > object.start %}
+                                {{ object.start|date:"F j, Y" }} &ndash; {{ object.end|date:"F j, Y" }}
+                            {% else %}
+                                {{ object.start|date:"F j, Y" }} at {{ object.start|date:"g:i a" }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="140">Venue</th>
+                        <td>
+                            {% if object.venue_name %}
+                                {{ object.venue_name }}<br />{{ object.venue_address }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="140">Actions</th>
+                        <td>
+                            <a href="{% url 'console_events_update' object.pk %}">
+                                Edit
+                            </a> |
+                            <a href="{% url 'console_events_delete' object.pk %}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}

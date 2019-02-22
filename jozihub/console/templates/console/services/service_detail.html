@@ -1,0 +1,50 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='services' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>{{ object.name }}</h1>
+            <a href="{% url 'console_services_list' %}">Back to services List</a>
+            <div class="clear"></div>
+
+            <div class="block">
+                <table>
+                   
+                    <tr>
+                        <th>Image</th>
+                        <td>
+                            <img src="{{ object.get_64x64_url }}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ object.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rich Content</th>
+                        <td>{{ object.rich_content | safe }}</td>
+                    </tr>
+                    <tr>
+                        <th>Order</th>
+                        <td>{{ object.order }}</td>
+                    </tr>
+                    <tr>
+                        <th>Actions</th>
+                        <td>
+                            <a href="{% url 'console_service_update' object.pk %}">
+                                Edit
+                            </a> |
+                            <a href="{% url 'console_service_delete' object.pk %}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}

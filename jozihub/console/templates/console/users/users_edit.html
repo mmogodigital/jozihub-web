@@ -1,0 +1,72 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='users' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} User</h1>
+            <a href="{% url 'console_users_list' %}">Back to User List</a>
+
+            <div class="clear"></div>
+            <div class="block">
+                <form id="frmRegister" method="post" action=".">{% csrf_token %}
+                    <p class="head">Personal Information</p>
+                    <div class="field">
+                        <label for="id_first_name">First Name <span>*</span></label>
+                        {{ form.first_name }}{{ form.first_name.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_last_name">Last Name <span>*</span></label>
+                        {{ form.last_name }}{{ form.last_name.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_email">Email <span>*</span></label>
+                        {{ form.email }}{{ form.email.errors }}
+                    </div>
+                    <div class="field">
+                        <label for="id_phone_number">Contact number</label>
+                        {{ form.phone_number }}{{ form.phone_number.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    <p class="head">Company Information</p>
+                    <div class="field">
+                        <label>Company Name</label>
+                        {{ form.company }}{{ form.company.errors }}
+                    </div>
+                    <div class="field">
+                        <label>Company Industry</label>
+                        {{ form.about_your_organisation }}{{ form.about_your_organisation.errors }}
+                    </div>
+                     <div class="field">
+                        <label>Role In Company</label>
+                        {{ form.job_title }}{{ form.job_title.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    <p class="head">Membership Information</p>
+                    <div class="field">
+                        <label>Membership Type</label>
+                        {{ form.membership_type }}{{ form.membership_type.errors }}
+                    </div>
+                    <div class="field">
+                        <label>What do you aim to get from the JoziHub?</label>
+                        {{ form.what_do_you_aim_to_achieve }}{{ form.what_do_you_aim_to_achieve.errors }}
+                    </div>
+                    <div class="clear"></div>
+                    <p class="btns">
+                        <input type="submit" value="Update User's Details" />
+                    </p>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div> 
+    </div><!--/Content-->
+{% endblock %}
+
+{% block bottom_js %}
+    <script>
+        $('#frmRegister').validate();
+    </script>
+{% endblock %}

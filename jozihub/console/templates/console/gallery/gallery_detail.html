@@ -1,0 +1,74 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='gallery' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>{{ object.title }}</h1>
+            <a href="{% url 'console_gallery_list' %}">Back to Gallery List</a>
+            <div class="clear"></div>
+
+            <div class="block">
+                <table>
+                    <tr>
+                        <th width="160">State</th>
+                        <td>{{ object.get_state_display }}</td>
+                    </tr>
+                    <tr>
+                        <th>Image</th>
+                        <td>
+                            <img src="{{ object.get_64x64_url }}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ object.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ object.rich_content|safe }}</td>
+                    </tr>
+                    <tr>
+                        <th>Images</th>
+                        <td>
+                            <div class="galleria">
+                                {% for image in object.images.permitted %}
+                                    <a href="{{ image.image.url }}">
+                                        <img 
+                                            src="{{ image.image.url }}"
+                                            data-big="{{ image.image.url }}"
+                                        >
+                                    </a>
+                                {% endfor %}
+                            </div> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Actions</th>
+                        <td>
+                            <a href="{% url 'console_gallery_update' object.pk %}">
+                                Edit
+                            </a> |
+                            <a href="{% url 'console_gallery_delete' object.pk %}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}
+{% block bottom_js %}
+    <script>
+        // Load the classic theme
+        Galleria.loadTheme('{{ STATIC_URL }}app/js/libs/galleria.classic.min.js');
+    
+        // Initialize Galleria
+        Galleria.run('.galleria');
+        
+    </script>
+{% endblock %}

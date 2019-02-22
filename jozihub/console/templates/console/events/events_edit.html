@@ -1,0 +1,109 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='events' %}
+{% endblock %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
+    <div id="content">
+        <div class="container">
+            <h1>{% if form.instance.id %}Edit{% else %}Add{% endif %} Event</h1>
+                <a href="{% url 'console_events_list' %}">Back to Event List</a>
+            <div class="clear"></div>
+
+            <div class="block">
+                <form id="frmUpdateEvents" action="." method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="field">
+                        <label for="id_state">State</label>
+                        {{ form.state }}{{ form.state.errors }}
+                    </div>
+
+                    <div class="field">
+                        <div class="field edit-image">
+                                {% if form.object %}
+                                    <label>Current Image</label>
+                                    <img src="{{ form.object.get_64x64_url }}" />
+                                {% endif %}
+                            <div class="revert">{{ form.image }}{{ form.image.errors }}</div>
+                        </div>
+                    </div>
+
+                    {% if form.existing_images %}
+                    <div class="field">
+                        <div class="field edit-image">
+                            <label>Choose an existing image</label>
+                            <img id="image_choice_existing_preview" src="{{ form.object.get_64x64_url }}" />
+                            <input id="image_choice_existing" type="radio" name="image_choice" value="existing" > Existing Image
+                            <div class="revert">{{ form.existing_image }}{{ form.existing_image.errors }}</div>
+                            <div class="revert">{% if form.object %}Revert to default image{{ form.default_image }}{% endif %}</div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="field">
+                        <label for="id_title">Event Title</label>
+                        {{ form.title }}{{ form.title.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_start">Start Date</label>
+                        {{ form.start }}{{ form.start.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_end">End Date</label>
+                        {{ form.end }}{{ form.end.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_venue_name">Venue Name</label>
+                        {{ form.venue_name }}{{ form.venue_name.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_venue_address">Venue Address</label>
+                        {{ form.venue_address }}{{ form.venue_address.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_repeat">Repeat</label>
+                        {{ form.repeat }}{{ form.repeat.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_repeat_until">Repeat Until</label>
+                        {{ form.repeat_until }}{{ form.repeat_until.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_external_link">External Link</label>
+                        {{ form.external_link }}{{ form.external_link.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_calendar_link">Calendar Link</label>
+                        {{ form.calendar_link }}{{ form.calendar_link.errors }}
+                    </div>
+
+                    <div class="field">
+                        <label for="id_rich_content">Description</label>
+                        {{ form.rich_content }}{{ form.rich_content.errors }}
+                    </div>
+
+                    <div class="clear"></div>
+                    <p class="btns">
+                        <input type="submit" value="{% if not form.instance.id %}Create{% else %}Update{% endif %} Event" />
+                    </p>
+                </form>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}
+
+{% block bottom_js %}
+    <script>
+        $('#frmUpdateEvents').validate();
+    </script>
+{% endblock %}

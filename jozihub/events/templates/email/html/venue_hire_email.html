@@ -1,0 +1,20 @@
+{% extends 'email/base.html' %}
+
+{% block content %}
+
+{{ contactname }} has requested a Venue {% if contactcompany %}on behalf of {{ contactcompany }}{% endif %}.<br/><br/>
+
+<strong>Booking Details</strong><br/>
+Event Name: {{ eventname }}</br>
+Event Description: {{ eventdescription }}</br>
+Desired Venue: {{ desiredvenue_name }}</br>
+Booking Start: {{ startdate }} {{ starttime }}</br>
+Booking End: {{ enddate }} {{ endtime }}</br>
+<br/>
+Contact Name: {{ contactname }}</br>
+Company: {{ contactcompany }}</br>
+Contact Email: {{ contactemail }}</br>
+Contact Number: {{ contactnumber }}</br>
+<br/>
+
+{% endblock %}

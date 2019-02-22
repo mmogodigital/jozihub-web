@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load core_widgets honeypot %}
+
+{% block title %}Profile{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='profile' %}
+{% endblock %}
+
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'apply' %}
+	{% endblock %}
+{% endcomment %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <p class="context">{{ form.instance.display_name }}</p>
+            <h1>Profile</h1>
+            
+            <div class="clear"></div>
+		    {% include 'includes/message_error_header.html' %}
+		    <div class="block">
+				<form id="frmUpdateProfile" action="." method="POST" enctype="multipart/form-data" class="validate_form">{% csrf_token %}
+				   <div class="field">
+					   <label for="id_image">Profile Picture</label>
+				       {{ form.image }}{{ form.image.errors }}
+				   </div>
+				   <div class="clear"></div>
+				   <div class="field">
+					   <label for="id_title">Title <span>*</span></label>
+					   {{ form.title }}{{ form.title.errors }}
+				   </div>
+				   <div class="field">
+					   <label for="id_first_name">First Name <span>*</span></label>
+					   {{ form.first_name }}{{ form.first_name.errors }}
+				   </div>
+				   <div class="field">
+					   <label for="id_last_name">Last Name <span>*</span></label>
+					   {{ form.last_name }}{{ form.last_name.errors }}
+				   </div>
+				   <div class="field">
+					   <label for="id_email">Email <span>*</span></label>
+					   {{ form.email }}{{ form.email.errors }}
+				   </div>
+				   <div class="field">
+					   <label for="id_phone_number">Phone Number</label>
+					   {{ form.phone_number }}{{ form.phone_number.errors }}
+				   </div>
+				   <div class="field">
+					   <label for="id_mobile_number">Mobile Number</label>
+					   {{ form.mobile_number }}{{ form.mobile_number.errors }}
+				   </div>
+				   <div class="field">
+					   <label for="id_country">Country</label>
+				       {{ form.country }}{{ form.country.errors }}
+			       </div>
+			       <div class="field">
+				       <label for="id_city">City</label>
+				       {{ form.city }}{{ form.city.errors }}
+			       </div>
+			       <div class="field">
+				       <label for="id_street_address">Street Address</label>
+				       {{ form.street_address }}{{ form.street_address.errors }}
+			       </div>
+                   <div class="field">
+				       <label for="id_state_province">State/Province</label>
+				       {{ form.state_province }}{{ form.state_province.errors }}
+			       </div>
+                   <div class="field">
+				       <label for="id_zip_postal_code">Zip/Postal Code</label>
+				       {{ form.zip_postal_code }}{{ form.zip_postal_code.errors }}
+			       </div>
+                   <div class="field">
+				       <label for="id_web_address">Website Address</label>
+				       {{ form.web_address }}{{ form.web_address.errors }}
+				   </div>
+                   <div class="clear"></div>
+				   <div class="btns">
+				       <input type="submit" value="Update Profile" />
+				   </div>
+				   <div class="forgot">
+				       <a href="{% url 'secure_profile_change_password' %}">Change your password</a>
+				   </div>
+				</form>
+			</div><!--/block-->
+		</div><!--/container-->
+	</div><!--/content-->
+{% endblock %}

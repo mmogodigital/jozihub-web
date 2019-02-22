@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>  
+
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <p class="context">Success!</p>
+            <h1>Thank you for your interest in jozihub. We will be in touch with you shortly.</h1>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <p>Click <a href="{% url 'index' %}">here</a> to home page.</p>
+            </div>
+            <div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
+{% endblock %}

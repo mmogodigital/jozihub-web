@@ -1,0 +1,78 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='users' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>{{ object.display_name }}</h1>
+            <a href="{% url 'console_users_list' %}">Back to Users List</a>&nbsp;|&nbsp; 
+            <a href="{% url 'console_users_update' object.pk %}">Edit this user</a>
+            
+            <div class="clear"></div>
+            <div class="block">
+                <table>
+                    <tr>                        
+                        <th colspan="2" class="head">Personal Information</th>
+                    </tr>
+                    <tr>
+                        <th width="140">First Name</th>
+                        <td>{{ object.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Last Name</th>
+                        <td>{{ object.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Email</th>
+                        <td>{{ object.email }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Contact number</th>
+                        <td>{{ object.phone_number }}</td>
+                    </tr>
+                        <th colspan="2" class="head">Company Information</th>
+                    </tr>
+                    <tr>
+                        <th width="140">Company Name</th>
+                        <td>{{ object.company }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Company Industry</th>
+                        <td>{{ object.about_your_organisation}}</td>
+                    </tr>
+                     <tr>
+                        <th width="140">Role In Company:</th>
+                        <td>{{ object.job_title}}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="head">Membership Information</th>
+                    </tr>
+                    <tr>
+                        <th width="140">Membership Type</th>
+                        <td>{{ object.membership_type }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">What do you aim to get from the JoziHub?</th>
+                        <td>{{ object.what_do_you_aim_to_achieve }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Actions</th>
+                        <td>
+                            <a href="{% url 'console_users_update' object.pk %}">
+                                Edit
+                            </a> |
+                            <a href="{% url 'console_users_delete' object.pk %}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="clear"></div>
+            </div><!--/block-->
+            <div class="clear"></div>           
+        </div> 
+    </div><!--/Content-->
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'console_base.html' %}
+
+{% load core_widgets %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='users' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>Users List</h1>
+            <div class="clear"></div>
+
+            <div class="block">
+                <a href="{% url 'console_users_create' %}">Add Users</a>
+                <form id="usersFilter" action="." method="GET">
+                    <div class="row">
+                        <div class="field field-half">
+                            <label>First Name</label>
+                            <div class="clear"></div>
+                            {{ filter_form.first_name }}{{ filter_form.first_name.errors }}
+                        </div>
+                        <div class="field field-half align-right">
+                            <label>Last Name</label>
+                            <div class="clear"></div>
+                            {{ filter_form.last_name }}{{ filter_form.last_name.errors }}
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <div class="clear"></div>
+                            {{ filter_form.email }}{{ filter_form.email.errors }}
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="btns">
+                        <input type="submit" id="submit" value="Filter" />
+                    </div>
+                    <div class="clear"></div>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th width="160">Last login</th>
+                            <th width="160">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for object in object_list %}
+                            <tr>
+                                <td><a href="{% url 'console_users_detail' object.pk %}">{% if not object.title %}&nbsp;{% endif %}{{ object.get_full_name }}</a></td>
+                                <td>{{ object.email }}</td>
+                                <td>{{ object.last_login }}</td>
+                                <td>
+                                    <a href="{% url 'console_users_detail' object.pk %}">View&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                    <a href="{% url 'console_users_update' object.pk %}">Edit&nbsp;&raquo;</a> &nbsp; &nbsp;
+                                    <a href="{% url 'console_users_delete' object.pk %}">Delete&nbsp;&raquo;</a> 
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="3">There are no users to list.</td>
+                            <tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if object_list %}
+                    <a href="{% url 'console_user_export' %}">Export</a>
+                {% endif %}
+                {% pagination_widget page_obj %}
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}

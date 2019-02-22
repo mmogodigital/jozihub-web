@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{# load core_widgets #}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="/static/css/style.css"/>
+
+
+{% endblock %}
+
+{% block title %}Events{% endblock %}
+
+{% block header %}
+    {% include 'includes/top_nav.html' with on='events' %}
+{% endblock %}
+
+{% comment %}
+	{% block promo %}
+	    {% html_bannerset_widget 'events' %}
+	{% endblock %}
+{% endcomment %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <p class="context">Events</p>
+            {% if current_and_future_events %}
+            <h1>Upcoming Events</h1>
+
+            <div class="clear"></div>
+            <div class="block">
+                {% for object in current_and_future_events %}
+                    <ul class="just-logos startups">
+                     <li class="cai">
+
+                            <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
+                            <p>{{ object.start|date:"j M Y" }} from {{ object.start|date:"g:i A" }}</p>
+                             <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
+                            <p>{{ object.rich_content|striptags|safe|truncatechars:100 }}</p>
+                             <a href="{% url 'event_detail'  object.slug %}">More Info</a>
+                             </li>
+                             </ul>
+                {% empty %}
+                    <p>There are no events to list.</p>
+                {% endfor %}
+            <div class="clear"></div>
+            </div><!--/block-->
+            {% endif %}
+
+            {% if event_list %}
+            <h1>Past Events</h1>
+
+            <div class="clear"></div>
+            <div class="block">
+                {% for object in event_list %}
+                    <ul class="just-logos startups">
+                     <li class="cai">
+
+                             <div id='transparent-container'>{% if object.image %}<img src="{{ object.image.url }}" />{% endif %}</div>
+                            <p>{{ object.start|date:"j M Y" }} from {{ object.start|date:"g:i A" }}</p>
+                            <p class="{% cycle 'startupsblue' 'startupsred' 'startupsgreen' 'startupsorange' 'startupsblack' %}">{{ object.title }}</p>
+                            <p>{{ object.rich_content|striptags|safe|truncatechars:100 }}</p>
+                             <a href="{% url 'event_detail'  object.slug %}">More Info</a>
+                             </li>
+                             </ul>
+                {% empty %}
+                    <p>There are no events to list.</p>
+                {% endfor %}
+            <div class="clear"></div>
+            </div><!--/block-->
+            <div class="pagination">
+            {# pagination_widget page_obj #}
+          </div>
+            {% endif %}
+        </div>
+    </div><!--/Content-->
+{% endblock %}

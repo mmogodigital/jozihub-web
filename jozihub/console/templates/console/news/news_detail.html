@@ -1,0 +1,51 @@
+{% extends 'console_base.html' %}
+
+{% block header %}
+    {% include 'includes/console_top_nav.html' with on='news' %}
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="container">
+            <h1>{{ object.title }}</h1>
+            <a href="{% url 'console_news_list' %}">Back to News List</a>
+            <div class="clear"></div>
+
+            <div class="block">
+                <table>
+                    <tr>
+                        <th width="140">State</th>
+                        <td>{{ object.get_state_display }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Image</th>
+                        <td>
+                            <a href="{{ object.external_link }}" target="_blank">
+                                <img src="{{ object.get_64x64_url }}" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="140">Title</th>
+                        <td>{{ object.title }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Content</th>
+                        <td>{{ object.rich_content|safe }}</td>
+                    </tr>
+                    <tr>
+                        <th width="140">Actions</th>
+                        <td>
+                            <a href="{% url 'console_news_update' object.pk %}">
+                                Edit
+                            </a> |
+                            <a href="{% url 'console_news_delete' object.pk %}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--/block-->
+        </div><!--/container-->
+    </div><!--/content-->
+{% endblock %}

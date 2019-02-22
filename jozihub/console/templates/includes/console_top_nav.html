@@ -1,0 +1,17 @@
+<div id="header">
+    <a href="{# url 'index' #}" class="logo"></a>
+    {% if user.can_access_console %}
+    <ul> 
+        <li {% if on == 'users' %}class="on"{% endif %}><a href="{% url 'console_users_list' %}">Users</a></li>
+        <li {% if on == 'events' %}class="on"{% endif %}><a href="{% url 'console_events_list' %}">Events</a></li>
+        <li {% if on == 'jobs' %}class="on"{% endif %}><a href="{% url 'console_jobs_list' %}">Jobs</a></li>
+        <li {% if on == 'services' %}class="on"{% endif %}><a href="{% url 'console_services_list' %}">Services</a></li>
+        <li {% if on == 'partners' %}class="on"{% endif %}><a href="{% url 'console_partners_list' %}">Partners</a></li>
+        <li {% if on == 'flatpages' %}class="on"{% endif %}><a href="{% url 'console_flatpage_list' %}">Flatpages</a></li>
+        <li {% if on == 'startups' %}class="on"{% endif %}><a href="{% url 'console_startups_list' %}">Startups</a></li>
+        <li {% if on == 'logout' %}class="on"{% endif %}><a href="{% url 'auth_logout' %}">Logout</a></li>
+    </ul>
+    {% endif %}
+    <a href="javascript: void(0);" class="mobi_handle"></a>
+    <!-- <a href="#social" class="nav_connect">Connect</a> -->
+</div><!--/Header-->
