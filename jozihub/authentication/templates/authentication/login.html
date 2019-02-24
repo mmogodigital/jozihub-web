@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block extra_css %}
-<link rel="stylesheet" href="{{ STATIC_URL }}app/css/style.css"/>  
+<link rel="stylesheet" href="/static/css/style.css"/>
 
 {% endblock %}
 
@@ -12,8 +12,8 @@
         <div class="container loginfrm">
             <p class="context">Login</p>
             <h1>Use the form below to log into your Account</h1>
-		    {% include 'includes/message_error_header.html' %}
-		    
+		    {# include 'includes/message_error_header.html' #}
+
 		    <div class="block">
 				<form id="frmLogin" method="POST" action="." class="validate_form">{% csrf_token %}
 				    <input type="hidden" name="next" value="{{ next }}"/>
@@ -26,9 +26,9 @@
 				    {% endfor %}
 			        <div class="clear"></div>
 			        <div class="btns">
-				        <input type="submit" value="Login" />				    
+				        <input type="submit" value="Login" />
                     </div>
-                    <div class="forgot"><a href="{% url 'secure_password_reset' %}">Forgot Your Password?</a></div>				    
+                    <div class="forgot"><a href="{# url 'secure_password_reset' #}">Forgot Your Password?</a></div>
 				</form>
 			</div><!--/block-->
 		</div><!--/container-->

@@ -3,7 +3,7 @@ from jozihub.events import views, forms
 
 urlpatterns = [
     url(r'^$', views.index, name="events"),
-    url(r'^venue_hire/$', views.index, name="events"),
+    url(r'^venue_hire/$', views.venue_hire, name="venue_hire"),
 ]
 
 # urlpatterns = patterns('',

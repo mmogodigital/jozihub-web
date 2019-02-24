@@ -11,31 +11,31 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 
-from app.authentication import signals, constants, models
-from app.root import constants as root_constants
+from jozihub.authentication import signals, constants, models
+# from app.root import constants as root_constants
 
 # Profile Update Form
 
 class UpdateProfileForm(forms.ModelForm):
-    
+
     class Meta:
         model = get_user_model()
         fields = [
-            'title', 'first_name', 'last_name', 
+            'title', 'first_name', 'last_name',
             'email', 'phone_number', 'mobile_number',
             'image', 'country', 'city', 'street_address',
             'state_province', 'zip_postal_code', 'web_address'
         ]
-        
+
     def __init__(self, *args, **kwargs):
         super(UpdateProfileForm, self).__init__(*args, **kwargs)
-        
+
         self.fields['title'].widget.attrs.update({'class': 'required'})
         self.fields['first_name'].widget.attrs.update({'class': 'required'})
         self.fields['last_name'].widget.attrs.update({'class': 'required'})
         self.fields['email'].widget.attrs.update({'readonly': 'readonly'})
-        
-        
+
+
     def clean_email(self):
         '''
         Validate that the supplied email address is unique for the
@@ -47,18 +47,18 @@ class UpdateProfileForm(forms.ModelForm):
                 'This email address is already in use. '
                 'Please supply a different email address.'
             )
-            
+
         return self.cleaned_data['email']
-    
+
 class UpdateProfilePasswordForm(forms.Form):
     old_password = forms.CharField(widget=forms.PasswordInput)
     password1 = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
-    
+
     def __init__(self, user, *args, **kwargs):
         super(UpdateProfilePasswordForm, self).__init__(*args, **kwargs)
         self.user = user
-        
+
     def clean_old_password(self):
         '''
         Verify that the values entered into the two password fields
@@ -68,9 +68,9 @@ class UpdateProfilePasswordForm(forms.Form):
         '''
         if not self.user.check_password(self.cleaned_data['old_password']):
             raise forms.ValidationError('The password supplied does not match your current password.')
-                
+
         return self.cleaned_data['old_password']
-        
+
     def clean_password2(self):
         '''
         Verify that the values entered into the two password fields
@@ -96,7 +96,7 @@ class UpdateProfilePasswordForm(forms.Form):
                 if self.cleaned_data['password1'] != self.cleaned_data['password2']:
                     raise forms.ValidationError('The two password fields didn\'t match.')
         return self.cleaned_data
-        
+
     def save(self):
         self.user.set_password(self.cleaned_data['password1'])
         self.user.save()
@@ -106,10 +106,10 @@ class UpdateProfilePasswordForm(forms.Form):
 class ProjectRegistrationForm(forms.ModelForm):
     '''
     Form for registering a new user account.
-    
+
     Validates that the requested username is not already in use, and
     requires the password to be entered twice to catch typos.
-    
+
     Subclasses should feel free to add any additional validation they
     need, but should avoid defining a ``save()`` method -- the actual
     saving of collected user data is delegated to the active
@@ -123,9 +123,9 @@ class ProjectRegistrationForm(forms.ModelForm):
         '''
         if get_user_model().objects.filter(email__iexact=self.cleaned_data['email']).exists():
             raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
-        
+
         return self.cleaned_data['email']
-    
+
 
     class Meta:
         model = models.EndUser
@@ -151,22 +151,22 @@ class ProjectRegistrationForm(forms.ModelForm):
                 .attrs.update({'class':'required email'})
         self.fields['what_do_you_aim_to_achieve'].widget\
                 .attrs.update({'rows': '7', 'style': 'width:100%'})
-    
+
 class ProjectAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label='Email address', max_length=75)
-    
+
     def clean(self):
         username = self.cleaned_data.get('username')
-        
+
         if get_user_model().objects.filter(email__iexact=username, is_regular_user=False).exists():
             raise forms.ValidationError(
                 _("This account is not a regular account. Please login with one of our OAuth providers.")
             )
 
         return super(ProjectAuthenticationForm, self).clean()
-    
+
 class ProjectPasswordResetForm(PasswordResetForm):
-    
+
     def save(self, domain_override=None,
              subject_template_name='authentication/password_reset_subject.txt',
              email_template_name='authentication/password_reset_email.html',
@@ -201,10 +201,10 @@ class ProjectPasswordResetForm(PasswordResetForm):
                 'token': token_generator.make_token(user),
                 'protocol': 'https' if use_https else 'http',
             }
-            
+
             signals.password_was_reset.send(
                 sender=self.__class__,
                 context=c
             )
-            
-            
+
+

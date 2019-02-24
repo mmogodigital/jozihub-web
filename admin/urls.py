@@ -9,7 +9,7 @@ urlpatterns = [
     url('events/', include('jozihub.events.urls')),
     url('services/', include('jozihub.services.urls')),
     url('partners/', include('jozihub.partners.urls')),
-    url('console/', include('jozihub.console.urls')),
+    # url('console/', include('jozihub.console.urls')),
     url('authentication/', include('jozihub.authentication.urls')),
     url('', include('jozihub.home.urls')),
 ]

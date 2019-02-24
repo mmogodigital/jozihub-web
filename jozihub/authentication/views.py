@@ -19,6 +19,16 @@
 
 # from app.authentication import forms, models
 
+from django.shortcuts import render
+
+def registration(request):
+    context = {}
+    return render(request, 'authentication/registration_form.html', context)
+
+def login(request):
+    context = {}
+    return render(request, 'authentication/login.html', context)
+
 
 # class UpdateProfile(core_mixins.LoginRequiredMixin, generic_views.UpdateView):
 

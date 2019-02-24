@@ -4,7 +4,7 @@ def index(request):
     context = {}
     return render(request, 'events/events.html', context)
 
-def VenueHire(request):
+def venue_hire(request):
     context = {}
     return render(request, 'events/venue_hire.html', context)
 # '''
