@@ -9,6 +9,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url(r'^$', views.ConsoleLanding, name="console_landing_page"),
+
     # url(r'^users/create/$', views.UsersCreate, name="console_users_create"),
     # url(r'^users/update/(?P<pk>\d+)/$', views.UsersUpdate, name="console_users_update"),
     # url(r'^users/(?P<pk>\d+)/details/$', views.UsersDetails, name="console_users_detail"),
