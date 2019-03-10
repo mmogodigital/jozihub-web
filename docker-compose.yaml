@@ -1,0 +1,39 @@
+version: "3.1"
+services:
+  django:
+    container_name: jozihub
+    build: 
+      context: .
+      dockerfile: ./docker/django/Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    networks:
+      - backend
+      - frontend
+  database:
+    image: postgres:11.2-alpine
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: jozihub
+      POSTGRES_USER: jozihub
+      POSTGRES_DB: jozihub
+  redis:
+    image: redis:5.0.3-alpine
+    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+volumes:
+  db-data:
+
+networks:
+  backend:
+  frontend:
